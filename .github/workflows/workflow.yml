@@ -32,7 +32,7 @@ jobs:
       - name: Build project
         run: pnpm run build
 
-      - name: Upload production-ready build file(s)
+      - name: Upload production-ready build files
         uses: actions/upload-pages-artifact@v3.0.1
         with:
           path: ./dist
