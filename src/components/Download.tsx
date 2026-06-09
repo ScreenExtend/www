@@ -7,7 +7,7 @@ import linuxLogo from "@/assets/logo/linux.svg";
 
 export default function Download() {
   const { theme } = useTheme();
-  
+
   return (
     <section className="py-8 lg:py-20" id="download">
       <div className="container">
@@ -18,8 +18,8 @@ export default function Download() {
           </p>
         </div>
         <div className="mt-6 grid gap-6 lg:grid-cols-3">
-          <Card className="transition-all hover:shadow cursor-not-allowed opacity-50">
-            <Card.Body className="p-6 gap-0 pointer-events-none select-none">
+          <Card className="transition-all hover:shadow">
+            <Card.Body className="p-6 gap-0">
               <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-4">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-base-200">
@@ -36,11 +36,15 @@ export default function Download() {
                 </ul>
                 <div className="flex flex-row mt-5">
                   <Button className="grow basis-0">
-                    32-bit EXE
+                    <a href="https://github.com/ScreenExtend/ScreenExtend/releases/download/app-v1.0.0/ScreenExtend_1.0.0_x86-setup.exe" target="_blank">
+                      32-bit EXE
+                    </a>
                   </Button>
                   <div className="grow-0 w-3"></div>
                   <Button className="grow basis-0">
-                    64-bit EXE
+                    <a href="https://github.com/ScreenExtend/ScreenExtend/releases/download/app-v1.0.0/ScreenExtend_1.0.0_x64-setup.exe" target="_blank">
+                      64-bit EXE
+                    </a>
                   </Button>
                   {/* <div className="grow-0 w-3"></div>
                   <Button className="grow basis-0">
