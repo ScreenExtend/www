@@ -35,17 +35,17 @@ export default function Download() {
                   <li>Windows Server 20H2 (October 2020)</li>
                 </ul>
                 <div className="flex flex-row mt-5">
-                  <Button className="grow basis-0">
-                    <a href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x86-setup.exe" target="_blank">
+                  <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x86-setup.exe" target="_blank">
+                    <Button className="w-full">
                       32-bit EXE
-                    </a>
-                  </Button>
+                    </Button>
+                  </a>
                   <div className="grow-0 w-3"></div>
-                  <Button className="grow basis-0">
-                    <a href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64-setup.exe" target="_blank">
+                  <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64-setup.exe" target="_blank">
+                    <Button className="w-full">
                       64-bit EXE
-                    </a>
-                  </Button>
+                    </Button>
+                  </a>
                   {/* <div className="grow-0 w-3"></div>
                   <Button className="grow basis-0">
                     ARM EXE
