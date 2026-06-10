@@ -36,13 +36,13 @@ export default function Download() {
                 </ul>
                 <div className="flex flex-row mt-5">
                   <Button className="grow basis-0">
-                    <a href="https://github.com/ScreenExtend/ScreenExtend/releases/download/latest/ScreenExtend_x86-setup.exe" target="_blank">
+                    <a href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x86-setup.exe" target="_blank">
                       32-bit EXE
                     </a>
                   </Button>
                   <div className="grow-0 w-3"></div>
                   <Button className="grow basis-0">
-                    <a href="https://github.com/ScreenExtend/ScreenExtend/releases/download/latest/ScreenExtend_x64-setup.exe" target="_blank">
+                    <a href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64-setup.exe" target="_blank">
                       64-bit EXE
                     </a>
                   </Button>
