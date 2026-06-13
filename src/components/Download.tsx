@@ -25,7 +25,7 @@ export default function Download() {
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-base-200">
                     <img alt="Windows Logo" className="h-8 w-8" src={windowsLogo} />
                   </div>
-                  <h3 className="text-xl font-semibold">Windows (coming soon)</h3>
+                  <h3 className="text-xl font-semibold">Windows</h3>
                 </div>
               </div>
               <div>
