@@ -23,7 +23,7 @@ export default function FAQ() {
               <Collapse.Title className="text-xl font-medium">Is my device secure by using ScreenExtend?</Collapse.Title>
               <Collapse.Content>
                 <p className="text-base">
-                  Sessions have an OTP that devices need to enter when connecting. This can be regenerated if needed, ensuring unauthorized devices cannot join. If the client gets the OTP wrong more than 5 times, they have a cool down limit.
+                  Sessions have an OTP that devices need to enter when connecting. This can be regenerated if needed, ensuring unauthorized devices cannot join.
                 </p>
               </Collapse.Content>
             </Collapse>
