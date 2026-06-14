@@ -27,21 +27,21 @@ export default function Navbar() {
                 side={
                   <Menu className="min-h-full w-80 gap-2 bg-base-100 p-4 text-base-content">
                     <Menu.Item className="font-medium">
-                      <a href="#" className="text-xl font-bold">
+                      <a href="/" className="text-xl font-bold">
                         ScreenExtend
                       </a>
                     </Menu.Item>
                     <Menu.Item className="font-medium">
-                      <a href="#home">Home</a>
+                      <a href="/#home">Home</a>
                     </Menu.Item>
                     <Menu.Item className="font-medium">
-                      <a href="#features">Features</a>
+                      <a href="/#features">Features</a>
                     </Menu.Item>
                     <Menu.Item className="font-medium">
-                      <a href="#faq">FAQ</a>
+                      <a href="/#faq">FAQ</a>
                     </Menu.Item>
                     <Menu.Item className="font-medium">
-                      <a href="#contact">Contact</a>
+                      <a href="/contact">Contact</a>
                     </Menu.Item>
                   </Menu>
                 }
@@ -55,23 +55,23 @@ export default function Navbar() {
                 </Button>
               </Drawer>
             </div>
-            <a href="#" className="text-xl font-bold tracking-tighter">
+            <a href="/" className="text-xl font-bold tracking-tighter">
               ScreenExtend
             </a>
           </ReactNavbar.Start>
           <ReactNavbar.Center className="hidden lg:flex">
             <Menu horizontal size="sm" className="gap-2 px-1">
               <Menu.Item className="font-medium">
-                <a href="#home">Home</a>
+                <a href="/#home">Home</a>
               </Menu.Item>
               <Menu.Item className="font-medium">
-                <a href="#features">Features</a>
+                <a href="/#features">Features</a>
               </Menu.Item>
               <Menu.Item className="font-medium">
-                <a href="#faq">FAQ</a>
+                <a href="/#faq">FAQ</a>
               </Menu.Item>
               <Menu.Item className="font-medium">
-                <a href="#contact">Contact</a>
+                <a href="/contact">Contact</a>
               </Menu.Item>
             </Menu>
           </ReactNavbar.Center>
@@ -80,7 +80,7 @@ export default function Navbar() {
               <Github size={22} />
               Github
             </Button>
-            <Button size="sm" color="primary" onClick={() => window.location.href = "#download"}>
+            <Button size="sm" color="primary" onClick={() => window.location.href = "/#download"}>
               Download
             </Button>
           </ReactNavbar.End>

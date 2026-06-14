@@ -1,0 +1,7 @@
+# Security contact information for screenextend.app
+# https://www.rfc-editor.org/rfc/rfc9116
+Contact: mailto:security@screenextend.app
+Expires: 2027-06-13T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://screenextend.app/.well-known/security.txt
+Policy: https://screenextend.app/acceptable-use
