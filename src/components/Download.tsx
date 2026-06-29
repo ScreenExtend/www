@@ -50,14 +50,14 @@ export default function Download() {
               </div>
             </Card.Body>
           </Card>
-          <Card className="transition-all hover:shadow cursor-not-allowed opacity-50">
-            <Card.Body className="p-6 gap-0 pointer-events-none select-none">
+          <Card className="transition-all hover:shadow">
+            <Card.Body className="p-6 gap-0">
               <div className="flex items-center justify-between gap-2 p-0">
                 <div className="flex items-center gap-4">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-base-200">
                     <img alt="Mac Logo" className="h-9 w-9" src={theme == "light" ? macLogo : theme == "dark" ? macLogoLight : (getComputedStyle(document.querySelector(":root")!).getPropertyValue("color-scheme") != "light" ? macLogoLight : macLogo)} />
                   </div>
-                  <h3 className="text-xl font-semibold">Mac (coming soon)</h3>
+                  <h3 className="text-xl font-semibold">Mac</h3>
                 </div>
               </div>
               <div>
@@ -66,13 +66,17 @@ export default function Download() {
                   <li>MacOS Catalina 10.15+ (October 2019)</li>
                 </ul>
                 <div className="flex flex-row mt-5">
-                  <Button className="grow basis-0">
-                    Intel DMG
-                  </Button>
+                  <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64.dmg" target="_blank">
+                    <Button className="w-full">
+                      Intel DMG
+                    </Button>
+                  </a>
                   <div className="grow-0 w-3"></div>
-                  <Button className="grow basis-0">
-                    Apple Silicon DMG
-                  </Button>
+                  <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_aarch64.dmg" target="_blank">
+                    <Button className="w-full">
+                      Apple Silicon DMG
+                    </Button>
+                  </a>
                 </div>
               </div>
             </Card.Body>
