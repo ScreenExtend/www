@@ -9,8 +9,9 @@ application itself. It's a single-page React app built with Vite and deployed to
 
 ## Features
 
-- **Landing page** — hero, feature highlights, download cards (Windows / Mac / Linux), and FAQ.
-- **Legal pages** — Privacy Policy, Terms of Service, Acceptable Use, Cookies, and Contact,
+- **Landing page** — hero, feature highlights, download cards (Windows / Mac / Linux), FAQ, and
+  a contact section.
+- **Legal pages** — Privacy Policy, Terms of Service, Acceptable Use, and Cookies,
   rendered from Markdown via `react-markdown`.
 - **Light/dark theming** with a floating theme toggle (`react-daisyui`).
 - **Interactive UI** — 3D tilt hero image (`card3d`), in-page image viewer, and scroll-based
@@ -67,8 +68,8 @@ www/
 
 ## Routes
 
-- `/` — home (Hero, Features, Download, FAQ)
-- `/privacy`, `/terms`, `/acceptable-use`, `/cookies`, `/contact` — legal pages
+- `/` — home (Hero, Features, Download, FAQ, Contact)
+- `/privacy`, `/terms`, `/acceptable-use`, `/cookies` — legal pages
 
 ## Deployment
 

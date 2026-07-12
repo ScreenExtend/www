@@ -5,6 +5,7 @@ import Hero from "./components/Hero.tsx";
 import Features from "@/components/Features.tsx";
 import Download from "@/components/Download.tsx";
 import FAQ from "@/components/FAQ.tsx";
+import Contact from "@/components/Contact.tsx";
 import Footer from "@/components/Footer.tsx";
 import LegalPage from "@/components/LegalPage.tsx";
 import ThemeToggler from "@/components/ThemeToggler.tsx";
@@ -22,6 +23,7 @@ function Home() {
       <Features />
       <Download />
       <FAQ />
+      <Contact />
     </>
   );
 }
@@ -31,7 +33,7 @@ export default function App() {
 
   return (
     <ImageProvider>
-      <Theme dataTheme={theme} className="relative min-h-screen overflow-x-hidden">
+      <Theme dataTheme={theme} className="relative min-h-screen overflow-hidden">
         <AuroraBackground />
         <div className="relative z-10">
           <Navbar />

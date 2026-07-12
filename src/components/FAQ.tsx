@@ -84,7 +84,7 @@ export default function FAQ() {
           </div>
         </div>
         <Reveal>
-          <p className="mt-10 text-lg sm:text-center" id="contact">
+          <p className="mt-10 text-lg sm:text-center">
             For additional questions or concerns, contact us at <a href="mailto:support@screenextend.app" style={{ textDecoration: "underline" }}>support@screenextend.app</a>.
           </p>
         </Reveal>

@@ -9,8 +9,10 @@ const LEGAL_LINKS: { label: string; to: string }[] = [
   { label: "Terms", to: "/terms" },
   { label: "Acceptable Use", to: "/acceptable-use" },
   { label: "Cookies", to: "/cookies" },
-  { label: "Contact", to: "/contact" },
 ];
+
+const LINK_CLASS =
+  "link link-hover transition-colors duration-200 hover:text-primary";
 
 export default function Footer() {
   const { theme } = useTheme();
@@ -42,14 +44,13 @@ export default function Footer() {
         </Link>
         <nav className="mb-5 flex flex-wrap justify-center gap-x-4 gap-y-1">
           {LEGAL_LINKS.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className="link link-hover transition-colors duration-200 hover:text-primary"
-            >
+            <Link key={link.to} to={link.to} className={LINK_CLASS}>
               {link.label}
             </Link>
           ))}
+          <a href="/#contact" className={LINK_CLASS}>
+            Contact
+          </a>
         </nav>
         © 2026 Sarvesh Madullapalli. All rights reserved.
       </Reveal>

@@ -123,8 +123,8 @@ dispute not subject to a separate arbitration or small-claims process required b
 where prohibited by your local consumer-protection laws.
 
 ## 17. Contact
-Questions about these Terms: [${KNOWN.LEGAL_EMAIL}](mailto:${KNOWN.LEGAL_EMAIL}). General support: [${KNOWN.SUPPORT_EMAIL}](mailto:${KNOWN.SUPPORT_EMAIL}). See our
-[Contact page](/contact).`;
+Questions about these Terms: [${KNOWN.LEGAL_EMAIL}](mailto:${KNOWN.LEGAL_EMAIL}). General support: [${KNOWN.SUPPORT_EMAIL}](mailto:${KNOWN.SUPPORT_EMAIL}). See the
+[Contact section](/#contact) on our homepage.`;
 
 const acceptableUse = `This Acceptable Use Policy ("AUP") governs your use of the ScreenExtend Service and is part
 of our [Terms of Service](/terms). It exists to keep the Service safe and lawful for
@@ -240,25 +240,6 @@ above.
 ## 6. Contact
 Questions about cookies: [${KNOWN.PRIVACY_EMAIL}](mailto:${KNOWN.PRIVACY_EMAIL}).`;
 
-const contact = `## Service operator
-This website and the ScreenExtend Service are operated by:
-
-**SARVESH MADULLAPALLI**
-United States
-
-## How to reach us
-- **General support:** [${KNOWN.SUPPORT_EMAIL}](mailto:${KNOWN.SUPPORT_EMAIL})
-- **Privacy & data requests:** [${KNOWN.PRIVACY_EMAIL}](mailto:${KNOWN.PRIVACY_EMAIL})
-- **Abuse & content reports:** [${KNOWN.ABUSE_EMAIL}](mailto:${KNOWN.ABUSE_EMAIL})
-- **Security vulnerability reports:** [${KNOWN.SECURITY_EMAIL}](mailto:${KNOWN.SECURITY_EMAIL}) (see our [security.txt](/.well-known/security.txt))
-- **Legal & copyright (DMCA) notices:** [${KNOWN.LEGAL_EMAIL}](mailto:${KNOWN.LEGAL_EMAIL})
-
-## Policies
-- [Privacy Policy](/privacy)
-- [Terms of Service](/terms)
-- [Acceptable Use Policy](/acceptable-use)
-- [Cookie Policy](/cookies)`;
-
 const privacy = `This Privacy Policy explains what information ScreenExtend (Sarvesh Madullapalli, "we", "us",
 "our") processes when you use the ScreenExtend Service, why, and your rights. It supplements
 our [Cookie Policy](/cookies) and forms part of our [Terms of Service](/terms). Capitalized
@@ -363,13 +344,6 @@ export const LEGAL_PAGES: LegalPageDef[] = [
     docTitle: "Cookie Policy — ScreenExtend",
     meta: `Effective date: ${KNOWN.EFFECTIVE_DATE}`,
     body: cookies,
-  },
-  {
-    path: "/contact",
-    title: "Contact",
-    docTitle: "Contact — ScreenExtend",
-    meta: `Last updated: ${KNOWN.EFFECTIVE_DATE}`,
-    body: contact,
   },
 ];
 

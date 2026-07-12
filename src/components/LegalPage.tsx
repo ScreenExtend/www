@@ -12,7 +12,12 @@ function MarkdownLink({
   href?: string;
   children?: React.ReactNode;
 }) {
-  if (href && href.startsWith("/") && !href.startsWith("/.well-known/")) {
+  if (
+    href &&
+    href.startsWith("/") &&
+    !href.startsWith("/.well-known/") &&
+    !href.includes("#")
+  ) {
     return (
       <Link to={href} className="link link-primary">
         {children}

@@ -68,7 +68,7 @@ export default function Navbar() {
                       <a href="/#faq">FAQ</a>
                     </Menu.Item>
                     <Menu.Item className="font-medium">
-                      <a href="/contact">Contact</a>
+                      <a href="/#contact">Contact</a>
                     </Menu.Item>
                   </Menu>
                 }
@@ -108,7 +108,7 @@ export default function Navbar() {
                 </a>
               </Menu.Item>
               <Menu.Item className="font-medium">
-                <a href="/contact" className={NAV_LINK}>
+                <a href="/#contact" className={NAV_LINK}>
                   Contact
                 </a>
               </Menu.Item>
