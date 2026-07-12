@@ -42,7 +42,7 @@ export default function Navbar() {
     >
       {/* Scroll progress indicator */}
       <div
-        className="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-gradient-to-r from-primary via-info to-purple-500"
+        className="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-gradient-to-r from-logo-blue via-logo-cyan to-logo-lime"
         style={{ transform: `scaleX(${progress / 100})` }}
       />
       <div className="container">
@@ -155,7 +155,7 @@ export default function Navbar() {
             <Button
               size="sm"
               color="primary"
-              className="sheen border-none bg-gradient-to-r from-[#1b77ff] to-[#4d9bff] text-primary-content shadow-md shadow-primary/30 transition-shadow duration-200 hover:shadow-lg hover:shadow-primary/40"
+              className="sheen border-none bg-gradient-to-r from-logo-blue to-[#6f97ff] text-primary-content shadow-md shadow-primary/30 transition-shadow duration-200 hover:shadow-lg hover:shadow-primary/40"
               onClick={() => (window.location.href = "/#download")}
             >
               Download

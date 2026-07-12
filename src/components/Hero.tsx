@@ -77,7 +77,7 @@ export default function Hero() {
             >
               <Button
                 color="primary"
-                className="sheen border-none bg-gradient-to-r from-[#1b77ff] to-[#4d9bff] text-primary-content shadow-lg shadow-primary/30 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/40"
+                className="sheen border-none bg-gradient-to-r from-logo-blue to-[#6f97ff] text-primary-content shadow-lg shadow-primary/30 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/40"
                 onClick={() => (window.location.href = "#download")}
               >
                 Download
@@ -96,12 +96,12 @@ export default function Hero() {
               <div className="relative animate-float">
                 <div
                   aria-hidden="true"
-                  className="absolute -inset-3 rounded-3xl bg-gradient-to-r from-primary/40 via-info/40 to-purple-500/40 blur-2xl animate-glow"
+                  className="absolute -inset-3 rounded-3xl bg-gradient-to-r from-logo-blue/40 via-logo-cyan/40 to-logo-lime/40 blur-2xl animate-glow"
                 />
                 <div
                   className="relative rounded-2xl bg-gradient-to-r p-3"
                   style={{
-                    background: "linear-gradient(90deg, #6fcbff 0%, #4076ff 100%)",
+                    background: "linear-gradient(90deg, #6f97ff 0%, #316cff 100%)",
                   }}
                   ref={heroImageRef}
                   onClick={() => setCurrentImage(0)}

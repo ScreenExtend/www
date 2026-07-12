@@ -16,12 +16,12 @@ export default function Features() {
   return (
     <section className="relative py-8 lg:py-20" id="features">
       <div className="absolute start-[10%] z-0">
-        <div className="pointer-events-none aspect-square w-60 rounded-full bg-gradient-to-r from-primary/10 via-violet-500/10 to-purple-500/10 blur-3xl [transform:translate3d(0,0,0)] animate-blob lg:w-[600px]"></div>
+        <div className="pointer-events-none aspect-square w-60 rounded-full bg-gradient-to-r from-logo-blue/10 via-logo-cyan/10 to-logo-lime/10 blur-3xl [transform:translate3d(0,0,0)] animate-blob lg:w-[600px]"></div>
       </div>
       <div className="container">
         <Reveal className="flex flex-col items-center">
           <h2 className="inline text-4xl font-semibold">Features</h2>
-          <span className="mt-3 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-info" />
+          <span className="mt-3 h-1 w-16 rounded-full bg-gradient-to-r from-logo-blue to-logo-lime" />
         </Reveal>
         <div className="relative z-[2] mt-8 grid gap-8 lg:mt-20 lg:grid-cols-2 lg:gap-12">
           <Reveal direction="left" className={CARD} onClick={() => setCurrentImage(0)}>

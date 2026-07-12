@@ -18,6 +18,12 @@ export default {
       body: ["'DM Sans'", 'sans-serif'],
     },
     extend: {
+      colors: {
+        'logo-mint': '#d6f1ed',
+        'logo-blue': '#316cff',
+        'logo-cyan': '#1ccbdd',
+        'logo-lime': '#a6e15a',
+      },
       keyframes: {
         'fade-up': {
           '0%': { opacity: '0', transform: 'translate3d(0, 1.5rem, 0)' },
@@ -63,7 +69,7 @@ export default {
       {
         light: {
           ...theme.light,
-          primary: '#1b77ff',
+          primary: '#316cff',
           'primary-content': '#ffffff',
           secondary: '#494949',
           neutral: '#03131a',
@@ -76,7 +82,7 @@ export default {
         },
         dark: {
           ...theme.dark,
-          primary: '#1b77ff',
+          primary: '#316cff',
           'primary-content': '#ffffff',
           secondary: '#494949',
           neutral: '#03131a',

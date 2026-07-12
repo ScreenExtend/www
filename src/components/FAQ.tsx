@@ -11,7 +11,7 @@ export default function FAQ() {
       <div className="container">
         <Reveal className="flex flex-col items-center text-center">
           <h2 className="text-4xl font-semibold text-base-content">FAQs</h2>
-          <span className="mt-3 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-info" />
+          <span className="mt-3 h-1 w-16 rounded-full bg-gradient-to-r from-logo-blue to-logo-lime" />
         </Reveal>
         <div className="mt-12 flex justify-center gap-6">
           <div className="space-y-4 lg:w-1/2">
