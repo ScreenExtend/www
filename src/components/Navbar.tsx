@@ -13,6 +13,8 @@ export default function Navbar() {
   const [atTop, setAtTop] = useState(true);
   const [progress, setProgress] = useState(0);
 
+  const closeDrawer = () => setDrawerOpened(false);
+
   useEffect(() => {
     let frame = 0;
     const onScroll = () => {
@@ -53,22 +55,46 @@ export default function Navbar() {
                 side={
                   <Menu className="min-h-full w-80 gap-2 bg-base-100 p-4 text-base-content">
                     <Menu.Item className="font-medium">
-                      <a href="/" className="flex items-center gap-2 text-xl font-bold">
+                      <a
+                        href="/"
+                        className="flex items-center gap-2 text-xl font-bold"
+                        onClick={closeDrawer}
+                      >
                         <img src={logo} className="h-6 w-6" alt="" />
                         ScreenExtend
                       </a>
                     </Menu.Item>
                     <Menu.Item className="font-medium">
-                      <a href="/#home">Home</a>
+                      <a href="/#home" onClick={closeDrawer}>
+                        Home
+                      </a>
                     </Menu.Item>
                     <Menu.Item className="font-medium">
-                      <a href="/#features">Features</a>
+                      <a href="/#features" onClick={closeDrawer}>
+                        Features
+                      </a>
                     </Menu.Item>
                     <Menu.Item className="font-medium">
-                      <a href="/#faq">FAQ</a>
+                      <a href="/#faq" onClick={closeDrawer}>
+                        FAQ
+                      </a>
                     </Menu.Item>
                     <Menu.Item className="font-medium">
-                      <a href="/#contact">Contact</a>
+                      <a href="/#contact" onClick={closeDrawer}>
+                        Contact
+                      </a>
+                    </Menu.Item>
+                    <div className="my-1 border-t border-base-content/10" />
+                    <Menu.Item className="font-medium">
+                      <a
+                        href="https://github.com/ScreenExtend/ScreenExtend"
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={closeDrawer}
+                      >
+                        <Github size={18} />
+                        Github
+                      </a>
                     </Menu.Item>
                   </Menu>
                 }
@@ -118,6 +144,7 @@ export default function Navbar() {
             <Button
               size="sm"
               color="ghost"
+              className="hidden sm:inline-flex"
               onClick={() =>
                 window.open("https://github.com/ScreenExtend/ScreenExtend", "_blank")
               }

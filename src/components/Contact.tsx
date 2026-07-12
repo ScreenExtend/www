@@ -44,7 +44,7 @@ export default function Contact() {
           <h2 className="text-4xl font-semibold text-base-content">Contact</h2>
           <span className="mt-3 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-info" />
           <p className="mt-4 max-w-xl text-base text-base-content/70">
-            Questions, reports, or requests? Reach the right team directly.
+            Questions, reports, or requests? Reach the right team directly. We'll respond within 3 business days.
           </p>
         </Reveal>
         <div className="mx-auto mt-12 grid max-w-4xl gap-6 lg:grid-cols-2">

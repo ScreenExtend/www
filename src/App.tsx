@@ -34,7 +34,7 @@ export default function App() {
 
   return (
     <ImageProvider>
-      <Theme dataTheme={theme} className="relative min-h-screen overflow-hidden">
+      <Theme dataTheme={theme} className="relative min-h-screen overflow-x-clip">
         <AuroraBackground />
         <div className="relative z-10">
           <Navbar />
