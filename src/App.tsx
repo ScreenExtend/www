@@ -10,6 +10,7 @@ import Footer from "@/components/Footer.tsx";
 import LegalPage from "@/components/LegalPage.tsx";
 import ThemeToggler from "@/components/ThemeToggler.tsx";
 import ScrollToTop from "@/components/ScrollToTop.tsx";
+import ScrollToHash from "@/components/ScrollToHash.tsx";
 import AuroraBackground from "@/components/AuroraBackground.tsx";
 import { ImageProvider } from "@/components/ImageContext.tsx";
 import { LEGAL_PAGES } from "@/legal/content.ts";
@@ -49,6 +50,7 @@ export default function App() {
           </Routes>
           <Footer />
         </div>
+        <ScrollToHash />
         <ScrollToTop />
         <ThemeToggler />
       </Theme>
