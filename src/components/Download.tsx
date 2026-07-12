@@ -1,9 +1,17 @@
 import { Button, Card, useTheme } from "react-daisyui";
 
+import Reveal from "@/components/Reveal.tsx";
 import windowsLogo from "@/assets/logo/windows.svg";
 import macLogo from "@/assets/logo/mac.svg";
 import macLogoLight from "@/assets/logo/mac-light.svg";
 import linuxLogo from "@/assets/logo/linux.svg";
+
+const CARD =
+  "h-full border border-base-content/5 bg-base-100/70 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-primary/10 hover:ring-1 hover:ring-primary/30";
+const ICON_WRAP =
+  "flex h-16 w-16 items-center justify-center rounded-full bg-base-200 transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary/10";
+const DL_BTN =
+  "sheen w-full transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:text-primary";
 
 export default function Download() {
   const { theme } = useTheme();
@@ -11,111 +19,119 @@ export default function Download() {
   return (
     <section className="py-8 lg:py-20" id="download">
       <div className="container">
-        <div className="text-center">
+        <Reveal className="text-center">
           <h2 className="text-4xl font-semibold">Download ScreenExtend</h2>
           <p className="mt-2 text-lg sm:text-center">
             Supports Windows, Mac, and Linux
           </p>
-        </div>
+        </Reveal>
         <div className="mt-6 grid gap-6 lg:grid-cols-3">
-          <Card className="transition-all hover:shadow">
-            <Card.Body className="p-6 gap-0">
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-base-200">
-                    <img alt="Windows Logo" className="h-8 w-8" src={windowsLogo} />
+          <Reveal delay={0} className="h-full">
+            <Card className={`group ${CARD}`}>
+              <Card.Body className="p-6 gap-0">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className={ICON_WRAP}>
+                      <img alt="Windows Logo" className="h-8 w-8" src={windowsLogo} />
+                    </div>
+                    <h3 className="text-xl font-semibold">Windows</h3>
                   </div>
-                  <h3 className="text-xl font-semibold">Windows</h3>
                 </div>
-              </div>
-              <div>
-                <p className="mt-4 text-sm">Minimum Version:</p>
-                <ul className="list-inside list-disc text-sm">
-                  <li>Windows Client 20H1 (May 2020)</li>
-                  <li>Windows Server 20H2 (October 2020)</li>
-                </ul>
-                <div className="flex flex-row mt-5">
-                  <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64-setup.exe" target="_blank">
-                    <Button className="w-full">
-                      64-bit EXE
-                    </Button>
-                  </a>
-                  <div className="grow-0 w-3"></div>
-                  <a className="grow basis-0 cursor-not-allowed opacity-50" target="_blank">
-                    <Button className="w-full pointer-events-none select-none">
-                      ARM EXE
-                    </Button>
-                  </a>
-                </div>
-              </div>
-            </Card.Body>
-          </Card>
-          <Card className="transition-all hover:shadow">
-            <Card.Body className="p-6 gap-0">
-              <div className="flex items-center justify-between gap-2 p-0">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-base-200">
-                    <img alt="Mac Logo" className="h-9 w-9" src={theme == "light" ? macLogo : theme == "dark" ? macLogoLight : (getComputedStyle(document.querySelector(":root")!).getPropertyValue("color-scheme") != "light" ? macLogoLight : macLogo)} />
+                <div>
+                  <p className="mt-4 text-sm">Minimum Version:</p>
+                  <ul className="list-inside list-disc text-sm">
+                    <li>Windows Client 20H1 (May 2020)</li>
+                    <li>Windows Server 20H2 (October 2020)</li>
+                  </ul>
+                  <div className="flex flex-row mt-5">
+                    <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64-setup.exe" target="_blank">
+                      <Button className={DL_BTN}>
+                        64-bit EXE
+                      </Button>
+                    </a>
+                    <div className="grow-0 w-3"></div>
+                    <a className="grow basis-0 cursor-not-allowed opacity-50" target="_blank">
+                      <Button className="w-full pointer-events-none select-none">
+                        ARM EXE
+                      </Button>
+                    </a>
                   </div>
-                  <h3 className="text-xl font-semibold">Mac</h3>
                 </div>
-              </div>
-              <div>
-                <p className="mt-4 text-sm">Minimum Version:</p>
-                <ul className="list-inside list-disc text-sm">
-                  <li>MacOS Catalina 10.15+ (October 2019)</li>
-                </ul>
-                <div className="flex flex-row mt-5">
-                  <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64.dmg" target="_blank">
-                    <Button className="w-full">
-                      Intel DMG
-                    </Button>
-                  </a>
-                  <div className="grow-0 w-3"></div>
-                  <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_aarch64.dmg" target="_blank">
-                    <Button className="w-full">
-                      Apple Silicon DMG
-                    </Button>
-                  </a>
-                </div>
-              </div>
-            </Card.Body>
-          </Card>
-          <Card className="transition-all hover:shadow cursor-not-allowed opacity-50">
-            <Card.Body className="p-6 gap-0 pointer-events-none select-none">
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-base-200">
-                    <img alt="Linux Logo" className="h-12 w-12" src={linuxLogo} />
+              </Card.Body>
+            </Card>
+          </Reveal>
+          <Reveal delay={120} className="h-full">
+            <Card className={`group ${CARD}`}>
+              <Card.Body className="p-6 gap-0">
+                <div className="flex items-center justify-between gap-2 p-0">
+                  <div className="flex items-center gap-4">
+                    <div className={ICON_WRAP}>
+                      <img alt="Mac Logo" className="h-9 w-9" src={theme == "light" ? macLogo : theme == "dark" ? macLogoLight : (getComputedStyle(document.querySelector(":root")!).getPropertyValue("color-scheme") != "light" ? macLogoLight : macLogo)} />
+                    </div>
+                    <h3 className="text-xl font-semibold">Mac</h3>
                   </div>
-                  <h3 className="text-xl font-semibold">Linux (coming soon)</h3>
                 </div>
-              </div>
-              <div>
-                <p className="mt-4 text-sm">Minimum Version:</p>
-                <ul className="list-inside list-disc text-sm">
-                  <li>Ubuntu 20.04 (April 2020)</li>
-                </ul>
-                <div className="flex flex-row mt-5">
-                  <Button className="grow basis-0">
-                    DEB
-                  </Button>
-                  <div className="grow-0 w-3"></div>
-                  <Button className="grow basis-0">
-                    RPM
-                  </Button>
-                  <div className="grow-0 w-3"></div>
-                  <Button className="grow basis-0">
-                    APPIMAGE
-                  </Button>
+                <div>
+                  <p className="mt-4 text-sm">Minimum Version:</p>
+                  <ul className="list-inside list-disc text-sm">
+                    <li>MacOS Catalina 10.15+ (October 2019)</li>
+                  </ul>
+                  <div className="flex flex-row mt-5">
+                    <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64.dmg" target="_blank">
+                      <Button className={DL_BTN}>
+                        Intel DMG
+                      </Button>
+                    </a>
+                    <div className="grow-0 w-3"></div>
+                    <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_aarch64.dmg" target="_blank">
+                      <Button className={DL_BTN}>
+                        Apple Silicon DMG
+                      </Button>
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </Card.Body>
-          </Card>
+              </Card.Body>
+            </Card>
+          </Reveal>
+          <Reveal delay={240} className="h-full">
+            <Card className={`group ${CARD} cursor-not-allowed opacity-50`}>
+              <Card.Body className="p-6 gap-0 pointer-events-none select-none">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className={ICON_WRAP}>
+                      <img alt="Linux Logo" className="h-12 w-12" src={linuxLogo} />
+                    </div>
+                    <h3 className="text-xl font-semibold">Linux (coming soon)</h3>
+                  </div>
+                </div>
+                <div>
+                  <p className="mt-4 text-sm">Minimum Version:</p>
+                  <ul className="list-inside list-disc text-sm">
+                    <li>Ubuntu 20.04 (April 2020)</li>
+                  </ul>
+                  <div className="flex flex-row mt-5">
+                    <Button className="grow basis-0">
+                      DEB
+                    </Button>
+                    <div className="grow-0 w-3"></div>
+                    <Button className="grow basis-0">
+                      RPM
+                    </Button>
+                    <div className="grow-0 w-3"></div>
+                    <Button className="grow basis-0">
+                      APPIMAGE
+                    </Button>
+                  </div>
+                </div>
+              </Card.Body>
+            </Card>
+          </Reveal>
         </div>
-        <p className="mt-4 text-center">
-        Running on an unsupported operating system? Contact us at <a href="mailto:support@screenextend.app" style={{ textDecoration: "underline" }}>support@screenextend.app</a> with your device information for a custom build.
-        </p>
+        <Reveal>
+          <p className="mt-4 text-center">
+          Running on an unsupported operating system? Contact us at <a href="mailto:support@screenextend.app" style={{ textDecoration: "underline" }}>support@screenextend.app</a> with your device information for a custom build.
+          </p>
+        </Reveal>
       </div>
     </section>
   );

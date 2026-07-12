@@ -11,7 +11,7 @@ export default function ThemeToggler() {
   return (
     <div className="fixed bottom-5 end-5 z-10 flex flex-col items-center">
       <Dropdown className="dropdown-end dropdown-top">
-        <Dropdown.Toggle>
+        <Dropdown.Toggle className="border-base-content/10 bg-base-100/70 shadow-lg backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-primary/20">
           Theme
           <svg
             className="inline-block h-2 w-2 rotate-180 fill-current opacity-60"

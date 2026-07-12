@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { useTheme } from "react-daisyui";
 
+import Reveal from "@/components/Reveal.tsx";
+import logo from "@/assets/logo/screenextend.svg";
+
 const LEGAL_LINKS: { label: string; to: string }[] = [
   { label: "Privacy", to: "/privacy" },
   { label: "Terms", to: "/terms" },
@@ -27,18 +30,29 @@ export default function Footer() {
 
   return (
     <footer>
-      <div
-        className={`mt-20 border-t ${borderColor} px-8 py-6 text-center text-sm lg:px-40 ${textColor}`}
+      <Reveal
+        className={`mt-10 border-t ${borderColor} px-8 py-6 text-center text-sm lg:px-40 ${textColor}`}
       >
+        <Link
+          to="/"
+          className="mb-4 inline-flex items-center gap-2 text-base font-bold tracking-tighter transition-colors duration-200 hover:text-primary"
+        >
+          <img src={logo} className="h-6 w-6" alt="" />
+          ScreenExtend
+        </Link>
         <nav className="mb-5 flex flex-wrap justify-center gap-x-4 gap-y-1">
           {LEGAL_LINKS.map((link) => (
-            <Link key={link.to} to={link.to} className="link link-hover">
+            <Link
+              key={link.to}
+              to={link.to}
+              className="link link-hover transition-colors duration-200 hover:text-primary"
+            >
               {link.label}
             </Link>
           ))}
         </nav>
         © 2026 Sarvesh Madullapalli. All rights reserved.
-      </div>
+      </Reveal>
     </footer>
   );
 }
