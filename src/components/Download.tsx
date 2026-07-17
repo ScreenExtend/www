@@ -7,11 +7,11 @@ import macLogoLight from "@/assets/logo/mac-light.svg";
 import linuxLogo from "@/assets/logo/linux.svg";
 
 const CARD =
-  "h-full border border-base-content/5 bg-base-100/70 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-primary/10 hover:ring-1 hover:ring-primary/30";
+  "h-full border border-base-content/10 bg-base-100/70 backdrop-blur-sm transition-colors duration-300 hover:border-primary/30";
 const ICON_WRAP =
-  "flex h-16 w-16 items-center justify-center rounded-full bg-base-200 transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary/10";
+  "flex h-16 w-16 items-center justify-center rounded-full bg-base-200 transition-colors duration-300 group-hover:bg-primary/10";
 const DL_BTN =
-  "sheen w-full transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:text-primary";
+  "w-full transition-colors duration-200 hover:border-primary hover:text-primary";
 
 export default function Download() {
   const { theme } = useTheme();

@@ -42,7 +42,7 @@ export default function Navbar() {
     >
       {/* Scroll progress indicator */}
       <div
-        className="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-gradient-to-r from-logo-blue via-logo-cyan to-logo-lime"
+        className="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-primary"
         style={{ transform: `scaleX(${progress / 100})` }}
       />
       <div className="container">
@@ -57,7 +57,7 @@ export default function Navbar() {
                     <Menu.Item className="font-medium">
                       <a
                         href="/"
-                        className="flex items-center gap-2 text-xl font-bold"
+                        className="flex items-center gap-2 font-mono text-xl font-bold"
                         onClick={closeDrawer}
                       >
                         <img src={logo} className="h-6 w-6" alt="" />
@@ -110,7 +110,7 @@ export default function Navbar() {
             </div>
             <a
               href="/"
-              className="flex items-center gap-2 text-xl font-bold tracking-tighter transition-transform duration-200 hover:scale-105"
+              className="flex items-center gap-2 font-mono text-xl font-bold tracking-tight transition-transform duration-200 hover:scale-105"
             >
               <img src={logo} className="h-7 w-7" alt="ScreenExtend logo" />
               ScreenExtend
@@ -155,7 +155,7 @@ export default function Navbar() {
             <Button
               size="sm"
               color="primary"
-              className="sheen border-none bg-gradient-to-r from-logo-blue to-[#6f97ff] text-primary-content shadow-md shadow-primary/30 transition-shadow duration-200 hover:shadow-lg hover:shadow-primary/40"
+              className="shadow-sm transition-colors duration-200 hover:!bg-[#5b8bff]"
               onClick={() => (window.location.href = "/#download")}
             >
               Download

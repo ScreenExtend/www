@@ -38,7 +38,7 @@ application itself. It's a single-page React app built with Vite and deployed to
 
 ```bash
 pnpm install
-pnpm dev        # start the Vite dev server
+pnpm dev
 ```
 
 ### Scripts
@@ -49,22 +49,6 @@ pnpm dev        # start the Vite dev server
 | `pnpm build`    | Type-check (`tsc`) and build for production to `dist/`|
 | `pnpm preview`  | Preview the production build locally                  |
 | `pnpm lint`     | Run ESLint over `ts`/`tsx` files                      |
-
-## Project Structure
-
-```
-www/
-├── public/              # static assets (favicon, robots.txt, sitemap.xml, security.txt)
-├── src/
-│   ├── assets/          # app screenshots and tech/OS logos
-│   ├── components/      # hero, Features, Download, FAQ, Footer, Navbar, LegalPage, ...
-│   ├── legal/           # markdown content + page definitions for legal routes
-│   ├── App.tsx          # routes (home + legal pages)
-│   └── main.tsx         # app entry / router setup
-├── index.html
-├── vite.config.ts       # vite config + SPA 404 fallback plugin
-└── tailwind.config.js
-```
 
 ## Routes
 

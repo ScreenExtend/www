@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useTheme } from "react-daisyui";
 
 import Reveal from "@/components/Reveal.tsx";
 import logo from "@/assets/logo/screenextend.svg";
@@ -15,29 +14,12 @@ const LINK_CLASS =
   "link link-hover transition-colors duration-200 hover:text-primary";
 
 export default function Footer() {
-  const { theme } = useTheme();
-
-  const textColor =
-    theme == "light"
-      ? "text-black"
-      : theme == "text-dark"
-        ? "text-white"
-        : "text-black dark:text-white";
-  const borderColor =
-    theme == "light"
-      ? "border-black/20"
-      : theme == "text-dark"
-        ? "border-white/20"
-        : "border-black/20 dark:border-white/20";
-
   return (
     <footer>
-      <Reveal
-        className={`mt-10 border-t ${borderColor} px-8 py-6 text-center text-sm lg:px-40 ${textColor}`}
-      >
+      <Reveal className="mt-10 border-t border-base-content/20 px-8 py-6 text-center text-sm text-base-content lg:px-40">
         <Link
           to="/"
-          className="mb-4 inline-flex items-center gap-2 text-base font-bold tracking-tighter transition-colors duration-200 hover:text-primary"
+          className="mb-4 inline-flex items-center gap-2 font-mono text-base font-bold tracking-tight transition-colors duration-200 hover:text-primary"
         >
           <img src={logo} className="h-6 w-6" alt="" />
           ScreenExtend

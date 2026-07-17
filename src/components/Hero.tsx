@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { Button, useTheme } from "react-daisyui";
+import { Button } from "react-daisyui";
 import Card3d from "card3d";
 import Observer from "@researchgate/react-intersection-observer";
 
@@ -12,10 +12,19 @@ import tauriLogo from "@/assets/logo/tauri.svg";
 import reactLogo from "@/assets/logo/react.svg";
 import rustLogo from "@/assets/logo/rust.svg";
 
+const LOGO =
+  "mx-auto flex cursor-pointer items-center justify-center overflow-hidden transition-all duration-300 hover:scale-110";
+// Deliberate per-logo glow on hover, in each brand's own color. unslop-ignore
+const GLOW_RUST = "hover:drop-shadow-[0_0_15px_rgba(247,76,0,0.75)]"; // unslop-ignore
+const GLOW_TAURI = "hover:drop-shadow-[0_0_15px_rgba(36,200,219,0.75)]"; // unslop-ignore
+const GLOW_TS = "hover:drop-shadow-[0_0_15px_rgba(49,120,198,0.75)]"; // unslop-ignore
+const GLOW_REACT = "hover:drop-shadow-[0_0_15px_rgba(97,218,251,0.75)]"; // unslop-ignore
+const GLOW_SHADCN = "hover:drop-shadow-[0_0_15px_rgba(100,100,100,1)]"; // unslop-ignore
+const LABEL = "ml-2.5 font-soft text-xl font-bold";
+
 export default function Hero() {
   const heroImageRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(true);
-  const { theme } = useTheme();
   const { setCurrentImage } = useImage();
   let card: Card3d;
 
@@ -41,50 +50,32 @@ export default function Hero() {
       <div className="container">
         <div className="grid gap-12 lg:grid-cols-10">
           <div className="col-span-4">
-            <h1
-              className="animate-fade-up text-gradient animate-gradient-x bg-clip-text text-4xl font-black tracking-tighter lg:text-6xl lg:leading-none"
-              style={{ animationDelay: "0ms" }}
-            >
+            <h1 className="animate-fade-up font-mono text-4xl font-bold tracking-tight text-primary lg:text-6xl lg:leading-none">
               ScreenExtend
             </h1>
-            <h2
-              className="mt-2 animate-fade-up text-xl font-black tracking-tighter lg:text-3xl lg:leading-none"
-              style={{ animationDelay: "120ms" }}
-            >
+            <h2 className="mt-2 animate-fade-up text-xl font-bold tracking-tighter lg:text-3xl lg:leading-none">
               Extend your screen.
             </h2>
-            <h2
-              className="mt-1 animate-fade-up text-xl font-black tracking-tighter lg:text-3xl lg:leading-none"
-              style={{ animationDelay: "200ms" }}
-            >
+            <h2 className="mt-1 animate-fade-up text-xl font-bold tracking-tighter lg:text-3xl lg:leading-none">
               Extend your possibilities.
             </h2>
-            <h2
-              className="mt-1 animate-fade-up text-xl font-black tracking-tighter lg:text-3xl lg:leading-none"
-              style={{ animationDelay: "280ms" }}
-            >
+            <h2 className="mt-1 animate-fade-up text-xl font-bold tracking-tighter lg:text-3xl lg:leading-none">
               Unlock ultimate productivity.
             </h2>
-            <p
-              className="mt-8 animate-fade-up text-lg"
-              style={{ animationDelay: "380ms" }}
-            >
+            <p className="mt-8 animate-fade-up text-lg">
               A free, cross-platform desktop-extension solution that transforms any device into a second monitor, instantly expanding your workspace.
             </p>
-            <div
-              className="mt-10 inline-flex animate-fade-up gap-3"
-              style={{ animationDelay: "480ms" }}
-            >
+            <div className="mt-10 inline-flex animate-fade-up gap-3">
               <Button
                 color="primary"
-                className="sheen border-none bg-gradient-to-r from-logo-blue to-[#6f97ff] text-primary-content shadow-lg shadow-primary/30 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/40"
+                className="shadow-sm transition-colors duration-200 hover:!bg-[#5b8bff]"
                 onClick={() => (window.location.href = "#download")}
               >
                 Download
               </Button>
               <Button
                 color="ghost"
-                className="transition-all duration-200 hover:-translate-y-0.5 hover:text-primary"
+                className="transition-colors duration-200 hover:text-primary"
                 onClick={() => (window.location.href = "#features")}
               >
                 Learn More
@@ -92,24 +83,17 @@ export default function Hero() {
             </div>
           </div>
           <Observer onChange={(event) => setIsVisible(event.isIntersecting)}>
-            <div className="col-span-6 animate-fade-in cursor-pointer" style={{ animationDelay: "250ms" }}>
-              <div className="relative animate-float">
+            <div className="col-span-6 animate-fade-in cursor-pointer">
+              <div className="relative">
                 <div
-                  aria-hidden="true"
-                  className="absolute -inset-3 rounded-3xl bg-gradient-to-r from-logo-blue/40 via-logo-cyan/40 to-logo-lime/40 blur-2xl animate-glow"
-                />
-                <div
-                  className="relative rounded-2xl bg-gradient-to-r p-3"
-                  style={{
-                    background: "linear-gradient(90deg, #6f97ff 0%, #316cff 100%)",
-                  }}
+                  className="relative overflow-hidden rounded-xl ring-1 ring-primary/60 shadow-xl shadow-black/30"
                   ref={heroImageRef}
                   onClick={() => setCurrentImage(0)}
                 >
                   <img
                     alt="ScreenExtend Dashboard"
                     id="hero-image"
-                    className="rounded-lg"
+                    className="block w-full"
                     src={heroImage}
                   />
                 </div>
@@ -125,80 +109,55 @@ export default function Hero() {
         <div className="mt-10 grid grid-cols-2 justify-center gap-8 sm:grid-cols-3 md:grid-cols-5">
           <Reveal delay={0}>
             <a
-              className="mx-auto cursor-pointer overflow-hidden transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_15px_rgba(247,76,0,0.75)]"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
+              className={`${LOGO} ${GLOW_RUST}`}
               href="https://www.rust-lang.org/"
               target="_blank"
             >
               <img className="h-8" src={rustLogo} alt="Rust Logo" />
-              <p style={{ color: "#f74c00", marginLeft: 10, fontSize: "1.25rem" }}>
-                <b>Rust</b>
+              <p className={LABEL} style={{ color: "#f74c00" }}>
+                Rust
               </p>
             </a>
           </Reveal>
           <Reveal delay={90}>
             <a
-              className="mx-auto cursor-pointer overflow-hidden transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_15px_rgba(36,200,219,0.75)]"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
+              className={`${LOGO} ${GLOW_TAURI}`}
               href="https://tauri.app/"
               target="_blank"
             >
               <img className="h-8" src={tauriLogo} alt="Tauri Logo" />
-              <p style={{ color: "#24c8db", marginLeft: 10, fontSize: "1.25rem" }}>
-                <b>Tauri</b>
+              <p className={LABEL} style={{ color: "#24c8db" }}>
+                Tauri
               </p>
             </a>
           </Reveal>
           <Reveal delay={180}>
             <a
-              className="mx-auto cursor-pointer overflow-hidden transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_15px_rgba(49,120,198,0.75)]"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
+              className={`${LOGO} ${GLOW_TS}`}
               href="https://www.typescriptlang.org/"
               target="_blank"
             >
               <img className="h-8" src={typescriptLogo} alt="Typescript Logo" />
-              <p style={{ color: "#3178C6", marginLeft: 10, fontSize: "1.25rem" }}>
-                <b>Typescript</b>
+              <p className={LABEL} style={{ color: "#3178C6" }}>
+                Typescript
               </p>
             </a>
           </Reveal>
           <Reveal delay={270}>
             <a
-              className="mx-auto cursor-pointer overflow-hidden transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_15px_rgba(97,218,251,0.75)]"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
+              className={`${LOGO} ${GLOW_REACT}`}
               href="https://react.dev/"
               target="_blank"
             >
               <img className="h-8" src={reactLogo} alt="React Logo" />
-              <p style={{ color: "#61dafb", marginLeft: 10, fontSize: "1.25rem" }}>
-                <b>React.js</b>
+              <p className={LABEL} style={{ color: "#61dafb" }}>
+                React.js
               </p>
             </a>
           </Reveal>
           <Reveal delay={360}>
             <a
-              className={`mx-auto cursor-pointer text-${theme == "light" ? "black" : theme == "text-dark" ? "white" : "black dark:text-white"} overflow-hidden transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_15px_rgba(100,100,100,1)]`}
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
+              className={`${LOGO} text-base-content ${GLOW_SHADCN}`}
               href="https://ui.shadcn.com/"
               target="_blank"
             >
@@ -207,9 +166,7 @@ export default function Hero() {
                 <line x1="208" y1="128" x2="128" y2="208" fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/>
                 <line x1="192" y1="40" x2="40" y2="192" fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/>
               </svg>
-              <p style={{ marginLeft: 10, fontSize: "1.25rem" }}>
-                <b>shadcn/ui</b>
-              </p>
+              <p className={LABEL}>shadcn/ui</p>
             </a>
           </Reveal>
         </div>

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -27,51 +27,12 @@
     transform: none;
   }
 
-  .text-gradient {
-    background-image: linear-gradient(
-      100deg,
-      #316cff 0%,
-      #1ccbdd 50%,
-      #a6e15a 100%
-    );
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-  }
-
+  /* Delays for the ambient background blobs (deliberate). unslop-ignore */
   .animation-delay-2000 {
     animation-delay: 2s;
   }
   .animation-delay-4000 {
     animation-delay: 4s;
-  }
-
-  .sheen {
-    position: relative;
-    overflow: hidden;
-  }
-  .sheen::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40%;
-    height: 100%;
-    transform: translateX(-150%) skewX(-20deg);
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.25),
-      transparent
-    );
-    transition: none;
-    pointer-events: none;
-  }
-  .sheen:hover::after {
-    transform: translateX(300%) skewX(-20deg);
-    transition: transform 0.7s ease;
   }
 }
 

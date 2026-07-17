@@ -42,7 +42,7 @@ export default function Contact() {
       <div className="container">
         <Reveal className="flex flex-col items-center text-center">
           <h2 className="text-4xl font-semibold text-base-content">Contact</h2>
-          <span className="mt-3 h-1 w-16 rounded-full bg-gradient-to-r from-logo-blue to-logo-lime" />
+          <span className="mt-3 h-1 w-16 rounded-full bg-primary" />
           <p className="mt-4 max-w-xl text-base text-base-content/70">
             Questions, reports, or requests? Reach the right team directly. We'll respond within 3 business days.
           </p>

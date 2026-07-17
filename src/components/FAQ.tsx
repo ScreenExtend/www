@@ -11,7 +11,7 @@ export default function FAQ() {
       <div className="container">
         <Reveal className="flex flex-col items-center text-center">
           <h2 className="text-4xl font-semibold text-base-content">FAQs</h2>
-          <span className="mt-3 h-1 w-16 rounded-full bg-gradient-to-r from-logo-blue to-logo-lime" />
+          <span className="mt-3 h-1 w-16 rounded-full bg-primary" />
         </Reveal>
         <div className="mt-12 flex justify-center gap-6">
           <div className="space-y-4 lg:w-1/2">
@@ -43,7 +43,7 @@ export default function FAQ() {
                 <Collapse.Title className="text-xl font-medium">What's the maximum resolution and refresh rate of ScreenExtend? Can it support gaming?</Collapse.Title>
                 <Collapse.Content>
                   <p className="text-base">
-                    For each device, you can customize the resolution and refresh rate. Gaming is possible, depending on network bandwith; streaming video at high refresh rates is not possible on all Wifi networks. However, in the device settings, you can modify the resolution up to 200% and refresh rate up to 500hz. In a future release, HDR displays will be supported.
+                    For each device, you can customize the resolution and refresh rate. Gaming is possible, depending on network bandwidth; streaming video at high refresh rates is not possible on all Wifi networks. However, in the device settings, you can modify the resolution up to 200% and refresh rate up to 500hz. In a future release, HDR displays will be supported.
                   </p>
                 </Collapse.Content>
               </Collapse>
