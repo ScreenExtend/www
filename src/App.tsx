@@ -37,7 +37,7 @@ function Home() {
   );
 }
 
-// The previous single-scroll homepage, preserved at /old.
+// @ts-ignore the previous single-scroll homepage, preserved at /old
 function OldHome() {
   return (
     <>
