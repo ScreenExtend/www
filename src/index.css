@@ -40,6 +40,67 @@
   background-color: rgba(49, 108, 255, 0.28);
 }
 
+/* Hero layout: go two-column only when the composition can still claim a
+   healthy minimum width. Below that the visual drops beneath the copy and the
+   copy centers. Driven by the available inline width (container query) so it
+   responds to real space rather than guessing from the device. */
+.hero-shell {
+  container-type: inline-size;
+}
+.hero-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3rem;
+}
+.hero-visual {
+  width: 100%;
+  max-width: 32rem;
+}
+.hero-lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-actions,
+.hero-chips {
+  justify-content: center;
+}
+@container (min-width: 52rem) {
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(26rem, 1.05fr);
+    align-items: center;
+    text-align: left;
+    gap: 2rem;
+  }
+  .hero-visual {
+    max-width: none;
+  }
+  .hero-lead {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .hero-actions,
+  .hero-chips {
+    justify-content: flex-start;
+  }
+}
+
+/* Demo host mock: show the sidebar labels only when the mock is wide enough to
+   fit them, otherwise fall back to an icon-only rail (no ugly truncation). */
+.demo-host {
+  container-type: inline-size;
+}
+.demo-sidebar-label {
+  display: none;
+}
+@container (min-width: 300px) {
+  .demo-sidebar-label {
+    display: inline;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

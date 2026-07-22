@@ -15,9 +15,30 @@ import AuroraBackground from "@/components/AuroraBackground.tsx";
 import { ImageProvider } from "@/components/ImageContext.tsx";
 import { LEGAL_PAGES } from "@/legal/content.ts";
 
+import HeroLanding from "@/components/home/HeroLanding.tsx";
+import ConnectFlow from "@/components/home/ConnectFlow.tsx";
+import FeatureScroll from "@/components/home/FeatureScroll.tsx";
+import Highlights from "@/components/home/Highlights.tsx";
+import FaqSimple from "@/components/home/FaqSimple.tsx";
+
 import { Theme, useTheme } from "react-daisyui";
 
 function Home() {
+  return (
+    <>
+      <HeroLanding />
+      <ConnectFlow />
+      <FeatureScroll />
+      <Highlights />
+      <Download />
+      <FaqSimple />
+      <Contact />
+    </>
+  );
+}
+
+// The previous single-scroll homepage, preserved at /old.
+function OldHome() {
   return (
     <>
       <Hero />
@@ -40,6 +61,7 @@ export default function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/old" element={<OldHome />} />
             {LEGAL_PAGES.map((page) => (
               <Route
                 key={page.path}
