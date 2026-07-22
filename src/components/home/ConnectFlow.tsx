@@ -419,11 +419,10 @@ function ConnectFlowCinematic() {
             {/* left — heading, the active step, and the progress rail */}
             <div className="min-w-0">
               <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
-                Set up
+                Setup
               </p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight lg:text-[2.75rem] lg:leading-[1.1]">
-                A second screen in
-                <span className="text-primary"> under a minute</span>
+                How to connect a device
               </h2>
 
               {/* the active step, cross-fading as you scroll. All steps share
@@ -501,11 +500,10 @@ function ConnectFlowStatic() {
       <div className="container">
         <div className="mx-auto max-w-2xl text-center">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
-            Set Up
+            Setup
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            A second screen in
-            <span className="text-primary"> under a minute</span>
+            How to connect a device
           </h2>
         </div>
 

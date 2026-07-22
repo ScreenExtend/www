@@ -48,10 +48,10 @@ export default function Highlights() {
       <div className="container">
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
-            Under the Hood
+            Architecture
           </p>
           <h2 className="mt-3 max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">
-            Engineered to feel like a cable.
+            Under the hood
           </h2>
         </Reveal>
 

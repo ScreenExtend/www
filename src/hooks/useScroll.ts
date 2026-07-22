@@ -111,13 +111,27 @@ export function useMediaQuery(query: string) {
 
 /**
  * Whether the pinned, scroll-scrubbed "cinematic" sections should engage.
- * They need real vertical room and a wide canvas to work; on shorter or
- * narrower screens (phones, small landscape tablets) and when the user prefers
- * reduced motion, those sections fall back to a static, naturally-flowing
- * layout that can't overflow at any size.
+ *
+ * Three things have to hold, and each maps to a real requirement rather than a
+ * guessed screen size:
+ *  - `min-width: 1024px` — horizontal room for the two-column stage.
+ *  - `min-height: 560px` — enough vertical room for the stage + copy to sit in
+ *    the pinned viewport without cramping. This is deliberately low so ordinary
+ *    laptops (1366×768, 1280×720 — whose usable innerHeight is only ~600–660
+ *    after browser chrome) get the animation, not just 1080p displays.
+ *  - `hover: hover` + `pointer: fine` — a precise pointer, i.e. a laptop or
+ *    desktop. This is what keeps phones and tablets static no matter how wide
+ *    they report in landscape: an iPad is 1024px across but still a coarse,
+ *    hoverless pointer, so it falls to the static layout. Gating on device
+ *    class instead of a magic width is why lowering the height gate is safe.
+ *
+ * Anything that doesn't qualify — and anyone who prefers reduced motion — gets
+ * the static, naturally-flowing layout that can't overflow at any size.
  */
 export function useCinematic() {
-  const roomy = useMediaQuery("(min-width: 1024px) and (min-height: 660px)");
+  const desktopClass = useMediaQuery(
+    "(min-width: 1024px) and (min-height: 560px) and (hover: hover) and (pointer: fine)",
+  );
   const reduced = useReducedMotion();
-  return roomy && !reduced;
+  return desktopClass && !reduced;
 }

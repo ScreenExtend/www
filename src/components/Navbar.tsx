@@ -70,6 +70,11 @@ export default function Navbar() {
                       </a>
                     </Menu.Item>
                     <Menu.Item className="font-medium">
+                      <a href="/#how" onClick={closeDrawer}>
+                        How it Works
+                      </a>
+                    </Menu.Item>
+                    <Menu.Item className="font-medium">
                       <a href="/#features" onClick={closeDrawer}>
                         Features
                       </a>
@@ -121,6 +126,11 @@ export default function Navbar() {
               <Menu.Item className="font-medium">
                 <a href="/#home" className={NAV_LINK}>
                   Home
+                </a>
+              </Menu.Item>
+              <Menu.Item className="font-medium">
+                <a href="/#how" className={NAV_LINK}>
+                  How it Works
                 </a>
               </Menu.Item>
               <Menu.Item className="font-medium">
