@@ -1,5 +1,4 @@
-// Ambient brand background: slow-drifting gradient blooms in the ScreenExtend
-// logo colors. A deliberate design choice for visual interest, not a default.
+// Ambient brand background: slow-drifting gradient blooms in the logo colors.
 export default function AuroraBackground() {
   return (
     <div

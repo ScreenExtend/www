@@ -40,7 +40,6 @@ export default function Navbar() {
       id="navbar-wrapper"
       className={`sticky top-0 z-20 border-b bg-base-100/80 backdrop-blur-md transition-colors duration-300 lg:bg-base-100/70 ${atTop ? "border-transparent" : "border-base-content/10"}`}
     >
-      {/* Scroll progress indicator */}
       <div
         className="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-primary"
         style={{ transform: `scaleX(${progress / 100})` }}

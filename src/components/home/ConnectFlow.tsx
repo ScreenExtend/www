@@ -66,14 +66,13 @@ const QrGrid = memo(function QrGrid() {
   );
 });
 
-// A realistic little browser window — the thing the user drags onto the phone.
+// The browser window the user drags onto the phone.
 function AppWindow({ style }: { style?: CSSProperties }) {
   return (
     <div
       className="absolute top-1/2 -translate-y-1/2 overflow-hidden rounded-[5px] border border-black/40 bg-[#20262e] shadow-2xl shadow-black/60 ring-1 ring-white/10"
       style={style}
     >
-      {/* title bar with real traffic-light colors */}
       <div className="flex items-center gap-[3px] bg-[#2b323b] px-[5px] py-[3px]">
         <span className="h-[5px] w-[5px] rounded-full bg-[#ff5f57]" />{" "}
         {/* unslop-ignore */}
@@ -114,13 +113,11 @@ function AppWindow({ style }: { style?: CSSProperties }) {
   );
 }
 
-// The ScreenExtend host app — matched to the real UI: bold wordmark, a labelled
-// sidebar with icons, and a centered QR panel.
+// The ScreenExtend host app, matched to the real UI.
 const HostApp = memo(function HostApp() {
   const item = "flex items-center gap-1.5 rounded px-1.5 py-1";
   return (
     <div className="absolute inset-0 flex flex-col">
-      {/* app header */}
       <div className="flex items-center justify-between border-b border-white/8 px-2 py-1.5">
         <span className="font-sans text-[9px] font-extrabold tracking-tight text-white sm:text-[11px]">
           ScreenExtend
@@ -128,7 +125,6 @@ const HostApp = memo(function HostApp() {
         <span className="h-2.5 w-2.5 rounded-full bg-white/15 sm:h-3 sm:w-3" />
       </div>
       <div className="flex min-h-0 flex-1">
-        {/* sidebar */}
         <div className="flex w-[30%] flex-col gap-1 border-r border-white/8 p-1.5">
           <div className={`${item} bg-primary/15 ring-1 ring-primary/30`}>
             <MonitorSmartphone className="h-2.5 w-2.5 shrink-0 text-primary sm:h-3 sm:w-3" />
@@ -240,7 +236,7 @@ function Stage({ p, widthCss }: { p: number; widthCss: string }) {
         {/* unslop-ignore */}
       </div>
 
-      {/* -------- host monitor -------- */}
+      {/* host monitor */}
       <div
         className="absolute top-1/2 aspect-[16/10] -translate-y-1/2"
         style={{ left: `${DESK.left}%`, width: `${DESK.width}%` }}
@@ -257,7 +253,6 @@ function Stage({ p, widthCss }: { p: number; widthCss: string }) {
             style={{ opacity: m.deskOn }}
           />
 
-          {/* QR panel */}
           <div
             className="absolute bottom-0 left-[30%] right-0 top-[26px] flex flex-col items-center justify-center gap-1.5 px-3 sm:top-[30px] sm:gap-2"
             style={{ opacity: m.qrOn }}
@@ -305,12 +300,11 @@ function Stage({ p, widthCss }: { p: number; widthCss: string }) {
           {/* dragged window — host-side clipped copy */}
           <AppWindow style={m.deskWin} />
         </div>
-        {/* stand */}
         <div className="mx-auto h-2 w-[12%] bg-white/10 sm:h-3" />
         <div className="mx-auto h-1 w-[24%] rounded-full bg-white/10" />
       </div>
 
-      {/* -------- client phone -------- */}
+      {/* client phone */}
       <div
         className="absolute top-1/2 aspect-[9/19] -translate-y-1/2"
         style={{ left: `${PHONE.left}%`, width: `${PHONE.width}%` }}
@@ -318,7 +312,6 @@ function Stage({ p, widthCss }: { p: number; widthCss: string }) {
         <div className="relative h-full w-full overflow-hidden rounded-[14px] border-2 border-white/15 bg-black shadow-2xl shadow-black/60 sm:rounded-[18px]">
           <div className="absolute left-1/2 top-1 z-30 h-1 w-6 -translate-x-1/2 rounded-full bg-white/20" />
 
-          {/* camera / scanning */}
           <div
             className="absolute inset-0 flex items-center justify-center bg-[#05090d]"
             style={{ opacity: m.camOn }}
@@ -341,7 +334,6 @@ function Stage({ p, widthCss }: { p: number; widthCss: string }) {
             </p>
           </div>
 
-          {/* OTP entry in a mobile browser */}
           <div
             className="absolute inset-0 flex flex-col bg-[#0b1016]"
             style={{ opacity: m.otpOn }}
@@ -416,7 +408,6 @@ function ConnectFlowCinematic() {
       <div className="sticky top-16 flex h-[calc(100vh-4rem)] items-center overflow-hidden py-6">
         <div className="container">
           <div className="grid items-center gap-8 lg:grid-cols-[20rem_1fr] lg:gap-12">
-            {/* left — heading, the active step, and the progress rail */}
             <div className="min-w-0">
               <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
                 Setup
@@ -454,7 +445,6 @@ function ConnectFlowCinematic() {
                 ))}
               </div>
 
-              {/* progress rail */}
               <div className="mt-8 flex gap-2">
                 {STEPS.map((s, i) => (
                   <div
@@ -477,7 +467,6 @@ function ConnectFlowCinematic() {
               </div>
             </div>
 
-            {/* right — the demo stage (sizes to the column, capped by height) */}
             <div className="min-w-0">
               <Stage
                 p={p}

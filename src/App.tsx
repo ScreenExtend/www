@@ -61,7 +61,7 @@ export default function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/old" element={<OldHome />} />
+            {/*<Route path="/old" element={<OldHome />} />*/}
             {LEGAL_PAGES.map((page) => (
               <Route
                 key={page.path}

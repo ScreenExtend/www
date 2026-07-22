@@ -54,7 +54,6 @@ function FeatureScrollCinematic() {
       <div className="sticky top-16 flex h-[calc(100vh-4rem)] items-center overflow-hidden">
         <div className="container">
           <div className="grid items-center gap-8 md:grid-cols-12 md:gap-10 lg:gap-12">
-            {/* text column */}
             <div className="order-2 md:order-2 md:col-span-5 lg:col-span-4">
               <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
                 The app
@@ -85,7 +84,6 @@ function FeatureScrollCinematic() {
                 ))}
               </div>
 
-              {/* step rail */}
               <div className="mt-6 flex gap-2">
                 {FEATURES.map((f, i) => (
                   <div
@@ -103,7 +101,6 @@ function FeatureScrollCinematic() {
               </div>
             </div>
 
-            {/* screenshot stack */}
             <div className="order-1 md:order-1 md:col-span-7 lg:col-span-8">
               <div
                 className="relative mx-auto w-full max-w-3xl"
