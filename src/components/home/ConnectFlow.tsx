@@ -5,14 +5,8 @@ import { usePinProgress, useCinematic } from "@/hooks/useScroll.ts";
 import { qrModules } from "@/lib/qr.ts";
 import { range, mix, easeInOut, pulse, clamp } from "@/lib/anim.ts";
 
-// The 6-digit code mirrors the real Settings screen so the demo reads as the
-// actual product rather than filler.
 const CODE = ["3", "7", "7", "6", "2", "0"];
 
-// Stage geometry, expressed as percentages of the stage box. Because the
-// dragged window is positioned from these same numbers, the copy on the host
-// and the copy on the phone line up exactly across the bezel gap — so a single
-// window appears to be dragged from one monitor onto the other.
 const DESK = { left: 17, width: 50 }; // host monitor
 const PHONE = { left: 71, width: 14 }; // client phone (≈4% bezel gap)
 const WIN_W = 14; // dragged window, % of stage width
@@ -97,8 +91,6 @@ function AppWindow({ style }: { style?: CSSProperties }) {
           <div className="h-[3px] w-4/5 rounded-full bg-white/14" />
         </div>
       </div>
-      {/* grabbing cursor — lives inside the window so it clips with it and
-          "teleports" across the bezel gap, like a real multi-monitor cursor */}
       <svg
         aria-hidden
         className="absolute left-[46%] top-[1px] z-10 h-2.5 w-2.5 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]"
@@ -246,8 +238,6 @@ function Stage({ p, widthCss }: { p: number; widthCss: string }) {
             <HostApp />
           </div>
 
-          {/* once connected the whole host becomes the extended
-          desktop — matches the phone so the two read as one screen */}
           <div
             className="absolute inset-0 bg-gradient-to-br from-[#123457] via-[#0c1a28] to-[#0a2026]" // unslop-ignore
             style={{ opacity: m.deskOn }}
@@ -297,7 +287,6 @@ function Stage({ p, widthCss }: { p: number; widthCss: string }) {
             </div>
           </div>
 
-          {/* dragged window — host-side clipped copy */}
           <AppWindow style={m.deskWin} />
         </div>
         <div className="mx-auto h-2 w-[12%] bg-white/10 sm:h-3" />
@@ -416,9 +405,6 @@ function ConnectFlowCinematic() {
                 How to connect a device
               </h2>
 
-              {/* the active step, cross-fading as you scroll. All steps share
-              one grid cell so the block sizes to the tallest — no fixed height
-              to overflow. */}
               <div className="mt-8 grid">
                 {STEPS.map((s, i) => (
                   <div
@@ -480,9 +466,6 @@ function ConnectFlowCinematic() {
   );
 }
 
-// Static: everything flows in normal document order — heading, a single
-// representative frame of the demo, then the four steps as a plain list. Can't
-// overflow at any viewport size.
 function ConnectFlowStatic() {
   return (
     <section id="how" className="py-16 lg:py-24">

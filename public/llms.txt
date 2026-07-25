@@ -1,0 +1,37 @@
+# ScreenExtend
+
+> ScreenExtend is a free, cross-platform desktop app that turns any device with a browser — a phone, tablet, or spare laptop — into a wireless second monitor for a Windows PC or Mac. The screen is streamed directly between machines over WebRTC, with no client app to install on the second device.
+
+ScreenExtend runs on your computer and shows a QR code and a 6-digit session code for every network you're on. Any device with a modern browser scans the code, enters the code, and becomes an extended monitor. Video is GPU-encoded (NVENC on Nvidia, Quick Sync on Intel, VideoToolbox on Mac) and sent over encrypted HTTPS/WebRTC. It works offline over a host-started ad-hoc network, and every connected display has independent resolution scale, orientation, refresh rate, and quality.
+
+## Pages
+- [Home](https://screenextend.app/): Product overview, how it works, features, downloads, and FAQ.
+- [Privacy Policy](https://screenextend.app/privacy): What data is and isn't collected.
+- [Terms of Service](https://screenextend.app/terms): Terms governing use of the app and service.
+- [Acceptable Use Policy](https://screenextend.app/acceptable-use): Permitted and prohibited uses.
+- [Cookie Policy](https://screenextend.app/cookies): Cookie and local-storage usage.
+
+## Download
+- [Windows 64-bit](https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64-setup.exe): Windows Client 20H1 (May 2020) / Server 20H2 or newer.
+- [macOS Intel](https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64.dmg): macOS Catalina 10.15+ (Intel).
+- [macOS Apple Silicon](https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_aarch64.dmg): macOS Catalina 10.15+ (Apple Silicon).
+- [All releases](https://github.com/ScreenExtend/ScreenExtend/releases/latest): Latest builds. Linux is coming soon.
+
+## Key facts
+- Price: free.
+- Host platforms: Windows and macOS. Linux coming soon.
+- Client: any device with a modern web browser, nothing to install.
+- Streaming: direct peer-to-peer over WebRTC, GPU-encoded, encrypted in transit (SRTP).
+- Limits: up to 200% scale and 500 Hz per display; HDR is coming in a future release.
+- Multiple displays: connect as many devices as you like, each with its own virtual display.
+- Offline: the host can start its own Wi-Fi network, so devices connect with no router.
+- Privacy: no screen content is stored; settings stay on your device.
+- Contact: support@screenextend.app
+
+## FAQ
+- **How do I use ScreenExtend?** Run it on your PC, scan a QR code (or open the URL) on any other device, and enter the 6-digit session code. That device becomes an extended monitor.
+- **Is my data secure?** Yes. Every session needs a one-time code to join, which you can regenerate anytime to lock out unknown devices, and the stream is encrypted.
+- **What resolution and refresh rate can it do? Can it game?** Each device goes up to 200% scale and 500 Hz. Gaming works if your network keeps up; heavy high-refresh video needs a strong connection. HDR is coming in a future release.
+- **How many devices can connect at once?** As many as you like; each one gets its own virtual display. Performance drops as you add more.
+- **How does offline mode work?** In Settings, start the hosted network with a name and password. Join that Wi-Fi on the other device and open the URL on the dashboard, no router needed.
+- **What data does ScreenExtend collect?** None is stored. Settings stay on your device; a session only exchanges what's needed to set up the connection, then it's gone.

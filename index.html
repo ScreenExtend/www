@@ -2,13 +2,212 @@
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary meta -->
+    <title>ScreenExtend: Turn Any Device Into a Wireless Second Monitor</title>
+    <meta
+      name="description"
+      content="Turn any phone, tablet, or spare laptop into a wireless second monitor for your PC or Mac. ScreenExtend streams your screen over WebRTC; free, with no client install."
+    />
+    <meta
+      name="keywords"
+      content="second monitor, extend display, wireless second monitor, use phone as monitor, use tablet as second screen, use laptop as monitor, WebRTC screen streaming, virtual display, extended monitor app, ScreenExtend"
+    />
+    <meta name="author" content="Sarvesh Madullapalli" />
+    <meta name="publisher" content="ScreenExtend" />
+    <meta name="application-name" content="ScreenExtend" />
+    <meta name="generator" content="Vite" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta
+      name="googlebot"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="rating" content="general" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#316cff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Canonical + language -->
+    <link rel="canonical" href="https://screenextend.app/" />
+    <link rel="author" href="/humans.txt" />
+    <link rel="alternate" hreflang="en" href="https://screenextend.app/" />
+    <link rel="alternate" hreflang="x-default" href="https://screenextend.app/" />
+
+    <!-- Icons + PWA -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ScreenExtend</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="apple-mobile-web-app-title" content="ScreenExtend" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ScreenExtend" />
+    <meta property="og:title" content="ScreenExtend: Turn Any Device Into a Wireless Second Monitor" />
+    <meta
+      property="og:description"
+      content="Turn any phone, tablet, or spare laptop into a wireless second monitor for your PC or Mac. ScreenExtend streams your screen over WebRTC — free, with no client install."
+    />
+    <meta property="og:url" content="https://screenextend.app/" />
+    <meta property="og:image" content="https://screenextend.app/og-image.png" />
+    <meta property="og:image:secure_url" content="https://screenextend.app/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1369" />
+    <meta property="og:image:height" content="817" />
+    <meta
+      property="og:image:alt"
+      content="The ScreenExtend host app dashboard showing QR codes to add a new device as a second monitor."
+    />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ScreenExtend: Turn Any Device Into a Wireless Second Monitor" />
+    <meta
+      name="twitter:description"
+      content="Turn any phone, tablet, or spare laptop into a wireless second monitor for your PC or Mac. ScreenExtend streams your screen over WebRTC — free, with no client install."
+    />
+    <meta name="twitter:image" content="https://screenextend.app/og-image.png" />
+    <meta
+      name="twitter:image:alt"
+      content="The ScreenExtend host app dashboard showing QR codes to add a new device as a second monitor."
+    />
+    <!-- No X/Twitter account is on record; add twitter:site and twitter:creator (@handle) here if one is created. -->
+
+    <!-- Performance: warm up the Google Fonts connection used by the stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://github.com" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://screenextend.app/#organization",
+            "name": "ScreenExtend",
+            "url": "https://screenextend.app/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screenextend.app/icon-512.png",
+              "width": 512,
+              "height": 512
+            },
+            "founder": { "@type": "Person", "name": "Sarvesh Madullapalli" },
+            "email": "support@screenextend.app",
+            "sameAs": ["https://github.com/ScreenExtend/ScreenExtend"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://screenextend.app/#website",
+            "url": "https://screenextend.app/",
+            "name": "ScreenExtend",
+            "description": "Turn any phone, tablet, or spare laptop into a wireless second monitor for your PC or Mac, streamed over WebRTC.",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://screenextend.app/#organization" }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://screenextend.app/#app",
+            "name": "ScreenExtend",
+            "description": "ScreenExtend turns any device with a browser — a phone, tablet, or spare laptop — into an extended monitor for your PC or Mac. The screen is streamed directly between machines over WebRTC, with no client app to install.",
+            "operatingSystem": "Windows, macOS",
+            "applicationCategory": "UtilitiesApplication",
+            "url": "https://screenextend.app/",
+            "downloadUrl": "https://github.com/ScreenExtend/ScreenExtend/releases/latest",
+            "softwareHelp": "https://screenextend.app/#faq",
+            "image": "https://screenextend.app/og-image.png",
+            "screenshot": "https://screenextend.app/og-image.png",
+            "publisher": { "@id": "https://screenextend.app/#organization" },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://screenextend.app/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How do I use ScreenExtend?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Run it on your PC, scan a QR code (or open the URL) on any other device, and enter the 6-digit session code. That device becomes an extended monitor."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is my data secure?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Every session needs a one-time code to join, which you can regenerate anytime to lock out unknown devices, and the stream is encrypted."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What resolution and refresh rate can it do? Can it game?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Each device goes up to 200% scale and 500 Hz. Gaming works if your network keeps up; heavy high-refresh video needs a strong connection. HDR is coming in a future release."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How many devices can connect at once?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "As many as you like; each one gets its own virtual display. Performance drops as you add more."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does offline mode work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "In Settings, start the hosted network with a name and password. Join that Wi-Fi on the other device and open the URL on the dashboard, no router needed."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What data does ScreenExtend collect?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "None is stored. Settings stay on your device; a session only exchanges what's needed to set up the connection, then it's gone."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body class="font-body">
     <div id="root"></div>
+    <noscript>
+      <h1>ScreenExtend: Turn any device into a wireless second monitor</h1>
+      <p>
+        ScreenExtend is a free app that turns any phone, tablet, or spare laptop
+        into an extended monitor for your Windows PC or Mac. Your screen is
+        streamed directly between machines over WebRTC, with no client app to
+        install on the second device.
+      </p>
+      <p>
+        <a href="https://github.com/ScreenExtend/ScreenExtend/releases/latest"
+          >Download ScreenExtend for Windows and macOS</a
+        >
+      </p>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

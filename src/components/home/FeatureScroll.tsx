@@ -58,8 +58,6 @@ function FeatureScrollCinematic() {
               <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
                 The app
               </p>
-              {/* all features share one grid cell so the block sizes to the
-              tallest — no fixed height to overflow into the rail */}
               <div className="mt-4 grid">
                 {FEATURES.map((f, i) => (
                   <div

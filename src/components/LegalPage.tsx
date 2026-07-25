@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 import type { LegalPageDef } from "@/legal/content.ts";
+import { applyMeta, applyHomeMeta } from "@/lib/seo.ts";
 
 function MarkdownLink({
   href,
@@ -38,33 +39,16 @@ function MarkdownLink({
 
 export default function LegalPage({ page }: { page: LegalPageDef }) {
   useEffect(() => {
-    document.title = page.docTitle;
-
-    const canonicalHref = `https://screenextend.app${page.path}`;
-    let canonical = document.querySelector<HTMLLinkElement>(
-      'link[rel="canonical"]',
-    );
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.rel = "canonical";
-      document.head.appendChild(canonical);
-    }
-    canonical.href = canonicalHref;
-
-    let robots = document.querySelector<HTMLMetaElement>(
-      'meta[name="robots"]',
-    );
-    if (!robots) {
-      robots = document.createElement("meta");
-      robots.name = "robots";
-      document.head.appendChild(robots);
-    }
-    robots.content = "index,follow";
+    applyMeta({
+      title: page.docTitle,
+      description: `${page.title} for ScreenExtend. ${page.meta}.`,
+      path: page.path,
+    });
 
     window.scrollTo(0, 0);
 
     return () => {
-      document.title = "ScreenExtend";
+      applyHomeMeta();
     };
   }, [page]);
 

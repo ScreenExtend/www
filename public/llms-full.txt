@@ -1,0 +1,95 @@
+# ScreenExtend — full site content
+
+> ScreenExtend is a free, cross-platform desktop app that turns any device with a browser — a phone, tablet, or spare laptop — into a wireless second monitor for a Windows PC or Mac. The screen is streamed directly between machines over WebRTC, with no client app to install on the second device.
+
+Website: https://screenextend.app/
+Operator: Sarvesh Madullapalli (United States)
+Support: support@screenextend.app
+
+---
+
+## Hero
+
+**Turn any screen into your screen.**
+
+ScreenExtend makes a phone, tablet, or spare laptop act as an extended monitor, streamed straight from your PC over your Wi-Fi network.
+
+Highlights: no client install · WebRTC streaming · works offline.
+
+---
+
+## How it works
+
+1. **Open ScreenExtend.** It shows a QR code and a 6-digit session code for every network you're on.
+2. **Scan the code.** Point a phone, tablet, or spare laptop at the code. It opens in the browser without anything to install.
+3. **Enter the session code.** Type the 6 digits to pair. The host spins up a virtual display sized to your device.
+4. **Drag across, like a cable.** The screen streams over WebRTC. Slide a window off the edge and it lands on your phone, just like a true second monitor.
+
+---
+
+## Under the hood (architecture)
+
+- **GPU-encoded** — Capture is encoded on the host GPU with NVENC (Nvidia), Quick Sync (Intel), or VideoToolbox (Mac) and sent over WebRTC for low latency.
+- **No client app** — The client is just a web page. Any device with a modern browser can become an extended monitor.
+- **Encrypted** — Signaling and streaming run over HTTPS/WebRTC with a certificate generated at runtime.
+- **Offline mode** — The host can start its own ad-hoc network, so devices connect with no router in reach.
+- **Per-device** — Resolution scale, orientation, refresh rate, and quality are set independently for each screen.
+- **Auto-discovery** — The host watches every network adapter and rebuilds join URLs and QR codes as things change.
+
+---
+
+## Inside the host app
+
+- **Dashboard — Add a new device.** Every network you're on gets its own QR code and URL, plus an Anywhere tile for joining across networks. Scan, enter the code, and a fullscreen extended monitor appears.
+- **Per-device control — Adjust each display.** Each connected device has live settings: resolution scale, orientation, refresh rate, and video quality. Adjust one without affecting the others, or remove it with ease.
+- **Settings — Session settings.** Regenerate the one-time session code, start an offline hosted network with no router, set a disconnect timeout, and view debug logs.
+
+---
+
+## Download
+
+Supports Windows, Mac, and Linux (Linux coming soon).
+
+- **Windows** — minimum Windows Client 20H1 (May 2020) or Windows Server 20H2 (October 2020).
+  - 64-bit EXE: https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64-setup.exe
+  - ARM EXE: coming soon.
+- **Mac** — minimum macOS Catalina 10.15+ (October 2019).
+  - Intel DMG: https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64.dmg
+  - Apple Silicon DMG: https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_aarch64.dmg
+- **Linux** (coming soon) — minimum Ubuntu 20.04 (April 2020). DEB / RPM / AppImage.
+
+Running on an unsupported operating system? Email support@screenextend.app with your device information for a custom build.
+
+---
+
+## Frequently asked questions
+
+**How do I use ScreenExtend?**
+Run it on your PC, scan a QR code (or open the URL) on any other device, and enter the 6-digit session code. That device becomes an extended monitor.
+
+**Is my data secure?**
+Yes. Every session needs a one-time code to join, which you can regenerate anytime to lock out unknown devices, and the stream is encrypted.
+
+**What resolution and refresh rate can it do? Can it game?**
+Each device goes up to 200% scale and 500 Hz. Gaming works if your network keeps up; heavy high-refresh video needs a strong connection. HDR is coming in a future release.
+
+**How many devices can connect at once?**
+As many as you like; each one gets its own virtual display. Performance drops as you add more.
+
+**How does offline mode work?**
+In Settings, start the hosted network with a name and password. Join that Wi-Fi on the other device and open the URL on the dashboard, no router needed.
+
+**What data does ScreenExtend collect?**
+None is stored. Settings stay on your device; a session only exchanges what's needed to set up the connection, then it's gone.
+
+---
+
+## Contact
+
+- General support: support@screenextend.app
+- Privacy & data requests: privacy@screenextend.app
+- Abuse & content reports: abuse@screenextend.app
+- Security vulnerability reports: security@screenextend.app (see https://screenextend.app/.well-known/security.txt)
+- Legal & copyright (DMCA) notices: legal@screenextend.app
+
+This website and the ScreenExtend Service are operated by Sarvesh Madullapalli, United States. Questions, reports, or requests are answered within 72 hours.

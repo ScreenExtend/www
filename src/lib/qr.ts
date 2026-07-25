@@ -1,8 +1,3 @@
-// Deterministic, decorative QR-style module grid. Not a real encoder — it just
-// produces a convincing, stable pattern (finder squares in three corners plus
-// pseudo-random data modules) that we can render as SVG and sweep a scan line
-// across. Seeded so it never changes between renders or reloads.
-
 export function qrModules(seed: number, size = 21): boolean[][] {
   const g: boolean[][] = Array.from({ length: size }, () =>
     Array<boolean>(size).fill(false),

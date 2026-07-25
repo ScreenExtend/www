@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
+import { applyHomeMeta } from "@/lib/seo.ts";
 import Navbar from "@/components/Navbar.tsx";
 import Hero from "./components/Hero.tsx";
 import Features from "@/components/Features.tsx";
@@ -24,6 +26,10 @@ import FaqSimple from "@/components/home/FaqSimple.tsx";
 import { Theme, useTheme } from "react-daisyui";
 
 function Home() {
+  useEffect(() => {
+    applyHomeMeta();
+  }, []);
+
   return (
     <>
       <HeroLanding />
