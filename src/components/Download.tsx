@@ -68,7 +68,7 @@ export default function Download() {
                     <div className={ICON_WRAP}>
                       <img alt="Mac Logo" className="h-9 w-9" src={theme == "light" ? macLogo : theme == "dark" ? macLogoLight : (getComputedStyle(document.querySelector(":root")!).getPropertyValue("color-scheme") != "light" ? macLogoLight : macLogo)} />
                     </div>
-                    <h3 className="text-xl font-semibold">Mac</h3>
+                    <h3 className="text-xl font-semibold">Mac (beta)</h3>
                   </div>
                 </div>
                 <div>
@@ -76,6 +76,7 @@ export default function Download() {
                   <ul className="list-inside list-disc text-sm">
                     <li>MacOS Catalina 10.15+ (October 2019)</li>
                   </ul>
+                  <p className="text-sm text-red-400">WARNING: Use with caution. Builds have not been widely tested.</p>
                   <div className="flex flex-row mt-5">
                     <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64.dmg" target="_blank">
                       <Button className={DL_BTN}>
