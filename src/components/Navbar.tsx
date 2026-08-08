@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import { Button, Drawer, Menu, Navbar as ReactNavbar } from "react-daisyui";
 import { Menu as MenuIcon, Github } from "lucide-react";
@@ -8,10 +9,20 @@ import logo from "@/assets/logo/screenextend.svg";
 const NAV_LINK =
   "relative transition-colors duration-200 hover:text-primary after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-primary after:transition-all after:duration-300 hover:after:w-full";
 
+const NAV_ITEMS = [
+  { id: "home", label: "Home" },
+  { id: "how", label: "How it Works" },
+  { id: "features", label: "Features" },
+  { id: "faq", label: "FAQ" },
+  { id: "contact", label: "Contact" },
+];
+
 export default function Navbar() {
   const [drawerOpened, setDrawerOpened] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const { pathname } = useLocation();
 
   const closeDrawer = () => setDrawerOpened(false);
 
@@ -25,6 +36,13 @@ export default function Navbar() {
           document.documentElement.scrollHeight - window.innerHeight;
         setAtTop(scrolled < 30);
         setProgress(height > 0 ? (scrolled / height) * 100 : 0);
+
+        let current: string | null = null;
+        for (const { id } of NAV_ITEMS) {
+          const el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= 80) current = id;
+        }
+        setActiveId(current);
       });
     };
     onScroll();
@@ -33,7 +51,10 @@ export default function Navbar() {
       window.removeEventListener("scroll", onScroll);
       cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [pathname]);
+
+  const linkClass = (id: string) =>
+    `${NAV_LINK} ${activeId === id ? "text-primary after:w-full" : ""}`;
 
   return (
     <div
@@ -63,31 +84,18 @@ export default function Navbar() {
                         ScreenExtend
                       </a>
                     </Menu.Item>
-                    <Menu.Item className="font-medium">
-                      <a href="/#home" onClick={closeDrawer}>
-                        Home
-                      </a>
-                    </Menu.Item>
-                    <Menu.Item className="font-medium">
-                      <a href="/#how" onClick={closeDrawer}>
-                        How it Works
-                      </a>
-                    </Menu.Item>
-                    <Menu.Item className="font-medium">
-                      <a href="/#features" onClick={closeDrawer}>
-                        Features
-                      </a>
-                    </Menu.Item>
-                    <Menu.Item className="font-medium">
-                      <a href="/#faq" onClick={closeDrawer}>
-                        FAQ
-                      </a>
-                    </Menu.Item>
-                    <Menu.Item className="font-medium">
-                      <a href="/#contact" onClick={closeDrawer}>
-                        Contact
-                      </a>
-                    </Menu.Item>
+                    {NAV_ITEMS.map(({ id, label }) => (
+                      <Menu.Item key={id} className="font-medium">
+                        <a
+                          href={`/#${id}`}
+                          className={activeId === id ? "text-primary" : ""}
+                          aria-current={activeId === id ? "true" : undefined}
+                          onClick={closeDrawer}
+                        >
+                          {label}
+                        </a>
+                      </Menu.Item>
+                    ))}
                     <div className="my-1 border-t border-base-content/10" />
                     <Menu.Item className="font-medium">
                       <a
@@ -122,31 +130,17 @@ export default function Navbar() {
           </ReactNavbar.Start>
           <ReactNavbar.Center className="hidden lg:flex">
             <Menu horizontal size="sm" className="gap-2 px-1">
-              <Menu.Item className="font-medium">
-                <a href="/#home" className={NAV_LINK}>
-                  Home
-                </a>
-              </Menu.Item>
-              <Menu.Item className="font-medium">
-                <a href="/#how" className={NAV_LINK}>
-                  How it Works
-                </a>
-              </Menu.Item>
-              <Menu.Item className="font-medium">
-                <a href="/#features" className={NAV_LINK}>
-                  Features
-                </a>
-              </Menu.Item>
-              <Menu.Item className="font-medium">
-                <a href="/#faq" className={NAV_LINK}>
-                  FAQ
-                </a>
-              </Menu.Item>
-              <Menu.Item className="font-medium">
-                <a href="/#contact" className={NAV_LINK}>
-                  Contact
-                </a>
-              </Menu.Item>
+              {NAV_ITEMS.map(({ id, label }) => (
+                <Menu.Item key={id} className="font-medium">
+                  <a
+                    href={`/#${id}`}
+                    className={linkClass(id)}
+                    aria-current={activeId === id ? "true" : undefined}
+                  >
+                    {label}
+                  </a>
+                </Menu.Item>
+              ))}
             </Menu>
           </ReactNavbar.Center>
           <ReactNavbar.End className="gap-3">
