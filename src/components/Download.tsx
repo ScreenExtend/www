@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button, Card, useTheme } from "react-daisyui";
 
 import Reveal from "@/components/Reveal.tsx";
@@ -15,6 +16,7 @@ const DL_BTN =
 
 export default function Download() {
   const { theme } = useTheme();
+  const [showMacNotice, setShowMacNotice] = useState(false);
 
   return (
     <section className="py-8 lg:py-20" id="download">
@@ -78,7 +80,7 @@ export default function Download() {
                   </ul>
                   <p className="text-sm text-red-400">WARNING: Use with caution. Builds have not been widely tested.</p>
                   <div className="flex flex-row mt-5">
-                    <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_universal.dmg" target="_blank">
+                    <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_universal.dmg" target="_blank" onClick={() => setShowMacNotice(true)}>
                       <Button className={DL_BTN}>
                         Universal DMG
                       </Button>
@@ -122,6 +124,40 @@ export default function Download() {
             </Card>
           </Reveal>
         </div>
+        {showMacNotice && (
+          <div className="mt-6 rounded-lg border border-primary/30 bg-base-100/70 p-6 backdrop-blur-sm">
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <img alt="Mac Logo" className="h-6 w-6" src={theme == "light" ? macLogo : theme == "dark" ? macLogoLight : (getComputedStyle(document.querySelector(":root")!).getPropertyValue("color-scheme") != "light" ? macLogoLight : macLogo)} />
+                <h3 className="text-lg font-semibold">Your download is starting...</h3>
+              </div>
+              <button
+                aria-label="Dismiss"
+                className="text-base-content/50 transition-colors hover:text-base-content"
+                onClick={() => setShowMacNotice(false)}
+                type="button"
+              >
+                ✕
+              </button>
+            </div>
+            <p className="mt-3 text-sm text-base-content/80">
+              The Mac build is still in beta and isn't notarized by Apple yet, so macOS says it's from an <span className="font-medium">"unidentified developer"</span> and
+              doesn't open it. This is normal; to launch the program:
+            </p>
+            <ol className="mt-3 list-inside list-decimal space-y-1 text-sm text-base-content/80">
+              <li>Open the downloaded <span className="font-medium">.dmg</span> and drag ScreenExtend into your <span className="font-medium">Applications</span> folder.</li>
+              <li>In Applications, <span className="font-medium">Control-click</span> (or right-click) ScreenExtend and choose <span className="font-medium">Open</span>.</li>
+              <li>Click <span className="font-medium">Open</span> in this second dialog that appears. You only need to do this once.</li>
+            </ol>
+            <p className="mt-3 text-sm text-base-content/80">
+              If it's still blocked, open <span className="font-medium">System Settings {"-->"} Privacy &amp; Security</span>, scroll
+              to the note that ScreenExtend was blocked, and click <span className="font-medium">Open Anyway</span>.
+            </p>
+            <p className="mt-3 text-sm text-base-content/60">
+              If macOS says the app is <span className="font-medium">"damaged"</span>, open <span className="font-medium">Terminal</span>, run <code className="rounded bg-base-200 px-1.5 py-0.5">xattr -cr /Applications/ScreenExtend.app</code>, and try again.
+            </p>
+          </div>
+        )}
         <Reveal>
           <p className="mt-4 text-center">
           Running on an unsupported operating system? Contact us at <a href="mailto:support@screenextend.app" style={{ textDecoration: "underline" }}>support@screenextend.app</a> with your device information for a custom build.
