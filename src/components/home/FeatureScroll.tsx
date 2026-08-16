@@ -16,7 +16,7 @@ const FEATURES = [
   {
     eyebrow: "Per-device Control",
     title: "Adjust each display",
-    desc: "Each connected device has live settings: resolution scale, orientation, refresh rate, and video quality. Adjust one without affecting the others, or remove it with ease.",
+    desc: "Each connected device has live settings: resolution scale, orientation, refresh rate, and video quality. Adjust one without affecting the others, or remove it.",
     img: feature2,
   },
   {
