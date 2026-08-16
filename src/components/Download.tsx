@@ -78,15 +78,9 @@ export default function Download() {
                   </ul>
                   <p className="text-sm text-red-400">WARNING: Use with caution. Builds have not been widely tested.</p>
                   <div className="flex flex-row mt-5">
-                    <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64.dmg" target="_blank">
+                    <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_universal.dmg" target="_blank">
                       <Button className={DL_BTN}>
-                        Intel DMG
-                      </Button>
-                    </a>
-                    <div className="grow-0 w-3"></div>
-                    <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_aarch64.dmg" target="_blank">
-                      <Button className={DL_BTN}>
-                        Apple Silicon DMG
+                        Universal DMG
                       </Button>
                     </a>
                   </div>
