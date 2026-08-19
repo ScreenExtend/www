@@ -82,7 +82,7 @@ export default function Download() {
                   <div className="flex flex-row mt-5">
                     <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_universal.dmg" target="_blank" onClick={() => setShowMacNotice(true)}>
                       <Button className={DL_BTN}>
-                        Universal DMG
+                        DMG
                       </Button>
                     </a>
                   </div>
