@@ -17,6 +17,7 @@ const DL_BTN =
 export default function Download() {
   const { theme } = useTheme();
   const [showMacNotice, setShowMacNotice] = useState(false);
+  const [showWindowsNotice, setShowWindowsNotice] = useState(false);
 
   return (
     <section className="py-8 lg:py-20" id="download">
@@ -46,7 +47,7 @@ export default function Download() {
                     <li>Windows Server 20H2 (October 2020)</li>
                   </ul>
                   <div className="flex flex-row mt-5">
-                    <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64-setup.exe" target="_blank">
+                    <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64-setup.exe" target="_blank" onClick={() => setShowWindowsNotice(true)}>
                       <Button className={DL_BTN}>
                         64-bit EXE
                       </Button>
@@ -141,8 +142,7 @@ export default function Download() {
               </button>
             </div>
             <p className="mt-3 text-sm text-base-content/80">
-              The Mac build is still in beta and isn't notarized by Apple yet, so macOS says it's from an <span className="font-medium">"unidentified developer"</span> and
-              doesn't open it. This is normal; to launch the program:
+              The Mac build is still in beta and isn't notarized by Apple yet, so an error appears that the app is from an <span className="font-medium">"unidentified developer"</span>. This is nothing to be concerned about. To launch the program:
             </p>
             <ol className="mt-3 list-inside list-decimal space-y-1 text-sm text-base-content/80">
               <li>Open the downloaded <span className="font-medium">.dmg</span> and drag ScreenExtend into your <span className="font-medium">Applications</span> folder.</li>
@@ -155,6 +155,37 @@ export default function Download() {
             </p>
             <p className="mt-3 text-sm text-base-content/60">
               If macOS says the app is <span className="font-medium">"damaged"</span>, open <span className="font-medium">Terminal</span>, run <code className="rounded bg-base-200 px-1.5 py-0.5">xattr -cr /Applications/ScreenExtend.app</code>, and try again.
+            </p>
+          </div>
+        )}
+        {showWindowsNotice && (
+          <div className="mt-6 rounded-lg border border-primary/30 bg-base-100/70 p-6 backdrop-blur-sm">
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <img alt="Windows Logo" className="h-6 w-6" src={windowsLogo} />
+                <h3 className="text-lg font-semibold">Your download is starting...</h3>
+              </div>
+              <button
+                aria-label="Dismiss"
+                className="text-base-content/50 transition-colors hover:text-base-content"
+                onClick={() => setShowWindowsNotice(false)}
+                type="button"
+              >
+                ✕
+              </button>
+            </div>
+            <p className="mt-3 text-sm text-base-content/80">
+              We haven't paid for a code-signing certificate yet, so Windows doesn't recognize the installer. When you run it, SmartScreen may show a blue <span className="font-medium"> "Windows protected your PC"</span> box. This is nothing to be concerned about. Simply do the following:
+            </p>
+            <ol className="mt-3 list-inside list-decimal space-y-1 text-sm text-base-content/80">
+              <li>Click <span className="font-medium">More info</span> on that box.</li>
+              <li>Click the <span className="font-medium">Run anyway</span> button that appears at the bottom.</li>
+            </ol>
+            <p className="mt-3 text-sm text-base-content/80">
+              Should your browser put a hold on the <span className="font-medium">.exe</span> download, opt to <span className="font-medium">Keep</span> (with Edge or Chrome one has to click the <span className="font-medium">⋯</span> by the download for that option).
+            </p>
+            <p className="mt-3 text-sm text-base-content/60">
+              Do not take any of these warnings as an indication the app is in any way unsafe. That is how Windows treats software of an unknown origin. We will have them go away when we get around to signing our builds.
             </p>
           </div>
         )}
