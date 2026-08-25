@@ -211,6 +211,7 @@ function Stage({ p, widthCss }: { p: number; widthCss: string }) {
   const m = motion(p);
   return (
     <div
+      aria-hidden="true"
       className="relative mx-auto aspect-[16/9]"
       style={{
         width: widthCss,
@@ -468,7 +469,7 @@ function ConnectFlowCinematic() {
 
 function ConnectFlowStatic() {
   return (
-    <section id="how" className="py-16 lg:py-24">
+    <section id="how" className="cv-auto py-16 lg:py-24">
       <div className="container">
         <div className="mx-auto max-w-2xl text-center">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">

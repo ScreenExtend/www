@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Card, useTheme } from "react-daisyui";
 
 import Reveal from "@/components/Reveal.tsx";
@@ -18,9 +18,20 @@ export default function Download() {
   const { theme } = useTheme();
   const [showMacNotice, setShowMacNotice] = useState(false);
   const [showWindowsNotice, setShowWindowsNotice] = useState(false);
+  const [systemDark, setSystemDark] = useState(true);
+  useEffect(() => {
+    setSystemDark(window.matchMedia("(prefers-color-scheme: dark)").matches);
+  }, []);
+
+  const macSrc =
+    theme === "light"
+      ? macLogo
+      : theme === "dark" || systemDark
+        ? macLogoLight
+        : macLogo;
 
   return (
-    <section className="py-8 lg:py-20" id="download">
+    <section className="cv-auto py-8 lg:py-20" id="download">
       <div className="container">
         <Reveal className="text-center">
           <h2 className="text-4xl font-semibold">Download ScreenExtend</h2>
@@ -47,17 +58,17 @@ export default function Download() {
                     <li>Windows Server 20H2 (October 2020)</li>
                   </ul>
                   <div className="flex flex-row mt-5">
-                    <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64-setup.exe" target="_blank" onClick={() => setShowWindowsNotice(true)}>
+                    <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64-setup.exe" target="_blank" rel="noopener noreferrer" onClick={() => setShowWindowsNotice(true)}>
                       <Button className={DL_BTN}>
                         64-bit EXE
                       </Button>
                     </a>
                     <div className="grow-0 w-3"></div>
-                    <a className="grow basis-0 cursor-not-allowed opacity-50" target="_blank">
+                    <div className="grow basis-0 cursor-not-allowed opacity-50">
                       <Button className="w-full pointer-events-none select-none">
                         ARM EXE
                       </Button>
-                    </a>
+                    </div>
                   </div>
                 </div>
               </Card.Body>
@@ -69,7 +80,7 @@ export default function Download() {
                 <div className="flex items-center justify-between gap-2 p-0">
                   <div className="flex items-center gap-4">
                     <div className={ICON_WRAP}>
-                      <img alt="Mac Logo" className="h-9 w-9" src={theme == "light" ? macLogo : theme == "dark" ? macLogoLight : (getComputedStyle(document.querySelector(":root")!).getPropertyValue("color-scheme") != "light" ? macLogoLight : macLogo)} />
+                      <img alt="Mac Logo" className="h-9 w-9" src={macSrc} />
                     </div>
                     <h3 className="text-xl font-semibold">Mac (beta)</h3>
                   </div>
@@ -81,7 +92,7 @@ export default function Download() {
                   </ul>
                   <p className="text-sm text-red-400">WARNING: Use with caution. Builds have not been widely tested.</p>
                   <div className="flex flex-row mt-5">
-                    <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_universal.dmg" target="_blank" onClick={() => setShowMacNotice(true)}>
+                    <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_universal.dmg" target="_blank" rel="noopener noreferrer" onClick={() => setShowMacNotice(true)}>
                       <Button className={DL_BTN}>
                         DMG
                       </Button>
@@ -129,7 +140,7 @@ export default function Download() {
           <div className="mt-6 rounded-lg border border-primary/30 bg-base-100/70 p-6 backdrop-blur-sm">
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-center gap-3">
-                <img alt="Mac Logo" className="h-6 w-6" src={theme == "light" ? macLogo : theme == "dark" ? macLogoLight : (getComputedStyle(document.querySelector(":root")!).getPropertyValue("color-scheme") != "light" ? macLogoLight : macLogo)} />
+                <img alt="Mac Logo" className="h-6 w-6" src={macSrc} />
                 <h3 className="text-lg font-semibold">Your download is starting...</h3>
               </div>
               <button
@@ -153,7 +164,7 @@ export default function Download() {
               If it's still blocked, open <span className="font-medium">System Settings {"-->"} Privacy &amp; Security</span>, scroll
               to the note that ScreenExtend was blocked, and click <span className="font-medium">Open Anyway</span>.
             </p>
-            <p className="mt-3 text-sm text-base-content/60">
+            <p className="mt-3 text-sm text-base-content/75">
               If macOS says the app is <span className="font-medium">"damaged"</span>, open <span className="font-medium">Terminal</span>, run <code className="rounded bg-base-200 px-1.5 py-0.5">xattr -cr /Applications/ScreenExtend.app</code>, and try again.
             </p>
           </div>
@@ -184,7 +195,7 @@ export default function Download() {
             <p className="mt-3 text-sm text-base-content/80">
               Should your browser put a hold on the <span className="font-medium">.exe</span> download, opt to <span className="font-medium">Keep</span> (with Edge or Chrome one has to click the <span className="font-medium">⋯</span> by the download for that option).
             </p>
-            <p className="mt-3 text-sm text-base-content/60">
+            <p className="mt-3 text-sm text-base-content/75">
               Do not take any of these warnings as an indication the app is in any way unsafe. That is how Windows treats software of an unknown origin. We will have them go away when we get around to signing our builds.
             </p>
           </div>

@@ -3,11 +3,11 @@ export default function AuroraBackground() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden [contain:strict]"
     >
-      <div className="absolute -left-40 -top-40 h-[38rem] w-[38rem] rounded-full bg-gradient-to-br from-logo-blue/30 to-logo-cyan/10 blur-3xl animate-blob" /> {/* unslop-ignore */}
-      <div className="absolute -right-40 top-1/4 h-[34rem] w-[34rem] rounded-full bg-gradient-to-br from-logo-cyan/25 to-logo-mint/15 blur-3xl animate-blob animation-delay-2000" /> {/* unslop-ignore */}
-      <div className="absolute bottom-[-10rem] left-1/3 h-[32rem] w-[32rem] rounded-full bg-gradient-to-tr from-logo-lime/20 to-logo-blue/10 blur-3xl animate-blob animation-delay-4000" /> {/* unslop-ignore */}
+      <div className="aurora-blob absolute -left-40 -top-40 h-[38rem] w-[38rem] rounded-full bg-gradient-to-br from-logo-blue/30 to-logo-cyan/10 blur-3xl" /> {/* unslop-ignore */}
+      <div className="aurora-blob aurora-delay-1 absolute -right-40 top-1/4 h-[34rem] w-[34rem] rounded-full bg-gradient-to-br from-logo-cyan/25 to-logo-mint/15 blur-3xl" /> {/* unslop-ignore */}
+      <div className="aurora-blob aurora-delay-2 absolute bottom-[-10rem] left-1/3 h-[32rem] w-[32rem] rounded-full bg-gradient-to-tr from-logo-lime/20 to-logo-blue/10 blur-3xl" /> {/* unslop-ignore */}
     </div>
   );
 }

@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
 import Reveal from "@/components/Reveal.tsx";
-import { KNOWN } from "@/legal/content.ts";
+import { KNOWN } from "@/legal/known.ts";
 
 const CARD =
   "h-full rounded-box border border-base-content/10 bg-base-100/50 p-6 backdrop-blur-sm transition-colors duration-200 hover:border-primary/40";
@@ -38,7 +38,7 @@ const POLICIES: { label: string; to: string }[] = [
 
 export default function Contact() {
   return (
-    <section className="py-8 lg:py-20" id="contact">
+    <section className="cv-auto py-8 lg:py-20" id="contact">
       <div className="container">
         <Reveal className="flex flex-col items-center text-center">
           <h2 className="text-4xl font-semibold text-base-content">Contact</h2>

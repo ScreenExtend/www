@@ -1,10 +1,16 @@
-import React, { createContext, useState, useContext } from "react";
+import React, {
+  createContext,
+  useState,
+  useContext,
+  Suspense,
+  lazy,
+} from "react";
 
-import ImageViewer from "react-simple-image-viewer";
+import { SHOTS } from "@/lib/screenshots.ts";
 
-import feature1Image from "@/assets/app/feature-1.png";
-import feature2Image from "@/assets/app/feature-2.png";
-import feature3Image from "@/assets/app/feature-3.png";
+const ImageViewer = lazy(() => import("react-simple-image-viewer"));
+
+const LIGHTBOX_SRCS = SHOTS.map((s) => s.webp);
 
 interface ImageContextType {
   currentImage: number;
@@ -21,14 +27,16 @@ export const ImageProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       {children}
       <div style={{ zIndex: 99999 }}>
         {currentImage > -1 && (
-          <ImageViewer
-            src={[feature1Image, feature2Image, feature3Image]}
-            currentIndex={currentImage}
-            disableScroll={false}
-            closeOnClickOutside={true}
-            onClose={() => setCurrentImage(-1)}
-            backgroundStyle={{ zIndex: 9999 }}
-          />
+          <Suspense fallback={null}>
+            <ImageViewer
+              src={LIGHTBOX_SRCS}
+              currentIndex={currentImage}
+              disableScroll={false}
+              closeOnClickOutside={true}
+              onClose={() => setCurrentImage(-1)}
+              backgroundStyle={{ zIndex: 9999 }}
+            />
+          </Suspense>
         )}
       </div>
     </ImageContext.Provider>

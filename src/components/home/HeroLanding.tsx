@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 import { useTrackProgress, useReducedMotion } from "@/hooks/useScroll.ts";
 import { mix } from "@/lib/anim.ts";
-import heroShot from "@/assets/app/feature-1.png";
+import Screenshot from "@/components/Screenshot.tsx";
 
 const CHIPS = ["No client install", "WebRTC streaming", "Works offline"];
 
@@ -76,7 +76,7 @@ export default function HeroLanding() {
                 {CHIPS.map((c) => (
                   <li
                     key={c}
-                    className="flex items-center gap-1.5 text-sm text-base-content/60"
+                    className="flex items-center gap-1.5 text-sm text-base-content/75"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                     {c}
@@ -90,6 +90,7 @@ export default function HeroLanding() {
               ref={ref}
               onMouseMove={onMove}
               onMouseLeave={onLeave}
+              aria-hidden="true"
               className="hero-visual relative [perspective:1200px]"
             >
             <div
@@ -114,14 +115,16 @@ export default function HeroLanding() {
                     <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
                     <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
                     <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-                    <span className="ml-2 font-mono text-[11px] text-white/40">
+                    <span className="ml-2 font-mono text-[11px] text-white/60">
                       ScreenExtend — Add Device
                     </span>
                   </div>
-                  <img
-                    src={heroShot}
+                  <Screenshot
+                    index={0}
                     alt="The ScreenExtend host app showing QR codes to add a new device"
                     className="block w-full"
+                    priority
+                    sizes="(min-width: 1024px) 36rem, 100vw"
                   />
                 </div>
               </div>

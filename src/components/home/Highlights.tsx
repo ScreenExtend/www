@@ -44,7 +44,7 @@ const ITEMS = [
 
 export default function Highlights() {
   return (
-    <section className="py-16 lg:py-28">
+    <section className="cv-auto py-16 lg:py-28">
       <div className="container">
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
@@ -69,7 +69,7 @@ export default function Highlights() {
               <h3 className="mt-4 font-mono text-sm uppercase tracking-wide text-base-content">
                 {item.label}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-base-content/65">
+              <p className="mt-2 text-sm leading-relaxed text-base-content/75">
                 {item.desc}
               </p>
             </Reveal>

@@ -1,20 +1,4 @@
-export const KNOWN = {
-  EFFECTIVE_DATE: "June 13, 2026",
-  SUPPORT_EMAIL: "support@screenextend.app",
-  PRIVACY_EMAIL: "privacy@screenextend.app",
-  ABUSE_EMAIL: "abuse@screenextend.app",
-  SECURITY_EMAIL: "security@screenextend.app",
-  LEGAL_EMAIL: "legal@screenextend.app",
-  MIN_AGE: "13 (16 in the EEA/UK)",
-} as const;
-
-export interface LegalPageDef {
-  path: string;
-  title: string;
-  docTitle: string;
-  meta: string;
-  body: string;
-}
+import { KNOWN, type LegalPageDef } from "@/legal/known.ts";
 
 const terms = `These Terms of Service ("Terms") are a binding agreement between you and Sarvesh Madullapalli
 ("ScreenExtend", "we", "us", or "our") and govern your access to and use of the

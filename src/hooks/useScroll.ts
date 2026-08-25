@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
+const EPS = 0.0015;
+
 export function usePinProgress<T extends HTMLElement = HTMLDivElement>() {
   const ref = useRef<T | null>(null);
   const [progress, setProgress] = useState(0);
@@ -14,7 +16,8 @@ export function usePinProgress<T extends HTMLElement = HTMLDivElement>() {
       const rect = node.getBoundingClientRect();
       const total = rect.height - window.innerHeight;
       const scrolled = -rect.top;
-      setProgress(total > 0 ? Math.min(1, Math.max(0, scrolled / total)) : 0);
+      const next = total > 0 ? Math.min(1, Math.max(0, scrolled / total)) : 0;
+      setProgress((prev) => (Math.abs(next - prev) > EPS ? next : prev));
     };
     const onScroll = () => {
       if (!frame) frame = requestAnimationFrame(update);
@@ -47,7 +50,8 @@ export function useTrackProgress<T extends HTMLElement = HTMLDivElement>() {
       const rect = node.getBoundingClientRect();
       const vh = window.innerHeight;
       const p = (vh - rect.top) / (vh + rect.height);
-      setProgress(Math.min(1, Math.max(0, p)));
+      const next = Math.min(1, Math.max(0, p));
+      setProgress((prev) => (Math.abs(next - prev) > EPS ? next : prev));
     };
     const onScroll = () => {
       if (!frame) frame = requestAnimationFrame(update);
@@ -73,12 +77,7 @@ export function useReducedMotion() {
 
 /** Reactively tracks whether a CSS media query currently matches. */
 export function useMediaQuery(query: string) {
-  const [matches, setMatches] = useState(
-    () =>
-      typeof window !== "undefined" &&
-      typeof window.matchMedia === "function" &&
-      window.matchMedia(query).matches,
-  );
+  const [matches, setMatches] = useState(false);
 
   useEffect(() => {
     if (typeof window.matchMedia !== "function") return;

@@ -2,7 +2,17 @@ import theme from 'daisyui/src/theming/themes'
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{js,jsx,ts,tsx}', 'index.html', 'node_modules/daisyui/dist/**/*.js', 'node_modules/react-daisyui/dist/**/*.js'],
+  content: ['./src/**/*.{js,jsx,ts,tsx}', 'index.html'],
+  safelist: [
+    { pattern: /^btn($|-)/ },
+    { pattern: /^card($|-)/ },
+    { pattern: /^collapse($|-)/ },
+    { pattern: /^drawer($|-)/ },
+    { pattern: /^navbar($|-)/ },
+    { pattern: /^menu($|-)/ },
+    { pattern: /^dropdown($|-)/ },
+    { pattern: /^link($|-)/ },
+  ],
   theme: {
     container: {
       center: true,

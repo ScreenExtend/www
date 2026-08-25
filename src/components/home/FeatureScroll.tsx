@@ -1,29 +1,24 @@
 import { useImage } from "@/components/ImageContext.tsx";
 import { usePinProgress, useCinematic } from "@/hooks/useScroll.ts";
 import Reveal from "@/components/Reveal.tsx";
+import Screenshot from "@/components/Screenshot.tsx";
 import { range, mix, clamp } from "@/lib/anim.ts";
-import feature1 from "@/assets/app/feature-1.png";
-import feature2 from "@/assets/app/feature-2.png";
-import feature3 from "@/assets/app/feature-3.png";
 
 const FEATURES = [
   {
     eyebrow: "Dashboard",
     title: "Add a new device",
     desc: "Every network you're on gets its own QR code and URL, plus an Anywhere tile for joining across networks. Scan, enter the code, and a fullscreen extended monitor appears.",
-    img: feature1,
   },
   {
     eyebrow: "Per-device Control",
     title: "Adjust each display",
     desc: "Each connected device has live settings: resolution scale, orientation, refresh rate, and video quality. Adjust one without affecting the others, or remove it.",
-    img: feature2,
   },
   {
     eyebrow: "Settings",
     title: "Session settings",
     desc: "Regenerate the one-time session code, start an offline hosted network with no router, set a disconnect timeout, and view debug logs.",
-    img: feature3,
   },
 ];
 
@@ -69,7 +64,7 @@ function FeatureScrollCinematic() {
                       pointerEvents: active === i ? "auto" : "none",
                     }}
                   >
-                    <p className="text-sm font-semibold uppercase tracking-wide text-base-content/50">
+                    <p className="text-sm font-semibold uppercase tracking-wide text-base-content/70">
                       {f.eyebrow}
                     </p>
                     <h3 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -109,13 +104,14 @@ function FeatureScrollCinematic() {
               >
                 <div className={`relative aspect-[1369/817] ${FRAME}`}>
                   {FEATURES.map((f, i) => (
-                    <img
+                    <Screenshot
                       key={f.eyebrow}
-                      src={f.img}
+                      index={i}
                       alt={f.title}
                       onClick={() => setCurrentImage(i)}
                       className="absolute inset-0 h-full w-full cursor-pointer object-cover"
                       style={{ opacity: op[i] }}
+                      sizes="(min-width: 1024px) 42rem, 100vw"
                     />
                   ))}
                 </div>
@@ -135,7 +131,7 @@ function FeatureScrollStatic() {
   const { setCurrentImage } = useImage();
 
   return (
-    <section id="features" className="py-16 lg:py-24">
+    <section id="features" className="cv-auto py-16 lg:py-24">
       <div className="container">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
@@ -153,15 +149,16 @@ function FeatureScrollStatic() {
               className="grid items-center gap-6 md:grid-cols-2 md:gap-12"
             >
               <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                <img
-                  src={f.img}
+                <Screenshot
+                  index={i}
                   alt={f.title}
                   onClick={() => setCurrentImage(i)}
                   className={`aspect-[1369/817] w-full cursor-pointer object-cover ${FRAME}`}
+                  sizes="(min-width: 768px) 42rem, 100vw"
                 />
               </div>
               <div className={i % 2 === 1 ? "md:order-1" : ""}>
-                <p className="text-sm font-semibold uppercase tracking-wide text-base-content/50">
+                <p className="text-sm font-semibold uppercase tracking-wide text-base-content/70">
                   {f.eyebrow}
                 </p>
                 <h3 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">

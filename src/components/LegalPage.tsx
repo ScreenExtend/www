@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-import type { LegalPageDef } from "@/legal/content.ts";
+import { LEGAL_PAGES } from "@/legal/content.ts";
 import { applyMeta, applyHomeMeta } from "@/lib/seo.ts";
 
 function MarkdownLink({
@@ -37,8 +37,11 @@ function MarkdownLink({
   );
 }
 
-export default function LegalPage({ page }: { page: LegalPageDef }) {
+export default function LegalPage({ path }: { path: string }) {
+  const page = LEGAL_PAGES.find((p) => p.path === path);
+
   useEffect(() => {
+    if (!page) return;
     applyMeta({
       title: page.docTitle,
       description: `${page.title} for ScreenExtend. ${page.meta}.`,
@@ -52,12 +55,14 @@ export default function LegalPage({ page }: { page: LegalPageDef }) {
     };
   }, [page]);
 
+  if (!page) return null;
+
   return (
-    <main className="container max-w-3xl py-10 lg:py-16">
+    <div className="container max-w-3xl py-10 lg:py-16">
       <h1 className="text-3xl font-bold tracking-tight lg:text-4xl">
         {page.title}
       </h1>
-      <p className="mt-2 text-sm text-base-content/60">{page.meta}</p>
+      <p className="mt-2 text-sm text-base-content/75">{page.meta}</p>
       <article className="prose prose-sm mt-8 max-w-none prose-headings:font-semibold prose-a:no-underline dark:prose-invert">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
@@ -66,6 +71,6 @@ export default function LegalPage({ page }: { page: LegalPageDef }) {
           {page.body}
         </ReactMarkdown>
       </article>
-    </main>
+    </div>
   );
 }

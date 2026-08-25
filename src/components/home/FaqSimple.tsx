@@ -1,9 +1,7 @@
-import { Collapse } from "react-daisyui";
-
 import Reveal from "@/components/Reveal.tsx";
 
 const COLLAPSE =
-  "border border-base-content/10 bg-base-100/50 backdrop-blur-sm transition-colors duration-200 hover:border-primary/40";
+  "collapse collapse-arrow border border-base-content/10 bg-base-100/50 backdrop-blur-sm transition-colors duration-200 hover:border-primary/40";
 
 const QA = [
   {
@@ -34,7 +32,7 @@ const QA = [
 
 export default function FaqSimple() {
   return (
-    <section id="faq" className="py-16 lg:py-28">
+    <section id="faq" className="cv-auto py-16 lg:py-28">
       <div className="container">
         <Reveal className="flex flex-col items-center text-center">
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -45,21 +43,20 @@ export default function FaqSimple() {
         <div className="mx-auto mt-10 max-w-2xl space-y-3">
           {QA.map((item, i) => (
             <Reveal key={item.q} delay={i * 60}>
-              <Collapse className={COLLAPSE} icon="arrow">
-                <input type="checkbox" />
-                <Collapse.Title className="text-lg font-medium">
+              <details className={COLLAPSE}>
+                <summary className="collapse-title list-none text-lg font-medium [&::-webkit-details-marker]:hidden">
                   {item.q}
-                </Collapse.Title>
-                <Collapse.Content>
-                  <p className="text-base text-base-content/75">{item.a}</p>
-                </Collapse.Content>
-              </Collapse>
+                </summary>
+                <div className="collapse-content">
+                  <p className="text-base text-base-content/80">{item.a}</p>
+                </div>
+              </details>
             </Reveal>
           ))}
         </div>
 
         <Reveal>
-          <p className="mt-10 text-center text-base-content/70">
+          <p className="mt-10 text-center text-base-content/80">
             Still stuck? Email{" "}
             <a
               href="mailto:support@screenextend.app"
