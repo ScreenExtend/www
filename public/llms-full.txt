@@ -53,7 +53,7 @@ Supports Windows, Mac, and Linux (Linux coming soon).
 - **Windows** — minimum Windows Client 20H1 (May 2020) or Windows Server 20H2 (October 2020).
   - 64-bit EXE: https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64-setup.exe
   - ARM EXE: coming soon.
-- **Mac** — minimum macOS Catalina 10.15+ (October 2019).
+- **Mac** — minimum macOS Catalina 10.15 (October 2019).
   - Intel DMG: https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64.dmg
   - Apple Silicon DMG: https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_aarch64.dmg
 - **Linux** (coming soon) — minimum Ubuntu 20.04 (April 2020). DEB / RPM / AppImage.

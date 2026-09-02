@@ -13,8 +13,8 @@ ScreenExtend runs on your computer and shows a QR code and a 6-digit session cod
 
 ## Download
 - [Windows 64-bit](https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64-setup.exe): Windows Client 20H1 (May 2020) / Server 20H2 or newer.
-- [macOS Intel](https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64.dmg): macOS Catalina 10.15+ (Intel).
-- [macOS Apple Silicon](https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_aarch64.dmg): macOS Catalina 10.15+ (Apple Silicon).
+- [macOS Intel](https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64.dmg): macOS Catalina 10.15 (Intel).
+- [macOS Apple Silicon](https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_aarch64.dmg): macOS Catalina 10.15 (Apple Silicon).
 - [All releases](https://github.com/ScreenExtend/ScreenExtend/releases/latest): Latest builds. Linux is coming soon.
 
 ## Key facts

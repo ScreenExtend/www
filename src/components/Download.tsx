@@ -88,7 +88,7 @@ export default function Download() {
                 <div>
                   <p className="mt-4 text-sm">Minimum Version:</p>
                   <ul className="list-inside list-disc text-sm">
-                    <li>MacOS Catalina 10.15+ (October 2019)</li>
+                    <li>MacOS Catalina 10.15 (October 2019)</li>
                   </ul>
                   <p className="text-sm text-red-400">WARNING: Use with caution. Builds have not been widely tested.</p>
                   <div className="flex flex-row mt-5">
