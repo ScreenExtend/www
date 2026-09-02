@@ -82,15 +82,14 @@ export default function Download() {
                     <div className={ICON_WRAP}>
                       <img alt="Mac Logo" className="h-9 w-9" src={macSrc} />
                     </div>
-                    <h3 className="text-xl font-semibold">Mac (beta)</h3>
+                    <h3 className="text-xl font-semibold">Mac</h3>
                   </div>
                 </div>
                 <div>
                   <p className="mt-4 text-sm">Minimum Version:</p>
                   <ul className="list-inside list-disc text-sm">
-                    <li>MacOS Catalina 10.15 (October 2019)</li>
+                    <li>MacOS High Sierra 10.13 (September 2017)</li>
                   </ul>
-                  <p className="text-sm text-red-400">WARNING: Use with caution. Builds have not been widely tested.</p>
                   <div className="flex flex-row mt-5">
                     <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_universal.dmg" target="_blank" rel="noopener noreferrer" onClick={() => setShowMacNotice(true)}>
                       <Button className={DL_BTN}>
@@ -201,8 +200,13 @@ export default function Download() {
           </div>
         )}
         <Reveal>
-          <p className="mt-4 text-center">
+          <p className="mt-6 text-center">
           Running on an unsupported operating system? Contact us at <a href="mailto:support@screenextend.app" style={{ textDecoration: "underline" }}>support@screenextend.app</a> with your device information for a custom build.
+          </p>
+        </Reveal>
+        <Reveal>
+          <p className="mt-1 text-center text-sm opacity-50">
+          <span className="font-medium">.msi</span> (Windows) and <span className="font-medium">.pkg</span> (Mac) packages for bulk enterprise installation are on our <a href="https://github.com/ScreenExtend/ScreenExtend/releases/latest" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>GitHub releases page</a>.
           </p>
         </Reveal>
       </div>
