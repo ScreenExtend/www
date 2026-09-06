@@ -88,7 +88,7 @@ export default function Download() {
                 <div>
                   <p className="mt-4 text-sm">Minimum Version:</p>
                   <ul className="list-inside list-disc text-sm">
-                    <li>MacOS High Sierra 10.13 (September 2017)</li>
+                    <li>MacOS Catalina 10.15 (October 2019)</li>
                   </ul>
                   <div className="flex flex-row mt-5">
                     <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_universal.dmg" target="_blank" rel="noopener noreferrer" onClick={() => setShowMacNotice(true)}>
