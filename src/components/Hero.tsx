@@ -1,8 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-
 import { Button } from "react-daisyui";
-import Card3d from "card3d";
-import Observer from "@researchgate/react-intersection-observer";
 
 import { useImage } from "@/components/ImageContext.tsx";
 import Reveal from "@/components/Reveal.tsx";
@@ -23,27 +19,7 @@ const GLOW_SHADCN = "hover:drop-shadow-[0_0_15px_rgba(100,100,100,1)]"; // unslo
 const LABEL = "ml-2.5 font-soft text-xl font-bold";
 
 export default function Hero() {
-  const heroImageRef = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setIsVisible] = useState(true);
   const { setCurrentImage } = useImage();
-  let card: Card3d;
-
-  useEffect(() => {
-    if (isVisible) {
-      card?.start();
-    } else {
-      card?.stop();
-    }
-  }, [isVisible]);
-
-  useEffect(() => {
-    if (heroImageRef.current) {
-      card = new Card3d(heroImageRef.current, {
-        perspective: 1000,
-        fullPageListening: false,
-      });
-    }
-  }, [heroImageRef.current]);
 
   return (
     <section className="py-8 lg:py-20" id="home">
@@ -82,24 +58,21 @@ export default function Hero() {
               </Button>
             </div>
           </div>
-          <Observer onChange={(event) => setIsVisible(event.isIntersecting)}>
-            <div className="col-span-6 animate-fade-in cursor-pointer">
-              <div className="relative">
-                <div
-                  className="relative overflow-hidden rounded-xl ring-1 ring-primary/60 shadow-xl shadow-black/30"
-                  ref={heroImageRef}
-                  onClick={() => setCurrentImage(0)}
-                >
-                  <img
-                    alt="ScreenExtend Dashboard"
-                    id="hero-image"
-                    className="block w-full"
-                    src={heroImage}
-                  />
-                </div>
+          <div className="col-span-6 animate-fade-in cursor-pointer">
+            <div className="relative">
+              <div
+                className="relative overflow-hidden rounded-xl ring-1 ring-primary/60 shadow-xl shadow-black/30"
+                onClick={() => setCurrentImage(0)}
+              >
+                <img
+                  alt="ScreenExtend Dashboard"
+                  id="hero-image"
+                  className="block w-full"
+                  src={heroImage}
+                />
               </div>
             </div>
-          </Observer>
+          </div>
         </div>
         <Reveal>
           <h2 className="mt-12 text-center text-3xl font-semibold text-base-content lg:mt-32">
