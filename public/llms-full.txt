@@ -12,7 +12,7 @@ Support: support@screenextend.app
 
 **Use a tablet, phone or spare laptop as a second monitor.**
 
-ScreenExtend runs on your Windows PC or Mac and adds a virtual display that streams to any device with a web browser. Nothing gets installed on the second device. Free.
+ScreenExtend runs on your Windows PC or Mac and adds a virtual display that streams to any device with a web browser. Nothing gets installed on the second device. Free. Works offline through the host's own hosted network.
 
 ---
 

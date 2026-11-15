@@ -44,7 +44,7 @@ export default function App() {
       <Theme dataTheme="system" className="min-h-screen bg-paper text-ink">
         <a
           href="#main"
-          className="sr-only z-50 rounded-control bg-paper px-3 py-2 focus:not-sr-only focus:fixed focus:left-3 focus:top-3"
+          className="sr-only z-50 rounded-control bg-paper px-3 py-2 focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:inline-flex focus:min-h-11 focus:items-center"
         >
           Skip to content
         </a>

@@ -22,3 +22,10 @@ export const SHOTS: Shot[] = [
 
 export const SHOT_WIDTH = 1369;
 export const SHOT_HEIGHT = 817;
+
+// Alt text for the lightbox, in SHOTS order.
+export const SHOT_ALTS = [
+  "Add Device screen with QR codes and join URLs for the Anywhere (Internet) and Wifi-Home networks.",
+  "Edit Device panel with resolution scale, orientation, refresh rate and video quality controls for one connected device.",
+  "Settings screen showing the Session OTP, Public Internet Sessions, Create Hosted Network and Device Disconnect Timeout options.",
+];

@@ -1,21 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import { useTheme } from "react-daisyui";
-import { Menu as MenuIcon, Github, Monitor, Moon, Sun, X } from "lucide-react";
+import { Menu as MenuIcon, Github, Moon, Sun, SunMoon, X } from "lucide-react";
 
 import logo from "@/assets/logo/screenextend.svg";
 
 const NAV_ITEMS = [
   { id: "how", label: "How it works" },
   { id: "features", label: "Features" },
-  { id: "download", label: "Download" },
   { id: "faq", label: "FAQ" },
   { id: "contact", label: "Contact" },
 ];
 
 const THEMES = [
-  { id: "system", label: "System", Icon: Monitor },
+  { id: "system", label: "System", Icon: SunMoon },
   { id: "light", label: "Light", Icon: Sun },
   { id: "dark", label: "Dark", Icon: Moon },
 ] as const;
@@ -53,8 +52,21 @@ export default function Navbar() {
   const [drawerOpened, setDrawerOpened] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
   const { pathname } = useLocation();
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const drawer = useRef<HTMLDivElement>(null);
+  const wasOpen = useRef(false);
 
   const closeDrawer = () => setDrawerOpened(false);
+
+  // Move focus into the drawer when it opens and back to the menu button when it closes.
+  useEffect(() => {
+    if (drawerOpened) {
+      drawer.current?.querySelector<HTMLElement>("a, button")?.focus();
+    } else if (wasOpen.current) {
+      menuButton.current?.focus();
+    }
+    wasOpen.current = drawerOpened;
+  }, [drawerOpened]);
 
   useEffect(() => {
     if (pathname !== "/") {
@@ -70,6 +82,10 @@ export default function Navbar() {
           const el = document.getElementById(id);
           if (el && el.getBoundingClientRect().top <= 96) current = id;
         }
+        // the last section can be too short to reach the top; use it once the page bottoms out
+        const atBottom =
+          window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+        if (atBottom && current) current = NAV_ITEMS[NAV_ITEMS.length - 1].id;
         setActiveId(current);
       });
     };
@@ -86,6 +102,18 @@ export default function Navbar() {
     if (!drawerOpened) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setDrawerOpened(false);
+      if (e.key !== "Tab" || !drawer.current) return;
+      // keep Tab inside the open drawer
+      const items = drawer.current.querySelectorAll<HTMLElement>("a, button");
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
@@ -101,6 +129,7 @@ export default function Navbar() {
       <header className="sticky top-0 z-30 border-b border-line bg-paper">
         <div className="container flex h-16 items-center gap-2">
           <button
+            ref={menuButton}
             type="button"
             className="-ml-2 inline-flex h-11 w-11 items-center justify-center rounded-control lg:hidden"
             aria-label="Open menu"
@@ -112,7 +141,7 @@ export default function Navbar() {
           </button>
           <a
             href="/"
-            className="flex items-center gap-2 font-mono text-lg font-semibold tracking-tight"
+            className="flex min-h-11 shrink-0 items-center gap-2 font-mono text-[0.9375rem] font-semibold tracking-tight sm:text-lg"
           >
             <img src={logo} width={26} height={23} className="h-[23px] w-[26px]" alt="" />
             ScreenExtend
@@ -145,7 +174,7 @@ export default function Navbar() {
               GitHub
             </a>
             <ThemeSwitch className="hidden sm:inline-flex" />
-            <a href="/#download" className="btn-solid min-h-10 px-4 text-[0.9375rem]">
+            <a href="/#download" className="btn-solid shrink-0 px-3 text-[0.9375rem] sm:px-4">
               Download
             </a>
           </div>
@@ -161,6 +190,7 @@ export default function Navbar() {
           />
           <div
             id="mobile-nav"
+            ref={drawer}
             role="dialog"
             aria-modal="true"
             aria-label="Site menu"

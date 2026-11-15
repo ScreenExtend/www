@@ -4,7 +4,7 @@ import { Plus } from "lucide-react";
 const QA = [
   {
     q: "How do I use ScreenExtend?",
-    a: "Run it on your PC, scan a QR code (or open the URL) on any other device, and enter the 6-digit session code. That device becomes an extended monitor.",
+    a: "Run it on your computer, scan a QR code (or open the URL) on any other device, and enter the 6-digit session code. That device becomes an extended monitor.",
   },
   {
     q: "Is my data secure?",

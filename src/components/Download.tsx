@@ -23,7 +23,7 @@ function Platform({
   children: ReactNode;
 }) {
   return (
-    <div className="flex flex-col border-t border-line pt-6 md:border-l md:border-t-0 md:pl-8 md:pt-0 md:first:border-l-0 md:first:pl-0">
+    <div className="flex flex-col border-t border-line pt-6">
       <h3 className="flex items-center gap-3 text-xl font-semibold">
         {logo}
         {name}
@@ -95,7 +95,7 @@ export default function Download() {
           Free for Windows and macOS. Linux is not available yet.
         </p>
 
-        <div className="mt-10 grid gap-8 md:grid-cols-3 md:gap-8">
+        <div className="mt-10 grid gap-10 md:grid-cols-3 md:gap-12">
           <Platform
             logo={<img alt="" width={24} height={24} className="h-6 w-6" src={windowsLogo} />}
             name="Windows"
@@ -175,7 +175,8 @@ export default function Download() {
           <Notice title="Your download is starting" onClose={() => setShowMacNotice(false)}>
             <p>
               The Mac build isn't notarized by Apple yet, so macOS warns that
-              it's from an <b>"unidentified developer"</b>. To open it:
+              it's from an <b>"unidentified developer"</b>. That doesn't mean
+              the app is unsafe. To open it:
             </p>
             <ol className="list-inside list-decimal space-y-1">
               <li>

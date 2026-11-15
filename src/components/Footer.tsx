@@ -4,7 +4,7 @@ import logo from "@/assets/logo/screenextend.svg";
 
 const LEGAL_LINKS: { label: string; to: string }[] = [
   { label: "Privacy", to: "/privacy" },
-  { label: "Terms", to: "/terms" },
+  { label: "Terms of service", to: "/terms" },
   { label: "Acceptable use", to: "/acceptable-use" },
   { label: "Cookies", to: "/cookies" },
 ];
@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="container flex flex-col gap-4 py-8 text-sm md:flex-row md:items-center md:justify-between">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 font-mono text-base font-semibold tracking-tight"
+          className="inline-flex min-h-11 items-center gap-2 self-start font-mono text-base font-semibold tracking-tight"
         >
           <img src={logo} width={22} height={20} className="h-5 w-[22px]" alt="" />
           ScreenExtend

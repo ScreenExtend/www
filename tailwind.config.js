@@ -12,7 +12,7 @@ const lightTokens = {
 }
 const darkTokens = {
   '--se-paper': '#101214',
-  '--se-surface': '#171a1d',
+  '--se-surface': '#1b1f23',
   '--se-ink': '#e6eaee',
   '--se-muted': '#9aa4ad',
   '--se-line': '#2a3036',
@@ -98,7 +98,7 @@ export default {
           ...theme.dark,
           ...shared,
           'base-100': '#101214',
-          'base-200': '#171a1d',
+          'base-200': '#1b1f23',
           'base-300': '#2a3036',
           'base-content': '#e6eaee',
           ...darkTokens,

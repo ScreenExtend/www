@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
 
-// Example code, drawn the way the host app draws its Session OTP
-// (src/assets/app/feature-3.png). Not a real session.
+// Example code (digits from the previous site's demo). Six separate cells echo the
+// Session OTP row in src/assets/app/feature-3.png; the lime last cell is a site
+// accent marking the digit just typed, not something the app draws.
 const EXAMPLE_CODE = ["3", "7", "7", "6", "2", "0"];
 
 function SessionCode() {
@@ -22,7 +23,7 @@ function SessionCode() {
         ))}
       </div>
       <figcaption className="mt-2 text-sm text-muted">
-        <span className="sr-only">Example session code 377620. </span>
+        <span className="sr-only">Digits shown: 3 7 7 6 2 0. </span>
         Example code. Your computer shows the real one.
       </figcaption>
     </figure>
@@ -39,13 +40,13 @@ const STEPS: { t: string; d: ReactNode; extra?: ReactNode }[] = [
     d: "Point a phone or tablet camera at it, or type the URL on a laptop. The page opens in the browser, with nothing to install.",
   },
   {
-    t: "Type the six-digit session code",
+    t: "Type the 6-digit session code",
     d: "The code pairs the device. Your computer then creates a virtual display sized to that screen.",
     extra: <SessionCode />,
   },
   {
     t: "Drag a window onto it",
-    d: "The display streams over WebRTC. Move a window past the edge of your main screen and it shows up on the other device.",
+    d: "The display streams over WebRTC and fills the other device's screen. Move a window past the edge of your main screen and it shows up on the other device.",
   },
 ];
 
