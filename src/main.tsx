@@ -12,8 +12,11 @@ const tree = (
   </BrowserRouter>
 );
 
-if (root.hasChildNodes()) {
+// Only "/" is prerendered. Other routes (legal pages, via the SPA fallback) receive
+// the homepage markup, so hydrating it would mismatch; render those from scratch.
+if (root.hasChildNodes() && window.location.pathname === "/") {
   hydrateRoot(root, tree);
 } else {
+  root.textContent = "";
   createRoot(root).render(tree);
 }
