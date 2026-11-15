@@ -27,29 +27,28 @@ There is no test framework in this project.
 ## Architecture
 
 Entry: `src/main.tsx` → `BrowserRouter` → `src/App.tsx`. `App.tsx` wraps everything in
-`ImageProvider` + daisyUI `<Theme>`, renders the persistent `Navbar`/`Footer`/`AuroraBackground`,
+`ImageProvider` + daisyUI `<Theme>`, renders the persistent `Navbar`/`Footer` and a skip link,
 and defines routes: `/` (the `Home` composite) plus one route per entry in `LEGAL_PAGES`.
+The homepage is also prerendered at build time (`src/entry-server.tsx` + `prerender.mjs`).
 
-### Two generations of the homepage
-- **Current** homepage sections live in `src/components/home/` (`HeroLanding`, `ConnectFlow`, `FeatureScroll`, `Highlights`, `FaqSimple`) and are composed by `Home` in `App.tsx`.
-- **Old** flat homepage components (`Hero`, `Features`, `FAQ` at the `src/components/` root) are the previous single-scroll design, kept in `OldHome`. That route is currently commented out — don't assume those components are live.
-- `Download`, `Contact`, `Footer`, `Navbar` are shared across both.
+### Homepage sections
+`src/components/home/`: `HeroLanding`, `ConnectFlow` ("How pairing works"), `FeatureScroll`
+("Inside the host app"), `Highlights` ("Technical details"), `FaqSimple`, plus `ShotButton`
+(a real app screenshot that opens the lightbox). `Download`, `Contact`, `Footer`, `Navbar` live at
+the `src/components/` root. The old flat homepage (`Hero`/`Features`/`FAQ`) was deleted; it is in git history.
 
-### Cinematic vs. static (important design constraint)
-Scroll-driven "cinematic" sections must degrade cleanly to a plain stacked layout on
-mobile/short/reduced-motion viewports. The pattern: a section's default export picks a variant
-with **`useCinematic()`** (`src/hooks/useScroll.ts`) — e.g. `FeatureScroll` returns
-`<FeatureScrollCinematic />` or `<FeatureScrollStatic />`. `useCinematic()` is true only on a
-desktop-class viewport (`min-width:1024px`, fine pointer, hover) with reduced-motion off.
-When changing these sections, keep both variants working and make fixes hold at **any** screen
-size rather than patching the current breakpoint — the static variant is the bulletproof fallback.
+### Static by design (important constraint)
+The owner wants the site simple and static. Do **not** add scroll-driven animation, pinned/sticky
+scrollytelling, parallax, tilt, reveal-on-scroll or animated backgrounds. Motion is limited to
+150ms colour transitions on hover/focus and the FAQ "+" rotation, and `prefers-reduced-motion`
+removes those too. The design brief and its rationale are in `exhaustive-unslop/DESIGN-BRIEF.md`.
 
-### Scroll animation
-No animation library. `src/lib/anim.ts` has pure math helpers (`clamp`, `range`, `lerp`, `mix`,
-`easeInOut`, `pulse`) that map a 0..1 scroll progress to transforms/opacity. Progress comes from
-hooks in `src/hooks/useScroll.ts`: `usePinProgress` (progress across a tall pinned/sticky section),
-`useTrackProgress`, plus `useMediaQuery`/`useReducedMotion`. `useInView` (`src/hooks/useInView.ts`)
-powers the `Reveal` reveal-on-scroll wrapper.
+### Design tokens
+Page colours are CSS variables (`--se-paper`, `--se-surface`, `--se-ink`, `--se-muted`,
+`--se-line`, `--se-link`) defined inside each daisyUI theme in `tailwind.config.js`, exposed as
+Tailwind colours `paper`/`surface`/`ink`/`muted`/`line`/`link` (no `/opacity` modifiers on these).
+Radii are tiered: `rounded-cell` 4px, `rounded-control` 6px, `rounded-panel` 8px, `rounded-shot` 10px.
+Shared classes in `src/index.css`: `.btn-solid`, `.btn-line`, `.u-link`, `.section-title`.
 
 ### SEO / meta
 `src/lib/seo.ts` imperatively mutates `document.head` meta/OG/canonical tags. `Home` calls
@@ -62,7 +61,7 @@ server rendering, so this is how per-route metadata is set.
 the routes in `App.tsx` and rendering by `LegalPage` (via `react-markdown` + `remark-gfm`).
 
 ### Other cross-cutting pieces
-- **Theming**: `react-daisyui` `useTheme()` + `<Theme>`; `ThemeToggler` is a floating toggle.
+- **Theming**: `react-daisyui` `useTheme()` + `<Theme>`; the `ThemeSwitch` button in `Navbar.tsx` cycles system/light/dark (inside the mobile menu below `sm`).
 - **Image lightbox**: `ImageContext` provides one global `react-simple-image-viewer`; call `setCurrentImage(i)` from any screenshot to open it.
 
 ## Build & deploy specifics

@@ -1,4 +1,4 @@
-# ScreenExtend — Website
+# ScreenExtend website
 
 The marketing homepage for [**ScreenExtend**](https://screenextend.app), a free, cross-platform
 desktop-extension app that turns any device with a browser into a second monitor. Screen video is
@@ -9,13 +9,12 @@ application itself. It's a single-page React app built with Vite and deployed to
 
 ## Features
 
-- **Landing page** — hero, feature highlights, download cards (Windows / Mac / Linux), FAQ, and
-  a contact section.
-- **Legal pages** — Privacy Policy, Terms of Service, Acceptable Use, and Cookies,
+- **Landing page**: hero, pairing steps, host-app screenshots, technical details, downloads
+  (Windows / Mac / Linux), FAQ, and contact. Fully static; there are no scroll-driven animations.
+- **Legal pages**: Privacy Policy, Terms of Service, Acceptable Use, and Cookies,
   rendered from Markdown via `react-markdown`.
-- **Light/dark theming** with a floating theme toggle (`react-daisyui`).
-- **Interactive UI** — 3D tilt hero image (`card3d`), in-page image viewer, and scroll-based
-  animation pausing via intersection observers.
+- **Light/dark theming** with a system/light/dark switch in the navbar (`react-daisyui`).
+- **Screenshot lightbox**: click any app screenshot to enlarge it.
 - **SPA routing** with `react-router-dom`; a `404.html` fallback is generated at build time so
   deep links work on GitHub Pages.
 
@@ -52,8 +51,8 @@ pnpm dev
 
 ## Routes
 
-- `/` — home (Hero, Features, Download, FAQ, Contact)
-- `/privacy`, `/terms`, `/acceptable-use`, `/cookies` — legal pages
+- `/`: home (hero, how pairing works, features, technical details, download, FAQ, contact)
+- `/privacy`, `/terms`, `/acceptable-use`, `/cookies`: legal pages
 
 ## Deployment
 

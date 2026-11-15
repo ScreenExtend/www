@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "tsc && vite build && vite build --ssr src/entry-server.tsx --outDir dist-server && node prerender.mjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "unslop:scan": "sh \"$EU_SCRIPTS/scan.sh\" check http://localhost:5174 /,/privacy,/terms,/acceptable-use,/cookies src index.html"
   },
   "dependencies": {
     "daisyui": "^4.7.2",
