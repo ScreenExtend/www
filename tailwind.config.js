@@ -15,7 +15,7 @@ const darkTokens = {
   '--se-surface': '#1b1f23',
   '--se-ink': '#e6eaee',
   '--se-muted': '#9aa4ad',
-  '--se-line': '#2a3036',
+  '--se-line': '#313940',
   '--se-link': '#7ea2ff',
 }
 const shared = {

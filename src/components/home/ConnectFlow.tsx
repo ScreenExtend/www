@@ -57,7 +57,7 @@ export default function ConnectFlow() {
         <div className="lg:col-span-4">
           <h2 className="section-title">How pairing works</h2>
           <p className="mt-4 max-w-sm text-muted">
-            One QR scan and six digits. After that the other device behaves
+            One QR scan and a 6-digit code. After that the other device behaves
             like a monitor plugged into your computer.
           </p>
         </div>
@@ -65,7 +65,7 @@ export default function ConnectFlow() {
         <ol className="grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:col-span-8">
           {STEPS.map((s, i) => (
             <li key={s.t} className="grid grid-cols-[2rem_1fr]">
-              <span className="tabular pt-0.5 font-mono text-base font-medium text-muted">
+              <span className="tabular font-mono text-lg font-medium leading-snug text-muted">
                 {i + 1}
               </span>
               <div>

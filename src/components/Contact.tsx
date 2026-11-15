@@ -31,11 +31,11 @@ export default function Contact() {
             {CONTACTS.map((c) => (
               <div
                 key={c.email}
-                className="grid gap-0.5 border-t border-line py-3 first:border-t-0 first:pt-0 sm:grid-cols-[16rem_1fr] sm:gap-6"
+                className="grid border-t border-line py-2 sm:grid-cols-[16rem_1fr] sm:items-center sm:gap-6 sm:py-3"
               >
                 <dt className="text-muted">{c.label}</dt>
                 <dd>
-                  <a href={`mailto:${c.email}`} className="u-link break-all">
+                  <a href={`mailto:${c.email}`} className="u-link inline-flex min-h-11 items-center break-all sm:min-h-0">
                     {c.email}
                   </a>
                   {c.security && (
@@ -63,10 +63,10 @@ export default function Contact() {
             </div>
             <div>
               <h3 className="font-semibold">Policies</h3>
-              <ul className="mt-2 space-y-1">
+              <ul className="mt-1">
                 {POLICIES.map((p) => (
                   <li key={p.to}>
-                    <Link to={p.to} className="u-link">
+                    <Link to={p.to} className="u-link inline-flex min-h-11 items-center">
                       {p.label}
                     </Link>
                   </li>

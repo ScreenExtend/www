@@ -15,11 +15,13 @@ function Platform({
   logo,
   name,
   requires,
+  requiresLabel = "Requires",
   children,
 }: {
   logo: ReactNode;
   name: string;
   requires: string[];
+  requiresLabel?: string;
   children: ReactNode;
 }) {
   return (
@@ -28,7 +30,7 @@ function Platform({
         {logo}
         {name}
       </h3>
-      <p className="mt-4 text-sm font-medium">Requires</p>
+      <p className="mt-4 text-sm font-medium">{requiresLabel}</p>
       <ul className="mt-1 space-y-0.5 text-sm text-muted md:min-h-[2.75rem]">
         {requires.map((r) => (
           <li key={r}>{r}</li>
@@ -135,9 +137,10 @@ export default function Download() {
           <Platform
             logo={<img alt="" width={24} height={24} className="h-6 w-6" src={linuxLogo} />}
             name="Linux"
+            requiresLabel="Will require"
             requires={["Ubuntu 20.04 (April 2020)"]}
           >
-            <p className="rounded-control border border-dashed border-line px-4 py-2.5 text-sm text-muted">
+            <p className="flex min-h-11 items-center rounded-control border border-dashed border-line px-4 text-sm text-muted">
               Coming soon as .deb, .rpm and AppImage.
             </p>
           </Platform>

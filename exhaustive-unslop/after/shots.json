@@ -617,7 +617,7 @@
     "width": 430,
     "status": 200,
     "file": "cookies-430-light.png",
-    "horizontalOverflowPx": 203,
+    "horizontalOverflowPx": 0,
     "consoleIssues": []
   },
   {
@@ -626,7 +626,7 @@
     "width": 390,
     "status": 200,
     "file": "cookies-390-light.png",
-    "horizontalOverflowPx": 243,
+    "horizontalOverflowPx": 0,
     "consoleIssues": []
   },
   {
@@ -635,7 +635,7 @@
     "width": 360,
     "status": 200,
     "file": "cookies-360-light.png",
-    "horizontalOverflowPx": 273,
+    "horizontalOverflowPx": 0,
     "consoleIssues": []
   },
   {
@@ -644,7 +644,7 @@
     "width": 320,
     "status": 200,
     "file": "cookies-320-light.png",
-    "horizontalOverflowPx": 313,
+    "horizontalOverflowPx": 0,
     "consoleIssues": []
   },
   {
@@ -689,7 +689,7 @@
     "width": 430,
     "status": 200,
     "file": "cookies-430-dark.png",
-    "horizontalOverflowPx": 203,
+    "horizontalOverflowPx": 0,
     "consoleIssues": []
   },
   {
@@ -698,7 +698,7 @@
     "width": 390,
     "status": 200,
     "file": "cookies-390-dark.png",
-    "horizontalOverflowPx": 243,
+    "horizontalOverflowPx": 0,
     "consoleIssues": []
   },
   {
@@ -707,7 +707,7 @@
     "width": 360,
     "status": 200,
     "file": "cookies-360-dark.png",
-    "horizontalOverflowPx": 273,
+    "horizontalOverflowPx": 0,
     "consoleIssues": []
   },
   {
@@ -716,7 +716,7 @@
     "width": 320,
     "status": 200,
     "file": "cookies-320-dark.png",
-    "horizontalOverflowPx": 313,
+    "horizontalOverflowPx": 0,
     "consoleIssues": []
   }
 ]

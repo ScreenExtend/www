@@ -97,3 +97,16 @@
   --tw-prose-th-borders: var(--se-line);
   --tw-prose-td-borders: var(--se-line);
 }
+.legal-prose td:nth-child(3) {
+  min-width: 18rem;
+}
+.legal-prose :not(pre) > code {
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+  background: var(--se-surface);
+  font-weight: 500;
+}
+.legal-prose :not(pre) > code::before,
+.legal-prose :not(pre) > code::after {
+  content: none;
+}

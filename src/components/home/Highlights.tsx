@@ -38,7 +38,7 @@ export default function Highlights() {
           {SPECS.map((s) => (
             <div
               key={s.term}
-              className="grid gap-1 border-t border-line py-4"
+              className="grid content-start gap-1 border-t border-line py-4"
             >
               <dt className="font-mono text-sm font-medium leading-6">{s.term}</dt>
               <dd className="leading-relaxed text-muted">{s.desc}</dd>

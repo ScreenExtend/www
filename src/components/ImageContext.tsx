@@ -50,7 +50,7 @@ function Lightbox({
   return (
     <dialog
       ref={ref}
-      aria-label="Screenshot"
+      aria-label="Screenshot viewer"
       onClose={() => {
         setIndex(-1);
         (opener.current as HTMLElement | null)?.focus?.();

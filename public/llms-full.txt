@@ -63,7 +63,7 @@ Running on an unsupported operating system? Email support@screenextend.app with 
 ## Frequently asked questions
 
 **How do I use ScreenExtend?**
-Run it on your PC, scan a QR code (or open the URL) on any other device, and enter the 6-digit session code. That device becomes an extended monitor.
+Run it on your computer, scan a QR code (or open the URL) on any other device, and enter the 6-digit session code. That device becomes an extended monitor.
 
 **Is my data secure?**
 Yes. Every session needs a one-time code to join, which you can regenerate anytime to lock out unknown devices, and the stream is encrypted.

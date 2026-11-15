@@ -13,6 +13,8 @@ const NAV_ITEMS = [
   { id: "contact", label: "Contact" },
 ];
 
+const SPY_IDS = ["home", "how", "features", "specs", "download", "faq", "contact"];
+
 const THEMES = [
   { id: "system", label: "System", Icon: SunMoon },
   { id: "light", label: "Light", Icon: Sun },
@@ -77,8 +79,10 @@ export default function Navbar() {
     const onScroll = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
+        // walk every section, not just nav ones, so a section without a nav link
+        // (specs, download) clears the highlight instead of leaving the previous one lit
         let current: string | null = null;
-        for (const { id } of NAV_ITEMS) {
+        for (const id of SPY_IDS) {
           const el = document.getElementById(id);
           if (el && el.getBoundingClientRect().top <= 96) current = id;
         }
@@ -86,7 +90,7 @@ export default function Navbar() {
         const atBottom =
           window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
         if (atBottom && current) current = NAV_ITEMS[NAV_ITEMS.length - 1].id;
-        setActiveId(current);
+        setActiveId(NAV_ITEMS.some((n) => n.id === current) ? current : null);
       });
     };
     onScroll();
@@ -100,6 +104,8 @@ export default function Navbar() {
   useEffect(() => setDrawerOpened(false), [pathname]);
   useEffect(() => {
     if (!drawerOpened) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setDrawerOpened(false);
       if (e.key !== "Tab" || !drawer.current) return;
@@ -116,7 +122,10 @@ export default function Navbar() {
       }
     };
     document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
   }, [drawerOpened]);
 
   const linkClass = (id: string) =>
