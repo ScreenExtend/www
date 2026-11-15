@@ -1,7 +1,7 @@
 const ORIGIN = "https://screenextend.app";
 
 export const HOME_TITLE =
-  "ScreenExtend: Turn Any Device Into a Wireless Second Monitor";
+  "ScreenExtend: use any device as a wireless second monitor";
 export const HOME_DESCRIPTION =
   "Turn any phone, tablet, or spare laptop into a wireless second monitor for your PC or Mac. ScreenExtend streams your screen over WebRTC; free, with no client install.";
 

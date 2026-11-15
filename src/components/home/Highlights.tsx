@@ -1,80 +1,50 @@
-import {
-  Cpu,
-  Globe,
-  ShieldCheck,
-  WifiOff,
-  SlidersHorizontal,
-  Radio,
-} from "lucide-react";
-
-import Reveal from "@/components/Reveal.tsx";
-
-const ITEMS = [
+const SPECS = [
   {
-    icon: Cpu,
-    label: "GPU-encoded",
-    desc: "Capture is encoded on the host GPU with NVENC (Nvidia), Quick Sync (Intel), or VideoToolbox (Mac) and sent over WebRTC for low latency.",
+    term: "Encoding",
+    desc: "On the host GPU: NVENC (Nvidia), Quick Sync (Intel) or VideoToolbox (Mac), sent over WebRTC for low latency.",
   },
   {
-    icon: Globe,
-    label: "No client app",
-    desc: "The client is just a web page. Any device with a modern browser can become an extended monitor.",
+    term: "Client",
+    desc: "A web page. Any device with a modern browser can be the extra screen.",
   },
   {
-    icon: ShieldCheck,
-    label: "Encrypted",
-    desc: "Signaling and streaming run over HTTPS/WebRTC with a certificate generated at runtime.",
+    term: "Encryption",
+    desc: "Signaling and streaming run over HTTPS and WebRTC, using a certificate generated at runtime.",
   },
   {
-    icon: WifiOff,
-    label: "Offline mode",
-    desc: "The host can start its own ad-hoc network, so devices connect with no router in reach.",
+    term: "Offline mode",
+    desc: "The host can start its own network, so devices connect with no router nearby.",
   },
   {
-    icon: SlidersHorizontal,
-    label: "Per-device",
-    desc: "Resolution scale, orientation, refresh rate, and quality are set independently for each screen.",
+    term: "Per-device settings",
+    desc: "Resolution scale, orientation, refresh rate and quality are set separately for each screen.",
   },
   {
-    icon: Radio,
-    label: "Auto-discovery",
-    desc: "The host watches every network adapter and rebuilds join URLs and QR codes as things change.",
+    term: "Limits",
+    desc: "Up to 200% scale and 500 Hz per device. Any number of devices, though performance drops as you add more.",
+  },
+  {
+    term: "Network discovery",
+    desc: "The host watches every network adapter and rebuilds join URLs and QR codes when they change.",
   },
 ];
 
 export default function Highlights() {
   return (
-    <section className="cv-auto py-16 lg:py-28">
-      <div className="container">
-        <Reveal>
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
-            Architecture
-          </p>
-          <h2 className="mt-3 max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">
-            Under the hood
-          </h2>
-        </Reveal>
-
-        <div className="mt-10 grid overflow-hidden rounded-xl border border-base-content/10 sm:grid-cols-2 lg:grid-cols-3">
-          {ITEMS.map((item, i) => (
-            <Reveal
-              key={item.label}
-              delay={(i % 3) * 80}
-              className="group border-b border-r border-base-content/10 bg-base-100/40 p-6 backdrop-blur-sm transition-colors duration-300 hover:bg-base-100/70 lg:[&:nth-child(3n)]:border-r-0"
+    <section id="specs" className="border-t border-line bg-surface py-16 lg:py-20">
+      <div className="container grid gap-8 lg:grid-cols-12 lg:gap-12">
+        <h2 className="section-title lg:col-span-4">Technical details</h2>
+        <dl className="lg:col-span-8">
+          {SPECS.map((s) => (
+            <div
+              key={s.term}
+              className="grid gap-1 border-t border-line py-4 first:border-t-0 first:pt-0 sm:grid-cols-[12rem_1fr] sm:gap-6"
             >
-              <item.icon
-                size={22}
-                className="text-primary transition-transform duration-300 group-hover:-translate-y-0.5"
-              />
-              <h3 className="mt-4 font-mono text-sm uppercase tracking-wide text-base-content">
-                {item.label}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-base-content/75">
-                {item.desc}
-              </p>
-            </Reveal>
+              <dt className="font-mono text-sm font-medium leading-6">{s.term}</dt>
+              <dd className="leading-relaxed text-muted">{s.desc}</dd>
+            </div>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   );

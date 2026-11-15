@@ -10,11 +10,9 @@ Support: support@screenextend.app
 
 ## Hero
 
-**Turn any screen into your screen.**
+**Use a tablet, phone or spare laptop as a second monitor.**
 
-ScreenExtend makes a phone, tablet, or spare laptop act as an extended monitor, streamed straight from your PC over your Wi-Fi network.
-
-Highlights: no client install · WebRTC streaming · works offline.
+ScreenExtend runs on your Windows PC or Mac and adds a virtual display that streams to any device with a web browser. Nothing gets installed on the second device. Free.
 
 ---
 

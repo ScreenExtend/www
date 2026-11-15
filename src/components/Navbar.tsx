@@ -1,49 +1,74 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-import { Button, Menu, Navbar as ReactNavbar } from "react-daisyui";
-import { Menu as MenuIcon, Github, X } from "lucide-react";
+import { useTheme } from "react-daisyui";
+import { Menu as MenuIcon, Github, Monitor, Moon, Sun, X } from "lucide-react";
 
 import logo from "@/assets/logo/screenextend.svg";
 
-const NAV_LINK =
-  "relative transition-colors duration-200 hover:text-primary after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-primary after:transition-transform after:duration-300 hover:after:scale-x-100";
-
 const NAV_ITEMS = [
-  { id: "home", label: "Home" },
-  { id: "how", label: "How it Works" },
+  { id: "how", label: "How it works" },
   { id: "features", label: "Features" },
+  { id: "download", label: "Download" },
   { id: "faq", label: "FAQ" },
   { id: "contact", label: "Contact" },
 ];
 
+const THEMES = [
+  { id: "system", label: "System", Icon: Monitor },
+  { id: "light", label: "Light", Icon: Sun },
+  { id: "dark", label: "Dark", Icon: Moon },
+] as const;
+
+function ThemeSwitch({ className = "" }: { className?: string }) {
+  const { theme, setTheme } = useTheme();
+  const index = Math.max(
+    0,
+    THEMES.findIndex((t) => t.id === theme),
+  );
+  const current = THEMES[index];
+  const next = THEMES[(index + 1) % THEMES.length];
+
+  const apply = (id: string) => {
+    setTheme(id);
+    // keep the page background (overscroll area) in step with the theme
+    if (id === "system") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme", id);
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={() => apply(next.id)}
+      aria-label={`Theme: ${current.label}. Switch to ${next.label}.`}
+      title={`Theme: ${current.label}`}
+      className={`h-11 w-11 items-center justify-center rounded-control text-muted transition-colors duration-150 hover:text-ink ${className || "inline-flex"}`}
+    >
+      <current.Icon size={18} strokeWidth={1.75} aria-hidden="true" />
+    </button>
+  );
+}
+
 export default function Navbar() {
   const [drawerOpened, setDrawerOpened] = useState(false);
-  const [atTop, setAtTop] = useState(true);
   const [activeId, setActiveId] = useState<string | null>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
   const { pathname } = useLocation();
 
   const closeDrawer = () => setDrawerOpened(false);
 
   useEffect(() => {
+    if (pathname !== "/") {
+      setActiveId(null);
+      return;
+    }
     let frame = 0;
     const onScroll = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        const scrolled = window.scrollY;
-        const height =
-          document.documentElement.scrollHeight - window.innerHeight;
-        if (progressRef.current) {
-          const ratio = height > 0 ? scrolled / height : 0;
-          progressRef.current.style.transform = `scaleX(${ratio})`;
-        }
-        setAtTop(scrolled < 30);
-
         let current: string | null = null;
         for (const { id } of NAV_ITEMS) {
           const el = document.getElementById(id);
-          if (el && el.getBoundingClientRect().top <= 80) current = id;
+          if (el && el.getBoundingClientRect().top <= 96) current = id;
         }
         setActiveId(current);
       });
@@ -56,9 +81,6 @@ export default function Navbar() {
     };
   }, [pathname]);
 
-  const linkClass = (id: string) =>
-    `${NAV_LINK} ${activeId === id ? "text-primary after:scale-x-100" : ""}`;
-
   useEffect(() => setDrawerOpened(false), [pathname]);
   useEffect(() => {
     if (!drawerOpened) return;
@@ -69,44 +91,37 @@ export default function Navbar() {
     return () => document.removeEventListener("keydown", onKey);
   }, [drawerOpened]);
 
+  const linkClass = (id: string) =>
+    `inline-flex min-h-11 items-center px-3 text-[0.9375rem] transition-colors duration-150 hover:text-ink ${
+      activeId === id ? "text-ink underline decoration-2 underline-offset-[6px]" : "text-muted"
+    }`;
+
   return (
     <>
-    <div
-      id="navbar-wrapper"
-      className={`sticky top-0 z-20 border-b bg-base-100/80 backdrop-blur-md transition-colors duration-300 lg:bg-base-100/70 ${atTop ? "border-transparent" : "border-base-content/10"}`}
-    >
-      <div
-        ref={progressRef}
-        className="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-primary will-change-transform"
-        style={{ transform: "scaleX(0)" }}
-      />
-      <div className="container">
-        <ReactNavbar className="px-0">
-          <ReactNavbar.Start className="gap-2">
-            <div className="flex-none lg:hidden">
-              <Button
-                shape="square"
-                color="ghost"
-                aria-label="Open menu"
-                aria-expanded={drawerOpened}
-                aria-controls="mobile-nav"
-                onClick={() => setDrawerOpened(true)}
-              >
-                <MenuIcon className="inline-block text-xl" aria-hidden="true" />
-              </Button>
-            </div>
-            <a
-              href="/"
-              className="flex items-center gap-2 font-mono text-xl font-bold tracking-tight transition-transform duration-200 hover:scale-105"
-            >
-              <img src={logo} className="h-7 w-7" alt="ScreenExtend logo" />
-              ScreenExtend
-            </a>
-          </ReactNavbar.Start>
-          <ReactNavbar.Center className="hidden lg:flex">
-            <Menu horizontal size="sm" className="gap-2 px-1">
+      <header className="sticky top-0 z-30 border-b border-line bg-paper">
+        <div className="container flex h-16 items-center gap-2">
+          <button
+            type="button"
+            className="-ml-2 inline-flex h-11 w-11 items-center justify-center rounded-control lg:hidden"
+            aria-label="Open menu"
+            aria-expanded={drawerOpened}
+            aria-controls="mobile-nav"
+            onClick={() => setDrawerOpened(true)}
+          >
+            <MenuIcon size={22} strokeWidth={1.75} aria-hidden="true" />
+          </button>
+          <a
+            href="/"
+            className="flex items-center gap-2 font-mono text-lg font-semibold tracking-tight"
+          >
+            <img src={logo} width={26} height={23} className="h-[23px] w-[26px]" alt="" />
+            ScreenExtend
+          </a>
+
+          <nav aria-label="Main" className="ml-8 hidden lg:block">
+            <ul className="flex items-center">
               {NAV_ITEMS.map(({ id, label }) => (
-                <Menu.Item key={id} className="font-medium">
+                <li key={id}>
                   <a
                     href={`/#${id}`}
                     className={linkClass(id)}
@@ -114,34 +129,28 @@ export default function Navbar() {
                   >
                     {label}
                   </a>
-                </Menu.Item>
+                </li>
               ))}
-            </Menu>
-          </ReactNavbar.Center>
-          <ReactNavbar.End className="gap-3">
-            <Button
-              size="sm"
-              color="ghost"
-              className="hidden sm:inline-flex"
-              onClick={() =>
-                window.open("https://github.com/ScreenExtend/ScreenExtend", "_blank")
-              }
+            </ul>
+          </nav>
+
+          <div className="ml-auto flex items-center gap-1 sm:gap-2">
+            <a
+              href="https://github.com/ScreenExtend/ScreenExtend"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden min-h-11 items-center gap-2 px-3 text-[0.9375rem] text-muted transition-colors duration-150 hover:text-ink sm:inline-flex"
             >
-              <Github size={22} />
-              Github
-            </Button>
-            <Button
-              size="sm"
-              color="primary"
-              className="shadow-sm transition-colors duration-200 hover:!bg-[#5b8bff]"
-              onClick={() => (window.location.href = "/#download")}
-            >
+              <Github size={18} strokeWidth={1.75} aria-hidden="true" />
+              GitHub
+            </a>
+            <ThemeSwitch className="hidden sm:inline-flex" />
+            <a href="/#download" className="btn-solid min-h-10 px-4 text-[0.9375rem]">
               Download
-            </Button>
-          </ReactNavbar.End>
-        </ReactNavbar>
-      </div>
-    </div>
+            </a>
+          </div>
+        </div>
+      </header>
 
       {drawerOpened && (
         <div className="fixed inset-0 z-50 lg:hidden">
@@ -155,49 +164,50 @@ export default function Navbar() {
             role="dialog"
             aria-modal="true"
             aria-label="Site menu"
-            className="absolute inset-y-0 left-0 flex w-80 max-w-[82%] flex-col gap-2 bg-base-100 p-4 text-base-content shadow-xl"
+            className="absolute inset-y-0 left-0 flex w-80 max-w-[85%] flex-col bg-paper p-4 text-ink"
           >
-            <div className="mb-1 flex items-center justify-between">
+            <div className="mb-2 flex items-center justify-between">
               <a
                 href="/"
-                className="flex items-center gap-2 font-mono text-xl font-bold"
+                className="flex items-center gap-2 font-mono text-lg font-semibold"
                 onClick={closeDrawer}
               >
-                <img src={logo} className="h-6 w-6" alt="" />
+                <img src={logo} width={24} height={21} className="h-[21px] w-6" alt="" />
                 ScreenExtend
               </a>
-              <Button
-                shape="square"
-                color="ghost"
-                size="sm"
+              <ThemeSwitch className="ml-auto inline-flex" />
+              <button
+                type="button"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-control"
                 aria-label="Close menu"
                 onClick={closeDrawer}
               >
-                <X className="h-5 w-5" aria-hidden="true" />
-              </Button>
+                <X size={20} strokeWidth={1.75} aria-hidden="true" />
+              </button>
             </div>
-            {NAV_ITEMS.map(({ id, label }) => (
+            <nav aria-label="Mobile">
+              {NAV_ITEMS.map(({ id, label }) => (
+                <a
+                  key={id}
+                  href={`/#${id}`}
+                  className={`flex min-h-12 items-center border-b border-line px-1 text-lg ${activeId === id ? "font-medium" : ""}`}
+                  aria-current={activeId === id ? "true" : undefined}
+                  onClick={closeDrawer}
+                >
+                  {label}
+                </a>
+              ))}
               <a
-                key={id}
-                href={`/#${id}`}
-                className={`rounded-btn px-3 py-2 font-medium transition-colors hover:bg-base-200 ${activeId === id ? "text-primary" : ""}`}
-                aria-current={activeId === id ? "true" : undefined}
+                href="https://github.com/ScreenExtend/ScreenExtend"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex min-h-12 items-center gap-2 px-1 text-lg"
                 onClick={closeDrawer}
               >
-                {label}
+                <Github size={18} strokeWidth={1.75} aria-hidden="true" />
+                GitHub
               </a>
-            ))}
-            <div className="my-1 border-t border-base-content/10" />
-            <a
-              href="https://github.com/ScreenExtend/ScreenExtend"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 rounded-btn px-3 py-2 font-medium transition-colors hover:bg-base-200"
-              onClick={closeDrawer}
-            >
-              <Github size={18} aria-hidden="true" />
-              Github
-            </a>
+            </nav>
           </div>
         </div>
       )}

@@ -1,41 +1,47 @@
 import { Link } from "react-router-dom";
 
-import Reveal from "@/components/Reveal.tsx";
 import logo from "@/assets/logo/screenextend.svg";
 
 const LEGAL_LINKS: { label: string; to: string }[] = [
   { label: "Privacy", to: "/privacy" },
   { label: "Terms", to: "/terms" },
-  { label: "Acceptable Use", to: "/acceptable-use" },
+  { label: "Acceptable use", to: "/acceptable-use" },
   { label: "Cookies", to: "/cookies" },
 ];
 
-const LINK_CLASS =
-  "link link-hover transition-colors duration-200 hover:text-primary";
+const LINK = "inline-flex min-h-11 items-center text-muted transition-colors duration-150 hover:text-ink";
 
 export default function Footer() {
   return (
-    <footer>
-      <Reveal className="mt-10 border-t border-base-content/20 px-8 py-6 text-center text-sm text-base-content lg:px-40">
+    <footer className="border-t border-line">
+      <div className="container flex flex-col gap-4 py-8 text-sm md:flex-row md:items-center md:justify-between">
         <Link
           to="/"
-          className="mb-4 inline-flex items-center gap-2 font-mono text-base font-bold tracking-tight transition-colors duration-200 hover:text-primary"
+          className="inline-flex items-center gap-2 font-mono text-base font-semibold tracking-tight"
         >
-          <img src={logo} className="h-6 w-6" alt="" />
+          <img src={logo} width={22} height={20} className="h-5 w-[22px]" alt="" />
           ScreenExtend
         </Link>
-        <nav className="mb-5 flex flex-wrap justify-center gap-x-4 gap-y-1">
+        <nav aria-label="Footer" className="flex flex-wrap gap-x-5">
           {LEGAL_LINKS.map((link) => (
-            <Link key={link.to} to={link.to} className={LINK_CLASS}>
+            <Link key={link.to} to={link.to} className={LINK}>
               {link.label}
             </Link>
           ))}
-          <a href="/#contact" className={LINK_CLASS}>
+          <a href="/#contact" className={LINK}>
             Contact
           </a>
+          <a
+            href="https://github.com/ScreenExtend/ScreenExtend"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={LINK}
+          >
+            GitHub
+          </a>
         </nav>
-        © 2026 Sarvesh Madullapalli. All rights reserved.
-      </Reveal>
+        <p className="text-muted">© 2026 Sarvesh Madullapalli. All rights reserved.</p>
+      </div>
     </footer>
   );
 }

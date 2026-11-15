@@ -1,18 +1,75 @@
-import { useEffect, useState } from "react";
-import { Button, Card, useTheme } from "react-daisyui";
+import { useEffect, useState, type ReactNode } from "react";
+import { useTheme } from "react-daisyui";
+import { X } from "lucide-react";
 
-import Reveal from "@/components/Reveal.tsx";
 import windowsLogo from "@/assets/logo/windows.svg";
 import macLogo from "@/assets/logo/mac.svg";
 import macLogoLight from "@/assets/logo/mac-light.svg";
 import linuxLogo from "@/assets/logo/linux.svg";
 
-const CARD =
-  "h-full border border-base-content/10 bg-base-100/70 backdrop-blur-sm transition-colors duration-300 hover:border-primary/30";
-const ICON_WRAP =
-  "flex h-16 w-16 items-center justify-center rounded-full bg-base-200 transition-colors duration-300 group-hover:bg-primary/10";
-const DL_BTN =
-  "w-full transition-colors duration-200 hover:border-primary hover:text-primary";
+const RELEASES = "https://github.com/ScreenExtend/ScreenExtend/releases/latest";
+const WINDOWS_EXE = `${RELEASES}/download/ScreenExtend_x64-setup.exe`;
+const MAC_DMG = `${RELEASES}/download/ScreenExtend_universal.dmg`;
+
+function Platform({
+  logo,
+  name,
+  requires,
+  children,
+}: {
+  logo: ReactNode;
+  name: string;
+  requires: string[];
+  children: ReactNode;
+}) {
+  return (
+    <div className="flex flex-col border-t border-line pt-6 md:border-l md:border-t-0 md:pl-8 md:pt-0 md:first:border-l-0 md:first:pl-0">
+      <h3 className="flex items-center gap-3 text-xl font-semibold">
+        {logo}
+        {name}
+      </h3>
+      <p className="mt-4 text-sm font-medium">Requires</p>
+      <ul className="mt-1 space-y-0.5 text-sm text-muted md:min-h-[2.75rem]">
+        {requires.map((r) => (
+          <li key={r}>{r}</li>
+        ))}
+      </ul>
+      <div className="mt-6">{children}</div>
+    </div>
+  );
+}
+
+function Notice({
+  title,
+  onClose,
+  children,
+}: {
+  title: string;
+  onClose: () => void;
+  children: ReactNode;
+}) {
+  return (
+    <div
+      role="status"
+      className="mt-10 max-w-3xl rounded-panel border border-line bg-surface p-6 text-[0.9375rem] leading-relaxed"
+    >
+      <div className="flex items-start justify-between gap-4">
+        <h3 className="text-lg font-semibold">{title}</h3>
+        <button
+          aria-label="Dismiss"
+          className="-mr-2 -mt-2 inline-flex h-11 w-11 items-center justify-center rounded-control text-muted transition-colors hover:text-ink"
+          onClick={onClose}
+          type="button"
+        >
+          <X size={18} strokeWidth={1.75} aria-hidden="true" />
+        </button>
+      </div>
+      <div className="mt-2 space-y-3 text-muted [&_b]:font-medium [&_b]:text-ink">
+        {children}
+      </div>
+    </div>
+  );
+}
 
 export default function Download() {
   const { theme } = useTheme();
@@ -31,184 +88,143 @@ export default function Download() {
         : macLogo;
 
   return (
-    <section className="cv-auto py-8 lg:py-20" id="download">
+    <section className="border-t border-line py-16 lg:py-24" id="download">
       <div className="container">
-        <Reveal className="text-center">
-          <h2 className="text-4xl font-semibold">Download ScreenExtend</h2>
-          <p className="mt-2 text-lg sm:text-center">
-            Supports Windows, Mac, and Linux
-          </p>
-        </Reveal>
-        <div className="mt-6 grid gap-6 lg:grid-cols-3">
-          <Reveal delay={0} className="h-full">
-            <Card className={`group ${CARD}`}>
-              <Card.Body className="p-6 gap-0">
-                <div className="flex items-center justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <div className={ICON_WRAP}>
-                      <img alt="Windows Logo" className="h-8 w-8" src={windowsLogo} />
-                    </div>
-                    <h3 className="text-xl font-semibold">Windows</h3>
-                  </div>
-                </div>
-                <div>
-                  <p className="mt-4 text-sm">Minimum Version:</p>
-                  <ul className="list-inside list-disc text-sm">
-                    <li>Windows Client 20H1 (May 2020)</li>
-                    <li>Windows Server 20H2 (October 2020)</li>
-                  </ul>
-                  <div className="flex flex-row mt-5">
-                    <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_x64-setup.exe" target="_blank" rel="noopener noreferrer" onClick={() => setShowWindowsNotice(true)}>
-                      <Button className={DL_BTN}>
-                        64-bit EXE
-                      </Button>
-                    </a>
-                    <div className="grow-0 w-3"></div>
-                    <div className="grow basis-0 cursor-not-allowed opacity-50">
-                      <Button className="w-full pointer-events-none select-none">
-                        ARM EXE
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </Card.Body>
-            </Card>
-          </Reveal>
-          <Reveal delay={120} className="h-full">
-            <Card className={`group ${CARD}`}>
-              <Card.Body className="p-6 gap-0">
-                <div className="flex items-center justify-between gap-2 p-0">
-                  <div className="flex items-center gap-4">
-                    <div className={ICON_WRAP}>
-                      <img alt="Mac Logo" className="h-9 w-9" src={macSrc} />
-                    </div>
-                    <h3 className="text-xl font-semibold">Mac</h3>
-                  </div>
-                </div>
-                <div>
-                  <p className="mt-4 text-sm">Minimum Version:</p>
-                  <ul className="list-inside list-disc text-sm">
-                    <li>MacOS Catalina 10.15 (October 2019)</li>
-                  </ul>
-                  <div className="flex flex-row mt-5">
-                    <a className="grow basis-0" href="https://github.com/ScreenExtend/ScreenExtend/releases/latest/download/ScreenExtend_universal.dmg" target="_blank" rel="noopener noreferrer" onClick={() => setShowMacNotice(true)}>
-                      <Button className={DL_BTN}>
-                        DMG
-                      </Button>
-                    </a>
-                  </div>
-                </div>
-              </Card.Body>
-            </Card>
-          </Reveal>
-          <Reveal delay={240} className="h-full">
-            <Card className={`group ${CARD} cursor-not-allowed opacity-50`}>
-              <Card.Body className="p-6 gap-0 pointer-events-none select-none">
-                <div className="flex items-center justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <div className={ICON_WRAP}>
-                      <img alt="Linux Logo" className="h-12 w-12" src={linuxLogo} />
-                    </div>
-                    <h3 className="text-xl font-semibold">Linux (coming soon)</h3>
-                  </div>
-                </div>
-                <div>
-                  <p className="mt-4 text-sm">Minimum Version:</p>
-                  <ul className="list-inside list-disc text-sm">
-                    <li>Ubuntu 20.04 (April 2020)</li>
-                  </ul>
-                  <div className="flex flex-row mt-5">
-                    <Button className="grow basis-0">
-                      DEB
-                    </Button>
-                    <div className="grow-0 w-3"></div>
-                    <Button className="grow basis-0">
-                      RPM
-                    </Button>
-                    <div className="grow-0 w-3"></div>
-                    <Button className="grow basis-0">
-                      APPIMAGE
-                    </Button>
-                  </div>
-                </div>
-              </Card.Body>
-            </Card>
-          </Reveal>
+        <h2 className="section-title">Download ScreenExtend</h2>
+        <p className="mt-3 text-muted">
+          Free for Windows and macOS. Linux is not available yet.
+        </p>
+
+        <div className="mt-10 grid gap-8 md:grid-cols-3 md:gap-8">
+          <Platform
+            logo={<img alt="" width={24} height={24} className="h-6 w-6" src={windowsLogo} />}
+            name="Windows"
+            requires={[
+              "Windows Client 20H1 (May 2020)",
+              "Windows Server 20H2 (October 2020)",
+            ]}
+          >
+            <a
+              className="btn-solid w-full"
+              href={WINDOWS_EXE}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setShowWindowsNotice(true)}
+            >
+              Download .exe (64-bit)
+            </a>
+            <p className="mt-3 text-sm text-muted">ARM build: not available yet.</p>
+          </Platform>
+
+          <Platform
+            logo={<img alt="" width={24} height={24} className="h-6 w-6" src={macSrc} />}
+            name="macOS"
+            requires={["macOS Catalina 10.15 (October 2019)"]}
+          >
+            <a
+              className="btn-solid w-full"
+              href={MAC_DMG}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setShowMacNotice(true)}
+            >
+              Download .dmg (Universal)
+            </a>
+          </Platform>
+
+          <Platform
+            logo={<img alt="" width={24} height={24} className="h-6 w-6" src={linuxLogo} />}
+            name="Linux"
+            requires={["Ubuntu 20.04 (April 2020)"]}
+          >
+            <p className="rounded-control border border-dashed border-line px-4 py-2.5 text-sm text-muted">
+              Coming soon as .deb, .rpm and AppImage.
+            </p>
+          </Platform>
         </div>
-        {showMacNotice && (
-          <div className="mt-6 rounded-lg border border-primary/30 bg-base-100/70 p-6 backdrop-blur-sm">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <img alt="Mac Logo" className="h-6 w-6" src={macSrc} />
-                <h3 className="text-lg font-semibold">Your download is starting...</h3>
-              </div>
-              <button
-                aria-label="Dismiss"
-                className="text-base-content/50 transition-colors hover:text-base-content"
-                onClick={() => setShowMacNotice(false)}
-                type="button"
-              >
-                ✕
-              </button>
-            </div>
-            <p className="mt-3 text-sm text-base-content/80">
-              The Mac build is still in beta and isn't notarized by Apple yet, so an error appears that the app is from an <span className="font-medium">"unidentified developer"</span>. This is nothing to be concerned about. To launch the program:
-            </p>
-            <ol className="mt-3 list-inside list-decimal space-y-1 text-sm text-base-content/80">
-              <li>Open the downloaded <span className="font-medium">.dmg</span> and drag ScreenExtend into your <span className="font-medium">Applications</span> folder.</li>
-              <li>In Applications, <span className="font-medium">Control-click</span> (or right-click) ScreenExtend and choose <span className="font-medium">Open</span>.</li>
-              <li>Click <span className="font-medium">Open</span> in this second dialog that appears. You only need to do this once.</li>
-            </ol>
-            <p className="mt-3 text-sm text-base-content/80">
-              If it's still blocked, open <span className="font-medium">System Settings {"-->"} Privacy &amp; Security</span>, scroll
-              to the note that ScreenExtend was blocked, and click <span className="font-medium">Open Anyway</span>.
-            </p>
-            <p className="mt-3 text-sm text-base-content/75">
-              If macOS says the app is <span className="font-medium">"damaged"</span>, open <span className="font-medium">Terminal</span>, run <code className="rounded bg-base-200 px-1.5 py-0.5">xattr -cr /Applications/ScreenExtend.app</code>, and try again.
-            </p>
-          </div>
-        )}
+
         {showWindowsNotice && (
-          <div className="mt-6 rounded-lg border border-primary/30 bg-base-100/70 p-6 backdrop-blur-sm">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <img alt="Windows Logo" className="h-6 w-6" src={windowsLogo} />
-                <h3 className="text-lg font-semibold">Your download is starting...</h3>
-              </div>
-              <button
-                aria-label="Dismiss"
-                className="text-base-content/50 transition-colors hover:text-base-content"
-                onClick={() => setShowWindowsNotice(false)}
-                type="button"
-              >
-                ✕
-              </button>
-            </div>
-            <p className="mt-3 text-sm text-base-content/80">
-              We haven't paid for a code-signing certificate yet, so Windows doesn't recognize the installer. When you run it, SmartScreen may show a blue <span className="font-medium"> "Windows protected your PC"</span> box. This is nothing to be concerned about. Simply do the following:
+          <Notice title="Your download is starting" onClose={() => setShowWindowsNotice(false)}>
+            <p>
+              The installer isn't code-signed yet, so when you run it Windows
+              SmartScreen may show a blue <b>"Windows protected your PC"</b>{" "}
+              box. To run it anyway:
             </p>
-            <ol className="mt-3 list-inside list-decimal space-y-1 text-sm text-base-content/80">
-              <li>Click <span className="font-medium">More info</span> on that box.</li>
-              <li>Click the <span className="font-medium">Run anyway</span> button that appears at the bottom.</li>
+            <ol className="list-inside list-decimal space-y-1">
+              <li>
+                Click <b>More info</b> on that box.
+              </li>
+              <li>
+                Click <b>Run anyway</b> at the bottom.
+              </li>
             </ol>
-            <p className="mt-3 text-sm text-base-content/80">
-              Should your browser put a hold on the <span className="font-medium">.exe</span> download, opt to <span className="font-medium">Keep</span> (with Edge or Chrome one has to click the <span className="font-medium">⋯</span> by the download for that option).
+            <p>
+              If your browser holds the <b>.exe</b> download, choose{" "}
+              <b>Keep</b>. In Edge or Chrome that option is under the <b>⋯</b>{" "}
+              menu next to the download.
             </p>
-            <p className="mt-3 text-sm text-base-content/75">
-              Do not take any of these warnings as an indication the app is in any way unsafe. That is how Windows treats software of an unknown origin. We will have them go away when we get around to signing our builds.
+            <p>
+              This is how Windows treats any unsigned app. It doesn't mean the
+              app is unsafe, and the warnings will stop once the builds are
+              signed.
             </p>
-          </div>
+          </Notice>
         )}
-        <Reveal>
-          <p className="mt-6 text-center">
-          Running on an unsupported operating system? Contact us at <a href="mailto:support@screenextend.app" style={{ textDecoration: "underline" }}>support@screenextend.app</a> with your device information for a custom build.
+
+        {showMacNotice && (
+          <Notice title="Your download is starting" onClose={() => setShowMacNotice(false)}>
+            <p>
+              The Mac build isn't notarized by Apple yet, so macOS warns that
+              it's from an <b>"unidentified developer"</b>. To open it:
+            </p>
+            <ol className="list-inside list-decimal space-y-1">
+              <li>
+                Open the downloaded <b>.dmg</b> and drag ScreenExtend into your{" "}
+                <b>Applications</b> folder.
+              </li>
+              <li>
+                In Applications, <b>Control-click</b> (or right-click)
+                ScreenExtend and choose <b>Open</b>.
+              </li>
+              <li>
+                Click <b>Open</b> in the second dialog. You only need to do
+                this once.
+              </li>
+            </ol>
+            <p>
+              If it's still blocked, open{" "}
+              <b>System Settings → Privacy &amp; Security</b>, scroll to the
+              note that ScreenExtend was blocked, and click <b>Open Anyway</b>.
+            </p>
+            <p>
+              If macOS says the app is <b>"damaged"</b>, open <b>Terminal</b>,
+              run{" "}
+              <code className="whitespace-nowrap rounded-cell bg-paper px-1.5 py-0.5 font-mono text-sm text-ink">
+                xattr -cr /Applications/ScreenExtend.app
+              </code>{" "}
+              and try again.
+            </p>
+          </Notice>
+        )}
+
+        <div className="mt-12 max-w-3xl space-y-2 text-[0.9375rem] text-muted">
+          <p>
+            Using another operating system? Email{" "}
+            <a href="mailto:support@screenextend.app" className="u-link">
+              support@screenextend.app
+            </a>{" "}
+            with your device details and ask for a custom build.
           </p>
-        </Reveal>
-        <Reveal>
-          <p className="mt-1 text-center text-sm opacity-50">
-          <span className="font-medium">.msi</span> (Windows) and <span className="font-medium">.pkg</span> (Mac) packages for bulk enterprise installation are on our <a href="https://github.com/ScreenExtend/ScreenExtend/releases/latest" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>GitHub releases page</a>.
+          <p>
+            <span className="font-mono text-sm">.msi</span> (Windows) and{" "}
+            <span className="font-mono text-sm">.pkg</span> (Mac) packages for
+            bulk enterprise installs are on the{" "}
+            <a href={RELEASES} target="_blank" rel="noopener noreferrer" className="u-link">
+              GitHub releases page
+            </a>
+            .
           </p>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

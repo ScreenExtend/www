@@ -1,146 +1,65 @@
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/ibm-plex-mono-500.woff2') format('woff2')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/ibm-plex-mono-600.woff2') format('woff2')}
-@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/ibm-plex-mono-700.woff2') format('woff2')}
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/ibm-plex-sans-400.woff2') format('woff2')}
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/ibm-plex-sans-500.woff2') format('woff2')}
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/ibm-plex-sans-600.woff2') format('woff2')}
-@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/ibm-plex-sans-700.woff2') format('woff2')}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .reveal {
-    opacity: 0;
-    transform: translateY(2rem);
-    transition:
-      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
   }
-  .reveal-left {
-    transform: translateX(-2.5rem);
+  body {
+    background: var(--se-paper);
+    color: var(--se-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    accent-color: theme("colors.primary");
+    caret-color: var(--se-link);
   }
-  .reveal-right {
-    transform: translateX(2.5rem);
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    hyphens: none;
   }
-  .reveal-scale {
-    transform: scale(0.94);
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
   }
-  .reveal.is-visible {
-    opacity: 1;
-    transform: none;
+  section[id] {
+    scroll-margin-top: 4.5rem;
   }
-
-  /* Skip layout+paint for offscreen sections until they scroll near the
-     viewport. Big win on low-power devices with a long page. The intrinsic-size
-     hint keeps the scrollbar stable; `auto` lets the browser remember the real
-     height once a section has been rendered. */
-  .cv-auto {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 600px;
+  ::selection {
+    background: #dcff4a;
+    color: #0f1419;
   }
-}
-
-/* Ambient brand aurora. Static by default — on phones, tablets, and low-power
-   or reduced-motion devices the blobs are painted once and never touched again
-   (zero per-frame cost). The slow drift turns on only for capable, non-touch
-   desktops. Keyframes are translate-only (no scale): the heavy 64px blur is
-   rasterized a single time and the compositor just moves the cached layer, so
-   there's no per-frame re-blur — the thing that made the old version janky.
-   unslop-ignore */
-.aurora-blob {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-@keyframes aurora-drift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
+  :focus-visible {
+    outline: 2px solid var(--se-link);
+    outline-offset: 3px;
+    border-radius: 2px;
   }
-  33% {
-    transform: translate3d(2.6%, -3.4%, 0);
-  }
-  66% {
-    transform: translate3d(-2.2%, 2.2%, 0);
-  }
-}
-@media (min-width: 1024px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .aurora-blob {
-    will-change: transform;
-    animation: aurora-drift 24s ease-in-out infinite;
-  }
-  .aurora-delay-1 {
-    animation-delay: -8s;
-  }
-  .aurora-delay-2 {
-    animation-delay: -16s;
+  .tabular {
+    font-variant-numeric: tabular-nums;
   }
 }
 
-::selection {
-  background-color: rgba(49, 108, 255, 0.28);
-}
-
-/* Hero layout: go two-column only when the composition can still claim a
-   healthy minimum width. Below that the visual drops beneath the copy and the
-   copy centers. Driven by the available inline width (container query) so it
-   responds to real space rather than guessing from the device. */
-.hero-shell {
-  container-type: inline-size;
-}
-.hero-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 3rem;
-}
-.hero-visual {
-  width: 100%;
-  max-width: 32rem;
-}
-.hero-lead {
-  margin-left: auto;
-  margin-right: auto;
-}
-.hero-actions,
-.hero-chips {
-  justify-content: center;
-}
-@container (min-width: 52rem) {
-  .hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(26rem, 1.05fr);
-    align-items: center;
-    text-align: left;
-    gap: 2rem;
+@layer components {
+  .btn-solid {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-control bg-primary px-5 font-medium text-white transition-colors duration-150 hover:bg-[#2456d6] active:bg-[#1f4cc0];
   }
-  .hero-visual {
-    max-width: none;
+  .btn-line {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-control border border-line bg-paper px-4 font-medium text-ink transition-colors duration-150 hover:border-ink;
   }
-  .hero-lead {
-    margin-left: 0;
-    margin-right: 0;
+  .u-link {
+    @apply text-link underline decoration-1 underline-offset-[3px] transition-colors duration-150 hover:decoration-2;
   }
-  .hero-actions,
-  .hero-chips {
-    justify-content: flex-start;
-  }
-}
-
-/* Demo host mock: show the sidebar labels only when the mock is wide enough to
-   fit them, otherwise fall back to an icon-only rail (no ugly truncation). */
-.demo-host {
-  container-type: inline-size;
-}
-.demo-sidebar-label {
-  display: none;
-}
-@container (min-width: 300px) {
-  .demo-sidebar-label {
-    display: inline;
+  .section-title {
+    @apply text-[1.75rem] font-semibold leading-tight tracking-tight sm:text-4xl;
   }
 }
 
@@ -148,12 +67,31 @@
   *,
   *::before,
   *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
-  .reveal {
-    opacity: 1 !important;
-    transform: none !important;
+}
+
+@media print {
+  header,
+  footer nav {
+    display: none;
   }
+}
+
+/* Legal pages: tie the typography plugin's colours to the theme tokens so dark
+   mode works whichever way the theme was chosen (system or toggle). */
+.legal-prose {
+  --tw-prose-body: var(--se-ink);
+  --tw-prose-headings: var(--se-ink);
+  --tw-prose-bold: var(--se-ink);
+  --tw-prose-links: var(--se-link);
+  --tw-prose-bullets: var(--se-muted);
+  --tw-prose-counters: var(--se-muted);
+  --tw-prose-hr: var(--se-line);
+  --tw-prose-quotes: var(--se-ink);
+  --tw-prose-quote-borders: var(--se-line);
+  --tw-prose-code: var(--se-ink);
+  --tw-prose-th-borders: var(--se-line);
+  --tw-prose-td-borders: var(--se-line);
 }

@@ -1,32 +1,13 @@
-import type { ReactNode } from "react";
-
 import { Link } from "react-router-dom";
 
-import Reveal from "@/components/Reveal.tsx";
 import { KNOWN } from "@/legal/known.ts";
 
-const CARD =
-  "h-full rounded-box border border-base-content/10 bg-base-100/50 p-6 backdrop-blur-sm transition-colors duration-200 hover:border-primary/40";
-
-const CONTACTS: { label: string; email: string; note?: ReactNode }[] = [
+const CONTACTS: { label: string; email: string; security?: boolean }[] = [
   { label: "General support", email: KNOWN.SUPPORT_EMAIL },
-  { label: "Privacy & data requests", email: KNOWN.PRIVACY_EMAIL },
-  { label: "Abuse & content reports", email: KNOWN.ABUSE_EMAIL },
-  {
-    label: "Security vulnerability reports",
-    email: KNOWN.SECURITY_EMAIL,
-    note: (
-      <>
-        {" "}
-        (see our{" "}
-        <a href="/.well-known/security.txt" className="link link-primary">
-          security.txt
-        </a>
-        )
-      </>
-    ),
-  },
-  { label: "Legal & copyright (DMCA) notices", email: KNOWN.LEGAL_EMAIL },
+  { label: "Privacy and data requests", email: KNOWN.PRIVACY_EMAIL },
+  { label: "Abuse and content reports", email: KNOWN.ABUSE_EMAIL },
+  { label: "Security vulnerabilities", email: KNOWN.SECURITY_EMAIL, security: true },
+  { label: "Legal and copyright (DMCA)", email: KNOWN.LEGAL_EMAIL },
 ];
 
 const POLICIES: { label: string; to: string }[] = [
@@ -38,59 +19,61 @@ const POLICIES: { label: string; to: string }[] = [
 
 export default function Contact() {
   return (
-    <section className="cv-auto py-8 lg:py-20" id="contact">
-      <div className="container">
-        <Reveal className="flex flex-col items-center text-center">
-          <h2 className="text-4xl font-semibold text-base-content">Contact</h2>
-          <span className="mt-3 h-1 w-16 rounded-full bg-primary" />
-          <p className="mt-4 max-w-xl text-base text-base-content/70">
-            Questions, reports, or requests? Contact us and we'll reply within 72 hours.
-          </p>
-        </Reveal>
-        <div className="mx-auto mt-12 grid max-w-4xl gap-6 lg:grid-cols-2">
-          <Reveal delay={0} className="h-full">
-            <div className={CARD}>
-              <h3 className="text-xl font-semibold">Service operator</h3>
-              <p className="mt-3 text-base text-base-content/80">
-                This website and the ScreenExtend Service are operated by:
+    <section className="border-t border-line py-16 lg:py-24" id="contact">
+      <div className="container grid gap-8 lg:grid-cols-12 lg:gap-12">
+        <div className="lg:col-span-4">
+          <h2 className="section-title">Contact</h2>
+          <p className="mt-4 text-muted">We reply within 72 hours.</p>
+        </div>
+
+        <div className="lg:col-span-8">
+          <dl>
+            {CONTACTS.map((c) => (
+              <div
+                key={c.email}
+                className="grid gap-0.5 border-t border-line py-3 first:border-t-0 first:pt-0 sm:grid-cols-[16rem_1fr] sm:gap-6"
+              >
+                <dt className="text-muted">{c.label}</dt>
+                <dd>
+                  <a href={`mailto:${c.email}`} className="u-link break-all">
+                    {c.email}
+                  </a>
+                  {c.security && (
+                    <span className="text-muted">
+                      {" "}
+                      (see{" "}
+                      <a href="/.well-known/security.txt" className="u-link">
+                        security.txt
+                      </a>
+                      )
+                    </span>
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          <div className="mt-10 grid gap-8 sm:grid-cols-2">
+            <div>
+              <h3 className="font-semibold">Service operator</h3>
+              <p className="mt-2 text-muted">
+                This website and the ScreenExtend Service are operated by
+                Sarvesh Madullapalli, United States.
               </p>
-              <p className="mt-2 text-base font-medium">SARVESH MADULLAPALLI</p>
-              <p className="text-base text-base-content/70">United States</p>
             </div>
-          </Reveal>
-          <Reveal delay={80} className="h-full">
-            <div className={CARD}>
-              <h3 className="text-xl font-semibold">Policies</h3>
-              <ul className="mt-3 space-y-2 text-base">
-                {POLICIES.map((policy) => (
-                  <li key={policy.to}>
-                    <Link to={policy.to} className="link link-primary">
-                      {policy.label}
+            <div>
+              <h3 className="font-semibold">Policies</h3>
+              <ul className="mt-2 space-y-1">
+                {POLICIES.map((p) => (
+                  <li key={p.to}>
+                    <Link to={p.to} className="u-link">
+                      {p.label}
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
-          </Reveal>
-          <Reveal delay={160} className="h-full lg:col-span-2">
-            <div className={CARD}>
-              <h3 className="text-xl font-semibold">How to reach us</h3>
-              <ul className="mt-4 grid gap-3 text-base sm:grid-cols-2">
-                {CONTACTS.map((contact) => (
-                  <li key={contact.email}>
-                    <span className="font-medium">{contact.label}:</span>{" "}
-                    <a
-                      href={`mailto:${contact.email}`}
-                      className="link link-primary"
-                    >
-                      {contact.email}
-                    </a>
-                    {contact.note}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
+          </div>
         </div>
       </div>
     </section>

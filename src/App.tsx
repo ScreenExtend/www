@@ -6,10 +6,7 @@ import Navbar from "@/components/Navbar.tsx";
 import Download from "@/components/Download.tsx";
 import Contact from "@/components/Contact.tsx";
 import Footer from "@/components/Footer.tsx";
-import ThemeToggler from "@/components/ThemeToggler.tsx";
-import ScrollToTop from "@/components/ScrollToTop.tsx";
 import ScrollToHash from "@/components/ScrollToHash.tsx";
-import AuroraBackground from "@/components/AuroraBackground.tsx";
 import { ImageProvider } from "@/components/ImageContext.tsx";
 import { LEGAL_PATHS } from "@/legal/known.ts";
 
@@ -44,29 +41,30 @@ function Home() {
 export default function App() {
   return (
     <ImageProvider>
-      <Theme dataTheme="system" className="relative min-h-screen overflow-x-clip">
-        <AuroraBackground />
-        <div className="relative z-10">
-          <Navbar />
-          <main>
-            <Suspense fallback={<div className="min-h-screen" />}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                {LEGAL_PATHS.map((path) => (
-                  <Route
-                    key={path}
-                    path={path}
-                    element={<LegalPage path={path} />}
-                  />
-                ))}
-              </Routes>
-            </Suspense>
-          </main>
-          <Footer />
-        </div>
+      <Theme dataTheme="system" className="min-h-screen bg-paper text-ink">
+        <a
+          href="#main"
+          className="sr-only z-50 rounded-control bg-paper px-3 py-2 focus:not-sr-only focus:fixed focus:left-3 focus:top-3"
+        >
+          Skip to content
+        </a>
+        <Navbar />
+        <main id="main" tabIndex={-1} className="outline-none">
+          <Suspense fallback={<div className="min-h-screen" />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              {LEGAL_PATHS.map((path) => (
+                <Route
+                  key={path}
+                  path={path}
+                  element={<LegalPage path={path} />}
+                />
+              ))}
+            </Routes>
+          </Suspense>
+        </main>
+        <Footer />
         <ScrollToHash />
-        <ScrollToTop />
-        <ThemeToggler />
       </Theme>
     </ImageProvider>
   );

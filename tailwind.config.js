@@ -1,61 +1,84 @@
 import theme from 'daisyui/src/theming/themes'
 
+// Page tokens live as CSS variables inside each daisyUI theme so they follow
+// the light/dark/system switch. Values and contrast ratios: exhaustive-unslop/DESIGN-BRIEF.md.
+const lightTokens = {
+  '--se-paper': '#ffffff',
+  '--se-surface': '#f4f6f8',
+  '--se-ink': '#0f1419',
+  '--se-muted': '#4b5560',
+  '--se-line': '#dde2e7',
+  '--se-link': '#2456d6',
+}
+const darkTokens = {
+  '--se-paper': '#101214',
+  '--se-surface': '#171a1d',
+  '--se-ink': '#e6eaee',
+  '--se-muted': '#9aa4ad',
+  '--se-line': '#2a3036',
+  '--se-link': '#7ea2ff',
+}
+const shared = {
+  primary: '#2b62f0',
+  'primary-content': '#ffffff',
+  secondary: '#494949',
+  neutral: '#03131a',
+  info: '#00e1ff',
+  success: '#90ca27',
+  warning: '#ff8800',
+  error: '#ff7f7f',
+  '--rounded-box': '0.5rem',
+  '--rounded-btn': '0.375rem',
+  '--animation-btn': '0',
+  '--animation-input': '0',
+  '--btn-focus-scale': '1',
+}
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}', 'index.html'],
-  safelist: [
-    { pattern: /^btn($|-)/ },
-    { pattern: /^card($|-)/ },
-    { pattern: /^collapse($|-)/ },
-    { pattern: /^drawer($|-)/ },
-    { pattern: /^navbar($|-)/ },
-    { pattern: /^menu($|-)/ },
-    { pattern: /^dropdown($|-)/ },
-    { pattern: /^link($|-)/ },
-  ],
   theme: {
     container: {
       center: true,
       padding: {
         DEFAULT: '1rem',
         sm: '2rem',
-        lg: '4rem',
-        xl: '6rem',
-        '2xl': '8rem',
+        lg: '3rem',
+        xl: '4rem',
+      },
+      screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
       },
     },
     fontFamily: {
-      sans: ["'IBM Plex Sans'", 'sans-serif'],
-      body: ["'IBM Plex Sans'", 'sans-serif'],
-      mono: ["'IBM Plex Mono'", 'monospace'],
-      soft: ["'Nunito'", 'sans-serif'],
+      sans: ["'IBM Plex Sans'", 'system-ui', 'sans-serif'],
+      body: ["'IBM Plex Sans'", 'system-ui', 'sans-serif'],
+      mono: ["'IBM Plex Mono'", 'ui-monospace', 'monospace'],
     },
     extend: {
       colors: {
+        paper: 'var(--se-paper)',
+        surface: 'var(--se-surface)',
+        ink: 'var(--se-ink)',
+        muted: 'var(--se-muted)',
+        line: 'var(--se-line)',
+        link: 'var(--se-link)',
+        lime: '#dcff4a',
         'logo-mint': '#d6f1ed',
         'logo-blue': '#316cff',
-        'logo-cyan': '#1ccbdd',
-        'logo-lime': '#a6e15a',
+        'logo-lime': '#dcff4a',
       },
-      keyframes: {
-        'fade-up': {
-          '0%': { opacity: '0', transform: 'translate3d(0, 1.5rem, 0)' },
-          '100%': { opacity: '1', transform: 'translate3d(0, 0, 0)' },
-        },
-        'fade-in': {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        blob: {
-          '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
-          '33%': { transform: 'translate(30px, -40px) scale(1.1)' },
-          '66%': { transform: 'translate(-25px, 25px) scale(0.95)' },
-        },
+      borderRadius: {
+        cell: '4px',
+        control: '6px',
+        panel: '8px',
+        shot: '10px',
       },
-      animation: {
-        'fade-up': 'fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both',
-        'fade-in': 'fade-in 0.9s ease-out both',
-        blob: 'blob 18s ease-in-out infinite',
+      boxShadow: {
+        shot: '0 1px 2px rgb(0 0 0 / 0.06), 0 12px 32px -12px rgb(0 0 0 / 0.25)',
       },
     },
   },
@@ -64,33 +87,21 @@ export default {
       {
         light: {
           ...theme.light,
-          primary: '#316cff',
-          'primary-content': '#ffffff',
-          secondary: '#494949',
-          neutral: '#03131a',
-          info: '#00e1ff',
-          success: '#90ca27',
-          warning: '#ff8800',
-          error: '#ff7f7f',
-          '--rounded-box': '0.25rem',
-          '--rounded-btn': '0.25rem',
+          ...shared,
+          'base-100': '#ffffff',
+          'base-200': '#f4f6f8',
+          'base-300': '#dde2e7',
+          'base-content': '#0f1419',
+          ...lightTokens,
         },
         dark: {
           ...theme.dark,
-          primary: '#316cff',
-          'primary-content': '#ffffff',
-          secondary: '#494949',
-          neutral: '#03131a',
-          info: '#00e1ff',
-          success: '#90ca27',
-          warning: '#ff8800',
-          error: '#ff7f7f',
-          'base-100': '#14181c',
-          'base-200': '#1e2328',
-          'base-300': '#28323c',
-          'base-content': '#dcebfa',
-          '--rounded-box': '0.25rem',
-          '--rounded-btn': '0.25rem',
+          ...shared,
+          'base-100': '#101214',
+          'base-200': '#171a1d',
+          'base-300': '#2a3036',
+          'base-content': '#e6eaee',
+          ...darkTokens,
         },
       },
     ],

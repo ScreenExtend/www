@@ -1,8 +1,6 @@
-import Reveal from "@/components/Reveal.tsx";
+import { Plus } from "lucide-react";
 
-const COLLAPSE =
-  "collapse collapse-arrow border border-base-content/10 bg-base-100/50 backdrop-blur-sm transition-colors duration-200 hover:border-primary/40";
-
+// Keep in sync with the FAQPage JSON-LD in index.html.
 const QA = [
   {
     q: "How do I use ScreenExtend?",
@@ -32,41 +30,37 @@ const QA = [
 
 export default function FaqSimple() {
   return (
-    <section id="faq" className="cv-auto py-16 lg:py-28">
-      <div className="container">
-        <Reveal className="flex flex-col items-center text-center">
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Frequently Asked Questions
-          </h2>
-        </Reveal>
-
-        <div className="mx-auto mt-10 max-w-2xl space-y-3">
-          {QA.map((item, i) => (
-            <Reveal key={item.q} delay={i * 60}>
-              <details className={COLLAPSE}>
-                <summary className="collapse-title list-none text-lg font-medium [&::-webkit-details-marker]:hidden">
-                  {item.q}
-                </summary>
-                <div className="collapse-content">
-                  <p className="text-base text-base-content/80">{item.a}</p>
-                </div>
-              </details>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal>
-          <p className="mt-10 text-center text-base-content/80">
-            Still stuck? Email{" "}
-            <a
-              href="mailto:support@screenextend.app"
-              className="link link-primary"
-            >
+    <section id="faq" className="border-t border-line py-16 lg:py-24">
+      <div className="container grid gap-8 lg:grid-cols-12 lg:gap-12">
+        <div className="lg:col-span-4">
+          <h2 className="section-title">Questions</h2>
+          <p className="mt-4 text-muted">
+            Not covered here? Email{" "}
+            <a href="mailto:support@screenextend.app" className="u-link">
               support@screenextend.app
             </a>
             .
           </p>
-        </Reveal>
+        </div>
+
+        <div className="border-b border-line lg:col-span-8">
+          {QA.map((item) => (
+            <details key={item.q} className="group border-t border-line">
+              <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-6 py-4 text-lg font-medium [&::-webkit-details-marker]:hidden">
+                {item.q}
+                <Plus
+                  size={18}
+                  strokeWidth={1.75}
+                  aria-hidden="true"
+                  className="shrink-0 text-muted transition-transform duration-150 group-open:rotate-45"
+                />
+              </summary>
+              <p className="max-w-[62ch] pb-5 leading-relaxed text-muted">
+                {item.a}
+              </p>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
   );

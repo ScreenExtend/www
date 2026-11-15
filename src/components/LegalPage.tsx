@@ -20,7 +20,7 @@ function MarkdownLink({
     !href.includes("#")
   ) {
     return (
-      <Link to={href} className="link link-primary">
+      <Link to={href} className="u-link">
         {children}
       </Link>
     );
@@ -29,7 +29,7 @@ function MarkdownLink({
   return (
     <a
       href={href}
-      className="link link-primary"
+      className="u-link"
       {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
     >
       {children}
@@ -59,11 +59,11 @@ export default function LegalPage({ path }: { path: string }) {
 
   return (
     <div className="container max-w-3xl py-10 lg:py-16">
-      <h1 className="text-3xl font-bold tracking-tight lg:text-4xl">
+      <h1 className="text-3xl font-semibold tracking-tight lg:text-4xl">
         {page.title}
       </h1>
-      <p className="mt-2 text-sm text-base-content/75">{page.meta}</p>
-      <article className="prose prose-sm mt-8 max-w-none prose-headings:font-semibold prose-a:no-underline dark:prose-invert">
+      <p className="mt-2 text-sm text-muted">{page.meta}</p>
+      <article className="legal-prose prose mt-8 max-w-[60ch] prose-headings:font-semibold prose-headings:tracking-tight prose-h2:mt-10 prose-h2:text-xl prose-p:leading-relaxed prose-strong:font-semibold">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{ a: MarkdownLink }}
