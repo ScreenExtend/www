@@ -1,0 +1,156 @@
+{
+  "path": "exhaustive-unslop/scans/before/copy.md",
+  "files_scanned": 1,
+  "words": 3677,
+  "counts": {
+    "high": 13
+  },
+  "slop_score": 39,
+  "density_per_1k_words": 10.6,
+  "verdict": "STRONG AI-writing tells",
+  "findings": [
+    {
+      "rule": "em-dash",
+      "label": "Em dash (the single most-cited AI tell)",
+      "sev": "high",
+      "share": "cited 7.1% / matched 4.5%",
+      "fix": "Cut it. Use a comma, a period, or parentheses. Do not just swap in a colon; people flag that now too.",
+      "file": "exhaustive-unslop/scans/before/copy.md",
+      "line": 57,
+      "match": "\u2014",
+      "snippet": "ScreenExtend \u2014 Add Device"
+    },
+    {
+      "rule": "em-dash",
+      "label": "Em dash (the single most-cited AI tell)",
+      "sev": "high",
+      "share": "cited 7.1% / matched 4.5%",
+      "fix": "Cut it. Use a comma, a period, or parentheses. Do not just swap in a colon; people flag that now too.",
+      "file": "exhaustive-unslop/scans/before/copy.md",
+      "line": 175,
+      "match": "\u2014",
+      "snippet": "Privacy Policy \u2014 ScreenExtend"
+    },
+    {
+      "rule": "em-dash",
+      "label": "Em dash (the single most-cited AI tell)",
+      "sev": "high",
+      "share": "cited 7.1% / matched 4.5%",
+      "fix": "Cut it. Use a comma, a period, or parentheses. Do not just swap in a colon; people flag that now too.",
+      "file": "exhaustive-unslop/scans/before/copy.md",
+      "line": 183,
+      "match": "\u2014",
+      "snippet": "og:title: Privacy Policy \u2014 ScreenExtend"
+    },
+    {
+      "rule": "em-dash",
+      "label": "Em dash (the single most-cited AI tell)",
+      "sev": "high",
+      "share": "cited 7.1% / matched 4.5%",
+      "fix": "Cut it. Use a comma, a period, or parentheses. Do not just swap in a colon; people flag that now too.",
+      "file": "exhaustive-unslop/scans/before/copy.md",
+      "line": 199,
+      "match": "\u2014",
+      "snippet": "twitter:title: Privacy Policy \u2014 ScreenExtend"
+    },
+    {
+      "rule": "em-dash",
+      "label": "Em dash (the single most-cited AI tell)",
+      "sev": "high",
+      "share": "cited 7.1% / matched 4.5%",
+      "fix": "Cut it. Use a comma, a period, or parentheses. Do not just swap in a colon; people flag that now too.",
+      "file": "exhaustive-unslop/scans/before/copy.md",
+      "line": 305,
+      "match": "\u2014",
+      "snippet": "Terms of Service \u2014 ScreenExtend"
+    },
+    {
+      "rule": "em-dash",
+      "label": "Em dash (the single most-cited AI tell)",
+      "sev": "high",
+      "share": "cited 7.1% / matched 4.5%",
+      "fix": "Cut it. Use a comma, a period, or parentheses. Do not just swap in a colon; people flag that now too.",
+      "file": "exhaustive-unslop/scans/before/copy.md",
+      "line": 313,
+      "match": "\u2014",
+      "snippet": "og:title: Terms of Service \u2014 ScreenExtend"
+    },
+    {
+      "rule": "em-dash",
+      "label": "Em dash (the single most-cited AI tell)",
+      "sev": "high",
+      "share": "cited 7.1% / matched 4.5%",
+      "fix": "Cut it. Use a comma, a period, or parentheses. Do not just swap in a colon; people flag that now too.",
+      "file": "exhaustive-unslop/scans/before/copy.md",
+      "line": 329,
+      "match": "\u2014",
+      "snippet": "twitter:title: Terms of Service \u2014 ScreenExtend"
+    },
+    {
+      "rule": "em-dash",
+      "label": "Em dash (the single most-cited AI tell)",
+      "sev": "high",
+      "share": "cited 7.1% / matched 4.5%",
+      "fix": "Cut it. Use a comma, a period, or parentheses. Do not just swap in a colon; people flag that now too.",
+      "file": "exhaustive-unslop/scans/before/copy.md",
+      "line": 449,
+      "match": "\u2014",
+      "snippet": "Acceptable Use Policy \u2014 ScreenExtend"
+    },
+    {
+      "rule": "em-dash",
+      "label": "Em dash (the single most-cited AI tell)",
+      "sev": "high",
+      "share": "cited 7.1% / matched 4.5%",
+      "fix": "Cut it. Use a comma, a period, or parentheses. Do not just swap in a colon; people flag that now too.",
+      "file": "exhaustive-unslop/scans/before/copy.md",
+      "line": 457,
+      "match": "\u2014",
+      "snippet": "og:title: Acceptable Use Policy \u2014 ScreenExtend"
+    },
+    {
+      "rule": "em-dash",
+      "label": "Em dash (the single most-cited AI tell)",
+      "sev": "high",
+      "share": "cited 7.1% / matched 4.5%",
+      "fix": "Cut it. Use a comma, a period, or parentheses. Do not just swap in a colon; people flag that now too.",
+      "file": "exhaustive-unslop/scans/before/copy.md",
+      "line": 473,
+      "match": "\u2014",
+      "snippet": "twitter:title: Acceptable Use Policy \u2014 ScreenExtend"
+    },
+    {
+      "rule": "em-dash",
+      "label": "Em dash (the single most-cited AI tell)",
+      "sev": "high",
+      "share": "cited 7.1% / matched 4.5%",
+      "fix": "Cut it. Use a comma, a period, or parentheses. Do not just swap in a colon; people flag that now too.",
+      "file": "exhaustive-unslop/scans/before/copy.md",
+      "line": 573,
+      "match": "\u2014",
+      "snippet": "Cookie Policy \u2014 ScreenExtend"
+    },
+    {
+      "rule": "em-dash",
+      "label": "Em dash (the single most-cited AI tell)",
+      "sev": "high",
+      "share": "cited 7.1% / matched 4.5%",
+      "fix": "Cut it. Use a comma, a period, or parentheses. Do not just swap in a colon; people flag that now too.",
+      "file": "exhaustive-unslop/scans/before/copy.md",
+      "line": 581,
+      "match": "\u2014",
+      "snippet": "og:title: Cookie Policy \u2014 ScreenExtend"
+    },
+    {
+      "rule": "em-dash",
+      "label": "Em dash (the single most-cited AI tell)",
+      "sev": "high",
+      "share": "cited 7.1% / matched 4.5%",
+      "fix": "Cut it. Use a comma, a period, or parentheses. Do not just swap in a colon; people flag that now too.",
+      "file": "exhaustive-unslop/scans/before/copy.md",
+      "line": 597,
+      "match": "\u2014",
+      "snippet": "twitter:title: Cookie Policy \u2014 ScreenExtend"
+    }
+  ]
+}

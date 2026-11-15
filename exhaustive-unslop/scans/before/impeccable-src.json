@@ -1,0 +1,22 @@
+[
+  {
+    "antipattern": "border-accent-on-rounded",
+    "name": "Border accent on rounded element",
+    "description": "Thick accent border on a rounded card — the border clashes with the rounded corners. Remove the border or the border-radius.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "C:\\Users\\sarve\\Downloads\\acosnlcsaacs\\www\\src\\components\\home\\ConnectFlow.tsx",
+    "line": 310,
+    "snippet": "border-t-2"
+  },
+  {
+    "antipattern": "border-accent-on-rounded",
+    "name": "Border accent on rounded element",
+    "description": "Thick accent border on a rounded card — the border clashes with the rounded corners. Remove the border or the border-radius.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "C:\\Users\\sarve\\Downloads\\acosnlcsaacs\\www\\src\\components\\home\\ConnectFlow.tsx",
+    "line": 312,
+    "snippet": "border-b-2"
+  }
+]

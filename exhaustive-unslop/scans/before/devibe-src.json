@@ -1,0 +1,128 @@
+{
+  "path": "src",
+  "files_scanned": 33,
+  "counts": {
+    "medium": 13
+  },
+  "vibe_score": 26,
+  "verdict": "STRONG AI-default look",
+  "findings": [
+    {
+      "rule": "fade-in-animations",
+      "label": "Boilerplate fade-in / hover-grow / scroll animation",
+      "sev": "medium",
+      "fix": "Motion only when it communicates something; gate behind prefers-reduced-motion. Minor tell, noisier signal.",
+      "file": "src\\components\\Hero.tsx",
+      "line": 12,
+      "snippet": "\"mx-auto flex cursor-pointer items-center justify-center overflow-hidden transition-all duration-300 hover:scale-110\";"
+    },
+    {
+      "rule": "fade-in-animations",
+      "label": "Boilerplate fade-in / hover-grow / scroll animation",
+      "sev": "medium",
+      "fix": "Motion only when it communicates something; gate behind prefers-reduced-motion. Minor tell, noisier signal.",
+      "file": "src\\components\\Navbar.tsx",
+      "line": 100,
+      "snippet": "className=\"flex items-center gap-2 font-mono text-xl font-bold tracking-tight transition-transform duration-200 hover:scale-105\""
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\ConnectFlow.tsx",
+      "line": 71,
+      "snippet": "<span className=\"h-[5px] w-[5px] rounded-full bg-[#ff5f57]\" />{\" \"}"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\ConnectFlow.tsx",
+      "line": 73,
+      "snippet": "<span className=\"h-[5px] w-[5px] rounded-full bg-[#febc2e]\" />{\" \"}"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\ConnectFlow.tsx",
+      "line": 75,
+      "snippet": "<span className=\"h-[5px] w-[5px] rounded-full bg-[#28c840]\" />{\" \"}"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\ConnectFlow.tsx",
+      "line": 77,
+      "snippet": "<div className=\"ml-1 h-[7px] flex-1 rounded-full bg-black/30\" />"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\ConnectFlow.tsx",
+      "line": 81,
+      "snippet": "<div className=\"h-[3px] w-full rounded-full bg-white/20\" />"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\ConnectFlow.tsx",
+      "line": 88,
+      "snippet": "<div className=\"h-[3px] w-full rounded-full bg-white/14\" />"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\ConnectFlow.tsx",
+      "line": 225,
+      "snippet": "className=\"absolute left-[64%] right-[26%] top-1/2 h-[2px] -translate-y-1/2 overflow-hidden rounded-full\""
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\ConnectFlow.tsx",
+      "line": 333,
+      "snippet": "<div className=\"flex flex-1 items-center gap-0.5 rounded-full bg-black/40 px-1 py-[1px]\">"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\ConnectFlow.tsx",
+      "line": 442,
+      "snippet": "className=\"h-full origin-left rounded-full bg-primary transition-transform duration-300\""
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\FeatureScroll.tsx",
+      "line": 87,
+      "snippet": "className=\"h-full origin-left rounded-full bg-primary transition-transform duration-300\""
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\HeroLanding.tsx",
+      "line": 156,
+      "snippet": "<div className=\"absolute bottom-1 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full bg-success/20 px-2 py-0.5\">"
+    }
+  ]
+}

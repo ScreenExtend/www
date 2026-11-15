@@ -1,0 +1,93 @@
+[
+  {
+    "antipattern": "low-contrast",
+    "name": "Low contrast text",
+    "description": "Text does not meet WCAG AA contrast requirements (4.5:1 for body, 3:1 for large text). Increase the contrast between text and background.",
+    "severity": "warning",
+    "category": "quality",
+    "file": "http://localhost:5191/",
+    "line": 0,
+    "snippet": "4.0:1 (need 4.5:1) — text #316cff on #14181c (and 9 more)",
+    "selector": "li.font-medium:nth-of-type(1) > a.relative.transition-colors"
+  },
+  {
+    "antipattern": "low-contrast",
+    "name": "Low contrast text",
+    "description": "Text does not meet WCAG AA contrast requirements (4.5:1 for body, 3:1 for large text). Increase the contrast between text and background.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "http://localhost:5191/",
+    "line": 0,
+    "snippet": "4.4:1 (need 4.5:1) — text #ffffff on #316cff (and 1 more)",
+    "advisory": true,
+    "selector": "div.gap-3.navbar-end > button.btn.shadow-sm"
+  },
+  {
+    "antipattern": "kicker-above-heading",
+    "name": "Kicker / eyebrow label above heading",
+    "description": "A tiny tracked uppercase or small-caps label sitting as its own block directly above a heading is banned outright, repeated or not. Generated kickers never earn their place: the heading carries its own weight. Delete the label and let the heading speak; if the words matter, work them into the heading or the body.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "http://localhost:5191/",
+    "line": 0,
+    "snippet": "kicker \"Setup\" above h2 \"How to connect a device\"",
+    "selector": "div.min-w-0:nth-of-type(1) > p.font-mono.text-xs"
+  },
+  {
+    "antipattern": "buried-raster",
+    "name": "Raster buried under a wash or opacity",
+    "description": "A background image under a near-opaque gradient wash, or a raster on an element at near-zero opacity, never reaches the screen: the page shows the wash, and the produced texture or photo ships as a compliance token. Let the material show (a tint under 0.9 alpha, a blend mode, an opacity you can see) or remove the file.",
+    "severity": "warning",
+    "category": "quality",
+    "file": "http://localhost:5191/",
+    "line": 0,
+    "snippet": "<img> at opacity 0 \"Adjust each display\"",
+    "selector": "picture:nth-of-type(2) > img.absolute.inset-0"
+  },
+  {
+    "antipattern": "buried-raster",
+    "name": "Raster buried under a wash or opacity",
+    "description": "A background image under a near-opaque gradient wash, or a raster on an element at near-zero opacity, never reaches the screen: the page shows the wash, and the produced texture or photo ships as a compliance token. Let the material show (a tint under 0.9 alpha, a blend mode, an opacity you can see) or remove the file.",
+    "severity": "warning",
+    "category": "quality",
+    "file": "http://localhost:5191/",
+    "line": 0,
+    "snippet": "<img> at opacity 0 \"Session settings\"",
+    "selector": "picture:nth-of-type(3) > img.absolute.inset-0"
+  },
+  {
+    "antipattern": "kicker-above-heading",
+    "name": "Kicker / eyebrow label above heading",
+    "description": "A tiny tracked uppercase or small-caps label sitting as its own block directly above a heading is banned outright, repeated or not. Generated kickers never earn their place: the heading carries its own weight. Delete the label and let the heading speak; if the words matter, work them into the heading or the body.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "http://localhost:5191/",
+    "line": 0,
+    "snippet": "kicker \"Architecture\" above h2 \"Under the hood\"",
+    "selector": "div.reveal.is-visible > p.font-mono.text-xs"
+  },
+  {
+    "antipattern": "straggler",
+    "name": "Straggler",
+    "description": "The last line of this paragraph holds one word, which leaves a hole under the block. Set text-wrap: pretty on body copy (Chrome, Safari) to pull a word down beside it. Where a browser ignores it, edit the last sentence or bind the last two words with a no-break space. Keep it if the break is intended.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "http://localhost:5191/",
+    "line": 0,
+    "snippet": "\"monitor.\" alone on the last of 3 lines (18% of the measure)",
+    "advisory": true,
+    "selector": "div.reveal.is-visible:nth-of-type(2) > p.mt-2.text-sm"
+  },
+  {
+    "antipattern": "straggler",
+    "name": "Straggler",
+    "description": "The last line of this paragraph holds one word, which leaves a hole under the block. Set text-wrap: pretty on body copy (Chrome, Safari) to pull a word down beside it. Where a browser ignores it, edit the last sentence or bind the last two words with a no-break space. Keep it if the break is intended.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "http://localhost:5191/",
+    "line": 0,
+    "snippet": "\"change.\" alone on the last of 3 lines (17% of the measure)",
+    "advisory": true,
+    "selector": "div.reveal.is-visible:nth-of-type(6) > p.mt-2.text-sm"
+  }
+]
