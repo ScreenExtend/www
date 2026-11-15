@@ -16,7 +16,7 @@ The product's own materials are:
 - installer filenames (`ScreenExtend_x64-setup.exe`, `ScreenExtend_universal.dmg`)
 - spec-sheet terms: NVENC, Quick Sync, VideoToolbox, 500 Hz, 200% scale
 
-**Visual idea:** the six-cell session code, set in Plex Mono exactly as the app draws it (`src/assets/app/feature-3.png`, "Session OTP" row), shown once in the pairing steps. This is the single memorable thing.
+**Visual idea:** the six-cell session code, set in Plex Mono. The six separate cells echo the "Session OTP" row in `src/assets/app/feature-3.png`, and the code is shown once in the pairing steps. The lime cell is a site accent; the app does not draw it (corrected after the regression review). This is the single memorable thing.
 
 **Verbal idea:** the second device needs only a browser. Say it plainly: "Nothing to install on the second device. It opens in the browser."
 

@@ -2,10 +2,10 @@
   "performance": {
     "runs": [
       96,
-      97,
-      97
+      96,
+      96
     ],
-    "median": 97
+    "median": 96
   },
   "accessibility": {
     "runs": [
@@ -17,11 +17,11 @@
   },
   "best-practices": {
     "runs": [
-      96,
-      96,
-      96
+      100,
+      100,
+      100
     ],
-    "median": 96
+    "median": 100
   },
   "seo": {
     "runs": [

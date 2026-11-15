@@ -1,10 +1,10 @@
 {
-  "url": "http://localhost:5193/terms",
+  "url": "http://localhost:5180/terms",
   "slug": "localhost_terms",
-  "score": 7,
+  "score": 0,
   "tier": "clean",
   "tierLabel": "Clean",
-  "patternsFlagged": 1,
+  "patternsFlagged": 0,
   "patternsTotal": 14,
   "patterns": [
     {
@@ -88,25 +88,8 @@
     {
       "id": "faq_accordion",
       "label": "FAQ",
-      "triggered": true,
-      "evidence": {
-        "mode": "details",
-        "count": 6,
-        "samples": [
-          {
-            "kind": "details",
-            "text": "How do I use ScreenExtend?"
-          },
-          {
-            "kind": "details",
-            "text": "Is my data secure?"
-          },
-          {
-            "kind": "details",
-            "text": "What resolution and refresh rate can it do? Can it game?"
-          }
-        ]
-      }
+      "triggered": false,
+      "evidence": null
     }
   ]
 }
