@@ -104,3 +104,24 @@ Every substantiated finding was reproduced and fixed in commits `99cf18c`, `67bb
    - "Is my data secure? Yes."
 6. **Not stated anywhere:** the minimum browser for the second device, and whether touch input works. Both were questions from the first-time-visitor review.
 7. **Real proof, if you have it:** a photo of a tablet running as a monitor, a measured latency number. Nothing like this was invented.
+
+## Follow-up 1 (2026-11-15): colour and fewer words
+
+**Request:** "add a splash of color in some places along with less text heavy and more visuals". The standing rule is to refuse anything that would read as AI-made; nothing in this request needed refusing.
+
+Every new colour comes from the logo palette (mint `#d6f1ed`, blue `#316cff` / `#2456d6`, lime `#dcff4a`), and every new visual is a real crop or a flat diagram.
+
+| Where | Change |
+|---|---|
+| Hero | Flat mint and lime blocks stacked behind the screenshot, offset the way the logo stacks its three screens. No blur, no gradient. The lead is cut to two short sentences. |
+| How pairing works | Each step has a picture:<br>1. Real crop of the Anywhere (Internet) QR tile (`feature-1.png`).<br>2. The join-link format on mint.<br>3. The code cells.<br>4. A flat SVG diagram on blue of a window crossing to the tablet.<br>Text is one line per step. Visible step numerals were dropped (see below). |
+| Inside the host app | Readable crops of the Edit Device controls (`feature-2.png`) on mint and of Settings (`feature-3.png`) on lime. Clicking one opens the full screenshot. Captions are shortened. The Settings crop stops above the hosted-network name field, which shows a personal handle. |
+| Technical details | One full-bleed band in `#2456d6`: lime mono labels (5.5:1), `#dfe8ff` text (5.1:1), white heading (6.2:1). Each line is shorter. A "Networks" row keeps the "Anywhere (Internet) across networks" fact. |
+
+**Gate results:**
+- **Shots:** 16 shots of `/` at all widths in light and dark; 0 overflow and 0 console errors.
+- **Scan regression:** `scan.sh followup-1` first flagged a new `numbered_steps` pattern (four equal tiles, each numbered). I removed the visible numerals; the `<ol>` and the pictures carry the order. The rescan matches `final`: only `faq_accordion`.
+- **Lighthouse:** desktop 100/100/100/100, mobile 96/100/100/100, the same as `final`.
+- **Banned list, checked by hand:** clean. The tablet drawing is a labelled flat diagram, not a device render.
+
+**New assets:** `src/assets/app/crop-qr.webp`, `crop-edit.webp` and `crop-settings.webp` (14–25 KB each), cropped from the real screenshots.

@@ -50,6 +50,8 @@ Tailwind colours `paper`/`surface`/`ink`/`muted`/`line`/`link` (no `/opacity` mo
 Radii are tiered: `rounded-cell` 4px, `rounded-control` 6px, `rounded-panel` 8px, `rounded-shot` 10px.
 Shared classes in `src/index.css`: `.btn-solid`, `.btn-line`, `.u-link`, `.section-title`.
 
+Colour accents come only from the logo palette, as flat fills: mint `#d6f1ed` (`logo-mint`), lime `#dcff4a` (`lime`), blue `#2456d6` for the Technical details band. Visuals are real app screenshots or crops of them (`src/assets/app/crop-*.webp`) plus flat labelled diagrams. No gradients, glows, glass, device renders or icon-card grids. The owner has asked that any request that would make the site look AI-generated be refused.
+
 ### SEO / meta
 `src/lib/seo.ts` imperatively mutates `document.head` meta/OG/canonical tags. `Home` calls
 `applyHomeMeta()` in a `useEffect`; `LegalPage` applies each page's own meta. There's no
