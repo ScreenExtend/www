@@ -218,7 +218,7 @@ export default function Download() {
           </Notice>
         )}
 
-        <div className="mt-12 max-w-3xl space-y-2 text-[0.9375rem] text-muted">
+        <div className="mt-12 space-y-2 text-[0.9375rem] text-muted">
           <p>
             Using another operating system? Email{" "}
             <a href="mailto:support@screenextend.app" className="u-link">
