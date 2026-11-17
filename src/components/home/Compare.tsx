@@ -14,7 +14,7 @@ const ROWS: { q: string; v: [Cell, Cell, Cell, Cell, Cell] }[] = [
   { q: "Windows support", v: [["yes"], ["no"], ["yes"], ["yes"], ["yes"]] },
   { q: "Mac support", v: [["yes"], ["yes"], ["part", "Beta"], ["yes"], ["yes"]] },
   { q: "Linux support", v: [["soon"], ["no"], ["no"], ["no"], ["yes"]] },
-  { q: "Any device with a browser", v: [["yes"], ["no"], ["part", "Mostly apps"], ["no"], ["yes"]] },
+  { q: "Any device with a browser", v: [["yes"], ["no"], ["no"], ["no"], ["yes"]] },
   { q: "No extra hardware", v: [["yes"], ["yes"], ["yes"], ["yes"], ["no", "Dummy plug required"]] },
   { q: "No account needed", v: [["yes"], ["no"], ["yes"], ["no"], ["yes"]] },
   { q: "Works over a cable", v: [["soon"], ["yes"], ["yes"], ["yes"], ["part", "Workaround"]] },
