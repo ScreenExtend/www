@@ -31,8 +31,7 @@ function Cell({ s }: { s: Status }) {
   if (s === "na") {
     return (
       <td className="px-4 py-3 text-muted">
-        <span aria-hidden="true">–</span>
-        <span className="sr-only">Not applicable</span>
+        <span className="text-sm">n/a</span>
       </td>
     );
   }
