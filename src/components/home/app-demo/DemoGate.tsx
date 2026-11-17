@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 const HOLD_MS = 2000;
+// Back to the preview after this long with no pointer over it and no focus inside.
+const IDLE_MS = 6000;
 const R = 20;
 const C = 2 * Math.PI * R;
 
 // Keeps the demo as a still preview until someone shows they want to use it:
 // resting the pointer on it for 2 s (a ring fills around the cursor), a tap on
-// touch screens, or the "Try the app" button for keyboard users.
+// touch screens, or the "Try the app" button for keyboard users. It locks again
+// after 6 s without the pointer over it or focus inside.
 export default function DemoGate({ children }: { children: ReactNode }) {
   const [live, setLive] = useState(false);
   const [holding, setHolding] = useState(false);
@@ -19,6 +22,34 @@ export default function DemoGate({ children }: { children: ReactNode }) {
   // inert keeps the preview out of the tab order until it is live
   useEffect(() => {
     inner.current?.toggleAttribute("inert", !live);
+  }, [live]);
+
+  // Re-lock when the demo has been left alone for IDLE_MS.
+  const idle = useRef<number>();
+  useEffect(() => {
+    if (!live) return;
+    const el = box.current;
+    if (!el) return;
+    const arm = () => {
+      window.clearTimeout(idle.current);
+      idle.current = window.setTimeout(() => {
+        if (!el.matches(":hover") && !el.contains(document.activeElement)) setLive(false);
+        else arm();
+      }, IDLE_MS);
+    };
+    const cancel = () => window.clearTimeout(idle.current);
+    el.addEventListener("pointerleave", arm);
+    el.addEventListener("pointerenter", cancel);
+    el.addEventListener("focusout", arm);
+    el.addEventListener("focusin", cancel);
+    arm();
+    return () => {
+      cancel();
+      el.removeEventListener("pointerleave", arm);
+      el.removeEventListener("pointerenter", cancel);
+      el.removeEventListener("focusout", arm);
+      el.removeEventListener("focusin", cancel);
+    };
   }, [live]);
 
   const start = (e: React.PointerEvent) => {

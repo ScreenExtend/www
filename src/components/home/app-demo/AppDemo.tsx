@@ -24,9 +24,12 @@ type PageId = (typeof PAGES)[number]["id"];
 export default function AppDemo({
   className = "",
   initialPage = "add",
+  bare = false,
 }: {
   className?: string;
   initialPage?: PageId;
+  /** Just one page filling the window: no sidebar, top bar or bottom bar. */
+  bare?: boolean;
 }) {
   const [page, setPage] = useState<PageId>(initialPage);
   const [sidebar, setSidebar] = useState(true);
@@ -35,6 +38,19 @@ export default function AppDemo({
   useEffect(() => {
     scroller.current?.scrollTo(0, 0);
   }, [page]);
+
+  if (bare) {
+    const Only = PAGES.find((x) => x.id === initialPage)!.Page;
+    return (
+      <div role="region" aria-label="Interactive demo of the ScreenExtend app" className={`sed-root ${className}`}>
+        <div className="sed-win sed-bare">
+          <div className="sed-scroll">
+            <Only />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div role="region" aria-label="Interactive demo of the ScreenExtend app" className={`sed-root ${className}`}>
