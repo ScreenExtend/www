@@ -1,20 +1,19 @@
-// Two-sided comparison (research: career-agent/reports/ScreenExtend competitor
-// landscape.md). Sidecar wins the cable and Pencil rows, and the "pick something
-// else" list names better tools where they exist. Plain names, no logos, no
-// ticks, no speed claims. Re-check the Sidecar and monitor-price lines before
-// changing the date below.
-const ROWS: { q: string; sidecar: string; us: string }[] = [
-  { q: "Your computer", sidecar: "A recent Mac", us: "A Windows PC or a Mac (Catalina or newer)" },
-  { q: "The second screen", sidecar: "An iPad", us: "Any tablet, phone or laptop with a web browser" },
-  { q: "What you install on it", sidecar: "Nothing, it's built in", us: "Nothing, it opens in the browser" },
+// Competitor comparison (research: career-agent/reports/ScreenExtend competitor
+// landscape.md). All of these are wireless, so that isn't a row. Values are kept
+// short and literal. A ScreenExtend cell is tinted only when it differs from every
+// other product in that row; ties stay plain. Re-check before changing the date.
+const COLS = ["ScreenExtend", "Apple Sidecar", "Spacedesk", "Duet Display", "Deskreen"] as const;
+
+const ROWS: { q: string; v: [string, string, string, string, string] }[] = [
+  { q: "Your computer", v: ["Windows or Mac", "Mac", "Windows", "Windows or Mac", "Windows, Mac or Linux"] },
   {
-    q: "Setting it up",
-    sidecar: "Already on your Mac. Both devices need the same Apple Account",
-    us: "Install ScreenExtend on your computer, scan a code, type six digits. No account",
+    q: "The second screen",
+    v: ["Any device with a browser", "iPad", "Android, iPhone, iPad, Windows or a browser", "iPad, iPhone or Android", "Any device with a browser"],
   },
-  { q: "With a cable", sidecar: "Yes, over USB", us: "Not for iPad. Android phones can use USB tethering" },
-  { q: "Apple Pencil", sidecar: "Works across the Mac", us: "Taps and drags like a mouse" },
-  { q: "Price", sidecar: "Free", us: "Free and open source" },
+  { q: "Install on the second screen", v: ["Nothing", "Nothing", "App, or use a browser", "App", "Nothing"] },
+  { q: "Works over a cable", v: ["Android only", "Yes", "Yes", "Yes", "No"] },
+  { q: "Price", v: ["Free", "Free", "Free for personal use", "$3.99 to $7.99 a month", "Free"] },
+  { q: "Open source", v: ["Yes", "No", "No", "No", "Yes"] },
 ];
 
 const ELSE = [
@@ -40,35 +39,51 @@ const ELSE = [
   },
 ];
 
+const differs = (v: readonly string[]) => v.slice(1).every((o) => o !== v[0]);
+
 export default function Compare() {
   return (
     <section id="compare" className="bg-tint py-16 lg:py-24">
       <div className="container">
-        <h2 className="display-lg">Like Apple's Sidecar, but for any device with a browser</h2>
+        <h2 className="display-lg">How it compares</h2>
         <p className="mt-3 text-lg text-muted">
-          Sidecar turns an iPad into a second screen for a Mac. ScreenExtend does the
-          same job for a Windows PC or a Mac, and the second screen can be an Android
-          tablet, an iPad, a phone or an old laptop.
+          If you've used Apple's Sidecar, it's the same idea, for any device with a
+          browser and a Windows PC or a Mac.
         </p>
 
         <div className="mt-10 overflow-x-auto">
-          <table className="w-full min-w-[34rem] border-collapse text-left">
-            <caption className="sr-only">Apple Sidecar compared with ScreenExtend</caption>
+          <table className="w-full min-w-[46rem] border-collapse text-left">
+            <caption className="sr-only">ScreenExtend compared with other second-screen apps</caption>
             <thead>
-              <tr className="border-b border-line text-sm text-muted">
-                <th scope="col" className="w-1/4 py-3 pr-4 font-medium">
+              <tr className="border-b border-line text-sm">
+                <th scope="col" className="py-3 pr-4 font-medium">
                   <span className="sr-only">Question</span>
                 </th>
-                <th scope="col" className="w-[37.5%] px-4 py-3 font-medium">Sidecar</th>
-                <th scope="col" className="w-[37.5%] px-4 py-3 font-semibold text-ink">ScreenExtend</th>
+                {COLS.map((c, i) => (
+                  <th
+                    key={c}
+                    scope="col"
+                    className={`px-3 py-3 ${i === 0 ? "font-semibold text-ink" : "font-medium text-muted"}`}
+                  >
+                    {c}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>
               {ROWS.map((r) => (
                 <tr key={r.q} className="border-b border-line align-top">
                   <th scope="row" className="py-3.5 pr-4 font-medium">{r.q}</th>
-                  <td className="px-4 py-3.5 text-muted">{r.sidecar}</td>
-                  <td className="bg-tile-blue px-4 py-3.5">{r.us}</td>
+                  {r.v.map((cell, i) => (
+                    <td
+                      key={i}
+                      className={`px-3 py-3.5 ${
+                        i === 0 ? (differs(r.v) ? "bg-tile-blue text-ink" : "text-ink") : "text-muted"
+                      }`}
+                    >
+                      {cell}
+                    </td>
+                  ))}
                 </tr>
               ))}
             </tbody>
@@ -91,8 +106,8 @@ export default function Compare() {
         </p>
         <p className="mt-6 text-xs leading-relaxed text-muted">
           Checked November 2026 against each maker's own pages. Sidecar and Universal
-          Control are trademarks of Apple Inc. ScreenExtend isn't affiliated with Apple
-          or any other product named here.
+          Control are trademarks of Apple Inc.; other product names belong to their
+          owners. ScreenExtend isn't affiliated with any of them.
         </p>
       </div>
     </section>

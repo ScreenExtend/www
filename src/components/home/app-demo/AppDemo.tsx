@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { Moon, MonitorSmartphone, PanelLeftClose, PanelLeftOpen, Settings as Gear, UserRoundPlus } from "lucide-react";
+import { Compass, Moon, MonitorSmartphone, Power, RotateCcw, Trash2, PanelLeftClose, PanelLeftOpen, Settings as Gear, UserRoundPlus } from "lucide-react";
 
 import "@/components/home/app-demo/app-demo.css";
 import AddDevice from "@/components/home/app-demo/AddDevice.tsx";
 import EditDevice from "@/components/home/app-demo/EditDevice.tsx";
 import Settings from "@/components/home/app-demo/Settings.tsx";
 import Avatar from "@/components/home/app-demo/Avatar.tsx";
-import { DemoBtn } from "@/components/home/app-demo/ui.tsx";
+import { MenuBtn } from "@/components/home/app-demo/ui.tsx";
 import { OTP, SESSION_ID, bc } from "@/components/home/app-demo/shared.ts";
 
 const PAGES = [
@@ -67,9 +67,20 @@ export default function AppDemo({
             >
               {sidebar ? <PanelLeftClose size={24} aria-hidden="true" /> : <PanelLeftOpen size={24} aria-hidden="true" />}
             </button>
-            <DemoBtn className="sed-plain sed-avatar" wrap="down end" aria-label="Profile menu">
+            <MenuBtn
+              className="sed-plain sed-avatar"
+              wrap="down end"
+              aria-label="Profile menu"
+              label="My Account"
+              items={[
+                { text: "Exit App", icon: <Power size={16} aria-hidden="true" /> },
+                { text: "Reset Preferences", icon: <RotateCcw size={16} aria-hidden="true" /> },
+                { text: "Replay Tour", icon: <Compass size={16} aria-hidden="true" /> },
+                { text: "Uninstall Drivers", icon: <Trash2 size={16} aria-hidden="true" /> },
+              ]}
+            >
               <Avatar />
-            </DemoBtn>
+            </MenuBtn>
           </div>
           <div ref={scroller} className="sed-scroll">
             {PAGES.map(({ id, Page }) => (
@@ -84,9 +95,14 @@ export default function AppDemo({
               <p>Session OTP: {OTP}</p>
             </div>
             <div className="flex-1" />
-            <DemoBtn className={bc("outline", "icon")} wrap="end" aria-label="Toggle theme">
+            <MenuBtn
+              className={bc("outline", "icon")}
+              wrap="up end"
+              aria-label="Toggle theme"
+              items={[{ text: "Light" }, { text: "Dark" }, { text: "System" }]}
+            >
               <Moon className="h-[1.2rem] w-[1.2rem]" aria-hidden="true" />
-            </DemoBtn>
+            </MenuBtn>
           </div>
         </div>
       </div>

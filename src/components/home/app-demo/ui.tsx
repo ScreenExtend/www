@@ -14,21 +14,67 @@ import { Check, ChevronDown, Info } from "lucide-react";
 
 import { qrPath } from "@/components/home/app-demo/shared.ts";
 
-// A control with no action on the website: clicking it says so beside it until focus leaves.
+// A control with no action on the website: it simply does nothing when clicked.
 export function DemoBtn({
   wrap = "",
   children,
   ...p
 }: ButtonHTMLAttributes<HTMLButtonElement> & { wrap?: string }) {
-  const [shown, setShown] = useState(false);
   return (
-    <span className={`sed-demo ${wrap}`} onMouseLeave={() => setShown(false)}>
-      <button type="button" {...p} onClick={() => setShown(true)} onBlur={() => setShown(false)}>
+    <span className={`sed-demo ${wrap}`}>
+      <button type="button" {...p}>
         {children}
       </button>
-      <span role="status" className={shown ? "sed-note" : "sr-only"}>
-        {shown ? "Demo only" : ""}
-      </span>
+    </span>
+  );
+}
+
+// A button that opens a small menu like the app's dropdowns. The items do
+// nothing except close the menu. Escape or a click outside closes it too.
+export function MenuBtn({
+  wrap = "",
+  label,
+  items,
+  children,
+  ...p
+}: ButtonHTMLAttributes<HTMLButtonElement> & {
+  wrap?: string;
+  label?: string;
+  items: { text: string; icon?: ReactNode }[];
+}) {
+  const [open, setOpen] = useState(false);
+  const box = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const off = (e: MouseEvent) => {
+      if (!box.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const esc = (e: globalThis.KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", off);
+    document.addEventListener("keydown", esc);
+    return () => {
+      document.removeEventListener("mousedown", off);
+      document.removeEventListener("keydown", esc);
+    };
+  }, [open]);
+  return (
+    <span ref={box} className={`sed-demo ${wrap}`}>
+      <button type="button" aria-haspopup="menu" aria-expanded={open} {...p} onClick={() => setOpen(!open)}>
+        {children}
+      </button>
+      {open && (
+        <span role="menu" className="sed-menu">
+          {label && <span className="sed-menu-label">{label}</span>}
+          {items.map((it) => (
+            <button key={it.text} type="button" role="menuitem" className="sed-menu-item" onClick={() => setOpen(false)}>
+              {it.icon}
+              {it.text}
+            </button>
+          ))}
+        </span>
+      )}
     </span>
   );
 }

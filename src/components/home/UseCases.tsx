@@ -57,9 +57,8 @@ export default function UseCases() {
         {/* Source: docs/RESULTS.md in the app repo, real-content 1080p capture to
             encode with NVENC: 8.39 ms median, 9.44 ms p90. Not glass-to-glass. */}
         <p className="mt-10 text-muted">
-          <span className="font-semibold text-ink">Quick on your end.</span> Your
-          computer captures and encodes each frame in about 8 ms.* Your Wi-Fi and the
-          other device add their own delay on top of that.
+          <span className="font-semibold text-ink">Low delay.</span> Your
+          computer captures and encodes each frame in about 8 ms.*
         </p>
         <p className="mt-2 text-xs leading-relaxed text-muted">
           *Median on real 1080p content, with 9 in 10 frames under 10 ms. Measured on
