@@ -40,7 +40,7 @@ function Mark({ m, note }: { m: MarkKind; note?: string }) {
   return (
     <span className="flex flex-col items-center gap-0.5 text-center">
       {icon}
-      <span className={m === "soon" ? "text-xs text-muted" : "sr-only"}>{label}</span>
+      <span className="sr-only">{label}</span>
       {note && <span className="text-xs leading-tight text-muted">{note}</span>}
     </span>
   );
@@ -89,7 +89,11 @@ export default function Compare() {
           </table>
         </div>
 
-        <p className="mt-6 text-xs leading-relaxed text-muted">
+        <p className="mt-5 flex items-center gap-1.5 text-sm text-muted">
+          <Clock size={16} strokeWidth={2.25} aria-hidden="true" />
+          Coming soon
+        </p>
+        <p className="mt-4 text-xs leading-relaxed text-muted">
           Checked November 2026 against each maker's own pages. Wireless use in every column. Sidecar is a trademark
           of Apple Inc.; other names belong to their owners. ScreenExtend isn't
           affiliated with any of them.
