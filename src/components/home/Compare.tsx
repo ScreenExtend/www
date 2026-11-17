@@ -67,7 +67,7 @@ export default function Compare() {
                   <th
                     key={c}
                     scope="col"
-                    className={`w-[15%] px-2 py-3 text-center ${i === 0 ? "font-semibold text-ink" : "font-medium text-muted"}`}
+                    className={`w-[15%] px-2 py-3 text-center ${i === 0 ? "rounded-t-panel bg-tile-blue font-semibold text-ink" : "font-medium text-muted"}`}
                   >
                     {c}
                   </th>
@@ -79,7 +79,7 @@ export default function Compare() {
                 <tr key={r.q} className="border-b border-line">
                   <th scope="row" className="py-3 pr-4 text-left font-medium">{r.q}</th>
                   {r.v.map(([m, note], i) => (
-                    <td key={i} className="px-2 py-3 align-middle">
+                    <td key={i} className={`px-2 py-3 align-middle ${i === 0 ? "bg-tile-blue" : ""}`}>
                       <Mark m={m} note={note} />
                     </td>
                   ))}
