@@ -17,7 +17,7 @@ const ROWS: { q: string; v: [Cell, Cell, Cell, Cell, Cell] }[] = [
   { q: "Any device with a browser", v: [["yes"], ["no"], ["no"], ["no"], ["yes"]] },
   { q: "No extra hardware", v: [["yes"], ["yes"], ["yes"], ["yes"], ["no", "Dummy plug required"]] },
   { q: "No account needed", v: [["yes"], ["no"], ["yes"], ["no"], ["yes"]] },
-  { q: "Works over a cable", v: [["soon"], ["yes"], ["yes"], ["yes"], ["part", "Workaround"]] },
+  { q: "Works over a cable", v: [["soon"], ["yes"], ["yes"], ["yes"], ["no"]] },
   { q: "HDR", v: [["soon"], ["no"], ["no"], ["no"], ["no"]] },
   { q: "Use its mic and camera", v: [["soon"], ["no"], ["soon"], ["no"], ["no"]] },
   { q: "Free", v: [["yes"], ["yes"], ["part", "Personal use"], ["no", "From $3.99/mo"], ["part", "Up to 1 device"]] },
