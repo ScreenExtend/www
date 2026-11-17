@@ -10,6 +10,8 @@ type Cell = [MarkKind, string?];
 
 const COLS = ["ScreenExtend", "Apple Sidecar", "Spacedesk", "Duet Display", "Deskreen"] as const;
 
+// Rows from compare-verified.md and compare-verified-2.md. X means not offered or
+// not documented by the maker (the key below the table says so).
 const ROWS: { q: string; v: [Cell, Cell, Cell, Cell, Cell] }[] = [
   { q: "Windows support", v: [["yes"], ["no"], ["yes"], ["yes"], ["yes"]] },
   { q: "Mac support", v: [["yes"], ["yes"], ["part", "Beta"], ["yes"], ["yes"]] },
@@ -17,6 +19,14 @@ const ROWS: { q: string; v: [Cell, Cell, Cell, Cell, Cell] }[] = [
   { q: "Any device with a browser", v: [["yes"], ["no"], ["no"], ["no"], ["yes"]] },
   { q: "No extra hardware", v: [["yes"], ["yes"], ["yes"], ["yes"], ["no", "Dummy plug required"]] },
   { q: "No account needed", v: [["yes"], ["no"], ["yes"], ["no"], ["yes"]] },
+  { q: "Works without a router", v: [["yes"], ["yes"], ["yes"], ["yes"], ["no"]] },
+  { q: "Works over the internet", v: [["yes"], ["no"], ["no"], ["yes"], ["no"]] },
+  { q: "GPU acceleration", v: [["yes"], ["no"], ["yes"], ["no"], ["no"]] },
+  { q: "Several screens at once", v: [["yes"], ["no"], ["yes"], ["yes"], ["no"]] },
+  { q: "Settings per screen", v: [["yes"], ["no"], ["yes"], ["yes"], ["no"]] },
+  { q: "Remote control", v: [["yes"], ["yes"], ["yes"], ["yes"], ["no"]] },
+  { q: "Sound on the other device", v: [["yes"], ["no"], ["yes"], ["no"], ["no"]] },
+  { q: "QR code pairing", v: [["yes"], ["no"], ["no"], ["no"], ["yes"]] },
   { q: "Works over a cable", v: [["soon"], ["yes"], ["yes"], ["yes"], ["no"]] },
   { q: "HDR", v: [["soon"], ["no"], ["no"], ["no"], ["no"]] },
   { q: "Use its mic and camera", v: [["soon"], ["no"], ["soon"], ["no"], ["no"]] },
@@ -92,6 +102,8 @@ export default function Compare() {
         <p className="mt-5 flex items-center gap-1.5 text-sm text-muted">
           <Clock size={16} strokeWidth={2.25} aria-hidden="true" />
           Coming soon
+          <X size={16} strokeWidth={2.25} className="ml-4" aria-hidden="true" />
+          Not offered, or not documented by the maker
         </p>
         <p className="mt-4 text-xs leading-relaxed text-muted">
           Checked November 2026 against each maker's own pages. Wireless use in every column. Sidecar is a trademark
