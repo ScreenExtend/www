@@ -49,7 +49,7 @@ export default function UseCases() {
           {USES.map((u) => (
             <li key={u.t} className={`rounded-panel p-6 ${u.tint}`}>
               <h3 className="text-lg font-semibold">{u.t}</h3>
-              <p className="mt-1.5 leading-relaxed text-muted">{u.d}</p>
+              <p className="mt-1.5 leading-relaxed text-ink">{u.d}</p>
             </li>
           ))}
         </ul>

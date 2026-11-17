@@ -317,9 +317,9 @@ export function Card({
     <section className="sed-card mb-4">
       <div className="flex flex-wrap items-center justify-between gap-3 p-4 sm:p-6">
         <div>
-          <h4 className="flex items-center text-xl font-semibold leading-none tracking-tight sm:text-2xl">
+          <p role="presentation" className="flex items-center text-xl font-semibold leading-none tracking-tight sm:text-2xl">
             {title}
-          </h4>
+          </p>
           {desc && <p className="sed-muted mt-2 text-sm">{desc}</p>}
         </div>
         {aside}

@@ -1,0 +1,14 @@
+
+== exhaustive-unslop/scans/tools-1/snap/privacy.html  (683 words)  1 FAIL, 0 WARN
+  FAIL copy-two-fragment    two-fragment headings "X. Y.": 4, budget 1 (a tic, not a device)
+       - 10. Your rights and contact
+       - 11. International transfers
+       - 12. Children
+       - 13. Changes
+       fix: spend it once where it lands hardest; give the other headings a plain label, a claim or the thing they name
+  INFO copy-virtue          virtue words about the business (honest, calm, quiet, actually, simply...; a quiet room or calm water is literal and not counted): 1 of 2
+       - "intentionally" in: We never intentionally log OTPs, screen content, SDP bodies, or raw client IP addresses.
+  INFO copy-triads          2 lists of three (about one in 342 words)
+       - your device name, operating system, and screen
+       - screen content, SDP bodies, or raw
+  INFO copy-rhythm          39 sentences, mean 16.7 words, spread 7.6, 3% of 4 words or fewer

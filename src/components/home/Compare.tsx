@@ -46,7 +46,7 @@ export default function Compare() {
           Like Apple's Sidecar, for any device with a browser and a Windows PC or Mac.
         </p>
 
-        <div className="mt-10 overflow-x-auto">
+        <div className="relative mt-10 overflow-x-auto">
           <table className="w-full min-w-[44rem] border-collapse">
             <caption className="sr-only">ScreenExtend compared with other second-screen apps</caption>
             <thead>

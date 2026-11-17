@@ -1,0 +1,50 @@
+  neighbour        #compare section.bg-tint.py-16 "How it comparesLike Apple's Side": framed, 104px of #how section.py-16.lg:py-24 "How pairing worksScan a code, ty" shows
+  screen-short     #how section.py-16.lg:py-24 "How pairing worksScan a code, ty": 778px tall; one screen under the nav is 1180px
+  neighbour        #how section.py-16.lg:py-24 "How pairing worksScan a code, ty": framed, 52px of #features section.border-t.border-line "Settings for each devicePick a d" shows
+  screen-short     #gpu section.bg-tint.py-16 "Graphics card supportScreenExten": 755px tall; one screen under the nav is 1180px
+  neighbour        #gpu section.bg-tint.py-16 "Graphics card supportScreenExten": framed, 48px of #download section.border-t.border-line "Download ScreenExtendFree for Wi" shows
+  screen-short     #download section.border-t.border-line "Download ScreenExtendFree for : 644px tall; one screen under the nav is 1180px
+  neighbour        #download section.border-t.border-line "Download ScreenExtendFree for : framed, 124px of #faq section.border-t.border-line "Frequently asked questionsNot co" shows
+  screen-short     #faq section.border-t.border-line "Frequently asked questionsNot co": 661px tall; one screen under the nav is 1180px
+  hero-fold        #home section.relative.overflow-x-clip "Use your tablet or phone as a : starts at y 65, not under the nav
+  hero-fold        #home section.relative.overflow-x-clip "Use your tablet or phone as a : ends at y 1199, past the fold (1180): 0.96 screens tall
+
+390x844  lines x 16 and 374, nav 0px, one screen 1200px
+  hero 1444 tall; h1 36px/1.1, 3 lines, 358x119 at 16,113; lead -; buttons -; visual -
+  section #home section.relative.overflow-x-clip "Use your tablet or p y    65  h  1444  content 1041
+  section #uses section.py-16.lg:py-24 "What you can use it forDrag an y  1509  h  1411  content 1283
+  section #compare section.bg-tint.py-16 "How it comparesLike Apple's  y  2920  h   948  content 820
+  section #how section.py-16.lg:py-24 "How pairing worksScan a code, t y  3868  h   949  content 821
+  section #features section.border-t.border-line "Settings for each de y  4817  h  1559  content 1429
+  section #gpu section.bg-tint.py-16 "Graphics card supportScreenExten y  6376  h   833  content 705
+  section #download section.border-t.border-line "Download ScreenExten y  7209  h  1179  content 1050
+  section #faq section.border-t.border-line "Frequently asked question y  8388  h   769  content 789
+  bleed-one-side   #compare table.w-full.min-w-[44rem] "ScreenExtend compared with other": runs from x 16 out to the right viewport edge; the left side stays at 16
+  edge-left        #features h3.text-2xl.font-semibold "Connected Devices": starts at x 33; the lines are 16 and the column starts
+  bleed-one-side   #features table.sed-table "Device NameIPOSScaleOrientationR": runs from x 33 out to the right viewport edge; the left side stays at 16
+  edge-left        #features p.text-sm.font-medium "Public sessions enabled": starts at x 50; the lines are 16 and the column starts
+  edge-left        #features p.sed-muted.text-sm "Allow devices to join over the i": starts at x 50; the lines are 16 and the column starts
+  edge-left        #features p.text-sm.font-medium "Start on login disabled": starts at x 50; the lines are 16 and the column starts
+  edge-left        #features p.sed-muted.text-sm "Automatically open ScreenExtend ": starts at x 50; the lines are 16 and the column starts
+  edge-left        #features p.text-sm.font-medium "Start Network": starts at x 50; the lines are 16 and the column starts
+  bleed-one-side   #features table.sed-table "Device NameOSIPLast SeeniPadConn": runs from x 50 out to the right viewport edge; the left side stays at 16
+  bleed-one-side   #gpu table.w-full.min-w-[30rem] "Graphics card support by compute": runs from x 16 out to the right viewport edge; the left side stays at 16
+  edge-right       footer.border-t.border-line a.inline-flex.min-h-11 "ScreenExtend": ends at x 156.4; the right line is 374
+  neighbour-ground #uses section.py-16.lg:py-24 "What you can use it forDrag any ": framed, 35px of #compare section.bg-tint.py-16 "How it comparesLike Apple's Side"'s ground shows
+  screen-short     #compare section.bg-tint.py-16 "How it comparesLike Apple's Side": 948px tall; one screen under the nav is 1200px
+  screen-height    #compare section.bg-tint.py-16 "How it comparesLike Apple's Side": 948px, 0.79 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  neighbour        #compare section.bg-tint.py-16 "How it comparesLike Apple's Side": framed, 128px of #how section.py-16.lg:py-24 "How pairing worksScan a code, ty" shows
+  screen-short     #how section.py-16.lg:py-24 "How pairing worksScan a code, ty": 949px tall; one screen under the nav is 1200px
+  screen-height    #how section.py-16.lg:py-24 "How pairing worksScan a code, ty": 949px, 0.79 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  neighbour        #how section.py-16.lg:py-24 "How pairing worksScan a code, ty": framed, 73px of #features section.border-t.border-line "Settings for each devicePick a d" shows
+  screen-short     #gpu section.bg-tint.py-16 "Graphics card supportScreenExten": 833px tall; one screen under the nav is 1200px
+  screen-height    #gpu section.bg-tint.py-16 "Graphics card supportScreenExten": 833px, 0.69 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  neighbour        #gpu section.bg-tint.py-16 "Graphics card supportScreenExten": framed, 56px of #download section.border-t.border-line "Download ScreenExtendFree for Wi" shows
+  screen-short     #download section.border-t.border-line "Download ScreenExtendFree for : 1179px tall; one screen under the nav is 1200px
+  screen-height    #download section.border-t.border-line "Download ScreenExtendFree for : 1179px, 0.98 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  neighbour        #download section.border-t.border-line "Download ScreenExtendFree for : framed, 73px of #faq section.border-t.border-line "Frequently asked questionsNot co" shows
+  screen-short     #faq section.border-t.border-line "Frequently asked questionsNot co": 769px tall; one screen under the nav is 1200px
+  screen-height    #faq section.border-t.border-line "Frequently asked questionsNot co": 769px, 0.64 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  hero-fold        #home section.relative.overflow-x-clip "Use your tablet or phone as a : starts at y 65, not under the nav
+  hero-fold        #home section.relative.overflow-x-clip "Use your tablet or phone as a : ends at y 1509, past the fold (1446): 1.20 screens tall
+  overflow-x       page: the page scrolls sideways

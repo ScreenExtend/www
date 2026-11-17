@@ -1,0 +1,40 @@
+  REFLEX 7b :206 pure #fff: color: rgb(255 255 255 / var(--tw-… (.btn-solid) | fix: Tint the base toward the anchor hue
+  REFLEX 7b :206 pure #fff: background-color: rgb(255 255 255 / var(--tw-… (.bg-white)
+  REFLEX 7b :206 pure #fff: color: rgb(255 255 255 / var(--tw-… (.\!text-white)
+  REFLEX 7b :206 pure #fff: color: rgb(255 255 255 / var(--tw-… (.text-white)
+  REFLEX 7b :206 pure #000: background-color: rgb(0 0 0 / var(--tw-bg-opa… (.backdrop\:bg-black::backdrop)
+  REFLEX 24b :206 padding: 6px 8px 8px (off the 4px scale) on .sed-root .sed-side | fix: Use the 4px spacing scale
+  REFLEX 24b :206 padding: 2px 4px 6px (off the 4px scale) on .sed-root .sed-brand
+  REFLEX 24b :206 padding: 6px 4px (off the 4px scale) on .sed-root .sed-btn.sed-navbtn
+  REFLEX 24b :206 padding: 10px 12px (off the 4px scale) on .sed-root .sed-foot
+  REFLEX 24b :206 padding: 14px 8px (off the 4px scale) on .sed-root .sed-brand
+  REFLEX 24b :206 padding: 8px 10px (off the 4px scale) on .sed-root .sed-btn.sed-navbtn
+  REFLEX 24b :206 padding: 6px 8px 6px 32px (off the 4px scale) on .sed-root .sed-opt
+  REFLEX 24b :206 margin-top: -6px (off the 4px scale) on .sed-root .sed-range::-webkit-slider-thumb
+  REFLEX 24b :206 padding: 6px 8px (off the 4px scale) on .sed-root .sed-menu-label
+  REFLEX 24b :206 padding: 6px 8px (off the 4px scale) on .sed-root .sed-menu-item
+  REFLEX 24b :206 margin-top: -25px (off the 4px scale) on .mockup-phone .display
+  REFLEX 24b :206 margin-top: -25px (off the 4px scale) on .mockup-phone .display-lg
+  REFLEX 64 :211 font-mono on ".msi" at 14px (<span class="font-mono text-sm">) | fix: Labels in the body face at a smaller size and normal case; font-mono only for code and figures
+  REFLEX 64 :211 font-mono on ".pkg" at 14px (<span class="font-mono text-sm">)
+  WARN 10b :206 transitioning margin-top on .menu :where(li>details>summary):after,.menu :where(li>.menu-dropdown-toggle):after | fix: Animate transform or opacity instead
+  WARN 19 :211 template footer line: "All rights reserved" | fix: A stock line with no legal effect; cut it unless the owner wants it
+  WARN 40 :206 1.00:1 < 4.5:1 on :where(.menu li:not(.menu-title,.disabled)>*:not(ul,details,.menu-title)):not(summary,.active,.btn).f… | fix: Raise the contrast to threshold
+  WARN 40 :206 3.28:1 < 4.5:1 on .btn-solid
+  WARN 41 :206 button text ~ button fill on :where(.menu li:not(.menu-title,.disabled)>*:not(ul,details,.menu-title)):not(summary,.act… | fix: Use accent-ink or paper for the label
+  WARN 41 :206 dark surface (L 31%) on .card.image-full:before sets no text colour | fix: Swap text to paper in the same rule
+  WARN 49 :211 long clickable label "Download for Windows or Mac" without nowrap | fix: Shorten the label or set nowrap
+  WARN 49 :211 long clickable label "Send this link to my computer" without nowrap
+  WARN 49 :211 long clickable label "Hover to try the app Tap to try the…" without nowrap
+  WARN 49 :211 long clickable label "Download .dmg (Universal)" without nowrap
+  WARN 58 :1 1355 visible words on the page (450 at most) | fix: Cut copy: one idea per screen, sections become objects
+  WARN 58 :211 h1 runs 9 words ("Use your tablet or phone as a second mo…") | fix: Seven words or fewer, 50 characters or fewer
+  WARN 58 :211 hero paragraph runs 23 words | fix: One sentence, twelve words or fewer
+  WARN 74 :211 default palette instead of theme tokens: 6 distinct palette classes (border-green-500 bg-green-500 text-green-500 text-… | fix: Extend the Tailwind theme with the Hallmark tokens and use those names
+  WARN F1 :211 straight quote in prose x2 (first: nternet via the &quot;Anywhere () | fix: Use typographic quotes: “ ” ’
+  WARN F4 :211 two filled buttons side by side in the hero: "Download for Window…" and "Send this link to m…" | fix: One filled primary per screen; the second action is outlined or a typographic link
+  WARN F6 :206 numeric selector .prose ) at display size without tabular figures | fix: Add font-variant-numeric: tabular-nums
+  WARN F6 :206 numeric selector .table at display size without tabular figures
+  WARN F7 :206 the pill radius on 6 non-control selectors (.sed-root .sed-avatar, .sed-root .sed-range, .s…) | fix: Pills are for controls; boxes and media take the card radius
+  WARN F21 :211 h1 is followed by h3 ("What network is your device con…") | fix: Step heading levels one at a time; size a head with CSS, never with its level
+sloplint: 139 FAIL, 19 REFLEX, 20 WARN across 1 file(s).

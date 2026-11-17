@@ -1,0 +1,212 @@
+
+1440x900  lines x 144 and 1296, nav 0px, one screen 900px
+  hero 1292 tall; h1 56px/1.1, 2 lines, 739x123 at 350,145; lead -; buttons -; visual -
+  section #home section.relative.overflow-x-clip "Use your tablet or p y    65  h  1292  content 865
+  section #uses section.py-16.lg:py-24 "What you can use it forDrag an y  1357  h   749  content 557
+  section #compare section.bg-tint.py-16 "How it comparesLike Apple's  y  2106  h   876  content 684
+  section #how section.py-16.lg:py-24 "How pairing worksScan a code, t y  2982  h   803  content 611
+  section #features section.border-t.border-line "Settings for each de y  3785  h   948  content 754
+  section #gpu section.bg-tint.py-16 "Graphics card supportScreenExten y  4734  h   676  content 484
+  section #download section.border-t.border-line "Download ScreenExten y  5410  h   679  content 486
+  section #faq section.border-t.border-line "Frequently asked question y  6089  h   621  content 525
+  edge-left        #how ol.lg:col-span-5.lg:pl-6 "1Open ScreenExtend on your compu": starts at x 839.3; the lines are 144 and the column starts
+  edge-right       #features div.min-w-0 "Edit DeviceScale, orientation, r": ends at x 704; the right line is 1296
+  edge-left        #features p.text-2xl.font-semibold "Connected Devices": starts at x 177; the lines are 144 and the column starts
+  edge-left        #features p.text-gray-500 "2 Screens Connected": starts at x 177; the lines are 144 and the column starts
+  edge-left        #features table.sed-table "Device NameIPOSScaleOrientationR": starts at x 177; the lines are 144 and the column starts
+  edge-left        #features div.min-w-0 "SettingsRegenerate the session c": starts at x 736; the lines are 144 and the column starts
+  edge-left        #features h3.text-lg.font-semibold "Settings": starts at x 736; the lines are 144 and the column starts
+  edge-left        #features p.mt-1.5.leading-relaxed "Regenerate the session code, sta": starts at x 736; the lines are 144 and the column starts
+  edge-left        #features p.mb-6.text-2xl "Settings": starts at x 769; the lines are 144 and the column starts
+  edge-left        #features p.flex.items-center "Session OTP": starts at x 794; the lines are 144 and the column starts
+  edge-left        #features p.flex.items-center "Public Internet Sessions": starts at x 794; the lines are 144 and the column starts
+  edge-left        #features p.text-sm.font-medium "Public sessions enabled": starts at x 794; the lines are 144 and the column starts
+  edge-left        #features p.sed-muted.text-sm "Allow devices to join over the i": starts at x 794; the lines are 144 and the column starts
+  edge-left        #features p.flex.items-center "Launch at Startup": starts at x 794; the lines are 144 and the column starts
+  edge-left        #features p.text-sm.font-medium "Start on login disabled": starts at x 794; the lines are 144 and the column starts
+  edge-left        #features p.sed-muted.text-sm "Automatically open ScreenExtend ": starts at x 794; the lines are 144 and the column starts
+  edge-left        #features p.flex.items-center "Create Hosted Network": starts at x 794; the lines are 144 and the column starts
+  edge-left        #features p.sed-muted.mt-2 "Host a local network for devices": starts at x 794; the lines are 144 and the column starts
+  edge-left        #features p.text-sm.font-medium "Start Network": starts at x 794; the lines are 144 and the column starts
+  edge-left        #features p.flex.items-center "Device Disconnect Timeout": starts at x 794; the lines are 144 and the column starts
+  edge-left        #features p.sed-muted.mt-2 "How long a disconnected device's": starts at x 794; the lines are 144 and the column starts
+  edge-left        #features p.flex.items-center "Past Devices": starts at x 794; the lines are 144 and the column starts
+  edge-left        #features p.sed-muted.mt-2 "Every device that has connected ": starts at x 794; the lines are 144 and the column starts
+  spill            #features table.sed-table "Device NameOSIPLast SeeniPadConn": x 794 to 1394.8, the page runs 144 to 1296
+  edge-left        #features p.flex.items-center "Account Settings": starts at x 794; the lines are 144 and the column starts
+  edge-left        #features p.flex.items-center "Zoom": starts at x 794; the lines are 144 and the column starts
+  edge-left        #features p.sed-muted.mt-2 "Scale the entire interface. You ": starts at x 794; the lines are 144 and the column starts
+  edge-left        #gpu div.relative.overflow-x-auto "Graphics card support by compute": starts at x 541.3; the lines are 144 and the column starts
+  edge-left        #gpu table.w-full.min-w-[30rem] "Graphics card support by compute": starts at x 541.3; the lines are 144 and the column starts
+  edge-left        #gpu p.mt-4.text-sm "Experimental: built, but not yet": starts at x 541.3; the lines are 144 and the column starts
+  edge-left        #download p.text-lg.text-muted "2.5k+ downloads so far": starts at x 1106.2; the lines are 144 and the column starts
+  edge-right       #download div.flex.flex-col "WindowsRequiresWindows Client 20": ends at x 496; the right line is 1296
+  edge-left        #download div.flex.flex-col "LinuxWill requireUbuntu 20.04 (A": starts at x 944; the lines are 144 and the column starts
+  edge-left        #download h3.flex.items-center "Linux": starts at x 944; the lines are 144 and the column starts
+  edge-left        #download p.mt-4.text-sm "Will require": starts at x 944; the lines are 144 and the column starts
+  edge-left        #download ul.mt-1.space-y-0.5 "Ubuntu 20.04 (April 2020)": starts at x 944; the lines are 144 and the column starts
+  edge-left        #download p.flex.min-h-12 "Coming soon as .deb, .rpm and Ap": starts at x 944; the lines are 144 and the column starts
+  edge-left        #faq div.border-b.border-line "Which devices can I use as the s": starts at x 544; the lines are 144 and the column starts
+  edge-right       footer.border-t.border-line a.inline-flex.min-h-11 "ScreenExtend": ends at x 284.4; the right line is 1296
+  edge-left        footer.border-t.border-line nav.flex.flex-wrap "PrivacyTerms of servic: starts at x 393.7; the lines are 144 and the column starts
+  edge-left        footer.border-t.border-line p.text-muted "© 2026 Sarvesh Madullapalli.: starts at x 990; the lines are 144 and the column starts
+  screen-short     #uses section.py-16.lg:py-24 "What you can use it forDrag any ": 749px tall; one screen under the nav is 900px
+  screen-height    #uses section.py-16.lg:py-24 "What you can use it forDrag any ": 749px, 0.83 screens; a section is exactly one or two (--h)
+  neighbour        #uses section.py-16.lg:py-24 "What you can use it forDrag any ": framed, 41px of #compare section.bg-tint.py-16 "How it comparesLike Apple's Side" shows
+  screen-short     #compare section.bg-tint.py-16 "How it comparesLike Apple's Side": 876px tall; one screen under the nav is 900px
+  screen-height    #compare section.bg-tint.py-16 "How it comparesLike Apple's Side": 876px, 0.97 screens; a section is exactly one or two (--h)
+  screen-short     #how section.py-16.lg:py-24 "How pairing worksScan a code, ty": 803px tall; one screen under the nav is 900px
+  screen-height    #how section.py-16.lg:py-24 "How pairing worksScan a code, ty": 803px, 0.89 screens; a section is exactly one or two (--h)
+  screen-height    #features section.border-t.border-line "Settings for each devicePick a: 948px, 1.05 screens; a section is exactly one or two (--h)
+  screen-short     #gpu section.bg-tint.py-16 "Graphics card supportScreenExten": 676px tall; one screen under the nav is 900px
+  screen-height    #gpu section.bg-tint.py-16 "Graphics card supportScreenExten": 676px, 0.75 screens; a section is exactly one or two (--h)
+  neighbour        #gpu section.bg-tint.py-16 "Graphics card supportScreenExten": framed, 41px of #download section.border-t.border-line "Download ScreenExtendFree for Wi" shows
+  screen-short     #download section.border-t.border-line "Download ScreenExtendFree for : 679px tall; one screen under the nav is 900px
+  screen-height    #download section.border-t.border-line "Download ScreenExtendFree for : 679px, 0.75 screens; a section is exactly one or two (--h)
+  neighbour        #download section.border-t.border-line "Download ScreenExtendFree for : framed, 83px of #faq section.border-t.border-line "Frequently asked questionsNot co" shows
+  screen-short     #faq section.border-t.border-line "Frequently asked questionsNot co": 621px tall; one screen under the nav is 900px
+  screen-height    #faq section.border-t.border-line "Frequently asked questionsNot co": 621px, 0.69 screens; a section is exactly one or two (--h)
+  hero-fold        #home section.relative.overflow-x-clip "Use your tablet or phone as a : starts at y 65, not under the nav
+  hero-fold        #home section.relative.overflow-x-clip "Use your tablet or phone as a : ends at y 1357, past the fold (900): 1.44 screens tall
+
+1024x768  lines x 48 and 976, nav 0px, one screen 768px
+  hero 1255 tall; h1 45.056px/1.1, 2 lines, 595x99 at 215,145; lead -; buttons -; visual -
+  section #home section.relative.overflow-x-clip "Use your tablet or p y    65  h  1255  content 828
+  section #uses section.py-16.lg:py-24 "What you can use it forDrag an y  1320  h   740  content 548
+  section #compare section.bg-tint.py-16 "How it comparesLike Apple's  y  2059  h   886  content 694
+  section #how section.py-16.lg:py-24 "How pairing worksScan a code, t y  2946  h   871  content 679
+  section #features section.border-t.border-line "Settings for each de y  3817  h   965  content 771
+  section #gpu section.bg-tint.py-16 "Graphics card supportScreenExten y  4782  h   676  content 484
+  section #download section.border-t.border-line "Download ScreenExten y  5458  h   670  content 477
+  section #faq section.border-t.border-line "Frequently asked question y  6127  h   621  content 525
+  edge-left        #how ol.lg:col-span-5.lg:pl-6 "1Open ScreenExtend on your compu": starts at x 612.7; the lines are 48 and the column starts
+  edge-right       #features div.min-w-0 "Edit DeviceScale, orientation, r": ends at x 496; the right line is 976
+  edge-left        #features p.text-2xl.font-semibold "Connected Devices": starts at x 81; the lines are 48 and the column starts
+  edge-left        #features p.text-gray-500 "2 Screens Connected": starts at x 81; the lines are 48 and the column starts
+  edge-left        #features table.sed-table "Device NameIPOSScaleOrientationR": starts at x 81; the lines are 48 and the column starts
+  edge-left        #features div.min-w-0 "SettingsRegenerate the session c": starts at x 528; the lines are 48 and the column starts
+  edge-left        #features h3.text-lg.font-semibold "Settings": starts at x 528; the lines are 48 and the column starts
+  edge-left        #features p.mt-1.5.leading-relaxed "Regenerate the session code, sta": starts at x 528; the lines are 48 and the column starts
+  edge-left        #features p.mb-6.text-2xl "Settings": starts at x 561; the lines are 48 and the column starts
+  edge-left        #features p.flex.items-center "Session OTP": starts at x 586; the lines are 48 and the column starts
+  edge-left        #features p.flex.items-center "Public Internet Sessions": starts at x 586; the lines are 48 and the column starts
+  edge-left        #features p.text-sm.font-medium "Public sessions enabled": starts at x 586; the lines are 48 and the column starts
+  edge-left        #features p.sed-muted.text-sm "Allow devices to join over the i": starts at x 586; the lines are 48 and the column starts
+  edge-left        #features p.flex.items-center "Launch at Startup": starts at x 586; the lines are 48 and the column starts
+  edge-left        #features p.text-sm.font-medium "Start on login disabled": starts at x 586; the lines are 48 and the column starts
+  edge-left        #features p.sed-muted.text-sm "Automatically open ScreenExtend ": starts at x 586; the lines are 48 and the column starts
+  edge-left        #features p.flex.items-center "Create Hosted Network": starts at x 586; the lines are 48 and the column starts
+  edge-left        #features p.sed-muted.mt-2 "Host a local network for devices": starts at x 586; the lines are 48 and the column starts
+  edge-left        #features p.text-sm.font-medium "Start Network": starts at x 586; the lines are 48 and the column starts
+  edge-left        #features p.flex.items-center "Device Disconnect Timeout": starts at x 586; the lines are 48 and the column starts
+  edge-left        #features p.sed-muted.mt-2 "How long a disconnected device's": starts at x 586; the lines are 48 and the column starts
+  edge-left        #features p.flex.items-center "Past Devices": starts at x 586; the lines are 48 and the column starts
+  edge-left        #features p.sed-muted.mt-2 "Every device that has connected ": starts at x 586; the lines are 48 and the column starts
+  bleed-one-side   #features table.sed-table "Device NameOSIPLast SeeniPadConn": runs from x 586 out to the right viewport edge; the left side stays at 48
+  edge-left        #features p.flex.items-center "Account Settings": starts at x 586; the lines are 48 and the column starts
+  edge-left        #features p.flex.items-center "Zoom": starts at x 586; the lines are 48 and the column starts
+  edge-left        #features p.sed-muted.mt-2 "Scale the entire interface. You ": starts at x 586; the lines are 48 and the column starts
+  edge-left        #gpu div.relative.overflow-x-auto "Graphics card support by compute": starts at x 370.7; the lines are 48 and the column starts
+  edge-left        #gpu table.w-full.min-w-[30rem] "Graphics card support by compute": starts at x 370.7; the lines are 48 and the column starts
+  edge-left        #gpu p.mt-4.text-sm "Experimental: built, but not yet": starts at x 370.7; the lines are 48 and the column starts
+  edge-left        #download p.text-lg.text-muted "2.5k+ downloads so far": starts at x 786.2; the lines are 48 and the column starts
+  edge-right       #download div.flex.flex-col "WindowsRequiresWindows Client 20": ends at x 325.3; the right line is 976
+  edge-left        #download div.flex.flex-col "LinuxWill requireUbuntu 20.04 (A": starts at x 698.7; the lines are 48 and the column starts
+  edge-left        #download h3.flex.items-center "Linux": starts at x 698.7; the lines are 48 and the column starts
+  edge-left        #download p.mt-4.text-sm "Will require": starts at x 698.7; the lines are 48 and the column starts
+  edge-left        #download ul.mt-1.space-y-0.5 "Ubuntu 20.04 (April 2020)": starts at x 698.7; the lines are 48 and the column starts
+  edge-left        #download p.flex.min-h-12 "Coming soon as .deb, .rpm and Ap": starts at x 698.7; the lines are 48 and the column starts
+  edge-left        #faq div.border-b.border-line "Which devices can I use as the s": starts at x 373.3; the lines are 48 and the column starts
+  edge-left        footer.border-t.border-line nav.flex.flex-wrap "PrivacyTerms of servic: starts at x 198.8; the lines are 48 and the column starts
+  screen-short     #uses section.py-16.lg:py-24 "What you can use it forDrag any ": 740px tall; one screen under the nav is 768px
+  neighbour-ground #uses section.py-16.lg:py-24 "What you can use it forDrag any ": framed, 28px of #compare section.bg-tint.py-16 "How it comparesLike Apple's Side"'s ground shows
+  screen-short     #gpu section.bg-tint.py-16 "Graphics card supportScreenExten": 676px tall; one screen under the nav is 768px
+  screen-short     #download section.border-t.border-line "Download ScreenExtendFree for : 670px tall; one screen under the nav is 768px
+  screen-short     #faq section.border-t.border-line "Frequently asked questionsNot co": 621px tall; one screen under the nav is 768px
+  hero-fold        #home section.relative.overflow-x-clip "Use your tablet or phone as a : starts at y 65, not under the nav
+  hero-fold        #home section.relative.overflow-x-clip "Use your tablet or phone as a : ends at y 1320, past the fold (768): 1.63 screens tall
+
+820x1180  lines x 58 and 762, nav 0px, one screen 1180px
+  hero 1134 tall; h1 36.08px/1.1, 2 lines, 476x79 at 172,129; lead -; buttons -; visual -
+  section #home section.relative.overflow-x-clip "Use your tablet or p y    65  h  1134  content 759
+  section #uses section.py-16.lg:py-24 "What you can use it forDrag an y  1199  h   863  content 735
+  section #compare section.bg-tint.py-16 "How it comparesLike Apple's  y  2062  h   900  content 772
+  section #how section.py-16.lg:py-24 "How pairing worksScan a code, t y  2962  h   778  content 650
+  section #features section.border-t.border-line "Settings for each de y  3740  h  1533  content 1403
+  section #gpu section.bg-tint.py-16 "Graphics card supportScreenExten y  5273  h   755  content 627
+  section #download section.border-t.border-line "Download ScreenExten y  6028  h   644  content 515
+  section #faq section.border-t.border-line "Frequently asked question y  6671  h   661  content 629
+  edge-left        #features p.text-2xl.font-semibold "Connected Devices": starts at x 91; the lines are 58 and the column starts
+  bleed-one-side   #features table.sed-table "Device NameIPOSScaleOrientationR": runs from x 91 out to the right viewport edge; the left side stays at 58
+  edge-left        #features p.flex.items-center "Session OTP": starts at x 116; the lines are 58 and the column starts
+  edge-left        #features p.flex.items-center "Public Internet Sessions": starts at x 116; the lines are 58 and the column starts
+  edge-left        #features p.text-sm.font-medium "Public sessions enabled": starts at x 116; the lines are 58 and the column starts
+  edge-left        #features p.sed-muted.text-sm "Allow devices to join over the i": starts at x 116; the lines are 58 and the column starts
+  edge-left        #features p.flex.items-center "Launch at Startup": starts at x 116; the lines are 58 and the column starts
+  edge-left        #features p.text-sm.font-medium "Start on login disabled": starts at x 116; the lines are 58 and the column starts
+  edge-left        #features p.sed-muted.text-sm "Automatically open ScreenExtend ": starts at x 116; the lines are 58 and the column starts
+  edge-left        #features p.text-sm.font-medium "Start Network": starts at x 116; the lines are 58 and the column starts
+  edge-left        #features p.flex.items-center "Device Disconnect Timeout": starts at x 116; the lines are 58 and the column starts
+  edge-left        #features p.sed-muted.mt-2 "How long a disconnected device's": starts at x 116; the lines are 58 and the column starts
+  edge-left        #features table.sed-table "Device NameOSIPLast SeeniPadConn": starts at x 116; the lines are 58 and the column starts
+  edge-left        #features p.flex.items-center "Account Settings": starts at x 116; the lines are 58 and the column starts
+  edge-left        #features p.flex.items-center "Zoom": starts at x 116; the lines are 58 and the column starts
+  edge-left        #features p.sed-muted.mt-2 "Scale the entire interface. You ": starts at x 116; the lines are 58 and the column starts
+  edge-left        #download p.text-lg.text-muted "2.5k+ downloads so far": starts at x 572.2; the lines are 58 and the column starts
+  edge-right       #download div.flex.flex-col "WindowsRequiresWindows Client 20": ends at x 260.7; the right line is 762
+  edge-left        #download div.flex.flex-col "LinuxWill requireUbuntu 20.04 (A": starts at x 559.3; the lines are 58 and the column starts
+  edge-left        #download h3.flex.items-center "Linux": starts at x 559.3; the lines are 58 and the column starts
+  edge-left        #download p.mt-4.text-sm "Will require": starts at x 559.3; the lines are 58 and the column starts
+  edge-left        #download ul.mt-1.space-y-0.5 "Ubuntu 20.04 (April 2020)": starts at x 559.3; the lines are 58 and the column starts
+  edge-left        #download p.flex.min-h-12 "Coming soon as .deb, .rpm and Ap": starts at x 559.3; the lines are 58 and the column starts
+  edge-right       footer.border-t.border-line a.inline-flex.min-h-11 "ScreenExtend": ends at x 176.4; the right line is 762
+  edge-left        footer.border-t.border-line nav.flex.flex-wrap "PrivacyTerms of servic: starts at x 192.4; the lines are 58 and the column starts
+  edge-left        footer.border-t.border-line p.text-muted "© 2026 Sarvesh Madullapalli.: starts at x 548.4; the lines are 58 and the column starts
+  screen-short     #home section.relative.overflow-x-clip "Use your tablet or phone as a : 1134px tall; one screen under the nav is 1180px
+  screen-short     #uses section.py-16.lg:py-24 "What you can use it forDrag any ": 863px tall; one screen under the nav is 1180px
+  neighbour        #uses section.py-16.lg:py-24 "What you can use it forDrag any ": framed, 141px of #compare section.bg-tint.py-16 "How it comparesLike Apple's Side" shows
+  screen-short     #compare section.bg-tint.py-16 "How it comparesLike Apple's Side": 900px tall; one screen under the nav is 1180px
+  neighbour        #compare section.bg-tint.py-16 "How it comparesLike Apple's Side": framed, 104px of #how section.py-16.lg:py-24 "How pairing worksScan a code, ty" shows
+  screen-short     #how section.py-16.lg:py-24 "How pairing worksScan a code, ty": 778px tall; one screen under the nav is 1180px
+  neighbour        #how section.py-16.lg:py-24 "How pairing worksScan a code, ty": framed, 52px of #features section.border-t.border-line "Settings for each devicePick a d" shows
+  screen-short     #gpu section.bg-tint.py-16 "Graphics card supportScreenExten": 755px tall; one screen under the nav is 1180px
+  neighbour        #gpu section.bg-tint.py-16 "Graphics card supportScreenExten": framed, 48px of #download section.border-t.border-line "Download ScreenExtendFree for Wi" shows
+  screen-short     #download section.border-t.border-line "Download ScreenExtendFree for : 644px tall; one screen under the nav is 1180px
+  neighbour        #download section.border-t.border-line "Download ScreenExtendFree for : framed, 124px of #faq section.border-t.border-line "Frequently asked questionsNot co" shows
+  screen-short     #faq section.border-t.border-line "Frequently asked questionsNot co": 661px tall; one screen under the nav is 1180px
+  hero-fold        #home section.relative.overflow-x-clip "Use your tablet or phone as a : starts at y 65, not under the nav
+  hero-fold        #home section.relative.overflow-x-clip "Use your tablet or phone as a : ends at y 1199, past the fold (1180): 0.96 screens tall
+
+390x844  lines x 16 and 374, nav 0px, one screen 844px
+  hero 1444 tall; h1 36px/1.1, 3 lines, 358x119 at 16,113; lead -; buttons -; visual -
+  section #home section.relative.overflow-x-clip "Use your tablet or p y    65  h  1444  content 1041
+  section #uses section.py-16.lg:py-24 "What you can use it forDrag an y  1509  h  1411  content 1283
+  section #compare section.bg-tint.py-16 "How it comparesLike Apple's  y  2920  h   948  content 820
+  section #how section.py-16.lg:py-24 "How pairing worksScan a code, t y  3868  h   949  content 821
+  section #features section.border-t.border-line "Settings for each de y  4817  h  1559  content 1429
+  section #gpu section.bg-tint.py-16 "Graphics card supportScreenExten y  6376  h   833  content 705
+  section #download section.border-t.border-line "Download ScreenExten y  7209  h  1179  content 1050
+  section #faq section.border-t.border-line "Frequently asked question y  8388  h   769  content 789
+  bleed-one-side   #compare table.w-full.min-w-[44rem] "ScreenExtend compared with other": runs from x 16 out to the right viewport edge; the left side stays at 16
+  edge-left        #features p.text-2xl.font-semibold "Connected Devices": starts at x 33; the lines are 16 and the column starts
+  bleed-one-side   #features table.sed-table "Device NameIPOSScaleOrientationR": runs from x 33 out to the right viewport edge; the left side stays at 16
+  edge-left        #features p.flex.items-center "Session OTP": starts at x 50; the lines are 16 and the column starts
+  edge-left        #features p.flex.items-center "Public Internet Sessions": starts at x 50; the lines are 16 and the column starts
+  edge-left        #features p.text-sm.font-medium "Public sessions enabled": starts at x 50; the lines are 16 and the column starts
+  edge-left        #features p.sed-muted.text-sm "Allow devices to join over the i": starts at x 50; the lines are 16 and the column starts
+  edge-left        #features p.flex.items-center "Launch at Startup": starts at x 50; the lines are 16 and the column starts
+  edge-left        #features p.text-sm.font-medium "Start on login disabled": starts at x 50; the lines are 16 and the column starts
+  edge-left        #features p.sed-muted.text-sm "Automatically open ScreenExtend ": starts at x 50; the lines are 16 and the column starts
+  edge-left        #features p.text-sm.font-medium "Start Network": starts at x 50; the lines are 16 and the column starts
+  bleed-one-side   #features table.sed-table "Device NameOSIPLast SeeniPadConn": runs from x 50 out to the right viewport edge; the left side stays at 16
+  edge-left        #features p.flex.items-center "Account Settings": starts at x 50; the lines are 16 and the column starts
+  bleed-one-side   #gpu table.w-full.min-w-[30rem] "Graphics card support by compute": runs from x 16 out to the right viewport edge; the left side stays at 16
+  edge-right       footer.border-t.border-line a.inline-flex.min-h-11 "ScreenExtend": ends at x 156.4; the right line is 374
+  neighbour        #uses section.py-16.lg:py-24 "What you can use it forDrag any ": framed, 73px of #compare section.bg-tint.py-16 "How it comparesLike Apple's Side" shows
+  neighbour        #features section.border-t.border-line "Settings for each devicePick a: framed, 32px of #gpu section.bg-tint.py-16 "Graphics card supportScreenExten" shows
+  screen-short     #gpu section.bg-tint.py-16 "Graphics card supportScreenExten": 833px tall; one screen under the nav is 844px
+  screen-height    #gpu section.bg-tint.py-16 "Graphics card supportScreenExten": 833px, 0.99 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  screen-short     #faq section.border-t.border-line "Frequently asked questionsNot co": 769px tall; one screen under the nav is 844px
+  screen-height    #faq section.border-t.border-line "Frequently asked questionsNot co": 769px, 0.91 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  hero-fold        #home section.relative.overflow-x-clip "Use your tablet or phone as a : starts at y 65, not under the nav
+  hero-fold        #home section.relative.overflow-x-clip "Use your tablet or phone as a : ends at y 1509, past the fold (844): 1.71 screens tall

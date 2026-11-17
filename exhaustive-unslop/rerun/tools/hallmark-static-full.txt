@@ -1,0 +1,180 @@
+dist\index.html
+  FAIL 7a :206 pure #fff: color: #fff (.sed-root ::-moz-selection) | fix: Tint the base toward the anchor hue
+  FAIL 7a :206 pure #fff: color: #fff (.sed-root ::selection)
+  FAIL 7a :206 pure #fff: color: #fff (.sed-root .sed-btn-danger)
+  FAIL 7a :206 pure #000: background: #000 (.mockup-phone .camera)
+  FAIL 7a :206 pure #fff: color: #fff (.demo-pill)
+  FAIL 20 :1 no Hallmark stamp on the first non-empty line of any CSS | fix: The stamp comment is line 1 of the CSS; only @charset may precede it
+  FAIL 34 :1 no overflow-x: clip on html and body | fix: overflow-x: clip on both html and body
+  FAIL 39a :206 disabled via opacity alone on .sed-root .sed-btn:disabled | fix: Three disabled channels: fill, ink and cursor, plus the disabled attribute
+  FAIL 39a :206 disabled via opacity alone on .sed-root .sed-float input:disabled+label
+  FAIL 48 :206 colour literal #808080 outside tokens (--sed-thumb on .sed-root) | fix: Lift the value into the token block
+  FAIL 48 :206 colour literal #333 outside tokens (--sed-track on .sed-root)
+  FAIL 48 :206 colour literal #0a0a0b outside tokens (--sed-popover on .sed-root)
+  FAIL 48 :206 colour literal rgb(255 255 255 / .08) outside tokens (--sed-hover on .sed-root)
+  FAIL 48 :206 font-family literal "Geist Variable,Geist,-apple-system,…" on .sed-root
+  FAIL 48 :206 colour literal #fff outside tokens (color on .sed-root ::-moz-selection)
+  FAIL 48 :206 colour literal #fff outside tokens (color on .sed-root ::selection)
+  FAIL 48 :206 colour literal #c1c1c1 outside tokens (--sed-thumb on :root[data-theme=light] .sed-…)
+  FAIL 48 :206 colour literal #f1f1f1 outside tokens (--sed-track on :root[data-theme=light] .sed-…)
+  FAIL 48 :206 colour literal #ffffff outside tokens (--sed-popover on :root[data-theme=light] .sed-…)
+  FAIL 48 :206 colour literal rgb(15 23 42 / .06) outside tokens (--sed-hover on :root[data-theme=light] .sed-…)
+  FAIL 48 :206 colour literal #c1c1c1 outside tokens (--sed-thumb on :root:not([data-theme]) .sed-…)
+  FAIL 48 :206 colour literal #f1f1f1 outside tokens (--sed-track on :root:not([data-theme]) .sed-…)
+  FAIL 48 :206 colour literal #ffffff outside tokens (--sed-popover on :root:not([data-theme]) .sed-…)
+  FAIL 48 :206 colour literal rgb(15 23 42 / .06) outside tokens (--sed-hover on :root:not([data-theme]) .sed-…)
+  FAIL 48 :206 colour literal #dc2626 outside tokens (background on .sed-root .sed-btn-danger)
+  FAIL 48 :206 colour literal #fff outside tokens (color on .sed-root .sed-btn-danger)
+  FAIL 48 :206 colour literal #b91c1c outside tokens (background on .sed-root .sed-btn-danger:hov…)
+  FAIL 48 :206 colour literal #0000000d outside tokens (box-shadow on .sed-root .sed-card)
+  FAIL 48 :206 colour literal #000c outside tokens (background on .sed-root .sed-overlay)
+  FAIL 48 :206 colour literal #0000004d outside tokens (box-shadow on .sed-root .sed-sheet)
+  FAIL 48 :206 colour literal #000000bf outside tokens (background on .sed-root .sed-qrbig)
+  FAIL 48 :206 colour literal #3b82f6 outside tokens (border-color on .sed-root .sed-input:focus)
+  FAIL 48 :206 colour literal #9ca3af outside tokens (color on .sed-root .sed-float label)
+  FAIL 48 :206 colour literal #3b82f6 outside tokens (color on .sed-root .sed-float input:fo…)
+  FAIL 48 :206 colour literal #9ca3af outside tokens (color on .sed-root .sed-eye)
+  FAIL 48 :206 colour literal #0006 outside tokens (box-shadow on .sed-root .sed-pop)
+  FAIL 48 :206 colour literal #00000073 outside tokens (box-shadow on .sed-root .sed-menu)
+  FAIL 48 :206 colour literal #fff outside tokens (--tw-ring-offset-color on *,:before,:after)
+  FAIL 48 :206 colour literal rgb(59 130 246 / .5) outside tokens (--tw-ring-color on *,:before,:after)
+  FAIL 48 :206 colour literal #fff outside tokens (--tw-ring-offset-color on ::backdrop)
+  FAIL 48 :206 colour literal rgb(59 130 246 / .5) outside tokens (--tw-ring-color on ::backdrop)
+  FAIL 48 :206 colour literal #e5e7eb outside tokens (border-color on *,:before,:after)
+  FAIL 48 :206 font-family literal "IBM Plex Sans,system-ui,sans-serif" on html,:host
+  FAIL 48 :206 font-family literal "IBM Plex Mono,ui-monospace,monospace" on code,kbd,samp,pre
+  FAIL 48 :206 colour literal #9ca3af outside tokens (color on input::-moz-placeholder,texta…)
+  FAIL 48 :206 colour literal #9ca3af outside tokens (color on input::placeholder,textarea::…)
+  FAIL 48 :206 colour literal #316cff52 outside tokens (background on ::-moz-selection)
+  FAIL 48 :206 colour literal #316cff52 outside tokens (background on ::selection)
+  FAIL 48 :206 colour literal #316cff24 outside tokens (background-color on :focus-visible)
+  FAIL 48 :206 colour literal #1f4cc0 outside tokens (background-color on .btn-solid:focus-visible)
+  FAIL 48 :206 colour literal #374151 outside tokens (--tw-prose-body on .prose)
+  FAIL 48 :206 colour literal #111827 outside tokens (--tw-prose-headings on .prose)
+  FAIL 48 :206 colour literal #4b5563 outside tokens (--tw-prose-lead on .prose)
+  FAIL 48 :206 colour literal #111827 outside tokens (--tw-prose-links on .prose)
+  FAIL 48 :206 colour literal #111827 outside tokens (--tw-prose-bold on .prose)
+  FAIL 48 :206 colour literal #6b7280 outside tokens (--tw-prose-counters on .prose)
+  FAIL 48 :206 colour literal #d1d5db outside tokens (--tw-prose-bullets on .prose)
+  FAIL 48 :206 colour literal #e5e7eb outside tokens (--tw-prose-hr on .prose)
+  FAIL 48 :206 colour literal #111827 outside tokens (--tw-prose-quotes on .prose)
+  FAIL 48 :206 colour literal #e5e7eb outside tokens (--tw-prose-quote-borders on .prose)
+  FAIL 48 :206 colour literal #6b7280 outside tokens (--tw-prose-captions on .prose)
+  FAIL 48 :206 colour literal #111827 outside tokens (--tw-prose-kbd on .prose)
+  FAIL 48 :206 colour literal rgb(17 24 39 / 10%) outside tokens (--tw-prose-kbd-shadows on .prose)
+  FAIL 48 :206 colour literal #111827 outside tokens (--tw-prose-code on .prose)
+  FAIL 48 :206 colour literal #e5e7eb outside tokens (--tw-prose-pre-code on .prose)
+  FAIL 48 :206 colour literal #1f2937 outside tokens (--tw-prose-pre-bg on .prose)
+  FAIL 48 :206 colour literal #d1d5db outside tokens (--tw-prose-th-borders on .prose)
+  FAIL 48 :206 colour literal #e5e7eb outside tokens (--tw-prose-td-borders on .prose)
+  FAIL 48 :206 colour literal #d1d5db outside tokens (--tw-prose-invert-body on .prose)
+  FAIL 48 :206 colour literal #fff outside tokens (--tw-prose-invert-headings on .prose)
+  FAIL 48 :206 colour literal #9ca3af outside tokens (--tw-prose-invert-lead on .prose)
+  FAIL 48 :206 colour literal #fff outside tokens (--tw-prose-invert-links on .prose)
+  FAIL 48 :206 colour literal #fff outside tokens (--tw-prose-invert-bold on .prose)
+  FAIL 48 :206 colour literal #9ca3af outside tokens (--tw-prose-invert-counters on .prose)
+  FAIL 48 :206 colour literal #4b5563 outside tokens (--tw-prose-invert-bullets on .prose)
+  FAIL 48 :206 colour literal #374151 outside tokens (--tw-prose-invert-hr on .prose)
+  FAIL 48 :206 colour literal #f3f4f6 outside tokens (--tw-prose-invert-quotes on .prose)
+  FAIL 48 :206 colour literal #374151 outside tokens (--tw-prose-invert-quote-borders on .prose)
+  FAIL 48 :206 colour literal #9ca3af outside tokens (--tw-prose-invert-captions on .prose)
+  FAIL 48 :206 colour literal #fff outside tokens (--tw-prose-invert-kbd on .prose)
+  FAIL 48 :206 colour literal rgb(255 255 255 / 10%) outside tokens (--tw-prose-invert-kbd-shadows on .prose)
+  FAIL 48 :206 colour literal #fff outside tokens (--tw-prose-invert-code on .prose)
+  FAIL 48 :206 colour literal #d1d5db outside tokens (--tw-prose-invert-pre-code on .prose)
+  FAIL 48 :206 colour literal rgb(0 0 0 / 50%) outside tokens (--tw-prose-invert-pre-bg on .prose)
+  FAIL 48 :206 colour literal #4b5563 outside tokens (--tw-prose-invert-th-borders on .prose)
+  FAIL 48 :206 colour literal #374151 outside tokens (--tw-prose-invert-td-borders on .prose)
+  FAIL 48 :206 colour literal #000 outside tokens (background on .mockup-phone .camera)
+  FAIL 48 :206 colour literal #0c0b0e outside tokens (background-color on .mockup-phone .camera:before)
+  FAIL 48 :206 colour literal #0f0b25 outside tokens (background-color on .mockup-phone .camera:after)
+  FAIL 48 :206 colour literal rgb(255 255 255 / var(--tw-te… outside tokens (color on .btn-solid)
+  FAIL 48 :206 colour literal rgb(36 86 214 / var(--tw-bg-o… outside tokens (background-color on .btn-solid:hover)
+  FAIL 48 :206 colour literal rgb(31 76 192 / var(--tw-bg-o… outside tokens (background-color on .btn-solid:active)
+  FAIL 48 :206 font-family literal "IBM Plex Sans,system-ui,sans-serif" on .display
+  FAIL 48 :206 font-family literal "IBM Plex Sans,system-ui,sans-serif" on .display-lg
+  FAIL 48 :206 colour literal #22c55e4d outside tokens (border-color on .border-green-500\/30)
+  FAIL 48 :206 colour literal rgb(11 13 15 / var(--tw-bg-op… outside tokens (background-color on .bg-\[\#0b0d0f\])
+  FAIL 48 :206 colour literal rgb(13 19 25 / var(--tw-bg-op… outside tokens (background-color on .bg-\[\#0d1319\])
+  FAIL 48 :206 colour literal #316cff26 outside tokens (background-color on .bg-\[\#316cff\]\/15)
+  FAIL 48 :206 colour literal rgb(107 114 128 / var(--tw-bg… outside tokens (background-color on .bg-\[\#6b7280\])
+  FAIL 48 :206 colour literal #d6f1ed26 outside tokens (background-color on .bg-\[\#d6f1ed\]\/15)
+  FAIL 48 :206 colour literal #0006 outside tokens (background-color on .bg-black\/40)
+  FAIL 48 :206 colour literal #0009 outside tokens (background-color on .bg-black\/60)
+  FAIL 48 :206 colour literal rgb(34 197 94 / var(--tw-bg-o… outside tokens (background-color on .bg-green-500)
+  FAIL 48 :206 colour literal #22c55e26 outside tokens (background-color on .bg-green-500\/15)
+  FAIL 48 :206 colour literal rgb(220 255 74 / var(--tw-bg-… outside tokens (background-color on .bg-lime)
+  FAIL 48 :206 colour literal rgb(49 108 255 / var(--tw-bg-… outside tokens (background-color on .bg-logo-blue)
+  FAIL 48 :206 colour literal rgb(214 241 237 / var(--tw-bg… outside tokens (background-color on .bg-logo-mint)
+  FAIL 48 :206 colour literal rgb(255 255 255 / var(--tw-bg… outside tokens (background-color on .bg-white)
+  FAIL 48 :206 colour literal #316cff outside tokens (fill on .fill-\[\#316cff\])
+  FAIL 48 :206 font-family literal "IBM Plex Sans,system-ui,sans-serif" on .font-body
+  FAIL 48 :206 font-family literal "IBM Plex Mono,ui-monospace,monospace" on .font-mono
+  FAIL 48 :206 colour literal rgb(220 38 38 / var(--tw-text… outside tokens (color on .\!text-red-600)
+  FAIL 48 :206 colour literal rgb(255 255 255 / var(--tw-te… outside tokens (color on .\!text-white)
+  FAIL 48 :206 colour literal rgb(15 20 25 / var(--tw-text-… outside tokens (color on .text-\[\#0f1419\])
+  FAIL 48 :206 colour literal rgb(79 134 255 / var(--tw-tex… outside tokens (color on .text-\[\#4f86ff\])
+  FAIL 48 :206 colour literal rgb(107 114 128 / var(--tw-te… outside tokens (color on .text-gray-500)
+  FAIL 48 :206 colour literal rgb(34 197 94 / var(--tw-text… outside tokens (color on .text-green-500)
+  FAIL 48 :206 colour literal rgb(22 163 74 / var(--tw-text… outside tokens (color on .text-green-600)
+  FAIL 48 :206 colour literal rgb(49 108 255 / var(--tw-tex… outside tokens (color on .text-logo-blue)
+  FAIL 48 :206 colour literal rgb(239 68 68 / var(--tw-text… outside tokens (color on .text-red-500)
+  FAIL 48 :206 colour literal rgb(255 255 255 / var(--tw-te… outside tokens (color on .text-white)
+  FAIL 48 :206 colour literal rgb(0 0 0 / .06) outside tokens (--tw-shadow on .shadow-shot)
+  FAIL 48 :206 colour literal rgb(0 0 0 / .25) outside tokens (--tw-shadow on .shadow-shot)
+  FAIL 48 :206 colour literal #0f1419d9 outside tokens (background on .demo-pill)
+  FAIL 48 :206 colour literal #fff outside tokens (color on .demo-pill)
+  FAIL 48 :206 colour literal #3a424b outside tokens (background on [data-theme=dark] .demo-pill)
+  FAIL 48 :206 colour literal #f1f4f7 outside tokens (color on [data-theme=dark] .demo-pill)
+  FAIL 48 :206 colour literal #3a424b outside tokens (background on :root:not([data-theme]) .demo…)
+  FAIL 48 :206 colour literal #f1f4f7 outside tokens (color on :root:not([data-theme]) .demo…)
+  FAIL 48 :206 colour literal rgb(0 0 0 / var(--tw-bg-opaci… outside tokens (background-color on .backdrop\:bg-black::backdrop)
+  FAIL 48 :206 colour literal #000c outside tokens (background-color on .hover\:bg-black\/80:hover)
+  FAIL 48 :206 colour literal #2456d6 outside tokens (fill on .group:hover .group-hover\:fi…)
+  FAIL 48 :211 colour literal fill-[#316cff] in a class on <path class="fill-[#316cff] transition-color…"> | fix: Lift the value into the token block (@theme or :root) and use its utility name
+  FAIL 48 :211 colour literal bg-[#6b7280] in a class on <div class="pointer-events-none absolute in…">
+  FAIL 48 :211 colour literal text-[#4f86ff] in a class on <svg class="lucide lucide-check text-[#4f86…">
+  FAIL 48 :211 colour literal text-[#0f1419] in a class on <span class="tabular flex aspect-[3/4] flex-…">
+  FAIL 48 :211 colour literal bg-[#316cff]/15 in a class on <span class="inline-flex rounded-cell px-2 p…">
+  FAIL 48 :211 colour literal bg-[#d6f1ed]/15 in a class on <span class="inline-flex rounded-cell px-2 p…">
+  FAIL 48 :211 colour literal bg-[#0b0d0f] in a class on <dialog class="m-0 h-full max-h-none w-full ma…">
+  REFLEX 7b :206 pure #fff: color: rgb(255 255 255 / var(--tw-… (.btn-solid) | fix: Tint the base toward the anchor hue
+  REFLEX 7b :206 pure #fff: background-color: rgb(255 255 255 / var(--tw-… (.bg-white)
+  REFLEX 7b :206 pure #fff: color: rgb(255 255 255 / var(--tw-… (.\!text-white)
+  REFLEX 7b :206 pure #fff: color: rgb(255 255 255 / var(--tw-… (.text-white)
+  REFLEX 7b :206 pure #000: background-color: rgb(0 0 0 / var(--tw-bg-opa… (.backdrop\:bg-black::backdrop)
+  REFLEX 24b :206 padding: 6px 8px 8px (off the 4px scale) on .sed-root .sed-side | fix: Use the 4px spacing scale
+  REFLEX 24b :206 padding: 2px 4px 6px (off the 4px scale) on .sed-root .sed-brand
+  REFLEX 24b :206 padding: 6px 4px (off the 4px scale) on .sed-root .sed-btn.sed-navbtn
+  REFLEX 24b :206 padding: 10px 12px (off the 4px scale) on .sed-root .sed-foot
+  REFLEX 24b :206 padding: 14px 8px (off the 4px scale) on .sed-root .sed-brand
+  REFLEX 24b :206 padding: 8px 10px (off the 4px scale) on .sed-root .sed-btn.sed-navbtn
+  REFLEX 24b :206 padding: 6px 8px 6px 32px (off the 4px scale) on .sed-root .sed-opt
+  REFLEX 24b :206 margin-top: -6px (off the 4px scale) on .sed-root .sed-range::-webkit-slider-thumb
+  REFLEX 24b :206 padding: 6px 8px (off the 4px scale) on .sed-root .sed-menu-label
+  REFLEX 24b :206 padding: 6px 8px (off the 4px scale) on .sed-root .sed-menu-item
+  REFLEX 24b :206 margin-top: -25px (off the 4px scale) on .mockup-phone .display
+  REFLEX 24b :206 margin-top: -25px (off the 4px scale) on .mockup-phone .display-lg
+  REFLEX 64 :211 font-mono on ".msi" at 14px (<span class="font-mono text-sm">) | fix: Labels in the body face at a smaller size and normal case; font-mono only for code and figures
+  REFLEX 64 :211 font-mono on ".pkg" at 14px (<span class="font-mono text-sm">)
+  WARN 10b :206 transitioning margin-top on .menu :where(li>details>summary):after,.menu :where(li>.menu-dropdown-toggle):after | fix: Animate transform or opacity instead
+  WARN 19 :211 template footer line: "All rights reserved" | fix: A stock line with no legal effect; cut it unless the owner wants it
+  WARN 40 :206 1.00:1 < 4.5:1 on :where(.menu li:not(.menu-title,.disabled)>*:not(ul,details,.menu-title)):not(summary,.active,.btn).f… | fix: Raise the contrast to threshold
+  WARN 40 :206 3.28:1 < 4.5:1 on .btn-solid
+  WARN 41 :206 button text ~ button fill on :where(.menu li:not(.menu-title,.disabled)>*:not(ul,details,.menu-title)):not(summary,.act… | fix: Use accent-ink or paper for the label
+  WARN 41 :206 dark surface (L 31%) on .card.image-full:before sets no text colour | fix: Swap text to paper in the same rule
+  WARN 49 :211 long clickable label "Download for Windows or Mac" without nowrap | fix: Shorten the label or set nowrap
+  WARN 49 :211 long clickable label "Send this link to my computer" without nowrap
+  WARN 49 :211 long clickable label "Hover to try the app Tap to try the…" without nowrap
+  WARN 49 :211 long clickable label "Download .dmg (Universal)" without nowrap
+  WARN 58 :1 1355 visible words on the page (450 at most) | fix: Cut copy: one idea per screen, sections become objects
+  WARN 58 :211 h1 runs 9 words ("Use your tablet or phone as a second mo…") | fix: Seven words or fewer, 50 characters or fewer
+  WARN 58 :211 hero paragraph runs 23 words | fix: One sentence, twelve words or fewer
+  WARN 74 :211 default palette instead of theme tokens: 6 distinct palette classes (border-green-500 bg-green-500 text-green-500 text-… | fix: Extend the Tailwind theme with the Hallmark tokens and use those names
+  WARN F1 :211 straight quote in prose x2 (first: nternet via the &quot;Anywhere () | fix: Use typographic quotes: “ ” ’
+  WARN F4 :211 two filled buttons side by side in the hero: "Download for Window…" and "Send this link to m…" | fix: One filled primary per screen; the second action is outlined or a typographic link
+  WARN F6 :206 numeric selector .prose ) at display size without tabular figures | fix: Add font-variant-numeric: tabular-nums
+  WARN F6 :206 numeric selector .table at display size without tabular figures
+  WARN F7 :206 the pill radius on 6 non-control selectors (.sed-root .sed-avatar, .sed-root .sed-range, .s…) | fix: Pills are for controls; boxes and media take the card radius
+  WARN F21 :211 h1 is followed by h3 ("What network is your device con…") | fix: Step heading levels one at a time; size a head with CSS, never with its level
+sloplint: 139 FAIL, 19 REFLEX, 20 WARN across 1 file(s).

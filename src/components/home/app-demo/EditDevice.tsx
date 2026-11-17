@@ -44,7 +44,7 @@ export default function EditDevice() {
     <div className="p-4 sm:p-8">
       <div className="mb-6">
         <div className="flex flex-wrap items-center gap-y-2">
-          <h3 className="text-2xl font-semibold">Connected Devices</h3>
+          <p role="presentation" className="text-2xl font-semibold">Connected Devices</p>
           <span className="ml-1.5" title="Rearrange extended displays in your system's display settings.">
             <Info size={15} aria-hidden="true" />
           </span>
@@ -54,7 +54,7 @@ export default function EditDevice() {
             Display Settings
           </DemoBtn>
         </div>
-        <p className="text-gray-500">{devs.length} Screens Connected</p>
+        <p className="sed-muted">{devs.length} Screens Connected</p>
       </div>
       <div className="overflow-x-auto">
         <table className="sed-table">
@@ -106,7 +106,7 @@ export default function EditDevice() {
             <button type="button" className="sed-plain sed-x" aria-label="Close" onClick={close}>
               <X className="h-4 w-4" aria-hidden="true" />
             </button>
-            <h3 className="text-lg font-semibold">Edit Device</h3>
+            <p role="presentation" className="text-lg font-semibold">Edit Device</p>
             <div className="py-4">
               <div className="flex gap-4">
                 <div className="min-w-0 flex-1">

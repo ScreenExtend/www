@@ -1,0 +1,18 @@
+
+== dist/index.html  (1365 words)  0 FAIL, 2 WARN
+  WARN copy-contrast        contrast frames ("X, not Y", isn't, rather than, instead of, without the): 3, budget 2
+       - "instead of" in: A recipe, a spec or a how-to stays in view instead of hiding behind a tab.
+       - "isn't" in: ScreenExtend isn't affiliated with any of them.
+       - "isn't" in: If it isn't supported, it falls back to the processor.
+       fix: state the positive fact on its own; count all the forms together
+  WARN copy-stat-strip      stat strip x3
+       - 192.168.1.24 / 100% / 192.168.1.37 / 125%
+       - 3 / 7 / 7 / 6 / 2 / 0
+       - 192.168.1.24 / 192.168.1.37 / 192.168.1.52
+       fix: a strip only of figures the brief gives (a price, hours, a count); otherwise put each number in the sentence it proves, or leave it out
+  INFO copy-virtue          virtue words about the business (honest, calm, quiet, actually, simply...; a quiet room or calm water is literal and not counted): 1 of 2
+       - "actually" in: In our tests the computer sent about 150 frames a second; what you actually see depends on t...
+  INFO copy-triads          2 lists of three (about one in 683 words)
+       - A recipe, a spec or a
+       - orientation, refresh rate and video
+  INFO copy-rhythm          87 sentences, mean 12.0 words, spread 8.1, 14% of 4 words or fewer

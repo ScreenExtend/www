@@ -56,7 +56,7 @@ export default function GpuSupport() {
           </p>
         </div>
 
-        <div className="overflow-x-auto lg:col-span-8">
+        <div className="relative overflow-x-auto lg:col-span-8">
           <table className="w-full min-w-[30rem] border-collapse text-left">
             <caption className="sr-only">Graphics card support by computer</caption>
             <thead>

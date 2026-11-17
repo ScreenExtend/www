@@ -1,0 +1,18 @@
+
+1440x900  lines x 400 and 1040, nav 0px, one screen 900px
+  spill            footer.border-t.border-line a.inline-flex.min-h-11 "ScreenExtend": x 144 to 284.4, the page runs 400 to 1040
+  spill            footer.border-t.border-line nav.flex.flex-wrap "PrivacyTerms of servic: x 393.7 to 880.8, the page runs 400 to 1040
+  spill            footer.border-t.border-line p.text-muted "© 2026 Sarvesh Madullapalli.: x 990 to 1296, the page runs 400 to 1040
+
+1024x768  lines x 176 and 848, nav 0px, one screen 768px
+  spill            footer.border-t.border-line a.inline-flex.min-h-11 "ScreenExtend": x 48 to 182.8, the page runs 176 to 848
+  edge-left        footer.border-t.border-line nav.flex.flex-wrap "PrivacyTerms of servic: starts at x 198.8; the lines are 176 and the column starts
+  spill            footer.border-t.border-line p.text-muted "© 2026 Sarvesh Madullapalli.: x 682.3 to 976, the page runs 176 to 848
+
+820x1180  lines x 58 and 762, nav 0px, one screen 1180px
+  edge-right       footer.border-t.border-line a.inline-flex.min-h-11 "ScreenExtend": ends at x 176.4; the right line is 762
+  edge-left        footer.border-t.border-line nav.flex.flex-wrap "PrivacyTerms of servic: starts at x 192.4; the lines are 58 and the column starts
+  edge-left        footer.border-t.border-line p.text-muted "© 2026 Sarvesh Madullapalli.: starts at x 548.4; the lines are 58 and the column starts
+
+390x844  lines x 16 and 374, nav 0px, one screen 844px
+  edge-right       footer.border-t.border-line a.inline-flex.min-h-11 "ScreenExtend": ends at x 156.4; the right line is 374

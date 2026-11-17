@@ -1,0 +1,119 @@
+{
+  "path": "src",
+  "files_scanned": 37,
+  "counts": {
+    "medium": 12
+  },
+  "vibe_score": 24,
+  "verdict": "STRONG AI-default look",
+  "findings": [
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\app-demo\\AddDevice.tsx",
+      "line": 28,
+      "snippet": "<span className=\"ml-2 inline-flex items-center gap-1 rounded-full border border-green-500/30 bg-green-500/15 px-2 py-0.5 text-xs font-medium text-green-500\">"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\app-demo\\AddDevice.tsx",
+      "line": 66,
+      "snippet": "<span className=\"block w-[min(90%,85vmin,520px)] rounded-2xl bg-white p-3\">"
+    },
+    {
+      "rule": "generic-font",
+      "label": "Generic default font (Inter / Geist / Roboto / system)",
+      "sev": "medium",
+      "fix": "Choose a typeface with character and pair a display + body face. The starter font reads as 'no choice made'.",
+      "file": "src\\components\\home\\app-demo\\app-demo.css",
+      "line": 10,
+      "snippet": "font-family: \"Geist Variable\", \"Geist\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", system-ui, sans-serif;"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\app-demo\\app-demo.css",
+      "line": 91,
+      "snippet": ".sed-root .sed-avatar { height: 40px; width: 40px; overflow: hidden; border-radius: 9999px; padding: 0; }"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\app-demo\\app-demo.css",
+      "line": 157,
+      "snippet": "border: 2px solid transparent; border-radius: 9999px; background: hsl(var(--sed-2)); transition: background-color 150ms;"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\app-demo\\app-demo.css",
+      "line": 160,
+      "snippet": ".sed-root .sed-switch > span { display: block; height: 20px; width: 20px; border-radius: 9999px; background: hsl(var(--sed-bg)); transition: transform 150ms eas"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\app-demo\\app-demo.css",
+      "line": 179,
+      "snippet": "height: 8px; border-radius: 9999px;"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\app-demo\\app-demo.css",
+      "line": 184,
+      "snippet": "border: 2px solid hsl(var(--sed-primary)); border-radius: 9999px; background: hsl(var(--sed-bg));"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\app-demo\\app-demo.css",
+      "line": 187,
+      "snippet": ".sed-root .sed-range::-moz-range-track { height: 8px; border-radius: 9999px; background: hsl(var(--sed-2)); }"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\app-demo\\app-demo.css",
+      "line": 188,
+      "snippet": ".sed-root .sed-range::-moz-range-progress { height: 8px; border-radius: 9999px; background: hsl(var(--sed-primary)); }"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\app-demo\\app-demo.css",
+      "line": 190,
+      "snippet": "height: 16px; width: 16px; border: 2px solid hsl(var(--sed-primary)); border-radius: 9999px; background: hsl(var(--sed-bg));"
+    },
+    {
+      "rule": "rounded-everything",
+      "label": "Large rounded corners / pill buttons everywhere",
+      "sev": "medium",
+      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
+      "file": "src\\components\\home\\app-demo\\DemoGate.tsx",
+      "line": 125,
+      "snippet": "className=\"demo-pill absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full px-4 py-2 text-sm font-medium\""
+    }
+  ]
+}

@@ -51,7 +51,7 @@ export default function Settings() {
 
   return (
     <div className="p-4 sm:p-8">
-      <h3 className="mb-6 text-2xl font-semibold">Settings</h3>
+      <p role="presentation" className="mb-6 text-2xl font-semibold">Settings</p>
       <Card
         title={
           <>
