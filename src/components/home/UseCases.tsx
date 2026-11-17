@@ -57,16 +57,14 @@ export default function UseCases() {
 
         {/* Source: docs/RESULTS.md in the app repo, "Windows, the whole host path",
             NVENC ring after, capture -> socket p90 6.29 ms. Not glass-to-glass. */}
-        <p className="mt-10 max-w-[60ch] text-muted">
+        <p className="mt-10 text-muted">
           <span className="font-semibold text-ink">Fast enough to work on.</span>{" "}
           Your computer captures, encodes and sends each frame in under 7 ms.*
           Your Wi-Fi and the other device add the rest.
         </p>
-        <p className="mt-2 max-w-[80ch] text-xs leading-relaxed text-muted">
-          *90th percentile, capture to send, with NVENC. Measured on Windows 11
-          (25H2) with an NVIDIA RTX 3080 Ti Laptop GPU, streaming a 1280×720 extra
-          display; median of three 30-second runs. Network and the other
-          device's browser are not included.
+        <p className="mt-2 text-xs leading-relaxed text-muted">
+          *90th percentile. ScreenExtend 0.6.3 on Windows 11 (25H2) with an
+          NVIDIA RTX 3080 Ti Laptop GPU.
         </p>
       </div>
     </section>
