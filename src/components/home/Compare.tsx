@@ -1,47 +1,51 @@
-import { Check, Clock, Minus, X } from "lucide-react";
+import { Check, X } from "lucide-react";
 
 // Competitor comparison (research: career-agent/reports/ScreenExtend competitor
-// landscape.md, cells re-verified in exhaustive-unslop/rerun/compare-verified.md).
-// All of these are wireless, so that isn't a row. Check / X / "coming", with a
-// note of a few words only where one is needed. Upcoming ScreenExtend features
-// are rows marked "Coming". Re-check before changing the date.
-type MarkKind = "yes" | "no" | "part" | "soon" | "text";
-type Cell = [MarkKind, string?];
+// landscape.md, cells re-verified in exhaustive-unslop/rerun/compare-verified.md
+// and compare-verified-2.md). Cells are a check or an X; anything that needs
+// explaining gets a small roman-numeral footnote listed under the table.
+// X means not offered or not documented by the maker. Re-check before changing
+// the date.
+type Cell = [boolean, number?];
 
 const COLS = ["ScreenExtend", "Apple Sidecar", "Spacedesk", "Duet Display", "Deskreen"] as const;
 
-// Rows from compare-verified.md and compare-verified-2.md. X means not offered or
-// not documented by the maker (the key below the table says so).
+const NOTES = [
+  "Linux support is coming soon.",
+  "The Mac version is in beta.",
+  "Needs an HDMI dummy plug to add a real extra screen.",
+  "HDR is coming soon.",
+];
+const ROMAN = ["i", "ii", "iii", "iv", "v", "vi"];
+
 const ROWS: { q: string; v: [Cell, Cell, Cell, Cell, Cell] }[] = [
-  { q: "Cross-platform support", v: [["yes", "Linux coming soon"], ["no"], ["yes", "Mac in beta"], ["yes"], ["yes"]] },
-  { q: "Any device with a browser", v: [["yes"], ["no"], ["no"], ["no"], ["yes"]] },
-  { q: "No extra hardware", v: [["yes"], ["yes"], ["yes"], ["yes"], ["no", "Dummy plug required"]] },
-  { q: "Several screens at once", v: [["yes"], ["no"], ["yes"], ["yes"], ["no"]] },
-  { q: "Remote control", v: [["yes"], ["yes"], ["yes"], ["yes"], ["no"]] },
-  { q: "Audio", v: [["yes"], ["no"], ["yes"], ["no"], ["no"]] },
-  { q: "HDR", v: [["soon"], ["no"], ["no"], ["no"], ["no"]] },
-  { q: "Free", v: [["yes"], ["yes"], ["no"], ["no"], ["yes"]] },
-  { q: "Open source", v: [["yes"], ["no"], ["no"], ["no"], ["yes"]] },
+  { q: "Cross-platform support", v: [[true, 1], [false], [true, 2], [true], [true]] },
+  { q: "Any device with a browser", v: [[true], [false], [false], [false], [true]] },
+  { q: "No extra hardware", v: [[true], [true], [true], [true], [false, 3]] },
+  { q: "Several screens at once", v: [[true], [false], [true], [true], [false]] },
+  { q: "Remote control", v: [[true], [true], [true], [true], [false]] },
+  { q: "Audio", v: [[true], [false], [true], [false], [false]] },
+  { q: "HDR", v: [[true, 4], [false], [false], [false], [false]] },
+  { q: "Free", v: [[true], [true], [false], [false], [true]] },
+  { q: "Open source", v: [[true], [false], [false], [false], [true]] },
 ];
 
-function Mark({ m, note }: { m: MarkKind; note?: string }) {
-  if (m === "text") return <span className="block text-center text-sm">{note}</span>;
-  const icon =
-    m === "yes" ? (
-      <Check size={18} strokeWidth={2.5} className="text-[#4f86ff]" aria-hidden="true" />
-    ) : m === "no" ? (
-      <X size={18} strokeWidth={2.25} className="text-muted" aria-hidden="true" />
-    ) : m === "part" ? (
-      <Minus size={18} strokeWidth={2.5} className="text-muted" aria-hidden="true" />
-    ) : (
-      <Clock size={16} strokeWidth={2.25} className="text-muted" aria-hidden="true" />
-    );
-  const label = m === "yes" ? "Yes" : m === "no" ? "No" : m === "part" ? "Partly" : "Coming soon";
+function Mark({ yes, note }: { yes: boolean; note?: number }) {
   return (
-    <span className="flex flex-col items-center gap-0.5 text-center">
-      {icon}
-      <span className="sr-only">{label}</span>
-      {note && <span className="text-xs leading-tight text-muted">{note}</span>}
+    <span className="relative inline-flex items-center justify-center">
+      {yes ? (
+        <Check size={18} strokeWidth={2.5} className="text-[#4f86ff]" aria-hidden="true" />
+      ) : (
+        <X size={18} strokeWidth={2.25} className="text-muted" aria-hidden="true" />
+      )}
+      <span className="sr-only">{yes ? "Yes" : "No"}</span>
+      {note && (
+        <sup className="absolute left-full top-[-1px] ml-0.5 text-[0.6875rem] font-semibold leading-none text-muted">
+          <a href={`#cmp-note-${note}`} className="no-underline">
+            {ROMAN[note - 1]}
+          </a>
+        </sup>
+      )}
     </span>
   );
 }
@@ -78,9 +82,9 @@ export default function Compare() {
               {ROWS.map((r) => (
                 <tr key={r.q} className="border-b border-line">
                   <th scope="row" className="py-3 pr-4 text-left font-medium">{r.q}</th>
-                  {r.v.map(([m, note], i) => (
-                    <td key={i} className={`px-2 py-3 align-middle ${i === 0 ? "bg-tile-blue" : ""}`}>
-                      <Mark m={m} note={note} />
+                  {r.v.map(([yes, note], i) => (
+                    <td key={i} className={`px-2 py-3 text-center align-middle ${i === 0 ? "bg-tile-blue" : ""}`}>
+                      <Mark yes={yes} note={note} />
                     </td>
                   ))}
                 </tr>
@@ -90,11 +94,17 @@ export default function Compare() {
         </div>
 
         <p className="mt-5 flex items-center gap-1.5 text-sm text-muted">
-          <Clock size={16} strokeWidth={2.25} aria-hidden="true" />
-          Coming soon
-          <X size={16} strokeWidth={2.25} className="ml-4" aria-hidden="true" />
+          <X size={16} strokeWidth={2.25} aria-hidden="true" />
           Not offered, or not documented by the maker
         </p>
+        <ol className="mt-3 space-y-1 text-sm text-muted">
+          {NOTES.map((n, i) => (
+            <li key={n} id={`cmp-note-${i + 1}`} className="flex gap-2">
+              <span className="w-5 shrink-0 font-medium">{ROMAN[i]}.</span>
+              {n}
+            </li>
+          ))}
+        </ol>
         <p className="mt-4 text-xs leading-relaxed text-muted">
           Checked November 2026 against each maker's own pages. Sidecar is a trademark
           of Apple Inc.; other names belong to their owners. ScreenExtend isn't
