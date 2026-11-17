@@ -1,28 +1,49 @@
+import { Check, Clock, Minus, X } from "lucide-react";
+
 // Competitor comparison (research: career-agent/reports/ScreenExtend competitor
-// landscape.md). All of these are wireless, so that isn't a row. Values are kept
-// short and literal. The best value in each row is bold, whoever has it.
-// Re-check before changing the date.
+// landscape.md, cells re-verified in exhaustive-unslop/rerun/compare-verified.md).
+// All of these are wireless, so that isn't a row. Check / X / "coming", with a
+// note of a few words only where one is needed. Upcoming ScreenExtend features
+// are rows marked "Coming". Re-check before changing the date.
+type MarkKind = "yes" | "no" | "part" | "soon";
+type Cell = [MarkKind, string?];
+
 const COLS = ["ScreenExtend", "Apple Sidecar", "Spacedesk", "Duet Display", "Deskreen"] as const;
 
-// best: the values that count as the best answer in that row; those cells are
-// bolded, whichever product has them (like a benchmark table).
-const ROWS: { q: string; v: [string, string, string, string, string]; best: string[] }[] = [
-  {
-    q: "Your computer",
-    v: ["Windows or Mac", "Mac", "Windows", "Windows or Mac", "Windows, Mac or Linux"],
-    best: ["Windows, Mac or Linux"],
-  },
-  {
-    q: "The second screen",
-    v: ["Any device with a browser", "iPad", "Android, iPhone, iPad, Windows or a browser", "iPad, iPhone or Android", "Any device with a browser"],
-    best: ["Any device with a browser"],
-  },
-  { q: "Install on the second screen", v: ["Nothing", "Nothing", "App, or use a browser", "App", "Nothing"], best: ["Nothing"] },
-  { q: "Extra hardware", v: ["None", "None", "None", "None", "HDMI dummy plug"], best: ["None"] },
-  { q: "Works over a cable", v: ["No", "Yes", "Yes", "Yes", "No"], best: ["Yes"] },
-  { q: "Price", v: ["Free", "Free", "Free for personal use", "$3.99 to $7.99 a month", "Free"], best: ["Free"] },
-  { q: "Open source", v: ["Yes", "No", "No", "No", "Yes"], best: ["Yes"] },
+const ROWS: { q: string; v: [Cell, Cell, Cell, Cell, Cell] }[] = [
+  { q: "Windows computer", v: [["yes"], ["no"], ["yes"], ["yes"], ["yes"]] },
+  { q: "Mac computer", v: [["yes"], ["yes"], ["no"], ["yes"], ["yes"]] },
+  { q: "Linux computer", v: [["soon"], ["no"], ["no"], ["no"], ["yes"]] },
+  { q: "Any device with a browser", v: [["yes"], ["no", "iPad only"], ["yes"], ["no", "App needed"], ["yes"]] },
+  { q: "Nothing to install on it", v: [["yes"], ["yes"], ["part", "Browser viewer"], ["no"], ["yes"]] },
+  { q: "No extra hardware", v: [["yes"], ["yes"], ["yes"], ["yes"], ["no", "HDMI dummy plug"]] },
+  { q: "Works over a cable", v: [["soon", "Native apps"], ["yes"], ["yes"], ["yes"], ["no"]] },
+  { q: "HDR", v: [["soon"], ["no"], ["no"], ["no"], ["no"]] },
+  { q: "Use its mic and camera", v: [["soon"], ["no"], ["no"], ["no"], ["no"]] },
+  { q: "Free", v: [["yes"], ["yes"], ["part", "Personal use"], ["no", "From $3.99/mo"], ["yes"]] },
+  { q: "Open source", v: [["yes"], ["no"], ["no"], ["no"], ["yes"]] },
 ];
+
+function Mark({ m, note }: { m: MarkKind; note?: string }) {
+  const icon =
+    m === "yes" ? (
+      <Check size={18} strokeWidth={2.5} className="text-[#4f86ff]" aria-hidden="true" />
+    ) : m === "no" ? (
+      <X size={18} strokeWidth={2.25} className="text-muted" aria-hidden="true" />
+    ) : m === "part" ? (
+      <Minus size={18} strokeWidth={2.5} className="text-muted" aria-hidden="true" />
+    ) : (
+      <Clock size={16} strokeWidth={2.25} className="text-muted" aria-hidden="true" />
+    );
+  const label = m === "yes" ? "Yes" : m === "no" ? "No" : m === "part" ? "Partly" : "Coming";
+  return (
+    <span className="flex flex-col items-center gap-0.5 text-center">
+      {icon}
+      <span className={m === "soon" ? "text-xs text-muted" : "sr-only"}>{label}</span>
+      {note && <span className="text-xs leading-tight text-muted">{note}</span>}
+    </span>
+  );
+}
 
 export default function Compare() {
   return (
@@ -30,23 +51,22 @@ export default function Compare() {
       <div className="container">
         <h2 className="display-lg">How it compares</h2>
         <p className="mt-3 text-lg text-muted">
-          If you've used Apple's Sidecar, it's the same idea, for any device with a
-          browser and a Windows PC or a Mac.
+          Like Apple's Sidecar, for any device with a browser and a Windows PC or Mac.
         </p>
 
         <div className="mt-10 overflow-x-auto">
-          <table className="w-full min-w-[46rem] border-collapse text-left">
+          <table className="w-full min-w-[44rem] border-collapse">
             <caption className="sr-only">ScreenExtend compared with other second-screen apps</caption>
             <thead>
               <tr className="border-b border-line text-sm">
-                <th scope="col" className="py-3 pr-4 font-medium">
-                  <span className="sr-only">Question</span>
+                <th scope="col" className="py-3 pr-4 text-left font-medium">
+                  <span className="sr-only">Feature</span>
                 </th>
                 {COLS.map((c, i) => (
                   <th
                     key={c}
                     scope="col"
-                    className={`px-3 py-3 ${i === 0 ? "font-semibold text-ink" : "font-medium text-muted"}`}
+                    className={`w-[15%] px-2 py-3 text-center ${i === 0 ? "font-semibold text-ink" : "font-medium text-muted"}`}
                   >
                     {c}
                   </th>
@@ -55,14 +75,11 @@ export default function Compare() {
             </thead>
             <tbody>
               {ROWS.map((r) => (
-                <tr key={r.q} className="border-b border-line align-top">
-                  <th scope="row" className="py-3.5 pr-4 font-medium">{r.q}</th>
-                  {r.v.map((cell, i) => (
-                    <td
-                      key={i}
-                      className={`px-3 py-3.5 ${r.best.includes(cell) ? "font-semibold text-ink" : "text-muted"}`}
-                    >
-                      {cell}
+                <tr key={r.q} className="border-b border-line">
+                  <th scope="row" className="py-3 pr-4 text-left font-medium">{r.q}</th>
+                  {r.v.map(([m, note], i) => (
+                    <td key={i} className="px-2 py-3 align-middle">
+                      <Mark m={m} note={note} />
                     </td>
                   ))}
                 </tr>
@@ -71,15 +88,10 @@ export default function Compare() {
           </table>
         </div>
 
-
-        <p className="mt-8 text-lg">
-          Try ScreenExtend when you want an extra screen from a device you already own,
-          on Windows or a Mac, for free.
-        </p>
         <p className="mt-6 text-xs leading-relaxed text-muted">
-          Checked November 2026 against each maker's own pages. Sidecar is a trademark of
-          Apple Inc.; other product names belong to their
-          owners. ScreenExtend isn't affiliated with any of them.
+          Checked November 2026 against each maker's own pages. Sidecar is a trademark
+          of Apple Inc.; other names belong to their owners. ScreenExtend isn't
+          affiliated with any of them.
         </p>
       </div>
     </section>
