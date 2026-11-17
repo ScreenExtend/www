@@ -11,6 +11,8 @@ const lightTokens = {
   '--se-link': '#2456d6',
   // soft logo-blue ground for a few sections: lighter than paper, never a jump
   '--se-tint': '#eef3ff',
+  '--se-tile-blue': '#e1eaff',
+  '--se-tile-mint': '#d6f1ed',
 }
 const darkTokens = {
   '--se-paper': '#0b0d10',
@@ -20,6 +22,8 @@ const darkTokens = {
   '--se-line': '#262b31',
   '--se-link': '#8fb0ff',
   '--se-tint': '#141c2c',
+  '--se-tile-blue': '#18244a',
+  '--se-tile-mint': '#16302f',
 }
 const shared = {
   primary: '#2b62f0',
@@ -70,6 +74,8 @@ export default {
         line: 'var(--se-line)',
         link: 'var(--se-link)',
         tint: 'var(--se-tint)',
+        'tile-blue': 'var(--se-tile-blue)',
+        'tile-mint': 'var(--se-tile-mint)',
         lime: '#dcff4a',
         'logo-mint': '#d6f1ed',
         'logo-blue': '#316cff',

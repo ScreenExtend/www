@@ -34,13 +34,13 @@ export const DEVICES: Dev[] = [
   {
     name: "iPad", ip: "192.168.1.24", os: "iPadOS", screenSize: "2360x1640",
     orientation: "Landscape", autoOrientation: false, remote: true, pointerScope: false,
-    audio: true, audioOut: "default", scale: 100, dpr: 2, maxDpr: 2, nativeDpr: true,
+    audio: true, audioOut: "System Default", scale: 100, dpr: 2, maxDpr: 2, nativeDpr: true,
     rate: 60, autoRate: false, videoScale: 100, quality: 15, adaptive: false,
   },
   {
     name: "Pixel 8", ip: "192.168.1.37", os: "Android", screenSize: "1080x2400",
     orientation: "Portrait", autoOrientation: false, remote: true, pointerScope: true,
-    audio: false, audioOut: "default", scale: 125, dpr: 2.5, maxDpr: 2.75, nativeDpr: false,
+    audio: false, audioOut: "System Default", scale: 125, dpr: 2.5, maxDpr: 2.75, nativeDpr: false,
     rate: 120, autoRate: false, videoScale: 80, quality: 20, adaptive: true,
   },
 ];

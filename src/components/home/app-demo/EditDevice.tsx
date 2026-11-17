@@ -4,16 +4,9 @@ import { ExternalLink, Info, RefreshCw, X } from "lucide-react";
 import { Checkbox, DemoBtn, Range, Select, Switch, Tip } from "@/components/home/app-demo/ui.tsx";
 import { DEVICES, bc, type Dev } from "@/components/home/app-demo/shared.ts";
 
-const fmt = (n: number) => String(Math.round(n * 100) / 100);
-
-function Row({ label, children }: { label: ReactNode; children: ReactNode }) {
-  return (
-    <div className="mt-4">
-      <div className="mb-2 text-sm font-medium leading-none">{label}</div>
-      {children}
-    </div>
-  );
-}
+const LABEL = "text-sm font-medium leading-none";
+const COLS = ["Device Name", "IP", "OS", "Scale", "Orientation", "Refresh Rate", "Screen Size", ""];
+const opts = (...v: string[]) => v.map((x) => ({ value: x, label: x }));
 
 export default function EditDevice() {
   const [devs, setDevs] = useState(DEVICES);
@@ -34,8 +27,7 @@ export default function EditDevice() {
     opener.current?.focus();
   };
   const d = open === null ? null : devs[open];
-  const set = (patch: Partial<Dev>) =>
-    setDevs((all) => all.map((x, i) => (i === open ? { ...x, ...patch } : x)));
+  const set = (patch: Partial<Dev>) => setDevs((all) => all.map((x, i) => (i === open ? { ...x, ...patch } : x)));
 
   return (
     <div className="p-4 sm:p-8">
@@ -56,11 +48,7 @@ export default function EditDevice() {
       <div className="overflow-x-auto">
         <table className="sed-table">
           <thead>
-            <tr>
-              {["Device Name", "IP", "OS", "Scale", "Orientation", "Refresh Rate", "Screen Size", ""].map((h) => (
-                <th key={h}>{h}</th>
-              ))}
-            </tr>
+            <tr>{COLS.map((h) => <th key={h}>{h}</th>)}</tr>
           </thead>
           <tbody>
             {devs.map((x, i) => (
@@ -69,19 +57,14 @@ export default function EditDevice() {
                 data-selected={open === i || undefined}
                 className="cursor-pointer"
                 onClick={(e) => {
-                  // let people select text in the table without opening the sheet
-                  if (window.getSelection()?.toString()) return;
-                  if ((e.target as HTMLElement).closest("button")) return;
+                  // leave room to select text, and let the row's own buttons act alone
+                  if (window.getSelection()?.toString() || (e.target as HTMLElement).closest("button")) return;
                   show(i);
                 }}
               >
-                <td>{x.name}</td>
-                <td>{x.ip}</td>
-                <td>{x.os}</td>
-                <td>{x.scale}%</td>
-                <td>{x.orientation}</td>
-                <td>{x.rate} Hz</td>
-                <td>{x.screenSize}</td>
+                {[x.name, x.ip, x.os, `${x.scale}%`, x.orientation, `${x.rate} Hz`, x.screenSize].map((v, c) => (
+                  <td key={c}>{v}</td>
+                ))}
                 <td>
                   <div className="flex items-center justify-center gap-2">
                     <DemoBtn className={bc("outline", "icon")} aria-label="Refresh stream">
@@ -116,28 +99,20 @@ export default function EditDevice() {
             <div className="py-4">
               <div className="flex gap-4">
                 <div className="min-w-0 flex-1">
-                  <div className="mb-2 text-sm font-medium leading-none">
+                  <div className={`mb-2 ${LABEL}`}>
                     <Tip text="The name for this device in ScreenExtend.">Device Name</Tip>
                   </div>
-                  <input
-                    className="sed-input"
-                    value={d.name}
-                    aria-label="Device Name"
-                    onChange={(e) => set({ name: e.target.value })}
-                  />
+                  <input className="sed-input" value={d.name} aria-label="Device Name" onChange={(e) => set({ name: e.target.value })} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="mb-2 text-sm font-medium leading-none">
+                  <div className={`mb-2 ${LABEL}`}>
                     <Tip text="Rotates the extended display for this device.">Orientation</Tip>
                   </div>
                   <Select
                     label="Orientation"
                     value={d.orientation}
                     disabled={d.autoOrientation}
-                    options={[
-                      { value: "Portrait", label: "Portrait" },
-                      { value: "Landscape", label: "Landscape" },
-                    ]}
+                    options={opts("Portrait", "Landscape")}
                     onChange={(v) => set({ orientation: v })}
                   />
                   <Checkbox checked={d.autoOrientation} onChange={(v) => set({ autoOrientation: v })}>
@@ -152,18 +127,19 @@ export default function EditDevice() {
                   ["Screen Size", "The device's screen resolution in pixels (read-only).", d.screenSize],
                 ] as const
               ).map(([label, tip, value]) => (
-                <Row key={label} label={<Tip text={tip}>{label}</Tip>}>
+                <div key={label} className="mt-4">
+                  <div className={`mb-2 ${LABEL}`}>
+                    <Tip text={tip}>{label}</Tip>
+                  </div>
                   <input className="sed-input" value={value} aria-label={label} disabled />
-                </Row>
+                </div>
               ))}
-              <div className="mt-4 flex items-center justify-between gap-4 border-t pt-4">
-                <span className="text-sm font-medium leading-none">
-                  <Tip text="Let this device control your PC with touch and keyboard. Turn off to keep the display view-only.">
-                    Remote Control
-                  </Tip>
-                </span>
-                <Switch label="Remote Control" checked={d.remote} onChange={(v) => set({ remote: v })} />
-              </div>
+              <SwitchRow
+                label="Remote Control"
+                tip="Let this device control your PC with touch and keyboard. Turn off to keep the display view-only."
+                on={d.remote}
+                set={(v) => set({ remote: v })}
+              />
               {d.remote && (
                 <Checkbox checked={d.pointerScope} onChange={(v) => set({ pointerScope: v })}>
                   <Tip text="Keep the cursor on this device's screen. Off lets it cross onto your other monitors.">
@@ -171,92 +147,82 @@ export default function EditDevice() {
                   </Tip>
                 </Checkbox>
               )}
-              <div className="mt-4 flex items-center justify-between gap-4 border-t pt-4">
-                <span className="text-sm font-medium leading-none">
-                  <Tip text="Streams this computer's audio output to the device.">System Audio</Tip>
-                </span>
-                <Switch label="System Audio" checked={d.audio} onChange={(v) => set({ audio: v })} />
-              </div>
+              <SwitchRow
+                label="System Audio"
+                tip="Streams this computer's audio output to the device."
+                on={d.audio}
+                set={(v) => set({ audio: v })}
+              />
               {d.audio && (
                 <div className="mt-3 flex items-center justify-between gap-4">
-                  <span className="text-sm font-medium leading-none">
+                  <span className={LABEL}>
                     <Tip text="Choose which of this device's speakers plays the streamed audio.">Audio Output</Tip>
                   </span>
                   <Select
                     className="w-[55%]"
                     label="Audio Output"
                     value={d.audioOut}
-                    options={[
-                      { value: "default", label: "System Default" },
-                      { value: "speaker", label: "Speaker" },
-                      { value: "earpiece", label: "Earpiece" },
-                    ]}
+                    options={opts("System Default", "Speaker", "Earpiece")}
                     onChange={(v) => set({ audioOut: v })}
                   />
                 </div>
               )}
-              <div className="mt-4 border-t pt-4">
-                <div className="my-2 text-sm font-medium leading-none">
-                  <Tip text="Zooms the extended desktop's content up or down.">Scale - ({d.scale}%)</Tip>
-                </div>
-                <Range label="Scale" value={d.scale} min={25} max={200} step={25} onChange={(v) => set({ scale: v })} />
-              </div>
-              <div className="mt-4">
-                <div className="my-2 text-sm font-medium leading-none">
-                  <Tip text="Renders this display at the device's pixel density for sharper text and UI.">
-                    Pixel Ratio - ({fmt(d.dpr)}×)
-                  </Tip>
-                </div>
-                <Range
-                  label="Pixel Ratio"
-                  value={d.dpr}
-                  min={1}
-                  max={d.maxDpr}
-                  step={0.25}
-                  disabled={d.nativeDpr}
-                  onChange={(v) => set({ dpr: v })}
-                />
-                <Checkbox checked={d.nativeDpr} onChange={(v) => set({ nativeDpr: v, dpr: v ? d.maxDpr : d.dpr })}>
-                  Set automatically
-                </Checkbox>
-              </div>
-              <NumberSlider
-                label="Refresh Rate"
-                unit="Hz"
+              <div className="mt-4 border-t" />
+              <Slide
+                label={`Scale - (${d.scale}%)`}
+                tip="Zooms the extended desktop's content up or down."
+                name="Scale"
+                value={d.scale}
+                min={25}
+                max={200}
+                step={25}
+                onChange={(v) => set({ scale: v })}
+              />
+              <Slide
+                label={`Pixel Ratio - (${d.dpr}×)`}
+                tip="Renders this display at the device's pixel density for sharper text and UI."
+                name="Pixel Ratio"
+                value={d.dpr}
+                min={1}
+                max={d.maxDpr}
+                step={0.25}
+                auto={d.nativeDpr}
+                onAuto={(v) => set({ nativeDpr: v, dpr: v ? d.maxDpr : d.dpr })}
+                onChange={(v) => set({ dpr: v })}
+              />
+              <Slide
+                label={<Num name="Refresh Rate" unit="Hz" value={d.rate} min={15} max={550} off={d.autoRate} set={(v) => set({ rate: v })} />}
                 tip="How many frames per second the display targets (Hz)."
+                name="Refresh Rate"
                 value={d.rate}
                 min={15}
                 max={550}
                 step={5}
                 auto={d.autoRate}
-                onChange={(v) => set({ rate: v })}
                 onAuto={(v) => set({ autoRate: v })}
+                onChange={(v) => set({ rate: v })}
               />
-              <div className="mt-4">
-                <div className="my-2 text-sm font-medium leading-none">
-                  <Tip text="Resolution of the streamed video. Lower uses less bandwidth.">
-                    Video Scale - ({d.videoScale}%)
-                  </Tip>
-                </div>
-                <Range
-                  label="Video Scale"
-                  value={d.videoScale}
-                  min={10}
-                  max={100}
-                  step={5}
-                  onChange={(v) => set({ videoScale: v })}
-                />
-              </div>
-              <NumberSlider
-                label="Video Quality"
+              <Slide
+                label={`Video Scale - (${d.videoScale}%)`}
+                tip="Resolution of the streamed video. Lower uses less bandwidth."
+                name="Video Scale"
+                value={d.videoScale}
+                min={10}
+                max={100}
+                step={5}
+                onChange={(v) => set({ videoScale: v })}
+              />
+              <Slide
+                label={<Num name="Video Quality" value={d.quality} min={1} max={51} off={d.adaptive} set={(v) => set({ quality: v })} />}
                 tip="Higher encodes faster but looks worse. Pick the highest value that still looks good."
+                name="Video Quality"
                 value={d.quality}
                 min={1}
                 max={51}
                 step={1}
                 auto={d.adaptive}
-                onChange={(v) => set({ quality: v })}
                 onAuto={(v) => set({ adaptive: v })}
+                onChange={(v) => set({ quality: v })}
               />
             </div>
             <div className="mt-3 flex w-full gap-4">
@@ -274,59 +240,74 @@ export default function EditDevice() {
   );
 }
 
-function NumberSlider({
+function SwitchRow({ label, tip, on, set }: { label: string; tip: string; on: boolean; set: (v: boolean) => void }) {
+  return (
+    <div className="mt-4 flex items-center justify-between gap-4 border-t pt-4">
+      <span className={LABEL}>
+        <Tip text={tip}>{label}</Tip>
+      </span>
+      <Switch label={label} checked={on} onChange={set} />
+    </div>
+  );
+}
+
+function Slide({
   label,
-  unit,
   tip,
-  value,
-  min,
-  max,
-  step,
+  name,
   auto,
-  onChange,
   onAuto,
+  ...range
 }: {
-  label: string;
-  unit?: string;
+  label: ReactNode;
   tip: string;
+  name: string;
   value: number;
   min: number;
   max: number;
   step: number;
-  auto: boolean;
+  auto?: boolean;
+  onAuto?: (v: boolean) => void;
   onChange: (v: number) => void;
-  onAuto: (v: boolean) => void;
 }) {
-  const [draft, setDraft] = useState<string | null>(null);
   return (
     <div className="mt-4">
-      <div className="my-2 flex items-center text-sm font-medium leading-none">
-        {label} -
-        <input
-          className="sed-input sed-num ml-1"
-          type="number"
-          inputMode="numeric"
-          aria-label={label}
-          min={min}
-          max={max}
-          value={draft ?? value}
-          disabled={auto}
-          onChange={(e) => setDraft(e.target.value)}
-          onBlur={() => {
-            const n = Number(draft);
-            if (draft !== null && n >= min && n <= max) onChange(Math.round(n));
-            setDraft(null);
-          }}
-        />
-        {unit && <span className="ml-1">{unit}</span>}
-        <span className="ml-2">
-          <Tip text={tip} />
-        </span>
+      <div className={`my-2 flex items-center ${LABEL}`}>
+        <Tip text={tip}>{label}</Tip>
       </div>
-      <Range label={label} value={value} min={min} max={max} step={step} disabled={auto} onChange={onChange} />
-      <Checkbox checked={auto} onChange={onAuto}>
-        Set automatically
-      </Checkbox>
+      <Range label={name} disabled={auto} {...range} />
+      {onAuto && (
+        <Checkbox checked={!!auto} onChange={onAuto}>
+          Set automatically
+        </Checkbox>
+      )}
     </div>
+  );
+}
+
+// "Refresh Rate - [120] Hz": the number box beside a slider. Out-of-range input snaps back on blur.
+function Num(p: { name: string; unit?: string; value: number; min: number; max: number; off: boolean; set: (v: number) => void }) {
+  const [draft, setDraft] = useState<string | null>(null);
+  return (
+    <span className="flex items-center">
+      {p.name} -
+      <input
+        className="sed-input sed-num ml-1"
+        type="number"
+        inputMode="numeric"
+        aria-label={`${p.name} value`}
+        min={p.min}
+        max={p.max}
+        value={draft ?? p.value}
+        disabled={p.off}
+        onChange={(e) => setDraft(e.target.value)}
+        onBlur={() => {
+          const n = Number(draft);
+          if (draft !== null && n >= p.min && n <= p.max) p.set(Math.round(n));
+          setDraft(null);
+        }}
+      />
+      {p.unit && <span className="ml-1">{p.unit}</span>}
+    </span>
   );
 }

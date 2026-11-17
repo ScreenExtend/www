@@ -31,7 +31,7 @@ function StackedShot() {
 
 export default function HeroLanding() {
   return (
-    <section id="home" className="relative overflow-x-clip pb-16 pt-12 sm:pt-16 lg:pb-24 lg:pt-20">
+    <section id="home" className="relative overflow-x-clip bg-tint pb-16 pt-12 sm:pt-16 lg:pb-24 lg:pt-20">
       <GitHubCorner />
       <div className="container text-center">
         <h1 className="mx-auto max-w-[22ch] text-[clamp(2.25rem,4.4vw,3.5rem)] font-semibold leading-[1.1] tracking-[-0.025em]">

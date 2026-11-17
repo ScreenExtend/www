@@ -1,44 +1,44 @@
 // What the extra screen is for, before any of the technical detail.
 // Each "how" is a product fact: browser-only client (Highlights.tsx), several
 // devices at once and offline hosted network (FaqSimple.tsx).
-// Tints: the logo blue and mint at low strength, so the grid has some colour
-// without bright full-bleed fields.
+// Tints: per-theme tile tokens in the logo blue and mint (tailwind.config.js),
+// so the grid has colour in both themes without bright full-bleed fields.
 const USES = [
   {
     t: "Chat and email on the side",
     d: "Keep Slack, Discord or your inbox on the tablet and give your work the whole main screen.",
-    tint: "bg-[#316cff]/[0.18]",
+    tint: "bg-tile-blue",
   },
   {
     t: "Meetings off your main screen",
     d: "Put the call on the tablet and keep taking notes and working on your computer. Or flip it.",
-    tint: "bg-[#316cff]/[0.14]",
+    tint: "bg-tile-mint",
   },
   {
     t: "Docs while you work",
     d: "A recipe, a spec or a how-to stays in view instead of hiding behind a tab.",
-    tint: "bg-[#d6f1ed]/[0.14]",
+    tint: "bg-tile-blue",
   },
   {
     t: "Two screens anywhere",
     d: "Your laptop and the tablet in your bag make a dual-monitor setup. No cable, no extra hardware.",
-    tint: "bg-[#d6f1ed]/[0.14]",
+    tint: "bg-tile-mint",
   },
   {
     t: "No Wi-Fi needed",
     d: "ScreenExtend can start its own network, so the tablet connects straight to your computer.",
-    tint: "bg-[#316cff]/[0.18]",
+    tint: "bg-tile-blue",
   },
   {
     t: "More than one extra screen",
     d: "Connect a phone and a tablet at the same time. Each one is its own display.",
-    tint: "bg-[#316cff]/[0.14]",
+    tint: "bg-tile-mint",
   },
 ];
 
 export default function UseCases() {
   return (
-    <section id="uses" className="border-t border-line py-16 lg:py-24">
+    <section id="uses" className="py-16 lg:py-24">
       <div className="container">
         <h2 className="display-lg">What you can do with it</h2>
         <p className="mt-3 max-w-[52ch] text-lg text-muted">

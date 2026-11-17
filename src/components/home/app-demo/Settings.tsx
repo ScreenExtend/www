@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from "react";
-import { Ban, ChevronDown, Eye, EyeOff, Minus, Plus, RefreshCw, RotateCcw, Trash2 } from "lucide-react";
+import { Ban, Eye, EyeOff, Minus, Plus, RefreshCw, RotateCcw, Trash2 } from "lucide-react";
 
 import { Card, DemoBtn, FloatInput, Switch } from "@/components/home/app-demo/ui.tsx";
 import { OTP, bc } from "@/components/home/app-demo/shared.ts";
@@ -48,7 +48,6 @@ export default function Settings() {
   const [banned, setBanned] = useState<string[]>([]);
   const [name, setName] = useState("Alex");
   const [zoom, setZoom] = useState(100);
-  const [adv, setAdv] = useState(false);
 
   return (
     <div className="p-4 sm:p-8">
@@ -238,49 +237,6 @@ export default function Settings() {
           </button>
         </div>
       </Card>
-      <div className="mt-6">
-        <button
-          type="button"
-          aria-expanded={adv}
-          onClick={() => setAdv(!adv)}
-          className={`${bc("ghost")} !h-auto w-full !justify-between !whitespace-normal !px-4 !py-4 text-left`}
-        >
-          <span>
-            <span className="block text-lg font-semibold">Advanced</span>
-            <span className="sed-muted mt-1 block text-sm font-normal">
-              TURN relay, server ports, the raw configuration file, and application logs.
-            </span>
-          </span>
-          <ChevronDown className={`sed-muted h-5 w-5 shrink-0 ${adv ? "rotate-180" : ""}`} aria-hidden="true" />
-        </button>
-        {adv && (
-          <div className="mt-4">
-            <Card
-              title="TURN Server"
-              desc="A TURN server relays video when two devices are on different networks and can't connect directly. Free TURN providers include Metered, Twilio, or Cloudflare."
-            >
-              <Line>
-                <FloatInput label="turn:turn.example.com:3478" />
-              </Line>
-              <Line>
-                <FloatInput label="Username" />
-                <FloatInput label="Credential" type="password" />
-                <DemoBtn className={bc()}>Save TURN</DemoBtn>
-              </Line>
-            </Card>
-            <Card
-              title="Server Ports"
-              desc="The TCP ports the local-network server listens on for device connections. Change these if another app already uses 8080/8443. Connected devices must rejoin with the updated link after a change."
-            >
-              <Line>
-                <FloatInput label="HTTP Port" type="number" defaultValue="8080" />
-                <FloatInput label="HTTPS Port" type="number" defaultValue="8443" />
-                <DemoBtn className={bc()}>Save Ports</DemoBtn>
-              </Line>
-            </Card>
-          </div>
-        )}
-      </div>
     </div>
   );
 }
