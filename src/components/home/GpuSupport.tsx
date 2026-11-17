@@ -22,7 +22,7 @@ const LABEL: Record<Status, string> = {
 
 const CHIP: Record<Status, string> = {
   yes: "bg-[#316cff]/15 text-ink",
-  experimental: "bg-[#dcff4a]/20 text-ink",
+  experimental: "bg-[#d6f1ed]/15 text-ink",
   no: "bg-surface text-muted",
   na: "",
 };
@@ -81,8 +81,7 @@ export default function GpuSupport() {
             </tbody>
           </table>
           <p className="mt-4 text-sm text-muted">
-            Experimental: built, but nobody on the project has an AMD card to test
-            it yet.{" "}
+            Experimental: built, but not yet tested as thoroughly as the others.{" "}
             <a
               href="https://github.com/ScreenExtend/ScreenExtend#platform-support"
               target="_blank"
