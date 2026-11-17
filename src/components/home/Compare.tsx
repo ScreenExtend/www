@@ -12,16 +12,18 @@ const COLS = ["ScreenExtend", "Apple Sidecar", "Spacedesk", "Duet Display", "Des
 
 const ROWS: { q: string; v: [Cell, Cell, Cell, Cell, Cell] }[] = [
   { q: "Windows computer", v: [["yes"], ["no"], ["yes"], ["yes"], ["yes"]] },
-  { q: "Mac computer", v: [["yes"], ["yes"], ["no"], ["yes"], ["yes"]] },
+  { q: "Mac computer", v: [["yes"], ["yes"], ["part", "Beta"], ["yes"], ["yes"]] },
   { q: "Linux computer", v: [["soon"], ["no"], ["no"], ["no"], ["yes"]] },
-  { q: "Any device with a browser", v: [["yes"], ["no", "iPad only"], ["yes"], ["no", "App needed"], ["yes"]] },
-  { q: "Nothing to install on it", v: [["yes"], ["yes"], ["part", "Browser viewer"], ["no"], ["yes"]] },
-  { q: "No extra hardware", v: [["yes"], ["yes"], ["yes"], ["yes"], ["no", "HDMI dummy plug"]] },
-  { q: "Works over a cable", v: [["soon", "Native apps"], ["yes"], ["yes"], ["yes"], ["no"]] },
+  { q: "Any device with a browser", v: [["yes"], ["no", "iPad only"], ["part", "Mostly apps"], ["no", "App needed"], ["yes"]] },
+  { q: "Nothing to install on it", v: [["yes"], ["yes"], ["part", "Mostly apps"], ["no"], ["yes"]] },
+  { q: "No extra hardware", v: [["yes"], ["yes"], ["yes"], ["yes"], ["no", "Dummy plug on Win/Mac"]] },
+  { q: "No account needed", v: [["yes"], ["no", "Apple Account"], ["yes"], ["no"], ["yes"]] },
+  { q: "Works over a cable", v: [["soon", "Native apps"], ["yes"], ["yes"], ["yes"], ["part", "Workaround"]] },
+  { q: "Bluetooth", v: [["soon", "Native apps"], ["no"], ["no"], ["no"], ["no"]] },
   { q: "HDR", v: [["soon"], ["no"], ["no"], ["no"], ["no"]] },
-  { q: "Use its mic and camera", v: [["soon"], ["no"], ["no"], ["no"], ["no"]] },
-  { q: "Free", v: [["yes"], ["yes"], ["part", "Personal use"], ["no", "From $3.99/mo"], ["yes"]] },
-  { q: "Open source", v: [["yes"], ["no"], ["no"], ["no"], ["yes"]] },
+  { q: "Use its mic and camera", v: [["soon"], ["no"], ["soon", "Webcam"], ["no"], ["no"]] },
+  { q: "Free", v: [["yes"], ["yes"], ["part", "Personal use"], ["no", "From $3.99/mo"], ["part", "1 device"]] },
+  { q: "Open source", v: [["yes"], ["no"], ["no"], ["no"], ["part", "Free edition"]] },
 ];
 
 function Mark({ m, note }: { m: MarkKind; note?: string }) {
@@ -89,7 +91,7 @@ export default function Compare() {
         </div>
 
         <p className="mt-6 text-xs leading-relaxed text-muted">
-          Checked November 2026 against each maker's own pages. Sidecar is a trademark
+          Checked November 2026 against each maker's own pages. Wireless use in every column. Sidecar is a trademark
           of Apple Inc.; other names belong to their owners. ScreenExtend isn't
           affiliated with any of them.
         </p>
