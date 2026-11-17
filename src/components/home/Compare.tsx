@@ -5,26 +5,28 @@ import { Check, Clock, Minus, X } from "lucide-react";
 // All of these are wireless, so that isn't a row. Check / X / "coming", with a
 // note of a few words only where one is needed. Upcoming ScreenExtend features
 // are rows marked "Coming". Re-check before changing the date.
-type MarkKind = "yes" | "no" | "part" | "soon";
+type MarkKind = "yes" | "no" | "part" | "soon" | "text";
 type Cell = [MarkKind, string?];
 
 const COLS = ["ScreenExtend", "Apple Sidecar", "Spacedesk", "Duet Display", "Deskreen"] as const;
 
 const ROWS: { q: string; v: [Cell, Cell, Cell, Cell, Cell] }[] = [
-  { q: "Windows computer", v: [["yes"], ["no"], ["yes"], ["yes"], ["yes"]] },
-  { q: "Mac computer", v: [["yes"], ["yes"], ["part", "Beta"], ["yes"], ["yes"]] },
-  { q: "Linux computer", v: [["soon"], ["no"], ["no"], ["no"], ["yes"]] },
-  { q: "Any device with a browser", v: [["yes"], ["no", "iPad only"], ["part", "Mostly apps"], ["no", "App needed"], ["yes"]] },
-  { q: "No extra hardware", v: [["yes"], ["yes"], ["yes"], ["yes"], ["no", "Dummy plug on Win/Mac"]] },
+  { q: "Windows support", v: [["yes"], ["no"], ["yes"], ["yes"], ["yes"]] },
+  { q: "Mac support", v: [["yes"], ["yes"], ["part", "Beta"], ["yes"], ["yes"]] },
+  { q: "Linux support", v: [["soon"], ["no"], ["no"], ["no"], ["yes"]] },
+  { q: "Any device with a browser", v: [["yes"], ["no"], ["part", "Mostly apps"], ["no"], ["yes"]] },
+  { q: "No extra hardware", v: [["yes"], ["yes"], ["yes"], ["yes"], ["no", "Dummy plug required"]] },
   { q: "No account needed", v: [["yes"], ["no"], ["yes"], ["no"], ["yes"]] },
   { q: "Works over a cable", v: [["soon"], ["yes"], ["yes"], ["yes"], ["part", "Workaround"]] },
   { q: "HDR", v: [["soon"], ["no"], ["no"], ["no"], ["no"]] },
-  { q: "Use its mic and camera", v: [["soon"], ["no"], ["soon", "Webcam"], ["no"], ["no"]] },
+  { q: "Use its mic and camera", v: [["soon"], ["no"], ["soon"], ["no"], ["no"]] },
+  { q: "Max devices", v: [["text", "No set limit"], ["text", "1"], ["text", "Not listed"], ["text", "Not listed"], ["text", "1 (free edition)"]] },
   { q: "Free", v: [["yes"], ["yes"], ["part", "Personal use"], ["no", "From $3.99/mo"], ["part", "1 device"]] },
   { q: "Open source", v: [["yes"], ["no"], ["no"], ["no"], ["part", "Free edition"]] },
 ];
 
 function Mark({ m, note }: { m: MarkKind; note?: string }) {
+  if (m === "text") return <span className="block text-center text-sm">{note}</span>;
   const icon =
     m === "yes" ? (
       <Check size={18} strokeWidth={2.5} className="text-[#4f86ff]" aria-hidden="true" />
