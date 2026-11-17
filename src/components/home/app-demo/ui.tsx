@@ -251,7 +251,7 @@ export function Tip({ text, children }: { text: string; children?: ReactNode }) 
   return (
     <span className="inline-flex w-fit cursor-help items-center gap-1" title={text}>
       {children}
-      <Info className="sed-muted h-3.5 w-3.5 shrink-0" aria-label={text} />
+      <Info className="sed-muted h-3.5 w-3.5 shrink-0" aria-hidden="true" />
     </span>
   );
 }

@@ -37,7 +37,7 @@ export default function HeroLanding() {
         <h1 className="mx-auto max-w-[22ch] text-[clamp(2.25rem,4.4vw,3.5rem)] font-semibold leading-[1.1] tracking-[-0.025em]">
           Use your tablet or phone as a second monitor.
         </h1>
-        <p className="mx-auto mt-6 max-w-[36ch] text-lg leading-relaxed text-muted sm:text-xl">
+        <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-muted sm:text-xl">
           Or a spare laptop. ScreenExtend runs on your computer, and the other device just opens it in the browser. Nothing to install there.
         </p>
 

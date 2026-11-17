@@ -59,7 +59,7 @@ export default function FaqSimple() {
                   className="shrink-0 text-muted transition-transform duration-150 group-open:rotate-45"
                 />
               </summary>
-              <p className="max-w-[62ch] pb-5 leading-relaxed text-muted">
+              <p className=" pb-5 leading-relaxed text-muted">
                 {item.a}
               </p>
             </details>

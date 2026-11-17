@@ -18,7 +18,7 @@ export default function Highlights() {
       <div className="container grid gap-10 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <h2 className="display-lg">Under the hood</h2>
-          <p className="mt-5 max-w-[34ch] text-lg leading-relaxed text-muted">
+          <p className="mt-5 text-lg leading-relaxed text-muted">
             For the curious: what happens between your computer and the other
             screen.
           </p>

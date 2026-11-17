@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ExternalLink, Info, RefreshCw, X } from "lucide-react";
 
 import { Checkbox, DemoBtn, Range, Select, Switch, Tip } from "@/components/home/app-demo/ui.tsx";
@@ -7,6 +7,17 @@ import { DEVICES, bc, type Dev } from "@/components/home/app-demo/shared.ts";
 const LABEL = "text-sm font-medium leading-none";
 const COLS = ["Device Name", "IP", "OS", "Scale", "Orientation", "Refresh Rate", "Screen Size", ""];
 const opts = (...v: string[]) => v.map((x) => ({ value: x, label: x }));
+
+type NumKey = "scale" | "dpr" | "rate" | "videoScale" | "quality";
+type AutoKey = "nativeDpr" | "autoRate" | "adaptive";
+// key, label, min, max, step, its "Set automatically" flag, tooltip (strings from the app)
+const SLIDERS: [NumKey, string, number, number, number, AutoKey | null, string][] = [
+  ["scale", "Scale", 25, 200, 25, null, "Zooms the extended desktop's content up or down."],
+  ["dpr", "Pixel Ratio", 1, 0, 0.25, "nativeDpr", "Renders this display at the device's pixel density for sharper text and UI."],
+  ["rate", "Refresh Rate", 15, 550, 5, "autoRate", "How many frames per second the display targets (Hz)."],
+  ["videoScale", "Video Scale", 10, 100, 5, null, "Resolution of the streamed video. Lower uses less bandwidth."],
+  ["quality", "Video Quality", 1, 51, 1, "adaptive", "Higher encodes faster but looks worse. Pick the highest value that still looks good."],
+];
 
 export default function EditDevice() {
   const [devs, setDevs] = useState(DEVICES);
@@ -155,7 +166,7 @@ export default function EditDevice() {
               />
               {d.audio && (
                 <div className="mt-3 flex items-center justify-between gap-4">
-                  <span className={LABEL}>
+                  <span className={`${LABEL} whitespace-nowrap`}>
                     <Tip text="Choose which of this device's speakers plays the streamed audio.">Audio Output</Tip>
                   </span>
                   <Select
@@ -168,62 +179,30 @@ export default function EditDevice() {
                 </div>
               )}
               <div className="mt-4 border-t" />
-              <Slide
-                label={`Scale - (${d.scale}%)`}
-                tip="Zooms the extended desktop's content up or down."
-                name="Scale"
-                value={d.scale}
-                min={25}
-                max={200}
-                step={25}
-                onChange={(v) => set({ scale: v })}
-              />
-              <Slide
-                label={`Pixel Ratio - (${d.dpr}×)`}
-                tip="Renders this display at the device's pixel density for sharper text and UI."
-                name="Pixel Ratio"
-                value={d.dpr}
-                min={1}
-                max={d.maxDpr}
-                step={0.25}
-                auto={d.nativeDpr}
-                onAuto={(v) => set({ nativeDpr: v, dpr: v ? d.maxDpr : d.dpr })}
-                onChange={(v) => set({ dpr: v })}
-              />
-              <Slide
-                label={<Num name="Refresh Rate" unit="Hz" value={d.rate} min={15} max={550} off={d.autoRate} set={(v) => set({ rate: v })} />}
-                tip="How many frames per second the display targets (Hz)."
-                name="Refresh Rate"
-                value={d.rate}
-                min={15}
-                max={550}
-                step={5}
-                auto={d.autoRate}
-                onAuto={(v) => set({ autoRate: v })}
-                onChange={(v) => set({ rate: v })}
-              />
-              <Slide
-                label={`Video Scale - (${d.videoScale}%)`}
-                tip="Resolution of the streamed video. Lower uses less bandwidth."
-                name="Video Scale"
-                value={d.videoScale}
-                min={10}
-                max={100}
-                step={5}
-                onChange={(v) => set({ videoScale: v })}
-              />
-              <Slide
-                label={<Num name="Video Quality" value={d.quality} min={1} max={51} off={d.adaptive} set={(v) => set({ quality: v })} />}
-                tip="Higher encodes faster but looks worse. Pick the highest value that still looks good."
-                name="Video Quality"
-                value={d.quality}
-                min={1}
-                max={51}
-                step={1}
-                auto={d.adaptive}
-                onAuto={(v) => set({ adaptive: v })}
-                onChange={(v) => set({ quality: v })}
-              />
+              {SLIDERS.map(([key, name, min, max, step, auto, tip]) => {
+                const v = d[key];
+                const off = auto ? d[auto] : false;
+                const num = key === "rate" || key === "quality";
+                return (
+                  <div key={key} className="mt-4">
+                    <div className={`my-2 flex items-center ${LABEL}`}>
+                      <Tip text={tip}>
+                        {num ? (
+                          <Num name={name} unit={key === "rate" ? "Hz" : ""} value={v} min={min} max={max} off={off} set={(n) => set({ [key]: n })} />
+                        ) : (
+                          `${name} - (${v}${key === "dpr" ? "×" : "%"})`
+                        )}
+                      </Tip>
+                    </div>
+                    <Range label={name} value={v} min={min} max={key === "dpr" ? d.maxDpr : max} step={step} disabled={off} onChange={(n) => set({ [key]: n })} />
+                    {auto && (
+                      <Checkbox checked={off} onChange={(c) => set(key === "dpr" && c ? { [auto]: c, dpr: d.maxDpr } : { [auto]: c })}>
+                        Set automatically
+                      </Checkbox>
+                    )}
+                  </div>
+                );
+              })}
             </div>
             <div className="mt-3 flex w-full gap-4">
               <DemoBtn className={`${bc("danger")} w-full`} wrap="flex-1">
@@ -247,40 +226,6 @@ function SwitchRow({ label, tip, on, set }: { label: string; tip: string; on: bo
         <Tip text={tip}>{label}</Tip>
       </span>
       <Switch label={label} checked={on} onChange={set} />
-    </div>
-  );
-}
-
-function Slide({
-  label,
-  tip,
-  name,
-  auto,
-  onAuto,
-  ...range
-}: {
-  label: ReactNode;
-  tip: string;
-  name: string;
-  value: number;
-  min: number;
-  max: number;
-  step: number;
-  auto?: boolean;
-  onAuto?: (v: boolean) => void;
-  onChange: (v: number) => void;
-}) {
-  return (
-    <div className="mt-4">
-      <div className={`my-2 flex items-center ${LABEL}`}>
-        <Tip text={tip}>{label}</Tip>
-      </div>
-      <Range label={name} disabled={auto} {...range} />
-      {onAuto && (
-        <Checkbox checked={!!auto} onChange={onAuto}>
-          Set automatically
-        </Checkbox>
-      )}
     </div>
   );
 }

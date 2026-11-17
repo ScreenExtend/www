@@ -72,7 +72,7 @@ export default function LegalPage({ path }: { path: string }) {
         {page.title}
       </h1>
       <p className="mt-2 text-sm text-muted">{page.meta}</p>
-      <article className="legal-prose prose mt-8 max-w-[60ch] prose-headings:font-semibold prose-headings:tracking-tight prose-h2:mt-10 prose-h2:text-xl prose-p:leading-relaxed prose-strong:font-semibold">
+      <article className="legal-prose prose mt-8 prose-headings:font-semibold prose-headings:tracking-tight prose-h2:mt-10 prose-h2:text-xl prose-p:leading-relaxed prose-strong:font-semibold">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{ a: MarkdownLink, table: ScrollTable }}

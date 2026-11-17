@@ -41,7 +41,7 @@ export default function UseCases() {
     <section id="uses" className="py-16 lg:py-24">
       <div className="container">
         <h2 className="display-lg">What you can do with it</h2>
-        <p className="mt-3 max-w-[52ch] text-lg text-muted">
+        <p className="mt-3 text-lg text-muted">
           The other device works like any extra monitor. Drag windows onto it and
           use it however you like.
         </p>

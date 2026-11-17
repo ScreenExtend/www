@@ -29,7 +29,7 @@ export default function ConnectFlow() {
     <section id="how" className="bg-tint py-16 lg:py-24">
       <div className="container">
         <h2 className="display-lg">How pairing works</h2>
-        <p className="mt-3 max-w-[48ch] text-lg text-muted">Scan a code, type six digits, drag a window across. Nothing to install on the other device.</p>
+        <p className="mt-3 text-lg text-muted">Scan a code, type six digits, drag a window across. Nothing to install on the other device.</p>
 
         <div className="mt-10 grid gap-12 lg:mt-14 lg:grid-cols-12 lg:gap-10">
           {/* The code at display size: the moment the pairing happens. */}
@@ -87,7 +87,7 @@ export default function ConnectFlow() {
                 </span>
                 <div>
                   <h3 className="text-lg font-semibold leading-snug">{s.t}</h3>
-                  <p className="mt-1.5 max-w-[42ch] leading-relaxed text-muted">{s.d}</p>
+                  <p className="mt-1.5 leading-relaxed text-muted">{s.d}</p>
                 </div>
               </li>
             ))}

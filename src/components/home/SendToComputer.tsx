@@ -26,7 +26,7 @@ export default function SendToComputer() {
   };
 
   return (
-    <div className="mx-auto mt-6 max-w-[34ch] rounded-panel border border-line bg-surface px-4 py-4 text-left sm:hidden">
+    <div className="mx-auto mt-6 rounded-panel border border-line bg-surface px-4 py-4 text-left sm:hidden">
       <p className="text-[0.9375rem] leading-relaxed text-muted">
         <span className="font-semibold text-ink">On your phone?</span> Install
         ScreenExtend on your computer. Your phone becomes the second screen later.
