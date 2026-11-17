@@ -2,14 +2,14 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 
 const HOLD_MS = 2000;
 // Back to the preview exactly this long after the cursor leaves.
-const IDLE_MS = 6000;
+const IDLE_MS = 5000;
 const R = 20;
 const C = 2 * Math.PI * R;
 
 // Keeps the demo as a still preview until someone shows they want to use it:
 // resting the pointer on it for 2 s (a ring fills around the cursor), a tap on
 // touch screens, or the "Try the app" button for keyboard users. It locks again
-// 6 s after the cursor leaves it.
+// 5 s after the cursor leaves it, and is dimmed while locked.
 export default function DemoGate({ children }: { children: ReactNode }) {
   const [live, setLive] = useState(false);
   const [holding, setHolding] = useState(false);
@@ -73,7 +73,12 @@ export default function DemoGate({ children }: { children: ReactNode }) {
 
   return (
     <div ref={box} className="relative">
-      <div ref={inner}>{children}</div>
+      <div
+        ref={inner}
+        className={`transition-opacity duration-500 ease-out ${live ? "opacity-100" : "opacity-60"}`}
+      >
+        {children}
+      </div>
 
       {!live && (
         <div
