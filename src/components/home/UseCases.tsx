@@ -40,7 +40,7 @@ export default function UseCases() {
   return (
     <section id="uses" className="py-16 lg:py-24">
       <div className="container">
-        <h2 className="display-lg">What goes on the second screen</h2>
+        <h2 className="display-lg">What you can use it for</h2>
         <p className="mt-3 text-lg text-muted">
           Drag any window onto it, the same way you would with a plugged-in monitor.
         </p>

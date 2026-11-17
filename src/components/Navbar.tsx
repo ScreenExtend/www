@@ -8,12 +8,13 @@ import logo from "@/assets/logo/screenextend.svg";
 
 const NAV_ITEMS = [
   { id: "uses", label: "Uses" },
+  { id: "compare", label: "Compare" },
   { id: "how", label: "How it works" },
   { id: "features", label: "Settings" },
   { id: "faq", label: "FAQ" },
 ];
 
-const SPY_IDS = ["home", "uses", "how", "features", "download", "faq"];
+const SPY_IDS = ["home", "uses", "compare", "how", "features", "download", "faq"];
 
 // Follows the OS by default (NN/g: don't force a theme); the choice is remembered.
 const THEMES = [

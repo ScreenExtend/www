@@ -7,7 +7,7 @@ export default function FeatureScroll() {
   return (
     <section id="features" className="py-16 lg:py-24">
       <div className="container">
-        <h2 className="display-lg">Every screen gets its own settings</h2>
+        <h2 className="display-lg">Settings for each device</h2>
         <p className="mt-3 text-lg text-muted">
           Pick a device and change how it looks.
         </p>

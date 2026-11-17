@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-const HOLD_MS = 3000;
+const HOLD_MS = 2000;
 const R = 20;
 const C = 2 * Math.PI * R;
 
 // Keeps the demo as a still preview until someone shows they want to use it:
-// resting the pointer on it for 3 s (a ring fills around the cursor), a tap on
+// resting the pointer on it for 2 s (a ring fills around the cursor), a tap on
 // touch screens, or the "Try the app" button for keyboard users.
 export default function DemoGate({ children }: { children: ReactNode }) {
   const [live, setLive] = useState(false);
@@ -66,13 +66,13 @@ export default function DemoGate({ children }: { children: ReactNode }) {
               className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2"
               style={{ left: pos.x, top: pos.y }}
             >
-              <circle cx="26" cy="26" r={R} fill="rgb(15 20 25 / 0.6)" stroke="rgb(255 255 255 / 0.22)" strokeWidth="4" />
+              <circle cx="26" cy="26" r={R} fill="rgb(15 20 25 / 0.6)" stroke="rgb(255 255 255 / 0.12)" strokeWidth="4" />
               <circle
                 cx="26"
                 cy="26"
                 r={R}
                 fill="none"
-                stroke="#e6eaee"
+                stroke="rgb(230 234 238 / 0.5)"
                 strokeWidth="4"
                 strokeLinecap="round"
                 strokeDasharray={C}
