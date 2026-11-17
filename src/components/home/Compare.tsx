@@ -3,49 +3,36 @@ import { Check, X } from "lucide-react";
 // Competitor comparison (research: career-agent/reports/ScreenExtend competitor
 // landscape.md, cells re-verified in exhaustive-unslop/rerun/compare-verified.md
 // and compare-verified-2.md). Cells are a check or an X; anything that needs
-// explaining gets a small footnote symbol (*, †, ‡, §) listed under the table.
-// X means not offered or not documented by the maker. Re-check before changing
+// explaining gets a short note under the icon. X means not offered or not
+// documented by the maker. Re-check before changing
 // the date.
-type Cell = [boolean, number?];
+type Cell = [boolean, string?];
 
 const COLS = ["ScreenExtend", "Apple Sidecar", "Spacedesk", "Duet Display", "Deskreen"] as const;
 
-const NOTES = [
-  "Linux support is coming soon.",
-  "The Mac version is in beta.",
-  "Needs an HDMI dummy plug to add a real extra screen.",
-  "HDR is coming soon.",
-];
-const MARKS = ["*", "†", "‡", "§", "¶", "#"];
 
 const ROWS: { q: string; v: [Cell, Cell, Cell, Cell, Cell] }[] = [
-  { q: "Cross-platform support", v: [[true, 1], [false], [true, 2], [true], [true]] },
+  { q: "Cross-platform support", v: [[true, "Linux coming soon"], [false], [true, "Mac in beta"], [true], [true]] },
   { q: "Any device with a browser", v: [[true], [false], [false], [false], [true]] },
-  { q: "No extra hardware", v: [[true], [true], [true], [true], [false, 3]] },
+  { q: "No extra hardware", v: [[true], [true], [true], [true], [false, "Dummy plug required"]] },
   { q: "Several screens at once", v: [[true], [false], [true], [true], [false]] },
   { q: "Remote control", v: [[true], [true], [true], [true], [false]] },
   { q: "Audio", v: [[true], [false], [true], [false], [false]] },
-  { q: "HDR", v: [[true, 4], [false], [false], [false], [false]] },
+  { q: "HDR", v: [[false, "Coming soon"], [false], [false], [false], [false]] },
   { q: "Free", v: [[true], [true], [false], [false], [true]] },
   { q: "Open source", v: [[true], [false], [false], [false], [true]] },
 ];
 
-function Mark({ yes, note }: { yes: boolean; note?: number }) {
+function Mark({ yes, note }: { yes: boolean; note?: string }) {
   return (
-    <span className="relative inline-flex items-center justify-center">
+    <span className="flex flex-col items-center gap-0.5 text-center">
       {yes ? (
         <Check size={18} strokeWidth={2.5} className="text-[#4f86ff]" aria-hidden="true" />
       ) : (
         <X size={18} strokeWidth={2.25} className="text-muted" aria-hidden="true" />
       )}
       <span className="sr-only">{yes ? "Yes" : "No"}</span>
-      {note && (
-        <sup className="absolute left-full top-[-1px] ml-0.5 text-[0.875rem] font-semibold leading-none text-muted">
-          <a href={`#cmp-note-${note}`} className="no-underline">
-            {MARKS[note - 1]}
-          </a>
-        </sup>
-      )}
+      {note && <span className="text-xs leading-tight text-muted">{note}</span>}
     </span>
   );
 }
@@ -93,19 +80,7 @@ export default function Compare() {
           </table>
         </div>
 
-        <p className="mt-5 flex items-center gap-1.5 text-sm text-muted">
-          <X size={16} strokeWidth={2.25} aria-hidden="true" />
-          Not offered, or not documented by the maker
-        </p>
-        <ol className="mt-3 space-y-1 text-sm text-muted">
-          {NOTES.map((n, i) => (
-            <li key={n} id={`cmp-note-${i + 1}`} className="flex gap-2">
-              <span className="w-5 shrink-0 text-base font-semibold leading-5">{MARKS[i]}</span>
-              {n}
-            </li>
-          ))}
-        </ol>
-        <p className="mt-4 text-xs leading-relaxed text-muted">
+        <p className="mt-6 text-xs leading-relaxed text-muted">
           Checked November 2026 against each maker's own pages. Sidecar is a trademark
           of Apple Inc.; other names belong to their owners. ScreenExtend isn't
           affiliated with any of them.
