@@ -68,8 +68,8 @@ export default function DemoGate({ children }: { children: ReactNode }) {
             >
               <circle cx="26" cy="26" r={R} fill="rgb(15 20 25 / 0.6)" stroke="rgb(255 255 255 / 0.22)" strokeWidth="4" />
               <circle
-                cx="18"
-                cy="18"
+                cx="26"
+                cy="26"
                 r={R}
                 fill="none"
                 stroke="#e6eaee"
