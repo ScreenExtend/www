@@ -73,12 +73,14 @@ export default function DemoGate({ children }: { children: ReactNode }) {
 
   return (
     <div ref={box} className="relative">
+      <div ref={inner}>{children}</div>
+      {/* gray dim while locked; fades in and out */}
       <div
-        ref={inner}
-        className={`transition-opacity duration-500 ease-out ${live ? "opacity-100" : "opacity-60"}`}
-      >
-        {children}
-      </div>
+        aria-hidden="true"
+        className={`pointer-events-none absolute inset-0 rounded-[10px] bg-[#6b7280] transition-opacity duration-500 ease-out ${
+          live ? "opacity-0" : "opacity-35"
+        }`}
+      />
 
       {!live && (
         <div
@@ -120,7 +122,7 @@ export default function DemoGate({ children }: { children: ReactNode }) {
           <button
             type="button"
             onClick={activate}
-            className="demo-pill absolute left-1/2 top-3 -translate-x-1/2 rounded-full px-4 py-2 text-sm font-medium"
+            className="demo-pill absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full px-4 py-2 text-sm font-medium"
           >
             <span className="hidden sm:inline">Hover to try the app</span>
             <span className="sm:hidden">Tap to try the app</span>
