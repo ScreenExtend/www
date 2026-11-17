@@ -13,9 +13,7 @@ const COLS = ["ScreenExtend", "Apple Sidecar", "Spacedesk", "Duet Display", "Des
 // Rows from compare-verified.md and compare-verified-2.md. X means not offered or
 // not documented by the maker (the key below the table says so).
 const ROWS: { q: string; v: [Cell, Cell, Cell, Cell, Cell] }[] = [
-  { q: "Windows support", v: [["yes"], ["no"], ["yes"], ["yes"], ["yes"]] },
-  { q: "Mac support", v: [["yes"], ["yes"], ["part", "Beta"], ["yes"], ["yes"]] },
-  { q: "Linux support", v: [["soon"], ["no"], ["no"], ["no"], ["yes"]] },
+  { q: "Cross-platform support", v: [["yes", "Linux coming soon"], ["no"], ["yes", "Mac in beta"], ["yes"], ["yes"]] },
   { q: "Any device with a browser", v: [["yes"], ["no"], ["no"], ["no"], ["yes"]] },
   { q: "No extra hardware", v: [["yes"], ["yes"], ["yes"], ["yes"], ["no", "Dummy plug required"]] },
   { q: "Several screens at once", v: [["yes"], ["no"], ["yes"], ["yes"], ["no"]] },
