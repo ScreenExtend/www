@@ -15,11 +15,9 @@ const ROWS: { q: string; v: [Cell, Cell, Cell, Cell, Cell] }[] = [
   { q: "Mac computer", v: [["yes"], ["yes"], ["part", "Beta"], ["yes"], ["yes"]] },
   { q: "Linux computer", v: [["soon"], ["no"], ["no"], ["no"], ["yes"]] },
   { q: "Any device with a browser", v: [["yes"], ["no", "iPad only"], ["part", "Mostly apps"], ["no", "App needed"], ["yes"]] },
-  { q: "Nothing to install on it", v: [["yes"], ["yes"], ["part", "Mostly apps"], ["no"], ["yes"]] },
   { q: "No extra hardware", v: [["yes"], ["yes"], ["yes"], ["yes"], ["no", "Dummy plug on Win/Mac"]] },
-  { q: "No account needed", v: [["yes"], ["no", "Apple Account"], ["yes"], ["no"], ["yes"]] },
-  { q: "Works over a cable", v: [["soon", "Native apps"], ["yes"], ["yes"], ["yes"], ["part", "Workaround"]] },
-  { q: "Bluetooth", v: [["soon", "Native apps"], ["no"], ["no"], ["no"], ["no"]] },
+  { q: "No account needed", v: [["yes"], ["no"], ["yes"], ["no"], ["yes"]] },
+  { q: "Works over a cable", v: [["soon"], ["yes"], ["yes"], ["yes"], ["part", "Workaround"]] },
   { q: "HDR", v: [["soon"], ["no"], ["no"], ["no"], ["no"]] },
   { q: "Use its mic and camera", v: [["soon"], ["no"], ["soon", "Webcam"], ["no"], ["no"]] },
   { q: "Free", v: [["yes"], ["yes"], ["part", "Personal use"], ["no", "From $3.99/mo"], ["part", "1 device"]] },
@@ -37,7 +35,7 @@ function Mark({ m, note }: { m: MarkKind; note?: string }) {
     ) : (
       <Clock size={16} strokeWidth={2.25} className="text-muted" aria-hidden="true" />
     );
-  const label = m === "yes" ? "Yes" : m === "no" ? "No" : m === "part" ? "Partly" : "Coming";
+  const label = m === "yes" ? "Yes" : m === "no" ? "No" : m === "part" ? "Partly" : "Coming soon";
   return (
     <span className="flex flex-col items-center gap-0.5 text-center">
       {icon}
