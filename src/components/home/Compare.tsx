@@ -106,7 +106,7 @@ export default function Compare() {
           Not offered, or not documented by the maker
         </p>
         <p className="mt-4 text-xs leading-relaxed text-muted">
-          Checked November 2026 against each maker's own pages. Wireless use in every column. Sidecar is a trademark
+          Checked November 2026 against each maker's own pages. Sidecar is a trademark
           of Apple Inc.; other names belong to their owners. ScreenExtend isn't
           affiliated with any of them.
         </p>
