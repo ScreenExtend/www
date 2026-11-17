@@ -11,12 +11,12 @@ const lightTokens = {
   '--se-link': '#2456d6',
 }
 const darkTokens = {
-  '--se-paper': '#101214',
-  '--se-surface': '#1b1f23',
-  '--se-ink': '#e6eaee',
-  '--se-muted': '#9aa4ad',
-  '--se-line': '#313940',
-  '--se-link': '#7ea2ff',
+  '--se-paper': '#0b0d10',
+  '--se-surface': '#15181c',
+  '--se-ink': '#f1f4f7',
+  '--se-muted': '#9ba5af',
+  '--se-line': '#262b31',
+  '--se-link': '#8fb0ff',
 }
 const shared = {
   primary: '#2b62f0',
@@ -97,10 +97,10 @@ export default {
         dark: {
           ...theme.dark,
           ...shared,
-          'base-100': '#101214',
-          'base-200': '#1b1f23',
-          'base-300': '#2a3036',
-          'base-content': '#e6eaee',
+          'base-100': '#0b0d10',
+          'base-200': '#15181c',
+          'base-300': '#262b31',
+          'base-content': '#f1f4f7',
           ...darkTokens,
         },
       },

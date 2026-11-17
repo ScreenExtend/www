@@ -22,7 +22,7 @@ export default function Contact() {
     <section className="border-t border-line py-16 lg:py-24" id="contact">
       <div className="container grid gap-8 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-4">
-          <h2 className="section-title">Contact</h2>
+          <h2 className="display-lg">Contact</h2>
           <p className="mt-4 text-muted">We reply within 72 hours.</p>
         </div>
 

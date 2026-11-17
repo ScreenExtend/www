@@ -7,19 +7,29 @@ import { Menu as MenuIcon, Github, Moon, Sun, SunMoon, X } from "lucide-react";
 import logo from "@/assets/logo/screenextend.svg";
 
 const NAV_ITEMS = [
+  { id: "uses", label: "Uses" },
   { id: "how", label: "How it works" },
-  { id: "features", label: "Features" },
+  { id: "features", label: "Settings" },
+  { id: "specs", label: "Under the hood" },
   { id: "faq", label: "FAQ" },
-  { id: "contact", label: "Contact" },
 ];
 
-const SPY_IDS = ["home", "how", "features", "specs", "download", "faq", "contact"];
+const SPY_IDS = ["home", "uses", "how", "features", "specs", "download", "faq", "contact"];
 
+// Dark-first (owner decision 2026-11-17); the choice is remembered per visitor.
 const THEMES = [
-  { id: "system", label: "System", Icon: SunMoon },
-  { id: "light", label: "Light", Icon: Sun },
   { id: "dark", label: "Dark", Icon: Moon },
+  { id: "light", label: "Light", Icon: Sun },
+  { id: "system", label: "System", Icon: SunMoon },
 ] as const;
+
+export const THEME_KEY = "se-theme";
+
+export function applyThemeAttr(id: string) {
+  // keep the page background (overscroll area) in step with the theme
+  if (id === "system") document.documentElement.removeAttribute("data-theme");
+  else document.documentElement.setAttribute("data-theme", id);
+}
 
 function ThemeSwitch({ className = "" }: { className?: string }) {
   const { theme, setTheme } = useTheme();
@@ -32,9 +42,12 @@ function ThemeSwitch({ className = "" }: { className?: string }) {
 
   const apply = (id: string) => {
     setTheme(id);
-    // keep the page background (overscroll area) in step with the theme
-    if (id === "system") document.documentElement.removeAttribute("data-theme");
-    else document.documentElement.setAttribute("data-theme", id);
+    applyThemeAttr(id);
+    try {
+      localStorage.setItem(THEME_KEY, id);
+    } catch {
+      // storage blocked: the choice just lasts for this visit
+    }
   };
 
   return (

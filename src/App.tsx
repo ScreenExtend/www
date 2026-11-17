@@ -13,12 +13,32 @@ import { LEGAL_PATHS } from "@/legal/known.ts";
 const LegalPage = lazy(() => import("@/components/LegalPage.tsx"));
 
 import HeroLanding from "@/components/home/HeroLanding.tsx";
+import UseCases from "@/components/home/UseCases.tsx";
 import ConnectFlow from "@/components/home/ConnectFlow.tsx";
 import FeatureScroll from "@/components/home/FeatureScroll.tsx";
 import Highlights from "@/components/home/Highlights.tsx";
 import FaqSimple from "@/components/home/FaqSimple.tsx";
 
-import { Theme } from "react-daisyui";
+import { Theme, useTheme } from "react-daisyui";
+import { THEME_KEY, applyThemeAttr } from "@/components/Navbar.tsx";
+
+// Restores a visitor's saved theme after hydration; dark is the default.
+function ThemeInit() {
+  const { setTheme } = useTheme();
+  useEffect(() => {
+    let saved: string | null = null;
+    try {
+      saved = localStorage.getItem(THEME_KEY);
+    } catch {
+      saved = null;
+    }
+    if (saved === "light" || saved === "system") {
+      setTheme(saved);
+      applyThemeAttr(saved);
+    }
+  }, [setTheme]);
+  return null;
+}
 
 function Home() {
   useEffect(() => {
@@ -28,6 +48,7 @@ function Home() {
   return (
     <>
       <HeroLanding />
+      <UseCases />
       <ConnectFlow />
       <FeatureScroll />
       <Highlights />
@@ -41,7 +62,8 @@ function Home() {
 export default function App() {
   return (
     <ImageProvider>
-      <Theme dataTheme="system" className="min-h-screen bg-paper text-ink">
+      <Theme dataTheme="dark" className="min-h-screen bg-paper text-ink">
+        <ThemeInit />
         <a
           href="#main"
           className="sr-only z-50 rounded-control bg-paper px-3 py-2 focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:inline-flex focus:min-h-11 focus:items-center"

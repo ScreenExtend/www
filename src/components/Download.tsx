@@ -1,10 +1,8 @@
-import { useEffect, useState, type ReactNode } from "react";
-import { useTheme } from "react-daisyui";
+import { useState, type ReactNode } from "react";
 import { X } from "lucide-react";
 
 import windowsLogo from "@/assets/logo/windows.svg";
 import macLogo from "@/assets/logo/mac.svg";
-import macLogoLight from "@/assets/logo/mac-light.svg";
 import linuxLogo from "@/assets/logo/linux.svg";
 
 const RELEASES = "https://github.com/ScreenExtend/ScreenExtend/releases/latest";
@@ -25,13 +23,13 @@ function Platform({
   children: ReactNode;
 }) {
   return (
-    <div className="flex flex-col border-t border-line pt-6">
+    <div className="flex flex-col border-t border-[#0f1419]/20 pt-6">
       <h3 className="flex items-center gap-3 text-xl font-semibold">
         {logo}
         {name}
       </h3>
       <p className="mt-4 text-sm font-medium">{requiresLabel}</p>
-      <ul className="mt-1 space-y-0.5 text-sm text-muted md:min-h-[2.75rem]">
+      <ul className="mt-1 space-y-0.5 text-sm text-[#2c3640] md:min-h-[2.75rem]">
         {requires.map((r) => (
           <li key={r}>{r}</li>
         ))}
@@ -53,7 +51,7 @@ function Notice({
   return (
     <div
       role="status"
-      className="mt-10 max-w-3xl rounded-panel border border-line bg-surface p-6 text-[0.9375rem] leading-relaxed"
+      className="mt-10 max-w-3xl rounded-panel bg-white p-6 text-[0.9375rem] leading-relaxed"
     >
       <div className="flex items-start justify-between gap-4">
         <h3 className="text-lg font-semibold">{title}</h3>
@@ -74,28 +72,30 @@ function Notice({
 }
 
 export default function Download() {
-  const { theme } = useTheme();
   const [showMacNotice, setShowMacNotice] = useState(false);
   const [showWindowsNotice, setShowWindowsNotice] = useState(false);
-  const [systemDark, setSystemDark] = useState(true);
-  useEffect(() => {
-    setSystemDark(window.matchMedia("(prefers-color-scheme: dark)").matches);
-  }, []);
-
-  const macSrc =
-    theme === "light"
-      ? macLogo
-      : theme === "dark" || systemDark
-        ? macLogoLight
-        : macLogo;
+  // The section is always on lime (light tokens), so the dark Apple logo fits.
+  const macSrc = macLogo;
 
   return (
-    <section className="border-t border-line py-16 lg:py-24" id="download">
+    // A full-bleed band in the logo's lime. data-theme="light" scopes the light
+    // tokens so text and links stay readable on it in either theme.
+    <section className="bg-lime py-16 text-[#0f1419] lg:py-24" id="download" data-theme="light">
       <div className="container">
-        <h2 className="section-title">Download ScreenExtend</h2>
-        <p className="mt-3 text-muted">
-          Free for Windows and macOS. Linux is not available yet.
-        </p>
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <h2 className="display-lg">Download ScreenExtend</h2>
+            <p className="mt-3 text-lg text-[#2c3640]">
+              Free for Windows and macOS. Linux is not available yet.
+            </p>
+          </div>
+          <p className="text-lg text-[#2c3640]">
+            <span className="tabular font-semibold text-[#0f1419]">
+              2.5k+
+            </span>{" "}
+            downloads so far
+          </p>
+        </div>
 
         <div className="mt-10 grid gap-10 md:grid-cols-3 md:gap-12">
           <Platform
@@ -107,7 +107,7 @@ export default function Download() {
             ]}
           >
             <a
-              className="btn-solid w-full"
+              className="btn-ink w-full"
               href={WINDOWS_EXE}
               target="_blank"
               rel="noopener noreferrer"
@@ -115,7 +115,7 @@ export default function Download() {
             >
               Download .exe (64-bit)
             </a>
-            <p className="mt-3 text-sm text-muted">ARM build: not available yet.</p>
+            <p className="mt-3 text-sm text-[#2c3640]">ARM build: not available yet.</p>
           </Platform>
 
           <Platform
@@ -124,7 +124,7 @@ export default function Download() {
             requires={["macOS Catalina 10.15 (October 2019)"]}
           >
             <a
-              className="btn-solid w-full"
+              className="btn-ink w-full"
               href={MAC_DMG}
               target="_blank"
               rel="noopener noreferrer"
@@ -140,7 +140,7 @@ export default function Download() {
             requiresLabel="Will require"
             requires={["Ubuntu 20.04 (April 2020)"]}
           >
-            <p className="flex min-h-11 items-center rounded-control border border-dashed border-line px-4 text-sm text-muted">
+            <p className="flex min-h-12 items-center px-1 text-sm text-[#2c3640]">
               Coming soon as .deb, .rpm and AppImage.
             </p>
           </Platform>
@@ -211,7 +211,7 @@ export default function Download() {
           </Notice>
         )}
 
-        <div className="mt-12 max-w-3xl space-y-2 text-[0.9375rem] text-muted">
+        <div className="mt-12 max-w-3xl space-y-2 text-[0.9375rem] text-[#2c3640]">
           <p>
             Using another operating system? Email{" "}
             <a href="mailto:support@screenextend.app" className="u-link">

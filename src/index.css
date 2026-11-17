@@ -61,7 +61,35 @@
   .section-title {
     @apply text-[1.75rem] font-semibold leading-tight tracking-tight sm:text-4xl;
   }
+  /* section headers: small and plain so the content and the CTA lead */
+  .display {
+    @apply font-sans font-semibold;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .display-lg {
+    @apply display;
+    font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+  }
+  .btn-ink {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-control bg-[#0f1419] px-6 font-semibold text-white transition-[transform,background-color] duration-150 hover:bg-black active:scale-[0.97];
+  }
 }
+
+/* The one entrance moment: the logo-stack plates settle into their offsets. */
+@keyframes stack-settle {
+  from {
+    transform: translate(var(--settle-x, 0), var(--settle-y, 0));
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+.stack-plate {
+  animation: stack-settle 700ms cubic-bezier(0.2, 0.9, 0.2, 1) 120ms both;
+}
+
+
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -70,6 +98,7 @@
     transition-duration: 0.001ms !important;
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
+    animation: none !important;
     scroll-behavior: auto !important;
   }
 }

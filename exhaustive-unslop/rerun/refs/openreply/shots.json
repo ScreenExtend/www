@@ -1,0 +1,13 @@
+[
+  {
+    "route": "/",
+    "scheme": "light",
+    "width": 1440,
+    "status": 200,
+    "file": "home-1440.png",
+    "horizontalOverflowPx": 0,
+    "consoleIssues": [
+      "error: Failed to load resource: the server responded with a status of 404 ()"
+    ]
+  }
+]

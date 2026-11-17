@@ -1,0 +1,10 @@
+{
+  "path": "exhaustive-unslop/scans/rerun-after/copy.md",
+  "files_scanned": 1,
+  "words": 4355,
+  "counts": {},
+  "slop_score": 0,
+  "density_per_1k_words": 0.0,
+  "verdict": "Clean, no tells detected",
+  "findings": []
+}

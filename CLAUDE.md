@@ -37,11 +37,16 @@ The homepage is also prerendered at build time (`src/entry-server.tsx` + `preren
 (a real app screenshot that opens the lightbox). `Download`, `Contact`, `Footer`, `Navbar` live at
 the `src/components/` root. The old flat homepage (`Hero`/`Features`/`FAQ`) was deleted; it is in git history.
 
-### Static by design (important constraint)
-The owner wants the site simple and static. Do **not** add scroll-driven animation, pinned/sticky
-scrollytelling, parallax, tilt, reveal-on-scroll or animated backgrounds. Motion is limited to
-150ms colour transitions on hover/focus and the FAQ "+" rotation, and `prefers-reduced-motion`
-removes those too. The design brief and its rationale are in `exhaustive-unslop/DESIGN-BRIEF.md`.
+### Motion budget (important constraint, updated 2026-11-17)
+The owner wants a current-looking but calm site that won't intimidate non-technical visitors:
+no giant or all-caps display type, no ticker/marquee strips (tried and rejected 2026-11-17).
+Allowed motion: one entrance moment in the hero (the logo-stack plates settling into place on
+load) and short hover/press feedback (≤200ms, transform/opacity/colour only). Not allowed:
+scroll-driven animation, pinned/sticky scrollytelling, parallax, tilt, reveal-on-scroll, marquees
+or animated backgrounds. `prefers-reduced-motion` stops the entrance and removes transitions. The current brief is `exhaustive-unslop/rerun/DESIGN-BRIEF-2.md`.
+
+The site is **dark-first** (owner decision 2026-11-17): it opens in dark unless the visitor has
+picked light with the theme toggle; light mode is still designed.
 
 ### Design tokens
 Page colours are CSS variables (`--se-paper`, `--se-surface`, `--se-ink`, `--se-muted`,

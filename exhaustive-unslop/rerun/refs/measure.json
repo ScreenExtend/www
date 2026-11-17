@@ -1,0 +1,3613 @@
+{
+ "1984": {
+  "url": "https://1984.vc/",
+  "big": {
+   "fs": 48,
+   "txt": "No Buzzwords. No Hype. We invest in founders solving real pr",
+   "fam": "Signifier",
+   "w": "400",
+   "lh": "54px",
+   "ls": "normal",
+   "tag": "H1"
+  },
+  "body": [
+   [
+    "14|\"Die Grotesk A\"",
+    764
+   ],
+   [
+    "20|Signifier",
+    341
+   ],
+   [
+    "38|Signifier",
+    90
+   ]
+  ],
+  "fams": [
+   "Die Grotesk A",
+   "Signifier"
+  ],
+  "media": [],
+  "H": 3946,
+  "sections": [
+   [
+    80,
+    258,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    338,
+    522,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    860,
+    2051,
+    "rgba(0, 0, 0, 0)",
+    "80px"
+   ],
+   [
+    2911,
+    651,
+    "rgba(0, 0, 0, 0)",
+    "80px"
+   ],
+   [
+    3562,
+    385,
+    "rgb(0, 0, 0)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "16px",
+   "16px",
+   "16px",
+   "13px"
+  ],
+  "colour": {
+   "chromaPct": 28,
+   "darkPct": 1,
+   "lightPct": 71,
+   "topHues": [
+    "60deg:14%",
+    "300deg:14%",
+    "210deg:0%"
+   ]
+  }
+ },
+ "things": {
+  "url": "https://culturedcode.com/things/",
+  "big": {
+   "fs": 23.994,
+   "txt": "Things",
+   "fam": "ui-sans-serif",
+   "w": "400",
+   "lh": "29.9925px",
+   "ls": "normal",
+   "tag": "H1"
+  },
+  "body": [
+   [
+    "18|ui-sans-serif",
+    2905
+   ],
+   [
+    "20.25|ui-sans-serif",
+    779
+   ],
+   [
+    "15.2|ui-sans-serif",
+    229
+   ]
+  ],
+  "fams": [
+   "ui-sans-serif"
+  ],
+  "media": [
+   {
+    "tag": "IMG",
+    "x": 270,
+    "y": 716,
+    "w": 900,
+    "h": 506,
+    "areaPct": 13,
+    "bleed": "B",
+    "src": "meettheallnewthings2-io75.jpg"
+   },
+   {
+    "tag": "IMG",
+    "x": 595,
+    "y": 138,
+    "w": 250,
+    "h": 301,
+    "areaPct": 6,
+    "bleed": "",
+    "src": "hero-logo-things-io90.png"
+   }
+  ],
+  "H": 8110,
+  "sections": [
+   [
+    88,
+    1135,
+    "rgb(242, 245, 247)",
+    "0px"
+   ],
+   [
+    1223,
+    1414,
+    "rgb(251, 252, 254)",
+    "81px"
+   ],
+   [
+    2637,
+    888,
+    "rgb(255, 255, 255)",
+    "81px"
+   ],
+   [
+    3525,
+    987,
+    "rgb(242, 245, 247)",
+    "81px"
+   ],
+   [
+    4512,
+    2674,
+    "rgb(255, 255, 255)",
+    "81px"
+   ],
+   [
+    7186,
+    620,
+    "rgb(242, 245, 247)",
+    "81px"
+   ],
+   [
+    7807,
+    303,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "36px",
+   "36px",
+   "36px",
+   "36px"
+  ],
+  "colour": {
+   "chromaPct": 2,
+   "darkPct": 0,
+   "lightPct": 97,
+   "topHues": [
+    "210deg:2%",
+    "30deg:0%",
+    "60deg:0%"
+   ]
+  }
+ },
+ "linear": {
+  "url": "https://linear.app/",
+  "big": {
+   "fs": 64,
+   "txt": "The product development",
+   "fam": "\"Inter Variable\"",
+   "w": "510",
+   "lh": "64px",
+   "ls": "-1.408px",
+   "tag": "SPAN"
+  },
+  "body": [
+   [
+    "15|\"Inter Variable\"",
+    1667
+   ],
+   [
+    "13|\"Inter Variable\"",
+    707
+   ],
+   [
+    "24|\"Inter Variable\"",
+    547
+   ]
+  ],
+  "fams": [
+   "Inter Variable",
+   "Berkeley Mono"
+  ],
+  "media": [
+   {
+    "tag": "IMG",
+    "x": 0,
+    "y": 491,
+    "w": 1440,
+    "h": 804,
+    "areaPct": 45,
+    "bleed": "B",
+    "src": "f=auto,fit=scale-down,metadata=none,width=2560"
+   }
+  ],
+  "H": 10043,
+  "sections": [
+   [
+    72,
+    9447,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    2546,
+    1239,
+    "rgba(0, 0, 0, 0)",
+    "128px"
+   ],
+   [
+    3795,
+    1242,
+    "rgba(0, 0, 0, 0)",
+    "128px"
+   ],
+   [
+    5047,
+    1245,
+    "rgba(0, 0, 0, 0)",
+    "128px"
+   ],
+   [
+    6302,
+    1233,
+    "rgba(0, 0, 0, 0)",
+    "128px"
+   ],
+   [
+    8279,
+    564,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    9067,
+    228,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    9519,
+    524,
+    "rgb(8, 9, 10)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "48px",
+   "48px",
+   "48px",
+   "48px"
+  ],
+  "colour": {
+   "chromaPct": 0,
+   "darkPct": 96,
+   "lightPct": 2,
+   "topHues": [
+    "60deg:0%",
+    "240deg:0%"
+   ]
+  }
+ },
+ "rauno": {
+  "url": "https://rauno.me/",
+  "big": {
+   "fs": 720,
+   "txt": "DD",
+   "fam": "X",
+   "w": "400",
+   "lh": "normal",
+   "ls": "normal",
+   "tag": "H3"
+  },
+  "body": [
+   [
+    "75|X",
+    109
+   ]
+  ],
+  "fams": [
+   "X"
+  ],
+  "media": [
+   {
+    "tag": "svg",
+    "x": 3859,
+    "y": 291,
+    "w": 287,
+    "h": 318,
+    "areaPct": 0,
+    "bleed": "R",
+    "src": ""
+   },
+   {
+    "tag": "svg",
+    "x": 5835,
+    "y": 411,
+    "w": 712,
+    "h": 78,
+    "areaPct": 0,
+    "bleed": "R",
+    "src": ""
+   }
+  ],
+  "H": 6108,
+  "sections": [
+   [
+    0,
+    6108,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    90,
+    720,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ]
+  ],
+  "h2": [],
+  "colour": {
+   "chromaPct": 24,
+   "darkPct": 6,
+   "lightPct": 69,
+   "topHues": [
+    "60deg:24%",
+    "240deg:0%"
+   ]
+  }
+ },
+ "te-ep133": {
+  "url": "https://teenage.engineering/products/ep-133",
+  "big": {
+   "fs": 19.5,
+   "txt": "latest",
+   "fam": "te-20",
+   "w": "100",
+   "lh": "29.25px",
+   "ls": "normal",
+   "tag": "tspan"
+  },
+  "body": [
+   [
+    "13.2245|TechnoType",
+    3075
+   ],
+   [
+    "26.449|TechnoType",
+    2838
+   ],
+   [
+    "52.898|TechnoType",
+    2040
+   ]
+  ],
+  "fams": [
+   "te-20",
+   "Arial"
+  ],
+  "media": [
+   {
+    "tag": "IMG",
+    "x": 0,
+    "y": -176,
+    "w": 1440,
+    "h": 1440,
+    "areaPct": 100,
+    "bleed": "B",
+    "src": "696765ef204ba5607c12fabc_2048.webp"
+   },
+   {
+    "tag": "svg",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 118,
+    "areaPct": 13,
+    "bleed": "",
+    "src": ""
+   }
+  ],
+  "H": 18008,
+  "sections": [
+   [
+    0,
+    17913,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ]
+  ],
+  "h2": [],
+  "colour": {
+   "chromaPct": 9,
+   "darkPct": 75,
+   "lightPct": 4,
+   "topHues": [
+    "30deg:6%",
+    "0deg:3%",
+    "210deg:0%"
+   ]
+  }
+ },
+ "vercel": {
+  "url": "https://vercel.com/",
+  "err": "site timeout"
+ },
+ "raycast": {
+  "url": "https://www.raycast.com/",
+  "big": {
+   "fs": 64,
+   "txt": "Your shortcut to everything.",
+   "fam": "Inter",
+   "w": "600",
+   "lh": "70.4px",
+   "ls": "normal",
+   "tag": "H1"
+  },
+  "body": [
+   [
+    "16|Inter",
+    1203
+   ],
+   [
+    "14|Inter",
+    976
+   ],
+   [
+    "14|GeistMono",
+    455
+   ]
+  ],
+  "fams": [
+   "Inter",
+   "GeistMono",
+   "Segoe UI Variable"
+  ],
+  "media": [
+   {
+    "tag": "CANVAS",
+    "x": 120,
+    "y": 0,
+    "w": 1200,
+    "h": 895,
+    "areaPct": 83,
+    "bleed": "",
+    "src": ""
+   }
+  ],
+  "H": 15973,
+  "sections": [],
+  "h2": [
+   "20px",
+   "20px",
+   "20px",
+   "32px"
+  ],
+  "colour": {
+   "chromaPct": 17,
+   "darkPct": 81,
+   "lightPct": 2,
+   "topHues": [
+    "0deg:17%",
+    "330deg:0%"
+   ]
+  }
+ },
+ "stripe": {
+  "url": "https://stripe.com/",
+  "big": {
+   "fs": 48,
+   "txt": "Financial infrastructure to grow your revenue.",
+   "fam": "sohne-var",
+   "w": "300",
+   "lh": "55.2px",
+   "ls": "-0.96px",
+   "tag": "EM"
+  },
+  "body": [
+   [
+    "26|sohne-var",
+    2092
+   ],
+   [
+    "16|sohne-var",
+    1705
+   ],
+   [
+    "22|sohne-var",
+    1216
+   ]
+  ],
+  "fams": [
+   "sohne-var"
+  ],
+  "media": [
+   {
+    "tag": "PICTURE",
+    "x": 337,
+    "y": -71,
+    "w": 1392,
+    "h": 975,
+    "areaPct": 77,
+    "bleed": "RB",
+    "src": ""
+   },
+   {
+    "tag": "IMG",
+    "x": 337,
+    "y": -71,
+    "w": 1392,
+    "h": 975,
+    "areaPct": 77,
+    "bleed": "RB",
+    "src": "wave-fallback-desktop-1x.fba6fa88.webp"
+   }
+  ],
+  "H": 15474,
+  "sections": [
+   [
+    112,
+    685,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    797,
+    2196,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    2993,
+    438,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    3431,
+    560,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    3991,
+    977,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    4968,
+    4610,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    5263,
+    1388,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    6811,
+    1026,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    6965,
+    624,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    7997,
+    1533,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    9578,
+    2341,
+    "rgb(13, 23, 56)",
+    "0px"
+   ],
+   [
+    11919,
+    1741,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    12015,
+    701,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    13660,
+    379,
+    "rgb(248, 250, 253)",
+    "0px"
+   ],
+   [
+    14176,
+    1299,
+    "rgb(248, 250, 253)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "32px",
+   "26px",
+   "56px",
+   "32px"
+  ],
+  "colour": {
+   "chromaPct": 31,
+   "darkPct": 0,
+   "lightPct": 67,
+   "topHues": [
+    "30deg:9%",
+    "240deg:7%",
+    "300deg:5%"
+   ]
+  }
+ },
+ "panic": {
+  "url": "https://panic.com/",
+  "big": {
+   "fs": 80,
+   "txt": "Big Walk",
+   "fam": "Booton",
+   "w": "300",
+   "lh": "104px",
+   "ls": "-0.5px",
+   "tag": "A"
+  },
+  "body": [
+   [
+    "16|Booton",
+    960
+   ],
+   [
+    "15|Booton",
+    694
+   ],
+   [
+    "17.6|Booton",
+    176
+   ]
+  ],
+  "fams": [
+   "Booton",
+   "space-mono",
+   "Hellix",
+   "monospace"
+  ],
+  "media": [
+   {
+    "tag": "CANVAS",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 1030,
+    "areaPct": 100,
+    "bleed": "B",
+    "src": ""
+   },
+   {
+    "tag": "svg",
+    "x": 609,
+    "y": 40,
+    "w": 223,
+    "h": 230,
+    "areaPct": 4,
+    "bleed": "",
+    "src": ""
+   }
+  ],
+  "H": 3153,
+  "sections": [
+   [
+    1060,
+    285,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    1375,
+    725,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    2130,
+    285,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    2675,
+    478,
+    "rgb(23, 23, 23)",
+    "30px"
+   ]
+  ],
+  "h2": [
+   "42px",
+   "42px",
+   "42px",
+   "42px"
+  ],
+  "colour": {
+   "chromaPct": 8,
+   "darkPct": 90,
+   "lightPct": 2,
+   "topHues": [
+    "30deg:4%",
+    "210deg:3%",
+    "0deg:1%"
+   ]
+  }
+ },
+ "teenage-engineering": {
+  "url": "https://teenage.engineering/",
+  "big": {
+   "fs": 19.5,
+   "txt": "latest",
+   "fam": "te-20",
+   "w": "100",
+   "lh": "29.25px",
+   "ls": "normal",
+   "tag": "tspan"
+  },
+  "body": [
+   [
+    "39.6735|TechnoType",
+    622
+   ],
+   [
+    "13.2245|TechnoType",
+    116
+   ]
+  ],
+  "fams": [
+   "te-20"
+  ],
+  "media": [
+   {
+    "tag": "IMG",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 1440,
+    "areaPct": 100,
+    "bleed": "B",
+    "src": "6ada1e46982c0e6e3c49faf7_2048.webp"
+   },
+   {
+    "tag": "svg",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 118,
+    "areaPct": 13,
+    "bleed": "",
+    "src": ""
+   }
+  ],
+  "H": 5856,
+  "sections": [
+   [
+    0,
+    5760,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ]
+  ],
+  "h2": [],
+  "colour": {
+   "chromaPct": 1,
+   "darkPct": 83,
+   "lightPct": 2,
+   "topHues": [
+    "0deg:0%",
+    "30deg:0%",
+    "210deg:0%"
+   ]
+  }
+ },
+ "playdate": {
+  "url": "https://play.date/",
+  "big": {
+   "fs": 57,
+   "txt": "It's a new, tiny handheld game system with a bunch of brand-",
+   "fam": "Roobert",
+   "w": "700",
+   "lh": "62.7px",
+   "ls": "normal",
+   "tag": "P"
+  },
+  "body": [
+   [
+    "28.5|Roobert",
+    2287
+   ],
+   [
+    "57|Roobert",
+    101
+   ],
+   [
+    "21.375|Roobert",
+    92
+   ]
+  ],
+  "fams": [
+   "Roobert",
+   "Arial"
+  ],
+  "media": [
+   {
+    "tag": "CANVAS",
+    "x": 170,
+    "y": 0,
+    "w": 1100,
+    "h": 1000,
+    "areaPct": 76,
+    "bleed": "B",
+    "src": ""
+   }
+  ],
+  "H": 15396,
+  "sections": [
+   [
+    1664,
+    4529,
+    "color(display-p3 1 0.784 0.2)",
+    "20px"
+   ],
+   [
+    1744,
+    423,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    2228,
+    1269,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    3237,
+    284,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    4309,
+    1836,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    6193,
+    1010,
+    "color(display-p3 0.937 0.937 0.937)",
+    "30px"
+   ],
+   [
+    6283,
+    419,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    7203,
+    1809,
+    "color(display-p3 1 0.784 0.2)",
+    "20px"
+   ],
+   [
+    7283,
+    740,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    8083,
+    824,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    9012,
+    881,
+    "color(display-p3 0.37 0.765 0.667)",
+    "20px"
+   ],
+   [
+    9109,
+    764,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    9894,
+    1392,
+    "color(display-p3 0.424 0 1)",
+    "20px"
+   ],
+   [
+    9974,
+    506,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    10540,
+    706,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    11286,
+    2950,
+    "color(display-p3 0.129 0.133 0.137)",
+    "20px"
+   ],
+   [
+    11366,
+    615,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    12631,
+    283,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    13064,
+    373,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    13497,
+    383,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    13940,
+    276,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    14296,
+    1100,
+    "color(display-p3 0.424 0 1)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "68.4px",
+   "68.4px",
+   "68.4px",
+   "68.4px"
+  ],
+  "colour": {
+   "chromaPct": 13,
+   "darkPct": 11,
+   "lightPct": 2,
+   "topHues": [
+    "60deg:9%",
+    "30deg:3%",
+    "270deg:0%"
+   ]
+  }
+ },
+ "nothing": {
+  "url": "https://nothing.tech/",
+  "big": {
+   "fs": 48,
+   "txt": "The tech you want. The prices you’ve waited for.",
+   "fam": "NType82-Regular",
+   "w": "400",
+   "lh": "48px",
+   "ls": "normal",
+   "tag": "H1"
+  },
+  "body": [
+   [
+    "15|Arial",
+    457
+   ],
+   [
+    "12|Arial",
+    326
+   ],
+   [
+    "16|\"Geist Variable\"",
+    268
+   ]
+  ],
+  "fams": [
+   "Arial",
+   "NType82-Regular",
+   "Ndot-Bold",
+   "Geist Variable",
+   "Geist Mono Variable",
+   "LatteraMonoLL"
+  ],
+  "media": [
+   {
+    "tag": "PICTURE",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 900,
+    "areaPct": 100,
+    "bleed": "",
+    "src": ""
+   },
+   {
+    "tag": "IMG",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 900,
+    "areaPct": 100,
+    "bleed": "",
+    "src": "227056efec2504c6a539d85e691c8d5e5039527a-3840x2160"
+   }
+  ],
+  "H": 8859,
+  "sections": [
+   [
+    0,
+    7957,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    0,
+    900,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    1044,
+    412,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    1600,
+    900,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    2865,
+    810,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    3819,
+    867,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    4830,
+    761,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    5735,
+    810,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    6905,
+    477,
+    "rgba(216, 217, 217, 0.5)",
+    "144px"
+   ],
+   [
+    7382,
+    575,
+    "rgba(216, 217, 217, 0.5)",
+    "0px"
+   ],
+   [
+    7957,
+    902,
+    "rgb(4, 4, 4)",
+    "112px"
+   ]
+  ],
+  "h2": [
+   "48px",
+   "48px",
+   "32px",
+   "48px"
+  ],
+  "colour": {
+   "chromaPct": 0,
+   "darkPct": 1,
+   "lightPct": 93,
+   "topHues": [
+    "210deg:0%"
+   ]
+  }
+ },
+ "poetry-camera": {
+  "url": "https://poetry.camera/",
+  "big": {
+   "fs": 16,
+   "txt": "newsletter",
+   "fam": "\"DM Sans\"",
+   "w": "400",
+   "lh": "normal",
+   "ls": "normal",
+   "tag": "A"
+  },
+  "body": [
+   [
+    "16|\"DM Sans\"",
+    4818
+   ],
+   [
+    "14|\"BitMatrix A2\"",
+    692
+   ]
+  ],
+  "fams": [
+   "DM Sans",
+   "Exposure",
+   "BitMatrix A2"
+  ],
+  "media": [
+   {
+    "tag": "VIDEO",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 900,
+    "areaPct": 100,
+    "bleed": "",
+    "src": "header-short.webm"
+   },
+   {
+    "tag": "IMG",
+    "x": 216,
+    "y": 212,
+    "w": 1008,
+    "h": 442,
+    "areaPct": 34,
+    "bleed": "",
+    "src": "logo-stacked-white.svg"
+   }
+  ],
+  "H": 6788,
+  "sections": [
+   [
+    5701,
+    1087,
+    "rgb(249, 253, 249)",
+    "60px"
+   ]
+  ],
+  "h2": [
+   "51.2px",
+   "51.2px",
+   "51.2px",
+   "51.2px"
+  ],
+  "colour": {
+   "chromaPct": 23,
+   "darkPct": 7,
+   "lightPct": 15,
+   "topHues": [
+    "30deg:11%",
+    "60deg:10%",
+    "0deg:2%"
+   ]
+  }
+ },
+ "pear": {
+  "url": "https://pear.no/",
+  "big": {
+   "fs": 77.872,
+   "txt": "No fees. A share",
+   "fam": "\"Flecha M\"",
+   "w": "300",
+   "lh": "68.541px",
+   "ls": "-1.5574px",
+   "tag": "I"
+  },
+  "body": [
+   [
+    "12.8|\"GT Standard L\"",
+    1071
+   ],
+   [
+    "15.8|\"GT Standard L\"",
+    1013
+   ],
+   [
+    "23.903|\"Flecha S\"",
+    303
+   ]
+  ],
+  "fams": [
+   "Flecha L",
+   "Flecha M",
+   "GT Standard L",
+   "Flecha S",
+   "GT Standard Mono"
+  ],
+  "media": [
+   {
+    "tag": "CANVAS",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 900,
+    "areaPct": 100,
+    "bleed": "",
+    "src": ""
+   },
+   {
+    "tag": "IMG",
+    "x": -89,
+    "y": -56,
+    "w": 1618,
+    "h": 1011,
+    "areaPct": 100,
+    "bleed": "LRB",
+    "src": "signal-poster.jpg"
+   },
+   {
+    "tag": "svg",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 900,
+    "areaPct": 100,
+    "bleed": "",
+    "src": ""
+   },
+   {
+    "tag": "CANVAS",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 900,
+    "areaPct": 100,
+    "bleed": "",
+    "src": ""
+   }
+  ],
+  "H": 48150,
+  "sections": [
+   [
+    0,
+    48150,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "77.872px",
+   "77.872px",
+   "23.222px",
+   "23.222px"
+  ],
+  "colour": {
+   "chromaPct": 69,
+   "darkPct": 4,
+   "lightPct": 1,
+   "topHues": [
+    "210deg:68%",
+    "0deg:0%",
+    "180deg:0%"
+   ]
+  }
+ },
+ "town": {
+  "url": "https://www.town.com/",
+  "big": {
+   "fs": 80,
+   "txt": "Learns how you work, then gets to work.",
+   "fam": "slab",
+   "w": "84",
+   "lh": "83px",
+   "ls": "-1.6px",
+   "tag": "H1"
+  },
+  "body": [
+   [
+    "14|sans",
+    7927
+   ],
+   [
+    "18|slab",
+    1432
+   ],
+   [
+    "16|sans",
+    628
+   ]
+  ],
+  "fams": [
+   "sans",
+   "slab",
+   "handwriting"
+  ],
+  "media": [
+   {
+    "tag": "IMG",
+    "x": 186,
+    "y": 213,
+    "w": 211,
+    "h": 264,
+    "areaPct": 4,
+    "bleed": "",
+    "src": "1.webp"
+   }
+  ],
+  "H": 9371,
+  "sections": [
+   [
+    115,
+    6405,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    115,
+    785,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    900,
+    1150,
+    "rgb(253, 253, 252)",
+    "95.1112px"
+   ],
+   [
+    2066,
+    1490,
+    "rgb(253, 253, 252)",
+    "16px"
+   ],
+   [
+    3044,
+    454,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    3573,
+    915,
+    "rgb(253, 253, 252)",
+    "16px"
+   ],
+   [
+    4504,
+    1017,
+    "rgb(253, 253, 252)",
+    "16px"
+   ],
+   [
+    5115,
+    247,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    5538,
+    982,
+    "rgb(28, 27, 27)",
+    "0px"
+   ],
+   [
+    6520,
+    486,
+    "rgb(253, 253, 252)",
+    "83px"
+   ],
+   [
+    7006,
+    1070,
+    "rgb(253, 253, 252)",
+    "138px"
+   ]
+  ],
+  "h2": [
+   "80px",
+   "80px",
+   "80px",
+   "80px"
+  ],
+  "colour": {
+   "chromaPct": 5,
+   "darkPct": 7,
+   "lightPct": 87,
+   "topHues": [
+    "30deg:5%",
+    "60deg:0%",
+    "210deg:0%"
+   ]
+  }
+ },
+ "special-offer": {
+  "url": "https://specialoffer.inc/",
+  "big": {
+   "fs": 88.6637,
+   "txt": "Award Winning Creative Tech Company",
+   "fam": "Franklin",
+   "w": "400",
+   "lh": "79.7973px",
+   "ls": "-0.2px",
+   "tag": "P"
+  },
+  "body": [
+   [
+    "15|HelveticaNeueBd",
+    310
+   ],
+   [
+    "36|Franklin",
+    115
+   ]
+  ],
+  "fams": [
+   "HelveticaNeueBd",
+   "Franklin"
+  ],
+  "media": [
+   {
+    "tag": "IMG",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 900,
+    "areaPct": 100,
+    "bleed": "",
+    "src": "a4c3f3076ca7ef9ff82e554cf7718d8c7b4f9679-1920x1080"
+   },
+   {
+    "tag": "VIDEO",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 900,
+    "areaPct": 100,
+    "bleed": "",
+    "src": "cc1f5ff5-c416-4d72-b20e-436068c67a82"
+   },
+   {
+    "tag": "VIDEO",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 900,
+    "areaPct": 100,
+    "bleed": "",
+    "src": "53ad0de3-8feb-41c3-b945-59c0806e7b72"
+   },
+   {
+    "tag": "VIDEO",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 900,
+    "areaPct": 100,
+    "bleed": "",
+    "src": "843b2b81-214f-4b1f-a4e1-3394ca4db740"
+   }
+  ],
+  "H": 900,
+  "sections": [
+   [
+    0,
+    900,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ]
+  ],
+  "h2": [],
+  "colour": {
+   "chromaPct": 55,
+   "darkPct": 10,
+   "lightPct": 9,
+   "topHues": [
+    "0deg:35%",
+    "330deg:19%",
+    "300deg:1%"
+   ]
+  }
+ },
+ "interfere": {
+  "url": "https://interfere.com/",
+  "big": {
+   "fs": 56,
+   "txt": "Ship",
+   "fam": "InterVariable",
+   "w": "550",
+   "lh": "56px",
+   "ls": "-0.56px",
+   "tag": "SPAN"
+  },
+  "body": [
+   [
+    "13|InterVariable",
+    1578
+   ],
+   [
+    "15|InterVariable",
+    1257
+   ],
+   [
+    "11|InterVariable",
+    202
+   ]
+  ],
+  "fams": [
+   "InterVariable"
+  ],
+  "media": [],
+  "H": 7286,
+  "sections": [
+   [
+    64,
+    1168,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    1389,
+    776,
+    "rgba(0, 0, 0, 0)",
+    "144px"
+   ],
+   [
+    2165,
+    492,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    2657,
+    832,
+    "rgba(0, 0, 0, 0)",
+    "96px"
+   ],
+   [
+    3490,
+    832,
+    "rgba(0, 0, 0, 0)",
+    "96px"
+   ],
+   [
+    4323,
+    832,
+    "rgba(0, 0, 0, 0)",
+    "96px"
+   ],
+   [
+    5155,
+    296,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    5451,
+    533,
+    "rgba(0, 0, 0, 0)",
+    "120px"
+   ],
+   [
+    5984,
+    1302,
+    "oklch(0.973 0 0)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "15px",
+   "28px",
+   "28px",
+   "28px"
+  ],
+  "colour": {
+   "chromaPct": 5,
+   "darkPct": 1,
+   "lightPct": 92,
+   "topHues": [
+    "0deg:4%",
+    "330deg:0%",
+    "300deg:0%"
+   ]
+  }
+ },
+ "figma": {
+  "url": "https://www.figma.com/",
+  "big": {
+   "fs": 56,
+   "txt": "The full-stack creative canvas",
+   "fam": "figmaSans",
+   "w": "400",
+   "lh": "56px",
+   "ls": "-1.25px",
+   "tag": "H1"
+  },
+  "body": [
+   [
+    "30|figmaSans",
+    316
+   ],
+   [
+    "16|figmaSans",
+    308
+   ],
+   [
+    "44|figmaSans",
+    182
+   ]
+  ],
+  "fams": [
+   "figmaSans",
+   "figmaMono"
+  ],
+  "media": [],
+  "H": 8776,
+  "sections": [
+   [
+    78,
+    860,
+    "rgb(255, 255, 255)",
+    "80px"
+   ],
+   [
+    938,
+    831,
+    "rgb(255, 255, 255)",
+    "80px"
+   ],
+   [
+    1769,
+    1065,
+    "rgb(255, 255, 255)",
+    "80px"
+   ],
+   [
+    2834,
+    1609,
+    "rgb(255, 255, 255)",
+    "80px"
+   ],
+   [
+    4443,
+    1113,
+    "rgb(255, 255, 255)",
+    "80px"
+   ],
+   [
+    5557,
+    660,
+    "rgb(255, 255, 255)",
+    "80px"
+   ],
+   [
+    6216,
+    400,
+    "rgb(255, 255, 255)",
+    "80px"
+   ],
+   [
+    6617,
+    898,
+    "rgb(255, 255, 255)",
+    "80px"
+   ],
+   [
+    7514,
+    1261,
+    "rgb(0, 0, 0)",
+    "120px"
+   ]
+  ],
+  "h2": [
+   "14px",
+   "14px",
+   "14px",
+   "14px"
+  ],
+  "colour": {
+   "chromaPct": 7,
+   "darkPct": 11,
+   "lightPct": 74,
+   "topHues": [
+    "30deg:2%",
+    "0deg:2%",
+    "90deg:1%"
+   ]
+  }
+ },
+ "ia-writer": {
+  "url": "https://ia.net/writer",
+  "big": {
+   "fs": 57,
+   "txt": "Writer",
+   "fam": "iASansDay",
+   "w": "700",
+   "lh": "57px",
+   "ls": "-0.855px",
+   "tag": "SPAN"
+  },
+  "body": [
+   [
+    "20|iASansDay",
+    4299
+   ],
+   [
+    "28.5|iASansDay",
+    516
+   ],
+   [
+    "16|iASansDay",
+    225
+   ]
+  ],
+  "fams": [
+   "iASansDay",
+   "iASansNight",
+   "-apple-system-monospaced-numbers"
+  ],
+  "media": [
+   {
+    "tag": "IMG",
+    "x": 208,
+    "y": 430,
+    "w": 1024,
+    "h": 576,
+    "areaPct": 37,
+    "bleed": "B",
+    "src": "iaw-alice-focus-desktop-smaller-vuga7w.webp"
+   }
+  ],
+  "H": 14914,
+  "sections": [
+   [
+    46,
+    13304,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    46,
+    1063,
+    "rgb(249, 249, 249)",
+    "100.8px"
+   ],
+   [
+    1108,
+    234,
+    "rgb(249, 249, 249)",
+    "44px"
+   ],
+   [
+    2152,
+    893,
+    "rgb(0, 195, 255)",
+    "115.2px"
+   ],
+   [
+    3045,
+    1451,
+    "rgb(249, 249, 249)",
+    "100.8px"
+   ],
+   [
+    4496,
+    1865,
+    "rgb(20, 20, 20)",
+    "100.8px"
+   ],
+   [
+    6361,
+    1118,
+    "rgb(249, 249, 249)",
+    "100.8px"
+   ],
+   [
+    7479,
+    623,
+    "rgb(0, 195, 255)",
+    "115.2px"
+   ],
+   [
+    8102,
+    657,
+    "rgb(249, 249, 249)",
+    "100.8px"
+   ],
+   [
+    8759,
+    1469,
+    "rgb(249, 249, 249)",
+    "0px"
+   ],
+   [
+    10228,
+    575,
+    "rgb(0, 195, 255)",
+    "115.2px"
+   ],
+   [
+    10803,
+    1888,
+    "rgb(249, 249, 249)",
+    "100.8px"
+   ],
+   [
+    12691,
+    658,
+    "rgb(0, 195, 255)",
+    "115.2px"
+   ],
+   [
+    13415,
+    379,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    13854,
+    517,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    14481,
+    248,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "43.1002px",
+   "43.1002px",
+   "43.1002px",
+   "43.1002px"
+  ],
+  "colour": {
+   "chromaPct": 1,
+   "darkPct": 1,
+   "lightPct": 97,
+   "topHues": [
+    "180deg:1%",
+    "210deg:0%"
+   ]
+  }
+ },
+ "nova": {
+  "url": "https://nova.app/",
+  "big": {
+   "fs": 130,
+   "txt": "Nova",
+   "fam": "Hellix",
+   "w": "700",
+   "lh": "130px",
+   "ls": "-6.5px",
+   "tag": "A"
+  },
+  "body": [
+   [
+    "15.6|Hellix",
+    1326
+   ],
+   [
+    "26|Hellix",
+    464
+   ],
+   [
+    "23.4|Menlo",
+    197
+   ]
+  ],
+  "fams": [
+   "Hellix",
+   "SerrifCompressed",
+   "Menlo",
+   "Arial"
+  ],
+  "media": [
+   {
+    "tag": "PICTURE",
+    "x": 70,
+    "y": 202,
+    "w": 1300,
+    "h": 776,
+    "areaPct": 70,
+    "bleed": "B",
+    "src": ""
+   },
+   {
+    "tag": "IMG",
+    "x": 70,
+    "y": 202,
+    "w": 1300,
+    "h": 776,
+    "areaPct": 70,
+    "bleed": "B",
+    "src": "hero-14.avif"
+   }
+  ],
+  "H": 3897,
+  "sections": [
+   [
+    935,
+    1633,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    2728,
+    781,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "39px",
+   "45.5px",
+   "45.5px",
+   "45.5px"
+  ],
+  "colour": {
+   "chromaPct": 78,
+   "darkPct": 17,
+   "lightPct": 1,
+   "topHues": [
+    "210deg:55%",
+    "270deg:11%",
+    "240deg:8%"
+   ]
+  }
+ },
+ "everyday": {
+  "url": "https://everyday.io/",
+  "big": {
+   "fs": 44,
+   "txt": "A new company for",
+   "fam": "Everyday",
+   "w": "500",
+   "lh": "51.04px",
+   "ls": "-1.32px",
+   "tag": "SPAN"
+  },
+  "body": [
+   [
+    "14|Everyday",
+    1580
+   ],
+   [
+    "10|Everyday",
+    192
+   ],
+   [
+    "44|Everyday",
+    157
+   ]
+  ],
+  "fams": [
+   "Everyday"
+  ],
+  "media": [
+   {
+    "tag": "VIDEO",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 900,
+    "areaPct": 100,
+    "bleed": "",
+    "src": "1781598221579-1781084504499-everyday_kh_1920x1080-"
+   }
+  ],
+  "H": 6981,
+  "sections": [
+   [
+    0,
+    900,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    900,
+    618,
+    "rgb(255, 255, 255)",
+    "8px"
+   ],
+   [
+    1518,
+    642,
+    "rgb(255, 255, 255)",
+    "8px"
+   ],
+   [
+    2160,
+    1068,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    3228,
+    805,
+    "rgb(255, 255, 255)",
+    "8px"
+   ],
+   [
+    4033,
+    817,
+    "rgb(255, 255, 255)",
+    "8px"
+   ],
+   [
+    4850,
+    797,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    5646,
+    817,
+    "rgb(255, 255, 255)",
+    "8px"
+   ],
+   [
+    6463,
+    518,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    6463,
+    518,
+    "rgb(255, 255, 255)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "44px",
+   "44px",
+   "44px",
+   "44px"
+  ],
+  "colour": {
+   "chromaPct": 11,
+   "darkPct": 31,
+   "lightPct": 21,
+   "topHues": [
+    "30deg:11%",
+    "0deg:0%"
+   ]
+  }
+ },
+ "portal": {
+  "url": "https://useportal.net/",
+  "big": {
+   "fs": 48,
+   "txt": "Your beautiful freelance toolkit.",
+   "fam": "\"Perfectly Nineties Regular\"",
+   "w": "400",
+   "lh": "48px",
+   "ls": "normal",
+   "tag": "SPAN"
+  },
+  "body": [
+   [
+    "16|Inter",
+    6167
+   ],
+   [
+    "12|Inter",
+    144
+   ],
+   [
+    "36|\"Perfectly Nineties Regular\"",
+    110
+   ]
+  ],
+  "fams": [
+   "Perfectly Nineties Regular",
+   "Inter",
+   "sans-serif"
+  ],
+  "media": [
+   {
+    "tag": "IMG",
+    "x": -282,
+    "y": 0,
+    "w": 2000,
+    "h": 1180,
+    "areaPct": 100,
+    "bleed": "LRB",
+    "src": "6CnligMRZTqS1M171eobYauJ90.png?scale-down-to=2048"
+   },
+   {
+    "tag": "IMG",
+    "x": -30,
+    "y": 0,
+    "w": 1500,
+    "h": 400,
+    "areaPct": 44,
+    "bleed": "LR",
+    "src": "wed3DUlO5aP3KLaQRpAkXPTpY.svg"
+   },
+   {
+    "tag": "IMG",
+    "x": 282,
+    "y": 564,
+    "w": 876,
+    "h": 557,
+    "areaPct": 23,
+    "bleed": "B",
+    "src": "a0dJIrS6DWxVsDPzjVpt1qGmHHk.webp"
+   },
+   {
+    "tag": "IMG",
+    "x": 0,
+    "y": 816,
+    "w": 1440,
+    "h": 240,
+    "areaPct": 9,
+    "bleed": "B",
+    "src": "F0OaJ3hTbcWfNHnJN8hYZQI7BxU.webp"
+   }
+  ],
+  "H": 9019,
+  "sections": [],
+  "h2": [
+   "36px",
+   "36px",
+   "36px",
+   "36px"
+  ],
+  "colour": {
+   "chromaPct": 86,
+   "darkPct": 0,
+   "lightPct": 10,
+   "topHues": [
+    "240deg:60%",
+    "210deg:14%",
+    "270deg:5%"
+   ]
+  }
+ },
+ "squarespace-brand": {
+  "url": "https://brand.squarespace.com/",
+  "big": {
+   "fs": 80,
+   "txt": "Squarespace",
+   "fam": "Clarkson",
+   "w": "400",
+   "lh": "64px",
+   "ls": "-3.2px",
+   "tag": "DIV"
+  },
+  "body": [
+   [
+    "24|Clarkson",
+    111
+   ]
+  ],
+  "fams": [
+   "Clarkson"
+  ],
+  "media": [],
+  "H": 901,
+  "sections": [],
+  "h2": [],
+  "colour": {
+   "chromaPct": 0,
+   "darkPct": 98,
+   "lightPct": 1,
+   "topHues": []
+  }
+ },
+ "idle": {
+  "url": "https://idle.space/",
+  "big": {
+   "fs": 76,
+   "txt": "Make a space for your",
+   "fam": "\"Funnel Sans\"",
+   "w": "600",
+   "lh": "80px",
+   "ls": "-3.04px",
+   "tag": "H1"
+  },
+  "body": [
+   [
+    "16|\"Funnel Sans\"",
+    1837
+   ]
+  ],
+  "fams": [
+   "Funnel Sans",
+   "Geist Mono"
+  ],
+  "media": [
+   {
+    "tag": "CANVAS",
+    "x": 519,
+    "y": 568,
+    "w": 402,
+    "h": 874,
+    "areaPct": 10,
+    "bleed": "B",
+    "src": ""
+   },
+   {
+    "tag": "IMG",
+    "x": 76,
+    "y": 621,
+    "w": 272,
+    "h": 217,
+    "areaPct": 5,
+    "bleed": "",
+    "src": "macbook.webp"
+   }
+  ],
+  "H": 11252,
+  "sections": [
+   [
+    0,
+    1442,
+    "rgba(0, 0, 0, 0)",
+    "216px"
+   ],
+   [
+    1682,
+    1240,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    4524,
+    912,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    5676,
+    1240,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    7156,
+    1320,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    8716,
+    912,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    9868,
+    1008,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "76px",
+   "76px",
+   "76px",
+   "76px"
+  ],
+  "colour": {
+   "chromaPct": 6,
+   "darkPct": 5,
+   "lightPct": 84,
+   "topHues": [
+    "60deg:4%",
+    "210deg:1%",
+    "0deg:1%"
+   ]
+  }
+ },
+ "semaloop": {
+  "url": "https://semaloop.com/",
+  "big": {
+   "fs": 40,
+   "txt": "Catch mobile bugsbefore your users do.",
+   "fam": "ppMori",
+   "w": "615",
+   "lh": "44px",
+   "ls": "-0.4px",
+   "tag": "H1"
+  },
+  "body": [
+   [
+    "15|ppMori",
+    963
+   ],
+   [
+    "23|ppMori",
+    542
+   ],
+   [
+    "16|ppMori",
+    431
+   ]
+  ],
+  "fams": [
+   "ppMori",
+   "Geist Mono"
+  ],
+  "media": [
+   {
+    "tag": "VIDEO",
+    "x": 120,
+    "y": 538,
+    "w": 1200,
+    "h": 600,
+    "areaPct": 33,
+    "bleed": "B",
+    "src": "semaloop-hero-video-v4.webm"
+   },
+   {
+    "tag": "svg",
+    "x": 0,
+    "y": 611,
+    "w": 1200,
+    "h": 209,
+    "areaPct": 19,
+    "bleed": "",
+    "src": ""
+   },
+   {
+    "tag": "svg",
+    "x": 1264,
+    "y": 611,
+    "w": 1200,
+    "h": 209,
+    "areaPct": 3,
+    "bleed": "R",
+    "src": ""
+   },
+   {
+    "tag": "svg",
+    "x": 2528,
+    "y": 611,
+    "w": 1200,
+    "h": 209,
+    "areaPct": 0,
+    "bleed": "R",
+    "src": ""
+   }
+  ],
+  "H": 14245,
+  "sections": [
+   [
+    94,
+    380,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    538,
+    600,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    1384,
+    8100,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    9613,
+    378,
+    "rgba(0, 0, 0, 0)",
+    "64px"
+   ],
+   [
+    10120,
+    450,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    10698,
+    590,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    11417,
+    378,
+    "rgba(0, 0, 0, 0)",
+    "64px"
+   ],
+   [
+    11924,
+    401,
+    "rgb(230, 229, 224)",
+    "16px"
+   ],
+   [
+    12454,
+    405,
+    "rgba(0, 0, 0, 0)",
+    "64px"
+   ],
+   [
+    12988,
+    464,
+    "rgb(179, 193, 185)",
+    "16px"
+   ],
+   [
+    171,
+    729,
+    "rgb(230, 229, 224)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "23px",
+   "23px",
+   "23px",
+   "40px"
+  ],
+  "colour": {
+   "chromaPct": 2,
+   "darkPct": 7,
+   "lightPct": 64,
+   "topHues": [
+    "240deg:2%",
+    "150deg:0%",
+    "30deg:0%"
+   ]
+  }
+ },
+ "norma": {
+  "url": "https://nor.ma/",
+  "big": {
+   "fs": 56,
+   "txt": "Cut your screen time.",
+   "fam": "suisse",
+   "w": "600",
+   "lh": "57.12px",
+   "ls": "-1.68px",
+   "tag": "SPAN"
+  },
+  "body": [
+   [
+    "16|suisse",
+    3952
+   ],
+   [
+    "17|suisse",
+    696
+   ],
+   [
+    "12|suisse",
+    176
+   ]
+  ],
+  "fams": [
+   "suisse"
+  ],
+  "media": [
+   {
+    "tag": "VIDEO",
+    "x": 16,
+    "y": 48,
+    "w": 1408,
+    "h": 756,
+    "areaPct": 82,
+    "bleed": "",
+    "src": "video.webm"
+   },
+   {
+    "tag": "IMG",
+    "x": 497,
+    "y": 172,
+    "w": 446,
+    "h": 251,
+    "areaPct": 9,
+    "bleed": "",
+    "src": "promo.jpg"
+   }
+  ],
+  "H": 11862,
+  "sections": [
+   [
+    32,
+    772,
+    "rgba(0, 0, 0, 0)",
+    "16px"
+   ],
+   [
+    772,
+    275,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    1047,
+    728,
+    "rgb(255, 255, 255)",
+    "64px"
+   ],
+   [
+    1775,
+    985,
+    "rgb(255, 255, 255)",
+    "128px"
+   ],
+   [
+    2759,
+    799,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    3526,
+    820,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    4346,
+    992,
+    "rgb(255, 255, 255)",
+    "64px"
+   ],
+   [
+    5338,
+    786,
+    "rgb(255, 255, 255)",
+    "64px"
+   ],
+   [
+    6124,
+    816,
+    "rgb(255, 255, 255)",
+    "64px"
+   ],
+   [
+    6940,
+    900,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    7840,
+    1908,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    7840,
+    893,
+    "rgba(0, 0, 0, 0)",
+    "96px"
+   ],
+   [
+    8733,
+    1015,
+    "rgba(0, 0, 0, 0)",
+    "64px"
+   ],
+   [
+    9748,
+    830,
+    "rgb(255, 255, 255)",
+    "64px"
+   ],
+   [
+    10577,
+    830,
+    "rgb(255, 255, 255)",
+    "64px"
+   ],
+   [
+    11407,
+    455,
+    "rgb(255, 255, 255)",
+    "80px"
+   ]
+  ],
+  "h2": [
+   "36px",
+   "36px",
+   "36px",
+   "36px"
+  ],
+  "colour": {
+   "chromaPct": 1,
+   "darkPct": 77,
+   "lightPct": 15,
+   "topHues": [
+    "210deg:1%",
+    "240deg:0%",
+    "0deg:0%"
+   ]
+  }
+ },
+ "daylight": {
+  "url": "https://godaylight.com/",
+  "big": {
+   "fs": 85,
+   "txt": "Power your home",
+   "fam": "featureDeck",
+   "w": "400",
+   "lh": "98.6px",
+   "ls": "-1.7px",
+   "tag": "DIV"
+  },
+  "body": [
+   [
+    "14|aeonikPro",
+    1590
+   ],
+   [
+    "16|aeonikPro",
+    581
+   ],
+   [
+    "12|aeonikPro",
+    343
+   ]
+  ],
+  "fams": [
+   "aeonikPro",
+   "featureDeck",
+   "socialMono"
+  ],
+  "media": [
+   {
+    "tag": "IMG",
+    "x": -72,
+    "y": -45,
+    "w": 1584,
+    "h": 990,
+    "areaPct": 100,
+    "bleed": "LRB",
+    "src": "c6a481776cf865a65c6641dbfbe6983257ddd50a-1920x1898"
+   },
+   {
+    "tag": "IMG",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 900,
+    "areaPct": 100,
+    "bleed": "",
+    "src": "image?url=https%3A%2F%2Fimage.mux.com%2FOFFlHY94kl"
+   },
+   {
+    "tag": "CANVAS",
+    "x": 533,
+    "y": 357,
+    "w": 375,
+    "h": 187,
+    "areaPct": 5,
+    "bleed": "",
+    "src": ""
+   },
+   {
+    "tag": "IMG",
+    "x": 1034,
+    "y": 762,
+    "w": 457,
+    "h": 587,
+    "areaPct": 4,
+    "bleed": "RB",
+    "src": "usp-sky-save.jpg"
+   }
+  ],
+  "H": 20872,
+  "sections": [
+   [
+    0,
+    900,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    900,
+    1731,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    2631,
+    7440,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    10071,
+    1980,
+    "rgb(190, 213, 255)",
+    "0px"
+   ],
+   [
+    12051,
+    2700,
+    "rgb(190, 213, 255)",
+    "0px"
+   ],
+   [
+    14751,
+    3364,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    14751,
+    378,
+    "rgb(252, 204, 60)",
+    "180px"
+   ],
+   [
+    15129,
+    2987,
+    "rgb(252, 204, 60)",
+    "0px"
+   ],
+   [
+    18116,
+    956,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    19072,
+    900,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    19972,
+    900,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "50px",
+   "50px",
+   "50px",
+   "85px"
+  ],
+  "colour": {
+   "chromaPct": 100,
+   "darkPct": 0,
+   "lightPct": 0,
+   "topHues": [
+    "30deg:87%",
+    "0deg:13%"
+   ]
+  }
+ },
+ "podium": {
+  "url": "https://podium.global/",
+  "big": {
+   "fs": 24,
+   "txt": "We offer creative direction&",
+   "fam": "Futura",
+   "w": "700",
+   "lh": "21.6px",
+   "ls": "-0.24px",
+   "tag": "SPAN"
+  },
+  "body": [
+   [
+    "16|Futura",
+    360
+   ]
+  ],
+  "fams": [
+   "Futura",
+   "Univers Condensed"
+  ],
+  "media": [
+   {
+    "tag": "CANVAS",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 900,
+    "areaPct": 100,
+    "bleed": "",
+    "src": ""
+   }
+  ],
+  "H": 6787,
+  "sections": [
+   [
+    0,
+    900,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    0,
+    900,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    900,
+    1800,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    0,
+    900,
+    "rgb(0, 0, 0)",
+    "0px"
+   ],
+   [
+    0,
+    900,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    2700,
+    1121,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    2700,
+    1121,
+    "rgba(0, 0, 0, 0)",
+    "123.868px"
+   ],
+   [
+    3821,
+    2067,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    5887,
+    900,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "61.984px",
+   "61.984px"
+  ],
+  "colour": {
+   "chromaPct": 0,
+   "darkPct": 0,
+   "lightPct": 100,
+   "topHues": [
+    "30deg:0%",
+    "210deg:0%",
+    "60deg:0%"
+   ]
+  }
+ },
+ "arena": {
+  "url": "https://www.are.na/",
+  "big": {
+   "fs": 19.2,
+   "txt": "Are.na is",
+   "fam": "areal",
+   "w": "400",
+   "lh": "27.84px",
+   "ls": "normal",
+   "tag": "H1"
+  },
+  "body": [
+   [
+    "19.2|areal",
+    1922
+   ],
+   [
+    "12.5|areal",
+    882
+   ],
+   [
+    "14.4|areal",
+    436
+   ]
+  ],
+  "fams": [
+   "areal",
+   "Times New Roman"
+  ],
+  "media": [
+   {
+    "tag": "IMG",
+    "x": 167,
+    "y": 743,
+    "w": 958,
+    "h": 656,
+    "areaPct": 12,
+    "bleed": "B",
+    "src": "original_9fa9c89accf482c3222eda1a0438b8cc.png?1786"
+   }
+  ],
+  "H": 6014,
+  "sections": [
+   [
+    55,
+    5217,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    680,
+    830,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    2045,
+    1117,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    3292,
+    326,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    3748,
+    353,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    4556,
+    518,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    5272,
+    250,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    5522,
+    492,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    5662,
+    352,
+    "rgb(0, 7, 95)",
+    "65px"
+   ]
+  ],
+  "h2": [
+   "19.2px",
+   "19.2px",
+   "19.2px",
+   "19.2px"
+  ],
+  "colour": {
+   "chromaPct": 0,
+   "darkPct": 0,
+   "lightPct": 98,
+   "topHues": [
+    "240deg:0%"
+   ]
+  }
+ },
+ "transmit": {
+  "url": "https://panic.com/transmit/",
+  "big": {
+   "fs": 145,
+   "txt": "Transmit 5",
+   "fam": "BootonVF",
+   "w": "900",
+   "lh": "145px",
+   "ls": "-2.9px",
+   "tag": "H1"
+  },
+  "body": [
+   [
+    "21|BootonVF",
+    1861
+   ],
+   [
+    "18|BootonVF",
+    133
+   ],
+   [
+    "24|BootonVF",
+    132
+   ]
+  ],
+  "fams": [
+   "BootonVF",
+   "Arial"
+  ],
+  "media": [
+   {
+    "tag": "CANVAS",
+    "x": 320,
+    "y": 84,
+    "w": 800,
+    "h": 640,
+    "areaPct": 40,
+    "bleed": "",
+    "src": ""
+   }
+  ],
+  "H": 9038,
+  "sections": [
+   [
+    889,
+    729,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    1718,
+    1599,
+    "rgba(0, 0, 0, 0)",
+    "50px"
+   ],
+   [
+    3317,
+    1990,
+    "rgba(0, 0, 0, 0)",
+    "50px"
+   ],
+   [
+    5308,
+    978,
+    "rgba(0, 0, 0, 0)",
+    "50px"
+   ],
+   [
+    6286,
+    1549,
+    "rgba(0, 0, 0, 0)",
+    "50px"
+   ],
+   [
+    7851,
+    987,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "36px",
+   "64px",
+   "64px",
+   "64px"
+  ],
+  "colour": {
+   "chromaPct": 8,
+   "darkPct": 1,
+   "lightPct": 10,
+   "topHues": [
+    "240deg:3%",
+    "60deg:2%",
+    "30deg:2%"
+   ]
+  }
+ },
+ "ivory": {
+  "url": "https://tapbots.com/ivory/",
+  "big": {
+   "fs": 24,
+   "txt": "From the creators of theTweetbot comes Ivory—a premier socia",
+   "fam": "-apple-system",
+   "w": "300",
+   "lh": "33.6px",
+   "ls": "normal",
+   "tag": "P"
+  },
+  "body": [
+   [
+    "18|-apple-system",
+    2490
+   ],
+   [
+    "21|-apple-system",
+    1444
+   ],
+   [
+    "24|-apple-system",
+    471
+   ]
+  ],
+  "fams": [
+   "-apple-system"
+  ],
+  "media": [],
+  "H": 12374,
+  "sections": [
+   [
+    2530,
+    1181,
+    "rgb(112, 71, 186)",
+    "216px"
+   ],
+   [
+    3639,
+    1793,
+    "rgb(26, 26, 26)",
+    "216px"
+   ],
+   [
+    5359,
+    1890,
+    "rgb(72, 72, 72)",
+    "216px"
+   ],
+   [
+    7177,
+    1864,
+    "rgb(26, 26, 26)",
+    "216px"
+   ],
+   [
+    8970,
+    1243,
+    "rgb(44, 44, 44)",
+    "216px"
+   ],
+   [
+    10140,
+    1559,
+    "rgba(0, 0, 0, 0)",
+    "216px"
+   ],
+   [
+    11699,
+    675,
+    "rgb(17, 17, 17)",
+    "80px"
+   ]
+  ],
+  "h2": [
+   "20px"
+  ],
+  "colour": {
+   "chromaPct": 35,
+   "darkPct": 52,
+   "lightPct": 1,
+   "topHues": [
+    "210deg:16%",
+    "0deg:5%",
+    "180deg:3%"
+   ]
+  }
+ },
+ "cleanshot": {
+  "url": "https://cleanshot.com/",
+  "big": {
+   "fs": 60,
+   "txt": "There are average capture apps. And there's CleanShot.",
+   "fam": "\"Google Sans Flex\"",
+   "w": "600",
+   "lh": "66px",
+   "ls": "normal",
+   "tag": "H1"
+  },
+  "body": [
+   [
+    "18|\"Google Sans Flex\"",
+    3326
+   ],
+   [
+    "15|\"Google Sans Flex\"",
+    1250
+   ],
+   [
+    "13|\"Google Sans Flex\"",
+    106
+   ]
+  ],
+  "fams": [
+   "Google Sans Flex"
+  ],
+  "media": [
+   {
+    "tag": "VIDEO",
+    "x": 124,
+    "y": 638,
+    "w": 688,
+    "h": 320,
+    "areaPct": 14,
+    "bleed": "B",
+    "src": "thumbnail.BwKpf2eD.mp4"
+   }
+  ],
+  "H": 10965,
+  "sections": [
+   [
+    8954,
+    706,
+    "rgba(0, 0, 0, 0)",
+    "124px"
+   ],
+   [
+    9780,
+    1185,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "40px",
+   "40px",
+   "40px",
+   "40px"
+  ],
+  "colour": {
+   "chromaPct": 6,
+   "darkPct": 3,
+   "lightPct": 80,
+   "topHues": [
+    "210deg:4%",
+    "150deg:1%",
+    "240deg:0%"
+   ]
+  }
+ },
+ "ableton": {
+  "url": "https://www.ableton.com/en/live/",
+  "big": {
+   "fs": 280,
+   "txt": "Live",
+   "fam": "\"Futura PT\"",
+   "w": "500",
+   "lh": "normal",
+   "ls": "-7px",
+   "tag": "SPAN"
+  },
+  "body": [
+   [
+    "16|\"Futura PT\"",
+    3589
+   ],
+   [
+    "20|\"Futura PT\"",
+    1726
+   ]
+  ],
+  "fams": [
+   "Futura PT",
+   "Rhymes Display"
+  ],
+  "media": [
+   {
+    "tag": "CANVAS",
+    "x": 0,
+    "y": 0,
+    "w": 1440,
+    "h": 7366,
+    "areaPct": 100,
+    "bleed": "B",
+    "src": ""
+   },
+   {
+    "tag": "IMG",
+    "x": 442,
+    "y": 422,
+    "w": 556,
+    "h": 835,
+    "areaPct": 20,
+    "bleed": "B",
+    "src": "hero.jpg"
+   },
+   {
+    "tag": "IMG",
+    "x": 9,
+    "y": 512,
+    "w": 562,
+    "h": 523,
+    "areaPct": 17,
+    "bleed": "B",
+    "src": "cta-scribble.png"
+   },
+   {
+    "tag": "IMG",
+    "x": -4,
+    "y": 209,
+    "w": 739,
+    "h": 250,
+    "areaPct": 14,
+    "bleed": "L",
+    "src": "title-outline.png"
+   }
+  ],
+  "H": 7366,
+  "sections": [
+   [
+    188,
+    1106,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    1294,
+    1509,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    2803,
+    1170,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    3973,
+    982,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    4955,
+    1120,
+    "rgb(0, 58, 88)",
+    "105px"
+   ],
+   [
+    6075,
+    521,
+    "rgb(255, 255, 255)",
+    "0px"
+   ],
+   [
+    6596,
+    770,
+    "rgb(255, 255, 255)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "208px"
+  ],
+  "colour": {
+   "chromaPct": 14,
+   "darkPct": 15,
+   "lightPct": 61,
+   "topHues": [
+    "120deg:6%",
+    "90deg:5%",
+    "30deg:1%"
+   ]
+  }
+ },
+ "atalanta": {
+  "url": "https://www.atalanta.tech/",
+  "big": {
+   "fs": 64,
+   "txt": "Provably correct decision-making for",
+   "fam": "FKAktual",
+   "w": "300",
+   "lh": "70.4px",
+   "ls": "normal",
+   "tag": "P"
+  },
+  "body": [
+   [
+    "16|MDLorien",
+    1011
+   ],
+   [
+    "50|FKAktual",
+    559
+   ],
+   [
+    "18|FKAktual",
+    133
+   ]
+  ],
+  "fams": [
+   "MDLorien",
+   "FKAktual"
+  ],
+  "media": [
+   {
+    "tag": "IMG",
+    "x": 0,
+    "y": 403,
+    "w": 1440,
+    "h": 1134,
+    "areaPct": 55,
+    "bleed": "B",
+    "src": "ldb3l2HJeAAA="
+   }
+  ],
+  "H": 8666,
+  "sections": [
+   [
+    0,
+    1307,
+    "rgba(0, 0, 0, 0)",
+    "162px"
+   ],
+   [
+    1307,
+    2050,
+    "rgba(0, 0, 0, 0)",
+    "100px"
+   ],
+   [
+    3357,
+    3600,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    6957,
+    758,
+    "rgba(0, 0, 0, 0)",
+    "100px"
+   ],
+   [
+    7716,
+    950,
+    "rgba(0, 0, 0, 0)",
+    "200px"
+   ]
+  ],
+  "h2": [
+   "12px",
+   "12px",
+   "12px",
+   "50px"
+  ],
+  "colour": {
+   "chromaPct": 0,
+   "darkPct": 0,
+   "lightPct": 1,
+   "topHues": []
+  }
+ },
+ "genesis": {
+  "url": "https://genesis.ai/",
+  "big": {
+   "fs": 32,
+   "txt": "Eno",
+   "fam": "\"scto grotesk a - regular\"",
+   "w": "400",
+   "lh": "32.64px",
+   "ls": "-1.104px",
+   "tag": "SPAN"
+  },
+  "body": [
+   [
+    "12|\"scto grotesk a - regular\"",
+    11976
+   ],
+   [
+    "14|\"scto grotesk a - regular\"",
+    1558
+   ],
+   [
+    "32|\"scto grotesk a - regular\"",
+    271
+   ]
+  ],
+  "fams": [
+   "scto grotesk a - regular",
+   "aeonik mono - medium",
+   "Times New Roman"
+  ],
+  "media": [
+   {
+    "tag": "IMG",
+    "x": 34,
+    "y": 152,
+    "w": 1372,
+    "h": 720,
+    "areaPct": 76,
+    "bleed": "",
+    "src": "thumbnail.jpg?width=1920&height=1080&fit_mode=pad&"
+   }
+  ],
+  "H": 9150,
+  "sections": [
+   [
+    84,
+    828,
+    "rgba(0, 0, 0, 0)",
+    "68px"
+   ],
+   [
+    912,
+    5243,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    6156,
+    804,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    6960,
+    732,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    7691,
+    834,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ],
+   [
+    8526,
+    624,
+    "rgba(0, 0, 0, 0)",
+    "0px"
+   ]
+  ],
+  "h2": [
+   "10.496px",
+   "10.496px",
+   "32px",
+   "10.496px"
+  ],
+  "colour": {
+   "chromaPct": 0,
+   "darkPct": 3,
+   "lightPct": 96,
+   "topHues": [
+    "210deg:0%",
+    "30deg:0%",
+    "240deg:0%"
+   ]
+  }
+ }
+}

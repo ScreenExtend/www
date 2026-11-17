@@ -1,0 +1,145 @@
+{
+  "url": "http://localhost:5181/",
+  "slug": "localhost",
+  "score": 21,
+  "tier": "mild",
+  "tierLabel": "Mild",
+  "patternsFlagged": 3,
+  "patternsTotal": 14,
+  "patterns": [
+    {
+      "id": "slop_fonts",
+      "label": "Templated font",
+      "triggered": false,
+      "evidence": null
+    },
+    {
+      "id": "hero_font_mix",
+      "label": "Hero font mix",
+      "triggered": false,
+      "evidence": null
+    },
+    {
+      "id": "purple_accent",
+      "label": "Vibe purple",
+      "triggered": false,
+      "evidence": null
+    },
+    {
+      "id": "gradients",
+      "label": "Gradients",
+      "triggered": false,
+      "evidence": null
+    },
+    {
+      "id": "accent_stripe",
+      "label": "Accent stripe",
+      "triggered": false,
+      "evidence": null
+    },
+    {
+      "id": "glassmorphism",
+      "label": "Glassmorphism",
+      "triggered": false,
+      "evidence": null
+    },
+    {
+      "id": "colored_glows",
+      "label": "Colored glow",
+      "triggered": false,
+      "evidence": null
+    },
+    {
+      "id": "sidebar_emoji",
+      "label": "Emoji nav",
+      "triggered": false,
+      "evidence": null
+    },
+    {
+      "id": "center_aligned_hero",
+      "label": "Centered + Inter",
+      "triggered": false,
+      "evidence": null
+    },
+    {
+      "id": "perma_dark_mode",
+      "label": "Perma dark",
+      "triggered": true,
+      "evidence": {
+        "mode": "dark-body-muted",
+        "pctBelowAAA": 13.9,
+        "sampleCount": 101,
+        "examples": []
+      }
+    },
+    {
+      "id": "numbered_steps",
+      "label": "1·2·3 steps",
+      "triggered": true,
+      "evidence": {
+        "runLength": 4,
+        "samples": [
+          {
+            "num": 3,
+            "fontSize": 36
+          },
+          {
+            "num": 7,
+            "fontSize": 36
+          },
+          {
+            "num": 7,
+            "fontSize": 36
+          },
+          {
+            "num": 6,
+            "fontSize": 36
+          },
+          {
+            "num": 2,
+            "fontSize": 36
+          },
+          {
+            "num": 1,
+            "fontSize": 24
+          }
+        ]
+      }
+    },
+    {
+      "id": "stat_banner_row",
+      "label": "Stat banner",
+      "triggered": false,
+      "evidence": null
+    },
+    {
+      "id": "hero_eyebrow_pill",
+      "label": "Headline badge",
+      "triggered": false,
+      "evidence": null
+    },
+    {
+      "id": "faq_accordion",
+      "label": "FAQ",
+      "triggered": true,
+      "evidence": {
+        "mode": "details",
+        "count": 6,
+        "samples": [
+          {
+            "kind": "details",
+            "text": "How do I use ScreenExtend?"
+          },
+          {
+            "kind": "details",
+            "text": "Is my data secure?"
+          },
+          {
+            "kind": "details",
+            "text": "What resolution and refresh rate can it do? Can it game?"
+          }
+        ]
+      }
+    }
+  ]
+}
