@@ -5,7 +5,7 @@ import DemoGate from "@/components/home/app-demo/DemoGate.tsx";
 // screenshots. The text says what each page does; the window lets people try it.
 export default function FeatureScroll() {
   return (
-    <section id="features" className="py-16 lg:py-24">
+    <section id="features" className="border-t border-line py-16 lg:py-24">
       <div className="container">
         <h2 className="display-lg">Settings for each device</h2>
         <p className="mt-3 text-lg text-muted">
