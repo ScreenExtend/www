@@ -26,3 +26,7 @@ dist-server
 
 # AI docs
 HOMEPAGE-LEGAL.md
+
+# browser profiles written by taste-skill checks
+.taste-skill/
+exhaustive-unslop/**/taste-profile/
