@@ -1,97 +1,38 @@
-import { useImage } from "@/components/ImageContext.tsx";
-import editCrop from "@/assets/app/crop-edit.webp";
-import settingsCrop from "@/assets/app/crop-settings.webp";
+import AppDemo from "@/components/home/app-demo/AppDemo.tsx";
 
-// Crops of the real screenshots (src/assets/app/feature-2.png and feature-3.png),
-// shown near their native size so the controls are readable. Clicking one opens
-// the full screenshot.
-function Crop({
-  shot,
-  src,
-  w,
-  h,
-  alt,
-  plate,
-  className = "",
-}: {
-  shot: number;
-  src: string;
-  w: number;
-  h: number;
-  alt: string;
-  plate: string;
-  className?: string;
-}) {
-  const { setCurrentImage } = useImage();
-  return (
-    <button
-      type="button"
-      onClick={() => setCurrentImage(shot)}
-      title="See the full screenshot"
-      className={`group relative block w-full cursor-zoom-in ${className}`}
-    >
-      <span className="sr-only">Open full screenshot: </span>
-      {/* one plate behind, offset like the logo's stacked screens */}
-      <span
-        aria-hidden="true"
-        className={`absolute inset-0 translate-x-[4%] translate-y-[5%] rounded-[1rem] ${plate}`}
-      />
-      <span className="relative block rounded-[1rem] bg-[#060b14] p-2 transition-transform duration-150 group-active:scale-[0.99] sm:p-3">
-        <img
-          src={src}
-          width={w}
-          height={h}
-          loading="lazy"
-          decoding="async"
-          alt={alt}
-          className="block h-auto w-full rounded-[0.5rem]"
-        />
-      </span>
-    </button>
-  );
-}
-
-// Same ground as the rest of the page: the theme never switches mid-scroll.
+// A second live copy of the app (app-demo/), opened on Edit Device, instead of
+// screenshots. The text says what each page does; the window lets people try it.
 export default function FeatureScroll() {
   return (
-    <section id="features" className="border-t border-line py-16 lg:py-24">
+    <section id="features" className="py-16 lg:py-24">
       <div className="container">
         <h2 className="display-lg">Every screen gets its own settings</h2>
-        <p className="mt-3 text-lg text-muted">Set each device up the way it suits you. Click a screenshot to see it full size.</p>
+        <p className="mt-3 text-lg text-muted">
+          Pick a device and change how it looks. Try it below. It works like the
+          real app, but nothing here is saved.
+        </p>
 
-        <div className="mt-10 grid gap-14 lg:mt-14 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-5">
-            <Crop
-              shot={1}
-              src={editCrop}
-              w={383}
-              h={440}
-              plate="bg-logo-blue"
-              className="max-w-[24rem]"
-              alt="Edit Device controls: screen size, scale, refresh rate, video scale and video quality sliders, with Remove Device and Save changes buttons."
-            />
-            <h3 className="mt-10 text-lg font-semibold">Edit Device</h3>
-            <p className="mt-2 leading-relaxed text-muted">
-              Scale, orientation, refresh rate and video quality, per device.
-              Changing one leaves the others alone, and you remove a device here.
-            </p>
-          </div>
+        <div className="mt-10 grid gap-8 lg:mt-12 lg:grid-cols-12 lg:gap-10">
+          <dl className="space-y-6 lg:col-span-4">
+            <div>
+              <dt className="text-lg font-semibold">Edit Device</dt>
+              <dd className="mt-1.5 leading-relaxed text-muted">
+                Scale, orientation, refresh rate and video quality, per device.
+                Changing one leaves the others alone, and you remove a device here.
+              </dd>
+            </div>
+            <div>
+              <dt className="text-lg font-semibold">Settings</dt>
+              <dd className="mt-1.5 leading-relaxed text-muted">
+                Regenerate the session code, start a network of its own so devices
+                connect without a router, set a disconnect timeout and read the
+                debug logs.
+              </dd>
+            </div>
+          </dl>
 
-          <div className="lg:col-span-7 lg:-mr-12 lg:pt-24 xl:-mr-24">
-            <Crop
-              shot={2}
-              src={settingsCrop}
-              w={1050}
-              h={496}
-              plate="bg-lime"
-              alt="Settings screen showing the Session OTP cells, the Public Internet Sessions toggle and the Create Hosted Network switch."
-            />
-            <h3 className="mt-10 text-lg font-semibold">Settings</h3>
-            <p className="mt-2 leading-relaxed text-muted">
-              Regenerate the session code, start an offline hosted network so
-              devices connect without a router, set a disconnect timeout and read
-              the debug logs.
-            </p>
+          <div className="min-w-0 lg:col-span-8">
+            <AppDemo initialPage="edit" />
           </div>
         </div>
       </div>

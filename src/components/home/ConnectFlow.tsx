@@ -1,5 +1,3 @@
-import qrCrop from "@/assets/app/crop-qr.webp";
-
 // Example code (digits from the previous site's demo). Six separate cells echo the
 // Session OTP row in src/assets/app/feature-3.png; the lime last cell is a site
 // accent marking the digit just typed, not something the app draws.
@@ -53,24 +51,6 @@ export default function ConnectFlow() {
               Example code. Each session has its own.
             </figcaption>
 
-            <div className="mt-10 grid grid-cols-[minmax(0,5fr)_minmax(0,7fr)] items-center gap-6 sm:gap-10">
-              <div className="rounded-[1rem] bg-logo-mint p-3 sm:p-5">
-                <img
-                  src={qrCrop}
-                  width={426}
-                  height={554}
-                  loading="lazy"
-                  decoding="async"
-                  alt="The Anywhere (Internet) QR code and join link in the ScreenExtend app."
-                  className="block h-auto w-full rounded-[0.5rem]"
-                />
-              </div>
-              <p className="text-base leading-relaxed text-muted sm:text-lg">
-                <span className="text-ink">The real Add Device screen.</span> Every
-                network your computer can reach gets its own code, so a phone on
-                the same Wi-Fi joins locally.
-              </p>
-            </div>
           </figure>
 
           <ol className="lg:col-span-5 lg:pl-6">

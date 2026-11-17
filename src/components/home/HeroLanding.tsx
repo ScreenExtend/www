@@ -1,10 +1,10 @@
-import ShotButton from "@/components/home/ShotButton.tsx";
+import AppDemo from "@/components/home/app-demo/AppDemo.tsx";
 import SendToComputer from "@/components/home/SendToComputer.tsx";
 import GitHubCorner from "@/components/home/GitHubCorner.tsx";
 
 // The logo, taken literally: three rounded screens stacked down and to the right
 // (mint at the back, blue in the middle, front screen last). Here the front screen
-// is the real Add Device screenshot. Offsets follow the logo's step
+// is a live, clickable replica of the app (app-demo/), not a screenshot. Offsets follow the logo's step
 // (src/assets/logo/screenextend.svg), scaled down so the shot stays large.
 function StackedShot() {
   return (
@@ -17,13 +17,8 @@ function StackedShot() {
         aria-hidden="true"
         className="stack-plate absolute bottom-[3%] left-[-2%] right-[2%] top-[-3%] rounded-[1.25rem] bg-logo-blue [--settle-x:2%] [--settle-y:3%]"
       />
-      <div className="relative rounded-[1.25rem] bg-[#060b14] p-2 sm:p-3">
-        <ShotButton
-          index={0}
-          priority
-          alt="The ScreenExtend Add Device screen: one QR code and join URL for an Anywhere (Internet) session and one for the Wifi-Home network."
-          sizes="(min-width: 1280px) 64rem, 100vw"
-        />
+      <div className="relative">
+        <AppDemo />
       </div>
     </div>
   );
@@ -62,9 +57,12 @@ export default function HeroLanding() {
       </div>
 
       <div className="container mt-16 sm:mt-20">
-        <div className="mx-auto max-w-5xl pl-[4%] pt-[6%]">
+        <div className="mx-auto max-w-[1000px] pl-[4%] pt-[6%]">
           <StackedShot />
         </div>
+        <p className="mt-6 text-center text-sm text-muted">
+          This is the real app's interface. Click around: nothing here connects or saves.
+        </p>
       </div>
     </section>
   );

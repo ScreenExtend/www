@@ -21,8 +21,14 @@ type PageId = (typeof PAGES)[number]["id"];
  * A clickable, non-functional copy of the ScreenExtend desktop window (dark theme).
  * All state is local; nothing connects, saves or leaves the page.
  */
-export default function AppDemo({ className = "" }: { className?: string }) {
-  const [page, setPage] = useState<PageId>("add");
+export default function AppDemo({
+  className = "",
+  initialPage = "add",
+}: {
+  className?: string;
+  initialPage?: PageId;
+}) {
+  const [page, setPage] = useState<PageId>(initialPage);
   const [sidebar, setSidebar] = useState(true);
   const scroller = useRef<HTMLDivElement>(null);
 
