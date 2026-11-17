@@ -40,7 +40,7 @@ function Mark({ yes, note }: { yes: boolean; note?: number }) {
       )}
       <span className="sr-only">{yes ? "Yes" : "No"}</span>
       {note && (
-        <sup className="absolute left-full top-[-1px] ml-0.5 text-[0.6875rem] font-semibold leading-none text-muted">
+        <sup className="absolute left-full top-[-1px] ml-0.5 text-[0.875rem] font-semibold leading-none text-muted">
           <a href={`#cmp-note-${note}`} className="no-underline">
             {MARKS[note - 1]}
           </a>
@@ -100,7 +100,7 @@ export default function Compare() {
         <ol className="mt-3 space-y-1 text-sm text-muted">
           {NOTES.map((n, i) => (
             <li key={n} id={`cmp-note-${i + 1}`} className="flex gap-2">
-              <span className="w-5 shrink-0 font-medium">{MARKS[i]}</span>
+              <span className="w-5 shrink-0 text-base font-semibold leading-5">{MARKS[i]}</span>
               {n}
             </li>
           ))}
