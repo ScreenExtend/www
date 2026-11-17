@@ -8,27 +8,27 @@ const QA = [
   },
   {
     q: "How do I use ScreenExtend?",
-    a: "Run it on your computer, scan a QR code (or open the URL) on any other device, and enter the 6-digit session code. That device becomes an extended monitor.",
+    a: "Run it on your computer, scan the QR code (or open the link) on the other device, and type the 6-digit code. That device becomes an extra monitor.",
   },
   {
     q: "Is my data secure?",
-    a: "Yes. Every session needs a one-time code to join, which you can regenerate anytime to lock out unknown devices, and the stream is encrypted.",
+    a: "The picture and sound are always encrypted. A device can only join with the session's 6-digit code, and you can make a new code any time to keep others out. The join page itself loads over plain HTTP on your own network unless you switch on the HTTPS version, which your browser may warn about because the app makes its own certificate.",
   },
   {
     q: "What resolution and refresh rate can it do? Can it game?",
-    a: "Each device goes up to 200% scale and 500 Hz. Gaming works if your network keeps up; heavy high-refresh video needs a strong connection. HDR is coming in a future release.",
+    a: "Each device can go up to 200% scale, and you can set its refresh rate anywhere from 15 to 550 Hz. In our tests the computer sent about 150 frames a second; what you actually see depends on the other device and your Wi-Fi. Gaming works if your network keeps up. HDR is coming in a future release.",
   },
   {
     q: "How many devices can connect at once?",
-    a: "As many as you like; each one gets its own virtual display. Performance drops as you add more.",
+    a: "Several. Each one gets its own display, and each one you add uses more of your computer. With NVIDIA graphics, up to 8 devices use the graphics chip; any more fall back to the processor.",
   },
   {
     q: "How does offline mode work?",
-    a: "In Settings, start the hosted network with a name and password. Join that Wi-Fi on the other device and open the URL on the dashboard, no router needed.",
+    a: "On Windows, open Settings and start the hosted network with a name and password. Join that Wi-Fi on the other device and open the link ScreenExtend shows. No router needed. This isn't available on Mac yet.",
   },
   {
     q: "What data does ScreenExtend collect?",
-    a: "None is stored. Settings stay on your device; a session only exchanges what's needed to set up the connection, then it's gone.",
+    a: "Your screen is never stored. When a device joins over the internet, our relay passes a hashed IP address and a rough region to your computer, and our server keeps short-lived service logs. The Privacy Policy has the details.",
   },
 ];
 

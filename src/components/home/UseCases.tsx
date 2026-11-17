@@ -26,7 +26,7 @@ const USES = [
   },
   {
     t: "No router needed",
-    d: "ScreenExtend can start its own Wi-Fi network, so the tablet connects straight to your computer.",
+    d: "On Windows, ScreenExtend can start its own Wi-Fi network, so the tablet connects straight to your computer.",
     tint: "bg-tile-blue",
   },
   {
@@ -54,16 +54,16 @@ export default function UseCases() {
           ))}
         </ul>
 
-        {/* Source: docs/RESULTS.md in the app repo, "Windows, the whole host path",
-            NVENC ring after, capture -> socket p90 6.29 ms. Not glass-to-glass. */}
+        {/* Source: docs/RESULTS.md in the app repo, real-content 1080p capture to
+            encode with NVENC: 8.39 ms median, 9.44 ms p90. Not glass-to-glass. */}
         <p className="mt-10 text-muted">
           <span className="font-semibold text-ink">Quick on your end.</span> Your
-          computer gets each frame ready and sends it in under 7 ms.* Your Wi-Fi
-          and the other device add their own delay on top of that.
+          computer captures and encodes each frame in about 8 ms.* Your Wi-Fi and the
+          other device add their own delay on top of that.
         </p>
         <p className="mt-2 text-xs leading-relaxed text-muted">
-          *90th percentile, measured on Windows 11 (25H2) with an NVIDIA RTX 3080 Ti
-          Laptop GPU.
+          *Median on real 1080p content, with 9 in 10 frames under 10 ms. Measured on
+          Windows 11 (25H2) with an NVIDIA RTX 3080 Ti Laptop GPU.
         </p>
       </div>
     </section>

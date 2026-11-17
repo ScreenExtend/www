@@ -28,7 +28,7 @@ const ELSE = [
   },
   {
     t: "You mostly want to play games on the other screen.",
-    d: "Moonlight with Sunshine, or Parsec, are built for games and support HDR. ScreenExtend doesn't do HDR.",
+    d: "Moonlight with Sunshine, or Parsec, are built for games and support HDR. ScreenExtend doesn't do HDR yet.",
   },
   {
     t: "You'll sit at the same desk every day.",

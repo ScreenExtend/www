@@ -24,8 +24,8 @@ export default function FeatureScroll() {
             <div>
               <dt className="text-lg font-semibold">Settings</dt>
               <dd className="mt-1.5 leading-relaxed text-muted">
-                Regenerate the session code, start a network of its own so devices
-                connect without a router, set a disconnect timeout and read the
+                Regenerate the session code, start a network of its own on Windows so
+                devices connect without a router, set a disconnect timeout and read the
                 debug logs.
               </dd>
             </div>
