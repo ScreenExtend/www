@@ -1,4 +1,5 @@
 import AppDemo from "@/components/home/app-demo/AppDemo.tsx";
+import DemoGate from "@/components/home/app-demo/DemoGate.tsx";
 
 // A second live copy of the app (app-demo/), opened on Edit Device, instead of
 // screenshots. The text says what each page does; the window lets people try it.
@@ -8,8 +9,7 @@ export default function FeatureScroll() {
       <div className="container">
         <h2 className="display-lg">Every screen gets its own settings</h2>
         <p className="mt-3 text-lg text-muted">
-          Pick a device and change how it looks. Try it below. It works like the
-          real app, but nothing here is saved.
+          Pick a device and change how it looks.
         </p>
 
         <div className="mt-10 grid gap-8 lg:mt-12 lg:grid-cols-12 lg:gap-10">
@@ -32,7 +32,9 @@ export default function FeatureScroll() {
           </dl>
 
           <div className="min-w-0 lg:col-span-8">
-            <AppDemo initialPage="edit" />
+            <DemoGate>
+              <AppDemo initialPage="edit" />
+            </DemoGate>
           </div>
         </div>
       </div>

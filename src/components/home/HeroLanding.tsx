@@ -1,4 +1,5 @@
 import AppDemo from "@/components/home/app-demo/AppDemo.tsx";
+import DemoGate from "@/components/home/app-demo/DemoGate.tsx";
 import SendToComputer from "@/components/home/SendToComputer.tsx";
 import GitHubCorner from "@/components/home/GitHubCorner.tsx";
 
@@ -18,7 +19,9 @@ function StackedShot() {
         className="stack-plate absolute bottom-[3%] left-[-2%] right-[2%] top-[-3%] rounded-[1.25rem] bg-logo-blue [--settle-x:2%] [--settle-y:3%]"
       />
       <div className="relative">
-        <AppDemo />
+        <DemoGate>
+          <AppDemo />
+        </DemoGate>
       </div>
     </div>
   );
@@ -56,13 +59,10 @@ export default function HeroLanding() {
         </ul>
       </div>
 
-      <div className="container mt-16 sm:mt-20">
+      <div className="container mt-6 sm:mt-8">
         <div className="mx-auto max-w-[1000px] pl-[4%] pt-[6%]">
           <StackedShot />
         </div>
-        <p className="mt-6 text-center text-sm text-muted">
-          This is the real app's interface. Click around: nothing here connects or saves.
-        </p>
       </div>
     </section>
   );

@@ -32,19 +32,19 @@
 .sed-root .sed-foot { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-top: var(--sed-line); }
 @media (min-width: 640px) {
   .sed-root .sed-win { flex-direction: row; height: 640px; }
-  .sed-root .sed-side { width: 216px; border-bottom: 0; border-right: var(--sed-line); padding: 0 12px 8px; }
+  .sed-root .sed-side { width: 168px; border-bottom: 0; border-right: var(--sed-line); padding: 0 8px 8px; }
   .sed-root .sed-side.is-collapsed { display: none; }
-  .sed-root .sed-brand { font-size: 1.75rem; padding: 18px 8px; margin-bottom: 8px; }
+  .sed-root .sed-brand { font-size: 1.25rem; padding: 14px 8px; margin-bottom: 4px; }
   .sed-root .sed-nav { flex-direction: column; }
-  .sed-root .sed-btn.sed-navbtn { flex: none; flex-direction: row; justify-content: flex-start; gap: 8px; height: 48px; padding: 12px 16px; font-size: 16px; }
-  .sed-root .sed-btn.sed-navbtn svg { width: 24px; height: 24px; }
+  .sed-root .sed-btn.sed-navbtn { flex: none; flex-direction: row; justify-content: flex-start; gap: 8px; height: 38px; padding: 8px 10px; font-size: 14px; }
+  .sed-root .sed-btn.sed-navbtn svg { width: 18px; height: 18px; }
   .sed-root .sed-head { display: flex; align-items: center; justify-content: space-between; padding: 12px; border-bottom: var(--sed-line); }
   .sed-root .sed-foot { padding: 16px; }
 }
 @media (min-width: 1024px) {
   .sed-root .sed-win { height: 680px; }
-  .sed-root .sed-side { width: 264px; }
-  .sed-root .sed-brand { font-size: 2.25rem; padding: 16px 8px; }
+  .sed-root .sed-side { width: 184px; }
+  .sed-root .sed-brand { font-size: 1.375rem; padding: 14px 8px; }
 }
 
 /* buttons (shadcn variants; the app adds hover:opacity-75 to all of them) */

@@ -80,6 +80,21 @@
   }
 }
 
+/* The demo gate: the ring around the cursor fills over 5 s. */
+@keyframes demo-ring {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.demo-ring {
+  animation: demo-ring 5s linear forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .demo-ring {
+    animation: demo-ring 5s steps(5) forwards !important;
+  }
+}
+
 /* The one entrance moment: the logo-stack plates settle into their offsets. */
 @keyframes stack-settle {
   from {

@@ -62,8 +62,8 @@ export default function UseCases() {
           and the other device add their own delay on top of that.
         </p>
         <p className="mt-2 text-xs leading-relaxed text-muted">
-          *90th percentile. ScreenExtend 0.6.3 on Windows 11 (25H2) with an
-          NVIDIA RTX 3080 Ti Laptop GPU.
+          *90th percentile, measured on Windows 11 (25H2) with an NVIDIA RTX 3080 Ti
+          Laptop GPU.
         </p>
       </div>
     </section>
