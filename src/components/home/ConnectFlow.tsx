@@ -26,7 +26,7 @@ const STEPS = [
 
 export default function ConnectFlow() {
   return (
-    <section id="how" className="border-t border-line py-16 lg:py-24">
+    <section id="how" className="bg-tint py-16 lg:py-24">
       <div className="container">
         <h2 className="display-lg">How pairing works</h2>
         <p className="mt-3 max-w-[48ch] text-lg text-muted">Scan a code, type six digits, drag a window across. Nothing to install on the other device.</p>
@@ -41,7 +41,7 @@ export default function ConnectFlow() {
                   className={`tabular flex aspect-[3/4] flex-1 items-center justify-center rounded-[0.6rem] font-mono text-[clamp(1.4rem,3vw,2.25rem)] font-semibold leading-none ${
                     i === EXAMPLE_CODE.length - 1
                       ? "bg-lime text-[#0f1419]"
-                      : "border border-line bg-surface text-ink"
+                      : "border border-line bg-paper text-ink"
                   }`}
                 >
                   {d}

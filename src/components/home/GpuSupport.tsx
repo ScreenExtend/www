@@ -47,7 +47,7 @@ function Cell({ s }: { s: Status }) {
 
 export default function GpuSupport() {
   return (
-    <section id="gpu" className="border-t border-line py-16 lg:py-24">
+    <section id="gpu" className="bg-tint py-16 lg:py-24">
       <div className="container grid gap-10 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <h2 className="display-lg">Works with your graphics card</h2>

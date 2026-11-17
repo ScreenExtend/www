@@ -14,15 +14,15 @@ export default function AddDevice() {
 
   return (
     <>
-      <div className="px-4 pb-5 pt-6 sm:px-8 sm:pt-7">
+      <div className="px-4 pb-4 pt-5 sm:px-8 sm:pt-6">
         <h3 className="text-center text-2xl font-semibold leading-tight lg:text-[2rem]">
           What network is your device connected to?
         </h3>
       </div>
-      <div className="mb-8 flex flex-wrap items-start justify-evenly gap-y-8 px-4 sm:px-6">
+      <div className="mb-6 flex flex-wrap items-start justify-evenly gap-y-8 px-4 sm:px-6">
         {TILES.map((t, i) => (
-          <div key={t.name} className="w-[264px] max-w-full p-1">
-            <h4 className="mb-2 flex flex-wrap items-center justify-center text-center text-xl font-bold sm:text-2xl">
+          <div key={t.name} className="w-[288px] max-w-full p-1">
+            <h4 className="mb-2 flex flex-wrap items-center justify-center text-center text-xl font-bold lg:text-[1.35rem]">
               {t.name}
               {t.online && (
                 <span className="ml-2 inline-flex items-center gap-1 rounded-full border border-green-500/30 bg-green-500/15 px-2 py-0.5 text-xs font-medium text-green-500">

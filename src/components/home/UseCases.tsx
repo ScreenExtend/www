@@ -7,32 +7,32 @@ const USES = [
   {
     t: "Chat and email on the side",
     d: "Keep Slack, Discord or your inbox on the tablet and give your work the whole main screen.",
-    tint: "bg-[#316cff]/10",
+    tint: "bg-[#316cff]/[0.18]",
   },
   {
     t: "Meetings off your main screen",
     d: "Put the call on the tablet and keep taking notes and working on your computer. Or flip it.",
-    tint: "bg-[#316cff]/[0.06]",
+    tint: "bg-[#316cff]/[0.14]",
   },
   {
     t: "Docs while you work",
     d: "A recipe, a spec or a how-to stays in view instead of hiding behind a tab.",
-    tint: "bg-[#d6f1ed]/10",
+    tint: "bg-[#d6f1ed]/[0.14]",
   },
   {
     t: "Two screens anywhere",
     d: "Your laptop and the tablet in your bag make a dual-monitor setup. No cable, no extra hardware.",
-    tint: "bg-[#d6f1ed]/10",
+    tint: "bg-[#d6f1ed]/[0.14]",
   },
   {
     t: "No Wi-Fi needed",
     d: "ScreenExtend can start its own network, so the tablet connects straight to your computer.",
-    tint: "bg-[#316cff]/10",
+    tint: "bg-[#316cff]/[0.18]",
   },
   {
     t: "More than one extra screen",
     d: "Connect a phone and a tablet at the same time. Each one is its own display.",
-    tint: "bg-[#316cff]/[0.06]",
+    tint: "bg-[#316cff]/[0.14]",
   },
 ];
 

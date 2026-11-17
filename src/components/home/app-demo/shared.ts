@@ -33,7 +33,7 @@ export type Dev = {
 export const DEVICES: Dev[] = [
   {
     name: "iPad", ip: "192.168.1.24", os: "iPadOS", screenSize: "2360x1640",
-    orientation: "Landscape", autoOrientation: true, remote: true, pointerScope: false,
+    orientation: "Landscape", autoOrientation: false, remote: true, pointerScope: false,
     audio: true, audioOut: "default", scale: 100, dpr: 2, maxDpr: 2, nativeDpr: true,
     rate: 60, autoRate: false, videoScale: 100, quality: 15, adaptive: false,
   },
