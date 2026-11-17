@@ -24,25 +24,28 @@ export default function DemoGate({ children }: { children: ReactNode }) {
     inner.current?.toggleAttribute("inert", !live);
   }, [live]);
 
-  // Re-lock exactly IDLE_MS after the cursor leaves; coming back cancels it.
-  const idle = useRef<number>();
+  // Re-lock IDLE_MS after the cursor was last over the demo. Checked against the
+  // demo's current position several times a second, so scrolling the page away
+  // counts as leaving (browsers fire no pointerleave while scrolling).
   useEffect(() => {
     if (!live) return;
     const el = box.current;
     if (!el) return;
-    const arm = () => {
-      window.clearTimeout(idle.current);
-      idle.current = window.setTimeout(() => setLive(false), IDLE_MS);
+    let pos: { x: number; y: number } | null = null;
+    let lastInside = Date.now();
+    const onMove = (e: PointerEvent) => {
+      pos = { x: e.clientX, y: e.clientY };
     };
-    const cancel = () => window.clearTimeout(idle.current);
-    el.addEventListener("pointerleave", arm);
-    el.addEventListener("pointerenter", cancel);
-    // activated without the cursor on it (keyboard or touch): start counting now
-    if (!el.matches(":hover")) arm();
+    document.addEventListener("pointermove", onMove, { passive: true });
+    const tick = window.setInterval(() => {
+      const r = el.getBoundingClientRect();
+      const inside = !!pos && pos.x >= r.left && pos.x <= r.right && pos.y >= r.top && pos.y <= r.bottom;
+      if (inside) lastInside = Date.now();
+      else if (Date.now() - lastInside >= IDLE_MS) setLive(false);
+    }, 200);
     return () => {
-      cancel();
-      el.removeEventListener("pointerleave", arm);
-      el.removeEventListener("pointerenter", cancel);
+      document.removeEventListener("pointermove", onMove);
+      window.clearInterval(tick);
     };
   }, [live]);
 
