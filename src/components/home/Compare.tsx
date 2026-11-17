@@ -1,45 +1,28 @@
 // Competitor comparison (research: career-agent/reports/ScreenExtend competitor
 // landscape.md). All of these are wireless, so that isn't a row. Values are kept
-// short and literal. A ScreenExtend cell is tinted only when it differs from every
-// other product in that row; ties stay plain. Re-check before changing the date.
+// short and literal. The best value in each row is bold, whoever has it.
+// Re-check before changing the date.
 const COLS = ["ScreenExtend", "Apple Sidecar", "Spacedesk", "Duet Display", "Deskreen"] as const;
 
-const ROWS: { q: string; v: [string, string, string, string, string] }[] = [
-  { q: "Your computer", v: ["Windows or Mac", "Mac", "Windows", "Windows or Mac", "Windows, Mac or Linux"] },
+// best: the values that count as the best answer in that row; those cells are
+// bolded, whichever product has them (like a benchmark table).
+const ROWS: { q: string; v: [string, string, string, string, string]; best: string[] }[] = [
+  {
+    q: "Your computer",
+    v: ["Windows or Mac", "Mac", "Windows", "Windows or Mac", "Windows, Mac or Linux"],
+    best: ["Windows, Mac or Linux"],
+  },
   {
     q: "The second screen",
     v: ["Any device with a browser", "iPad", "Android, iPhone, iPad, Windows or a browser", "iPad, iPhone or Android", "Any device with a browser"],
+    best: ["Any device with a browser"],
   },
-  { q: "Install on the second screen", v: ["Nothing", "Nothing", "App, or use a browser", "App", "Nothing"] },
-  { q: "Works over a cable", v: ["Android only", "Yes", "Yes", "Yes", "No"] },
-  { q: "Price", v: ["Free", "Free", "Free for personal use", "$3.99 to $7.99 a month", "Free"] },
-  { q: "Open source", v: ["Yes", "No", "No", "No", "Yes"] },
+  { q: "Install on the second screen", v: ["Nothing", "Nothing", "App, or use a browser", "App", "Nothing"], best: ["Nothing"] },
+  { q: "Extra hardware", v: ["None", "None", "None", "None", "HDMI dummy plug"], best: ["None"] },
+  { q: "Works over a cable", v: ["No", "Yes", "Yes", "Yes", "No"], best: ["Yes"] },
+  { q: "Price", v: ["Free", "Free", "Free for personal use", "$3.99 to $7.99 a month", "Free"], best: ["Free"] },
+  { q: "Open source", v: ["Yes", "No", "No", "No", "Yes"], best: ["Yes"] },
 ];
-
-const ELSE = [
-  {
-    t: "You only use a Mac and an iPad.",
-    d: "Sidecar is already on your Mac and works over a cable too. Use it.",
-  },
-  {
-    t: "You want a cable between a Windows PC and a tablet.",
-    d: "Spacedesk (free for personal use) and Duet (paid) both work over USB.",
-  },
-  {
-    t: "You mostly want to play games on the other screen.",
-    d: "Moonlight with Sunshine, or Parsec, are built for games and support HDR. ScreenExtend doesn't do HDR yet.",
-  },
-  {
-    t: "You'll sit at the same desk every day.",
-    d: "A basic 24-inch monitor costs about $90. It will look sharper and react faster than any wireless screen, ours included.",
-  },
-  {
-    t: "You want one keyboard for two computers.",
-    d: "That's a different job. Universal Control and Deskflow share a keyboard and mouse; they don't add a screen.",
-  },
-];
-
-const differs = (v: readonly string[]) => v.slice(1).every((o) => o !== v[0]);
 
 export default function Compare() {
   return (
@@ -77,9 +60,7 @@ export default function Compare() {
                   {r.v.map((cell, i) => (
                     <td
                       key={i}
-                      className={`px-3 py-3.5 ${
-                        i === 0 ? (differs(r.v) ? "bg-tile-blue text-ink" : "text-ink") : "text-muted"
-                      }`}
+                      className={`px-3 py-3.5 ${r.best.includes(cell) ? "font-semibold text-ink" : "text-muted"}`}
                     >
                       {cell}
                     </td>
@@ -90,23 +71,14 @@ export default function Compare() {
           </table>
         </div>
 
-        <h3 className="mt-14 text-xl font-semibold">Pick something else if…</h3>
-        <ul className="mt-5 grid gap-x-10 gap-y-5 md:grid-cols-2">
-          {ELSE.map((e) => (
-            <li key={e.t}>
-              <p className="font-semibold">{e.t}</p>
-              <p className="mt-1 leading-relaxed text-muted">{e.d}</p>
-            </li>
-          ))}
-        </ul>
 
-        <p className="mt-10 text-lg">
+        <p className="mt-8 text-lg">
           Try ScreenExtend when you want an extra screen from a device you already own,
           on Windows or a Mac, for free.
         </p>
         <p className="mt-6 text-xs leading-relaxed text-muted">
-          Checked November 2026 against each maker's own pages. Sidecar and Universal
-          Control are trademarks of Apple Inc.; other product names belong to their
+          Checked November 2026 against each maker's own pages. Sidecar is a trademark of
+          Apple Inc.; other product names belong to their
           owners. ScreenExtend isn't affiliated with any of them.
         </p>
       </div>
