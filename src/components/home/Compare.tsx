@@ -18,6 +18,7 @@ const ROWS: { q: string; v: [Cell, Cell, Cell, Cell, Cell] }[] = [
   { q: "No extra hardware", v: [["yes"], ["yes"], ["yes"], ["yes"], ["no", "Dummy plug required"]] },
   { q: "Several screens at once", v: [["yes"], ["no"], ["yes"], ["yes"], ["no"]] },
   { q: "Remote control", v: [["yes"], ["yes"], ["yes"], ["yes"], ["no"]] },
+  { q: "Audio", v: [["yes"], ["no"], ["yes"], ["no"], ["no"]] },
   { q: "HDR", v: [["soon"], ["no"], ["no"], ["no"], ["no"]] },
   { q: "Free", v: [["yes"], ["yes"], ["part", "Personal use"], ["no", "From $3.99/mo"], ["part", "Up to 1 device"]] },
   { q: "Open source", v: [["yes"], ["no"], ["no"], ["no"], ["yes"]] },
