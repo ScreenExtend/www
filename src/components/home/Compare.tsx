@@ -15,6 +15,7 @@ const ROWS: { q: string; v: [Cell, Cell, Cell, Cell, Cell] }[] = [
   { q: "Cross-platform support", v: [[true, "Linux coming soon"], [false], [true, "Mac in beta"], [true], [true]] },
   { q: "Any device with a browser", v: [[true], [false], [false], [false], [true]] },
   { q: "No extra hardware", v: [[true], [true], [true], [true], [false, "Dummy plug required"]] },
+  { q: "Offline support", v: [[true], [true], [true], [true], [false]] },
   { q: "Several screens at once", v: [[true], [false], [true], [true], [false]] },
   { q: "Remote control", v: [[true], [true], [true], [true], [false]] },
   { q: "Audio", v: [[true], [false], [true], [false], [false]] },
