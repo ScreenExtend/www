@@ -79,16 +79,6 @@ export default function GpuSupport() {
               ))}
             </tbody>
           </table>
-          <p className="mt-4 text-sm text-muted">
-            <a
-              href="https://github.com/ScreenExtend/ScreenExtend#platform-support"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="u-link"
-            >
-              Full support details
-            </a>
-          </p>
         </div>
       </div>
     </section>
