@@ -3,6 +3,10 @@ import { Plus } from "lucide-react";
 // Keep in sync with the FAQPage JSON-LD in index.html.
 const QA = [
   {
+    q: "Which devices can I use as the second screen?",
+    a: "Anything with a modern web browser: an iPad or Android tablet, a phone, or another laptop. Nothing gets installed on it. ScreenExtend itself runs on your Windows PC or Mac.",
+  },
+  {
     q: "How do I use ScreenExtend?",
     a: "Run it on your computer, scan a QR code (or open the URL) on any other device, and enter the 6-digit session code. That device becomes an extended monitor.",
   },

@@ -1,0 +1,196 @@
+Skip to content
+ScreenExtend
+Uses
+How it works
+Settings
+Under the hood
+FAQ
+GitHub
+Download
+Use your tablet as a second monitor.
+
+Or your phone, or a spare laptop. All it needs is a web browser.
+
+Download for Windows or Mac
+How pairing works
+Free
+2.5k+ downloads
+Windows 20H1+ and macOS 10.15+
+Source on GitHub
+Enlarge screenshot:
+What you can do with it
+
+The other device works like any extra monitor. Drag windows onto it and use it the way you'd use a second screen.
+
+Chat and email
+
+Keep Slack, Discord or your inbox on the tablet and give your work the whole main screen.
+
+Docs while you work
+
+A reference, a spec or the API docs stay in view instead of behind a tab.
+
+Calls and notes
+
+The meeting on the spare laptop, your notes on the main screen.
+
+Two screens on the road
+
+Your laptop and the tablet in your bag make a dual-monitor setup. No cable, no extra hardware.
+
+No Wi-Fi needed
+
+ScreenExtend can start its own network, so the tablet connects straight to your computer.
+
+More than one extra screen
+
+Connect a phone and a tablet at the same time; each gets its own display.
+
+Download free
+Windows and Mac
+How pairing works
+
+Scan a code, type six digits, drag a window across. Nothing to install on the other device.
+
+3
+7
+7
+6
+2
+0
+Digits shown: 3 7 7 6 2 0.
+Example session code. You can regenerate it in Settings.
+session.screenextend.app/?id=…
+
+The real Add Device screen. Every network your computer can reach gets its own code, so a phone on the same Wi-Fi joins locally.
+
+1
+Open ScreenExtend on your computer
+
+It shows a QR code and a join link for each network it can reach, plus Anywhere (Internet).
+
+2
+Scan it with the other device
+
+Use the camera, or type the link. It opens in the browser; nothing gets installed.
+
+3
+Type the 6-digit code
+
+Your computer adds a virtual display sized to that screen.
+
+4
+Drag a window across
+
+It streams over WebRTC and fills the other device's screen.
+
+Every screen gets its own settings
+
+Set each device up the way it suits you. Click a screenshot to see it full size.
+
+Open full screenshot:
+Edit Device
+
+Scale, orientation, refresh rate and video quality, per device. Changing one leaves the others alone, and you remove a device here.
+
+Open full screenshot:
+Settings
+
+Regenerate the session code, start an offline hosted network so devices connect without a router, set a disconnect timeout and read the debug logs.
+
+Under the hood
+
+For the curious: what happens between your computer and the other screen.
+
+Encoding
+Your computer's GPU encodes the extra screen: NVENC on NVIDIA, Quick Sync on Intel, VideoToolbox on Mac.
+Streaming
+WebRTC carries the picture and your input, for low latency.
+The other device
+Any device with a modern browser. Nothing to install.
+Networks
+Local Wi-Fi, the computer's own offline network, or Anywhere (Internet) across networks.
+Encryption
+HTTPS and WebRTC, with a certificate generated at runtime.
+Per device
+Scale, orientation, refresh rate and quality, set separately.
+Limits
+Up to 200% scale and 500 Hz per device. Performance drops as you add devices.
+Discovery
+Watches every network adapter and rebuilds the join links when they change.
+Download ScreenExtend
+
+Free for Windows and macOS. Linux is not available yet.
+
+2.5k+ downloads so far
+
+Windows
+
+Requires
+
+Windows Client 20H1 (May 2020)
+Windows Server 20H2 (October 2020)
+Download .exe (64-bit)
+
+ARM build: not available yet.
+
+macOS
+
+Requires
+
+macOS Catalina 10.15 (October 2019)
+Download .dmg (Universal)
+Linux
+
+Will require
+
+Ubuntu 20.04 (April 2020)
+
+Coming soon as .deb, .rpm and AppImage.
+
+Using another operating system? Email support@screenextend.app with your device details and ask for a custom build.
+
+.msi (Windows) and .pkg (Mac) packages for bulk enterprise installs are on the GitHub releases page.
+
+Questions
+
+Not covered here? Email support@screenextend.app.
+
+How do I use ScreenExtend?
+Is my data secure?
+What resolution and refresh rate can it do? Can it game?
+How many devices can connect at once?
+How does offline mode work?
+What data does ScreenExtend collect?
+Contact
+
+We reply within 72 hours.
+
+General support
+support@screenextend.app
+Privacy and data requests
+privacy@screenextend.app
+Abuse and content reports
+abuse@screenextend.app
+Security vulnerabilities
+security@screenextend.app (see security.txt)
+Legal and copyright (DMCA)
+legal@screenextend.app
+Service operator
+
+This website and the ScreenExtend Service are operated by Sarvesh Madullapalli, United States.
+
+Policies
+Privacy Policy
+Terms of Service
+Acceptable Use Policy
+Cookie Policy
+ScreenExtend
+Privacy
+Terms of service
+Acceptable use
+Cookies
+Contact
+GitHub
+
+© 2026 Sarvesh Madullapalli. All rights reserved.

@@ -1,4 +1,5 @@
 import ShotButton from "@/components/home/ShotButton.tsx";
+import SendToComputer from "@/components/home/SendToComputer.tsx";
 
 // The logo, taken literally: three rounded screens stacked down and to the right
 // (mint at the back, blue in the middle, front screen last). Here the front screen
@@ -32,10 +33,10 @@ export default function HeroLanding() {
     <section id="home" className="overflow-x-clip pb-16 pt-12 sm:pt-16 lg:pb-24 lg:pt-20">
       <div className="container text-center">
         <h1 className="mx-auto max-w-[16ch] text-[clamp(2.25rem,4.4vw,3.5rem)] font-semibold leading-[1.1] tracking-[-0.025em]">
-          Use your tablet as a second monitor.
+          Use your tablet or phone as a second monitor.
         </h1>
         <p className="mx-auto mt-6 max-w-[36ch] text-lg leading-relaxed text-muted sm:text-xl">
-          Or your phone, or a spare laptop. All it needs is a web browser.
+          Or a spare laptop. ScreenExtend runs on your computer, and the other device just opens it in the browser. Nothing to install there.
         </p>
 
         <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
@@ -47,22 +48,14 @@ export default function HeroLanding() {
           </a>
         </div>
 
+        <SendToComputer />
+
         <ul className="mt-7 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted">
           <li>Free</li>
           <li>
             <span className="tabular text-ink">2.5k+</span> downloads
           </li>
-          <li>Windows 20H1+ and macOS 10.15+</li>
-          <li>
-            <a
-              href="https://github.com/ScreenExtend/ScreenExtend"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="u-link"
-            >
-              Source on GitHub
-            </a>
-          </li>
+          <li>For Windows 10 (2020) or newer, and macOS Catalina or newer</li>
         </ul>
       </div>
 

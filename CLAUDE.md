@@ -45,8 +45,9 @@ load) and short hover/press feedback (≤200ms, transform/opacity/colour only). 
 scroll-driven animation, pinned/sticky scrollytelling, parallax, tilt, reveal-on-scroll, marquees
 or animated backgrounds. `prefers-reduced-motion` stops the entrance and removes transitions. The current brief is `exhaustive-unslop/rerun/DESIGN-BRIEF-2.md`.
 
-The site is **dark-first** (owner decision 2026-11-17): it opens in dark unless the visitor has
-picked light with the theme toggle; light mode is still designed.
+Theme: the page follows the visitor's OS setting unless they pick light or dark with the toggle
+(the choice is remembered). Both themes are designed, and a section never switches the ground
+colour mid-scroll (no full-bleed light or saturated bands; colour appears as accents only).
 
 ### Design tokens
 Page colours are CSS variables (`--se-paper`, `--se-surface`, `--se-ink`, `--se-muted`,

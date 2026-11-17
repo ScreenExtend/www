@@ -8,19 +8,19 @@ const EXAMPLE_CODE = ["3", "7", "7", "6", "2", "0"];
 const STEPS = [
   {
     t: "Open ScreenExtend on your computer",
-    d: "It shows a QR code and a join link for each network it can reach, plus Anywhere (Internet).",
+    d: "It shows a QR code for your Wi-Fi, and one that works over the internet.",
   },
   {
     t: "Scan it with the other device",
-    d: "Use the camera, or type the link. It opens in the browser; nothing gets installed.",
+    d: "Point the camera at it, or type the link. It opens in the browser.",
   },
   {
     t: "Type the 6-digit code",
-    d: "Your computer adds a virtual display sized to that screen.",
+    d: "Your computer now treats the other device as a second monitor, sized to fit it.",
   },
   {
     t: "Drag a window across",
-    d: "It streams over WebRTC and fills the other device's screen.",
+    d: "Use it like any extra monitor. Move windows over and they show up on the other screen.",
   },
 ];
 
@@ -48,12 +48,9 @@ export default function ConnectFlow() {
                 </span>
               ))}
             </div>
-            <figcaption className="mt-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 text-sm text-muted">
-              <span>
-                <span className="sr-only">Digits shown: 3 7 7 6 2 0. </span>
-                Example session code. You can regenerate it in Settings.
-              </span>
-              <span className="font-mono">session.screenextend.app/?id=…</span>
+            <figcaption className="mt-4 text-sm text-muted">
+              <span className="sr-only">Digits shown: 3 7 7 6 2 0. </span>
+              Example code. Each session has its own.
             </figcaption>
 
             <div className="mt-10 grid grid-cols-[minmax(0,5fr)_minmax(0,7fr)] items-center gap-6 sm:gap-10">

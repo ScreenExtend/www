@@ -10,17 +10,16 @@ const NAV_ITEMS = [
   { id: "uses", label: "Uses" },
   { id: "how", label: "How it works" },
   { id: "features", label: "Settings" },
-  { id: "specs", label: "Under the hood" },
   { id: "faq", label: "FAQ" },
 ];
 
-const SPY_IDS = ["home", "uses", "how", "features", "specs", "download", "faq", "contact"];
+const SPY_IDS = ["home", "uses", "how", "features", "download", "faq"];
 
-// Dark-first (owner decision 2026-11-17); the choice is remembered per visitor.
+// Follows the OS by default (NN/g: don't force a theme); the choice is remembered.
 const THEMES = [
-  { id: "dark", label: "Dark", Icon: Moon },
-  { id: "light", label: "Light", Icon: Sun },
   { id: "system", label: "System", Icon: SunMoon },
+  { id: "light", label: "Light", Icon: Sun },
+  { id: "dark", label: "Dark", Icon: Moon },
 ] as const;
 
 export const THEME_KEY = "se-theme";

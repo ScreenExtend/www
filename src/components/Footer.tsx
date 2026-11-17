@@ -28,7 +28,7 @@ export default function Footer() {
               {link.label}
             </Link>
           ))}
-          <a href="/#contact" className={LINK}>
+          <a href="mailto:support@screenextend.app" className={LINK}>
             Contact
           </a>
           <a
