@@ -26,7 +26,7 @@ const USES = [
   },
   {
     t: "No router needed",
-    d: "On Windows, ScreenExtend can start its own Wi-Fi network, so the tablet connects straight to your computer.",
+    d: "ScreenExtend can start its own Wi-Fi network, so the tablet connects straight to your computer.",
     tint: "bg-tile-blue",
   },
   {

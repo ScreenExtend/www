@@ -24,7 +24,7 @@ const QA = [
   },
   {
     q: "How does offline mode work?",
-    a: "On Windows, open Settings and start the hosted network with a name and password. Join that Wi-Fi on the other device and open the link ScreenExtend shows. No router needed. This isn't available on Mac yet.",
+    a: "Open Settings and start the hosted network with a name and password. Join that Wi-Fi on the other device and open the link ScreenExtend shows. No router needed.",
   },
   {
     q: "What data does ScreenExtend collect?",

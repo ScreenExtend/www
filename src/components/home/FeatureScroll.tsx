@@ -21,7 +21,7 @@ export default function FeatureScroll() {
           <div className="min-w-0">
             <h3 className="text-lg font-semibold">Settings</h3>
             <p className="mt-1.5 leading-relaxed text-muted">
-              Regenerate the session code, start a network of its own on Windows so
+              Regenerate the session code, start a network of its own so
               devices connect without a router, and set a disconnect timeout.
             </p>
             <AppDemo bare initialPage="settings" className="mt-5" />
