@@ -71,9 +71,6 @@
     @apply display;
     font-size: clamp(1.75rem, 2.6vw, 2.25rem);
   }
-  .btn-ink {
-    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-control bg-[#0f1419] px-6 font-semibold text-white transition-[transform,background-color] duration-150 hover:bg-black active:scale-[0.97];
-  }
 }
 
 /* The one entrance moment: the logo-stack plates settle into their offsets. */

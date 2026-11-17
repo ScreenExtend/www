@@ -51,18 +51,13 @@ function Crop({
   );
 }
 
-// A full-bleed band in the logo's mint: the first light ground after the dark
-// hero and pairing sections. data-theme="light" scopes the light tokens here.
+// Same ground as the rest of the page: the theme never switches mid-scroll.
 export default function FeatureScroll() {
   return (
-    <section
-      id="features"
-      data-theme="light"
-      className="bg-logo-mint py-16 text-[#0f1419] lg:py-24"
-    >
+    <section id="features" className="border-t border-line py-16 lg:py-24">
       <div className="container">
         <h2 className="display-lg">Every screen gets its own settings</h2>
-        <p className="mt-3 max-w-[48ch] text-lg text-[#2c3640]">Set each device up the way it suits you. Click a screenshot to see it full size.</p>
+        <p className="mt-3 max-w-[48ch] text-lg text-muted">Set each device up the way it suits you. Click a screenshot to see it full size.</p>
 
         <div className="mt-10 grid gap-14 lg:mt-14 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-5">
@@ -76,7 +71,7 @@ export default function FeatureScroll() {
               alt="Edit Device controls: screen size, scale, refresh rate, video scale and video quality sliders, with Remove Device and Save changes buttons."
             />
             <h3 className="mt-10 text-lg font-semibold">Edit Device</h3>
-            <p className="mt-2 max-w-[42ch] leading-relaxed text-[#2c3640]">
+            <p className="mt-2 max-w-[42ch] leading-relaxed text-muted">
               Scale, orientation, refresh rate and video quality, per device.
               Changing one leaves the others alone, and you remove a device here.
             </p>
@@ -92,7 +87,7 @@ export default function FeatureScroll() {
               alt="Settings screen showing the Session OTP cells, the Public Internet Sessions toggle and the Create Hosted Network switch."
             />
             <h3 className="mt-10 text-lg font-semibold">Settings</h3>
-            <p className="mt-2 max-w-[48ch] leading-relaxed text-[#2c3640]">
+            <p className="mt-2 max-w-[48ch] leading-relaxed text-muted">
               Regenerate the session code, start an offline hosted network so
               devices connect without a router, set a disconnect timeout and read
               the debug logs.

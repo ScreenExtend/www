@@ -11,24 +11,23 @@ const SPECS = [
   { term: "Discovery", desc: "Watches every network adapter and rebuilds the join links when they change." },
 ];
 
-// A full-bleed band in the logo blue (#2456d6 is a darker step of #316cff so body
-// text passes AA: white 6.2:1, #dfe8ff 5.1:1).
+// Same ground as the rest of the page; a subtle surface tint marks the technical part.
 export default function Highlights() {
   return (
-    <section id="specs" className="bg-[#2456d6] py-16 text-white lg:py-24">
+    <section id="specs" className="border-t border-line bg-surface py-16 lg:py-24">
       <div className="container grid gap-10 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <h2 className="display-lg">Under the hood</h2>
-          <p className="mt-5 max-w-[34ch] text-lg leading-relaxed text-[#dfe8ff]">
+          <p className="mt-5 max-w-[34ch] text-lg leading-relaxed text-muted">
             For the curious: what happens between your computer and the other
             screen.
           </p>
         </div>
         <dl className="grid gap-x-10 sm:grid-cols-2 lg:col-span-8">
           {SPECS.map((s) => (
-            <div key={s.term} className="border-t border-white/25 py-5">
+            <div key={s.term} className="border-t border-line py-5">
               <dt className="font-semibold">{s.term}</dt>
-              <dd className="mt-1.5 leading-relaxed text-[#dfe8ff]">{s.desc}</dd>
+              <dd className="mt-1.5 leading-relaxed text-muted">{s.desc}</dd>
             </div>
           ))}
         </dl>
