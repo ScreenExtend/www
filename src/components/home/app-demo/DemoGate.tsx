@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-const HOLD_MS = 5000;
-const R = 14;
+const HOLD_MS = 3000;
+const R = 20;
 const C = 2 * Math.PI * R;
 
 // Keeps the demo as a still preview until someone shows they want to use it:
-// resting the pointer on it for 5 s (a ring fills around the cursor), a tap on
+// resting the pointer on it for 3 s (a ring fills around the cursor), a tap on
 // touch screens, or the "Try the app" button for keyboard users.
 export default function DemoGate({ children }: { children: ReactNode }) {
   const [live, setLive] = useState(false);
@@ -60,27 +60,27 @@ export default function DemoGate({ children }: { children: ReactNode }) {
           {holding && (
             <svg
               aria-hidden="true"
-              width={36}
-              height={36}
-              viewBox="0 0 36 36"
+              width={52}
+              height={52}
+              viewBox="0 0 52 52"
               className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2"
               style={{ left: pos.x, top: pos.y }}
             >
-              <circle cx="18" cy="18" r={R} fill="rgb(15 20 25 / 0.55)" stroke="rgb(255 255 255 / 0.25)" strokeWidth="3" />
+              <circle cx="26" cy="26" r={R} fill="rgb(15 20 25 / 0.6)" stroke="rgb(255 255 255 / 0.22)" strokeWidth="4" />
               <circle
                 cx="18"
                 cy="18"
                 r={R}
                 fill="none"
-                stroke="#316cff"
-                strokeWidth="3"
+                stroke="#e6eaee"
+                strokeWidth="4"
                 strokeLinecap="round"
                 strokeDasharray={C}
                 strokeDashoffset={C}
-                transform="rotate(-90 18 18)"
+                transform="rotate(-90 26 26)"
                 className="demo-ring"
               />
-              <circle cx="18" cy="18" r="2.5" fill="#fff" />
+              <circle cx="26" cy="26" r="2.5" fill="#fff" />
             </svg>
           )}
 

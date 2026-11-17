@@ -80,18 +80,18 @@
   }
 }
 
-/* The demo gate: the ring around the cursor fills over 5 s. */
+/* The demo gate: the ring around the cursor fills over 3 s. */
 @keyframes demo-ring {
   to {
     stroke-dashoffset: 0;
   }
 }
 .demo-ring {
-  animation: demo-ring 5s linear forwards;
+  animation: demo-ring 3s linear forwards;
 }
 @media (prefers-reduced-motion: reduce) {
   .demo-ring {
-    animation: demo-ring 5s steps(5) forwards !important;
+    animation: demo-ring 3s steps(3) forwards !important;
   }
 }
 
