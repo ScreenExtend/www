@@ -34,13 +34,13 @@ function Mark({ m, note }: { m: MarkKind; note?: string }) {
     ) : m === "part" ? (
       <Minus size={18} strokeWidth={2.5} className="text-muted" aria-hidden="true" />
     ) : (
-      <Clock size={18} strokeWidth={2} className="text-muted" aria-hidden="true" />
+      <Clock size={16} strokeWidth={2.25} className="text-muted" aria-hidden="true" />
     );
   const label = m === "yes" ? "Yes" : m === "no" ? "No" : m === "part" ? "Partly" : "Coming soon";
   return (
     <span className="flex flex-col items-center gap-0.5 text-center">
       {icon}
-      <span className={m === "soon" ? "text-[0.6875rem] leading-tight text-muted" : "sr-only"}>{label}</span>
+      <span className={m === "soon" ? "text-xs text-muted" : "sr-only"}>{label}</span>
       {note && <span className="text-xs leading-tight text-muted">{note}</span>}
     </span>
   );
