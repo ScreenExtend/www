@@ -80,7 +80,6 @@ export default function GpuSupport() {
             </tbody>
           </table>
           <p className="mt-4 text-sm text-muted">
-            Experimental: built, but not yet tested as thoroughly as the others.{" "}
             <a
               href="https://github.com/ScreenExtend/ScreenExtend#platform-support"
               target="_blank"
