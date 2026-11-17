@@ -1,5 +1,6 @@
 import ShotButton from "@/components/home/ShotButton.tsx";
 import SendToComputer from "@/components/home/SendToComputer.tsx";
+import GitHubCorner from "@/components/home/GitHubCorner.tsx";
 
 // The logo, taken literally: three rounded screens stacked down and to the right
 // (mint at the back, blue in the middle, front screen last). Here the front screen
@@ -30,7 +31,8 @@ function StackedShot() {
 
 export default function HeroLanding() {
   return (
-    <section id="home" className="overflow-x-clip pb-16 pt-12 sm:pt-16 lg:pb-24 lg:pt-20">
+    <section id="home" className="relative overflow-x-clip pb-16 pt-12 sm:pt-16 lg:pb-24 lg:pt-20">
+      <GitHubCorner />
       <div className="container text-center">
         <h1 className="mx-auto max-w-[16ch] text-[clamp(2.25rem,4.4vw,3.5rem)] font-semibold leading-[1.1] tracking-[-0.025em]">
           Use your tablet or phone as a second monitor.

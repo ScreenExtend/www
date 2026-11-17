@@ -16,6 +16,7 @@ import UseCases from "@/components/home/UseCases.tsx";
 import ConnectFlow from "@/components/home/ConnectFlow.tsx";
 import FeatureScroll from "@/components/home/FeatureScroll.tsx";
 import FaqSimple from "@/components/home/FaqSimple.tsx";
+import GpuSupport from "@/components/home/GpuSupport.tsx";
 
 import { Theme, useTheme } from "react-daisyui";
 import { THEME_KEY, applyThemeAttr } from "@/components/Navbar.tsx";
@@ -49,6 +50,7 @@ function Home() {
       <UseCases />
       <ConnectFlow />
       <FeatureScroll />
+      <GpuSupport />
       <Download />
       <FaqSimple />
     </>

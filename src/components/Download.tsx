@@ -5,6 +5,7 @@ import { X } from "lucide-react";
 import windowsLogo from "@/assets/logo/windows.svg";
 import macLogo from "@/assets/logo/mac.svg";
 import macLogoLight from "@/assets/logo/mac-light.svg";
+import linuxLogo from "@/assets/logo/linux.svg";
 
 const RELEASES = "https://github.com/ScreenExtend/ScreenExtend/releases/latest";
 const WINDOWS_EXE = `${RELEASES}/download/ScreenExtend_x64-setup.exe`;
@@ -92,7 +93,7 @@ export default function Download() {
           <div>
             <h2 className="display-lg">Download ScreenExtend</h2>
             <p className="mt-3 text-lg text-muted">
-              Free for Windows and Mac. Linux is on the way.
+              Free for Windows and macOS. Linux is not available yet.
             </p>
           </div>
           <p className="text-lg text-muted">
@@ -103,11 +104,14 @@ export default function Download() {
           </p>
         </div>
 
-        <div className="mt-10 grid max-w-3xl gap-10 sm:grid-cols-2 sm:gap-12">
+        <div className="mt-10 grid gap-10 md:grid-cols-3 md:gap-12">
           <Platform
             logo={<img alt="" width={24} height={24} className="h-6 w-6" src={windowsLogo} />}
             name="Windows"
-            requires={["Windows 10 (May 2020 update) or Windows 11"]}
+            requires={[
+              "Windows Client 20H1 (May 2020)",
+              "Windows Server 20H2 (October 2020)",
+            ]}
           >
             <a
               className="btn-solid min-h-12 w-full"
@@ -118,12 +122,13 @@ export default function Download() {
             >
               Download .exe (64-bit)
             </a>
+            <p className="mt-3 text-sm text-muted">ARM build: not available yet.</p>
           </Platform>
 
           <Platform
             logo={<img alt="" width={24} height={24} className="h-6 w-6" src={macSrc} />}
             name="macOS"
-            requires={["macOS Catalina (10.15) or newer"]}
+            requires={["macOS Catalina 10.15 (October 2019)"]}
           >
             <a
               className="btn-solid min-h-12 w-full"
@@ -136,13 +141,17 @@ export default function Download() {
             </a>
           </Platform>
 
+          <Platform
+            logo={<img alt="" width={24} height={24} className="h-6 w-6" src={linuxLogo} />}
+            name="Linux"
+            requiresLabel="Will require"
+            requires={["Ubuntu 20.04 (April 2020)"]}
+          >
+            <p className="flex min-h-12 items-center px-1 text-sm text-muted">
+              Coming soon as .deb, .rpm and AppImage.
+            </p>
+          </Platform>
         </div>
-
-        <p className="mt-6 max-w-[62ch] text-sm leading-relaxed text-muted">
-          The app isn't signed yet, so Windows or macOS may warn you the first time
-          you open it. When your download starts, this page shows the two clicks
-          that get you past it.
-        </p>
 
         {showWindowsNotice && (
           <Notice title="Your download is starting" onClose={() => setShowWindowsNotice(false)}>
@@ -209,6 +218,24 @@ export default function Download() {
           </Notice>
         )}
 
+        <div className="mt-12 max-w-3xl space-y-2 text-[0.9375rem] text-muted">
+          <p>
+            Using another operating system? Email{" "}
+            <a href="mailto:support@screenextend.app" className="u-link">
+              support@screenextend.app
+            </a>{" "}
+            with your device details and ask for a custom build.
+          </p>
+          <p>
+            <span className="font-mono text-sm">.msi</span> (Windows) and{" "}
+            <span className="font-mono text-sm">.pkg</span> (Mac) packages for
+            bulk enterprise installs are on the{" "}
+            <a href={RELEASES} target="_blank" rel="noopener noreferrer" className="u-link">
+              GitHub releases page
+            </a>
+            .
+          </p>
+        </div>
       </div>
     </section>
   );
