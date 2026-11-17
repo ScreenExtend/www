@@ -1,7 +1,7 @@
 // What the extra screen is for, before any of the technical detail.
 // Each "how" is a product fact: browser-only client (Highlights.tsx), several
 // devices at once and offline hosted network (FaqSimple.tsx).
-// Tints: the logo's three colours at low strength, so the grid has some colour
+// Tints: the logo blue and mint at low strength, so the grid has some colour
 // without bright full-bleed fields.
 const USES = [
   {
@@ -12,17 +12,17 @@ const USES = [
   {
     t: "Meetings off your main screen",
     d: "Put the call on the tablet and keep taking notes and working on your computer. Or flip it.",
-    tint: "bg-[#d6f1ed]/10",
+    tint: "bg-[#316cff]/[0.06]",
   },
   {
     t: "Docs while you work",
     d: "A recipe, a spec or a how-to stays in view instead of hiding behind a tab.",
-    tint: "bg-[#dcff4a]/10",
+    tint: "bg-[#d6f1ed]/10",
   },
   {
     t: "Two screens anywhere",
     d: "Your laptop and the tablet in your bag make a dual-monitor setup. No cable, no extra hardware.",
-    tint: "bg-[#dcff4a]/10",
+    tint: "bg-[#d6f1ed]/10",
   },
   {
     t: "No Wi-Fi needed",
@@ -32,7 +32,7 @@ const USES = [
   {
     t: "More than one extra screen",
     d: "Connect a phone and a tablet at the same time. Each one is its own display.",
-    tint: "bg-[#d6f1ed]/10",
+    tint: "bg-[#316cff]/[0.06]",
   },
 ];
 
