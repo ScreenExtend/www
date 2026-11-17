@@ -95,6 +95,22 @@
   }
 }
 
+/* "Hover to try the app" pill: dark on light pages, a lighter grey on dark ones. */
+.demo-pill {
+  background: rgb(15 20 25 / 0.85);
+  color: #fff;
+}
+[data-theme="dark"] .demo-pill {
+  background: #3a424b;
+  color: #f1f4f7;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .demo-pill {
+    background: #3a424b;
+    color: #f1f4f7;
+  }
+}
+
 /* The one entrance moment: the logo-stack plates settle into their offsets. */
 @keyframes stack-settle {
   from {

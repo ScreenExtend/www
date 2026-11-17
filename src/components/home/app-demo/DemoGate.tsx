@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 const HOLD_MS = 2000;
-// Back to the preview after this long with no pointer over it and no focus inside.
+// Back to the preview exactly this long after the cursor leaves.
 const IDLE_MS = 6000;
 const R = 20;
 const C = 2 * Math.PI * R;
@@ -9,7 +9,7 @@ const C = 2 * Math.PI * R;
 // Keeps the demo as a still preview until someone shows they want to use it:
 // resting the pointer on it for 2 s (a ring fills around the cursor), a tap on
 // touch screens, or the "Try the app" button for keyboard users. It locks again
-// after 6 s without the pointer over it or focus inside.
+// 6 s after the cursor leaves it.
 export default function DemoGate({ children }: { children: ReactNode }) {
   const [live, setLive] = useState(false);
   const [holding, setHolding] = useState(false);
@@ -24,7 +24,7 @@ export default function DemoGate({ children }: { children: ReactNode }) {
     inner.current?.toggleAttribute("inert", !live);
   }, [live]);
 
-  // Re-lock when the demo has been left alone for IDLE_MS.
+  // Re-lock exactly IDLE_MS after the cursor leaves; coming back cancels it.
   const idle = useRef<number>();
   useEffect(() => {
     if (!live) return;
@@ -32,23 +32,17 @@ export default function DemoGate({ children }: { children: ReactNode }) {
     if (!el) return;
     const arm = () => {
       window.clearTimeout(idle.current);
-      idle.current = window.setTimeout(() => {
-        if (!el.matches(":hover") && !el.contains(document.activeElement)) setLive(false);
-        else arm();
-      }, IDLE_MS);
+      idle.current = window.setTimeout(() => setLive(false), IDLE_MS);
     };
     const cancel = () => window.clearTimeout(idle.current);
     el.addEventListener("pointerleave", arm);
     el.addEventListener("pointerenter", cancel);
-    el.addEventListener("focusout", arm);
-    el.addEventListener("focusin", cancel);
-    arm();
+    // activated without the cursor on it (keyboard or touch): start counting now
+    if (!el.matches(":hover")) arm();
     return () => {
       cancel();
       el.removeEventListener("pointerleave", arm);
       el.removeEventListener("pointerenter", cancel);
-      el.removeEventListener("focusout", arm);
-      el.removeEventListener("focusin", cancel);
     };
   }, [live]);
 
@@ -118,7 +112,7 @@ export default function DemoGate({ children }: { children: ReactNode }) {
           <button
             type="button"
             onClick={activate}
-            className="absolute left-1/2 top-3 -translate-x-1/2 rounded-full bg-[#0f1419]/85 px-4 py-2 text-sm font-medium text-white"
+            className="demo-pill absolute left-1/2 top-3 -translate-x-1/2 rounded-full px-4 py-2 text-sm font-medium"
           >
             <span className="hidden sm:inline">Hover to try the app</span>
             <span className="sm:hidden">Tap to try the app</span>
