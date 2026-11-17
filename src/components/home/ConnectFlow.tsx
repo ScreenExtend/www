@@ -27,7 +27,7 @@ export default function ConnectFlow() {
     <section id="how" className="bg-tint py-16 lg:py-24">
       <div className="container">
         <h2 className="display-lg">How pairing works</h2>
-        <p className="mt-3 text-lg text-muted">Scan a code, type six digits, drag a window across. Nothing to install on the other device.</p>
+        <p className="mt-3 text-lg text-muted">Scan a code, type six digits, drag a window across.</p>
 
         <div className="mt-10 grid gap-12 lg:mt-14 lg:grid-cols-12 lg:gap-10">
           {/* The code at display size: the moment the pairing happens. */}

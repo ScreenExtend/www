@@ -21,12 +21,12 @@ const USES = [
   },
   {
     t: "Two screens anywhere",
-    d: "Your laptop and the tablet in your bag make a dual-monitor setup. No cable, no extra hardware.",
+    d: "Your laptop and the tablet already in your bag make a two-screen setup. You don't need a cable.",
     tint: "bg-tile-mint",
   },
   {
-    t: "No Wi-Fi needed",
-    d: "ScreenExtend can start its own network, so the tablet connects straight to your computer.",
+    t: "No router needed",
+    d: "ScreenExtend can start its own Wi-Fi network, so the tablet connects straight to your computer.",
     tint: "bg-tile-blue",
   },
   {
@@ -40,10 +40,9 @@ export default function UseCases() {
   return (
     <section id="uses" className="py-16 lg:py-24">
       <div className="container">
-        <h2 className="display-lg">What you can do with it</h2>
+        <h2 className="display-lg">What goes on the second screen</h2>
         <p className="mt-3 text-lg text-muted">
-          The other device works like any extra monitor. Drag windows onto it and
-          use it however you like.
+          Drag any window onto it, the same way you would with a plugged-in monitor.
         </p>
 
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3">
@@ -58,9 +57,9 @@ export default function UseCases() {
         {/* Source: docs/RESULTS.md in the app repo, "Windows, the whole host path",
             NVENC ring after, capture -> socket p90 6.29 ms. Not glass-to-glass. */}
         <p className="mt-10 text-muted">
-          <span className="font-semibold text-ink">Fast enough to work on.</span>{" "}
-          Your computer captures, encodes and sends each frame in under 7 ms.*
-          Your Wi-Fi and the other device add the rest.
+          <span className="font-semibold text-ink">Quick on your end.</span> Your
+          computer gets each frame ready and sends it in under 7 ms.* Your Wi-Fi
+          and the other device add their own delay on top of that.
         </p>
         <p className="mt-2 text-xs leading-relaxed text-muted">
           *90th percentile. ScreenExtend 0.6.3 on Windows 11 (25H2) with an
