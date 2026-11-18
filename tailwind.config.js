@@ -79,6 +79,8 @@ export default {
         lime: '#dcff4a',
         'logo-mint': '#d6f1ed',
         'logo-blue': '#316cff',
+        // the logo blue one step darker, for screens that carry white text (5.1:1)
+        'screen-blue': '#2b62f0',
         'logo-lime': '#dcff4a',
       },
       borderRadius: {

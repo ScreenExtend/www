@@ -32,7 +32,7 @@ const STACKED: Record<Id, { x: number; y: number }> = {
 
 const LABEL: Record<Id, string> = { 1: "This computer", 2: "Tablet", 3: "Phone" };
 const STYLE: Record<Id, string> = {
-  1: "bg-logo-blue text-white",
+  1: "bg-screen-blue text-white",
   2: "bg-logo-mint text-[#0f1419]",
   3: "bg-lime text-[#0f1419]",
 };
@@ -194,7 +194,7 @@ export default function Arrange() {
               <span className="text-[2.2em] font-semibold leading-none">{id}</span>
               <span
                 className={`text-[0.8em] font-medium leading-tight transition-opacity duration-300 ${
-                  settled ? "opacity-80" : "opacity-0"
+                  settled ? "opacity-100" : "opacity-0"
                 } ${id === 3 ? "max-w-[4ch]" : ""}`}
               >
                 {LABEL[id]}

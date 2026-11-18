@@ -12,7 +12,7 @@ function Frame({ n, t, d, children }: { n: number; t: string; d: string; childre
         {children}
       </div>
       <h3 className="mt-5 text-lg font-semibold">
-        <span className="mr-2 text-logo-blue">{n}</span>
+        <span className="mr-2 text-link">{n}</span>
         {t}
       </h3>
       <p className="mt-1.5 leading-relaxed text-muted">{d}</p>
@@ -59,7 +59,7 @@ export default function ConnectFlow() {
 
           <Frame n={3} t="Drag a window across" d="Use it like any extra monitor. Move windows over and they show up on the other screen.">
             <div aria-hidden="true" className="relative flex w-full items-end gap-[3%]">
-              <div className="flex aspect-[16/10] w-[64%] flex-col justify-between rounded-[5px] bg-logo-blue p-[3%] text-white">
+              <div className="flex aspect-[16/10] w-[64%] flex-col justify-between rounded-[5px] bg-screen-blue p-[3%] text-white">
                 <span className="text-sm font-semibold leading-none">1</span>
               </div>
               <div className="flex aspect-[3/4] w-[33%] flex-col justify-between rounded-[5px] bg-logo-mint p-[3%] text-[#0f1419]">

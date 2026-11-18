@@ -3,7 +3,7 @@
 export type MiniScreen = { n: 1 | 2 | 3; label: string };
 
 const LOOK = {
-  1: "bg-logo-blue text-white aspect-[16/10] w-[58%]",
+  1: "bg-screen-blue text-white aspect-[16/10] w-[58%]",
   2: "bg-logo-mint text-[#0f1419] aspect-[3/4] w-[26%]",
   3: "bg-lime text-[#0f1419] aspect-[1/2] w-[13%]",
 } as const;
