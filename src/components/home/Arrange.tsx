@@ -16,7 +16,7 @@ const SIZE: Record<Id, { w: number; h: number }> = {
   2: { w: 22, h: 29.3 }, // 3:4 tablet, portrait
   3: { w: 10.5, h: 21.5 }, // phone
 };
-const H = 46; // panel height in u (panel is 100 x 46)
+const H = 54; // panel height in u (panel is 100 x 54)
 
 const ARRANGED: Record<Id, { x: number; y: number }> = {
   1: { x: 19.25, y: 8 },
@@ -55,21 +55,21 @@ function snap(id: Id, want: { x: number; y: number }, pos: Record<Id, { x: numbe
     spots.push({ x: q.x - w, y: sy }, { x: q.x + q.w, y: sy }, { x: sx, y: q.y - h }, { x: sx, y: q.y + q.h });
   }
   const ok = spots
-    .map((s) => ({ x: clamp(s.x, 0, 100 - w), y: clamp(s.y, 0, H - h) }))
-    .filter((s) => others.every((o) => !overlaps(box(id, s), o)))
-    // still touching something after clamping to the panel
-    .filter((s) =>
-      others.some((o) => {
-        const b = box(id, s);
-        const touchX = Math.abs(b.x + b.w - o.x) < 0.02 || Math.abs(o.x + o.w - b.x) < 0.02;
-        const touchY = Math.abs(b.y + b.h - o.y) < 0.02 || Math.abs(o.y + o.h - b.y) < 0.02;
-        const shareY = b.y < o.y + o.h && o.y < b.y + b.h;
-        const shareX = b.x < o.x + o.w && o.x < b.x + b.w;
-        return (touchX && shareY) || (touchY && shareX);
-      }),
-    );
+    .filter((s) => others.every((o) => !overlaps(box(id, s), o)));
   ok.sort((a, b) => Math.hypot(a.x - want.x, a.y - want.y) - Math.hypot(b.x - want.x, b.y - want.y));
   return ok[0] ?? pos[id];
+}
+
+// Like the OS panel, the view re-centres and zooms out to fit whatever the
+// arrangement is, so a screen can go on any side.
+function fit(pos: Record<Id, { x: number; y: number }>) {
+  const bs = ([1, 2, 3] as Id[]).map((i) => box(i, pos[i]));
+  const bx = Math.min(...bs.map((b) => b.x));
+  const by = Math.min(...bs.map((b) => b.y));
+  const bw = Math.max(...bs.map((b) => b.x + b.w)) - bx;
+  const bh = Math.max(...bs.map((b) => b.y + b.h)) - by;
+  const s = Math.min(1, 96 / bw, (H * 0.94) / bh);
+  return { s, ox: (100 - bw * s) / 2 - bx * s, oy: (H - bh * s) / 2 - by * s };
 }
 
 export default function Arrange() {
@@ -78,6 +78,7 @@ export default function Arrange() {
   const [pos, setPos] = useState(STACKED);
   const [drag, setDrag] = useState<{ id: Id; dx: number; dy: number; x: number; y: number } | null>(null);
   const [settled, setSettled] = useState(false);
+  const view = fit(pos);
 
   useLayoutEffect(() => {
     const el = panel.current;
@@ -107,16 +108,15 @@ export default function Arrange() {
     if (id === 1 || !unit) return;
     e.currentTarget.setPointerCapture(e.pointerId);
     const r = panel.current!.getBoundingClientRect();
-    const px = (e.clientX - r.left) / unit;
-    const py = (e.clientY - r.top) / unit;
+    const px = ((e.clientX - r.left) / unit - view.ox) / view.s;
+    const py = ((e.clientY - r.top) / unit - view.oy) / view.s;
     setDrag({ id, dx: px - pos[id].x, dy: py - pos[id].y, x: pos[id].x, y: pos[id].y });
   };
   const move = (e: React.PointerEvent) => {
     if (!drag) return;
     const r = panel.current!.getBoundingClientRect();
-    const { w, h } = SIZE[drag.id];
-    const x = clamp((e.clientX - r.left) / unit - drag.dx, -2, 102 - w);
-    const y = clamp((e.clientY - r.top) / unit - drag.dy, -2, H + 2 - h);
+    const x = ((e.clientX - r.left) / unit - view.ox) / view.s - drag.dx;
+    const y = ((e.clientY - r.top) / unit - view.oy) / view.s - drag.dy;
     setDrag({ ...drag, x, y });
   };
   const up = () => {
@@ -184,11 +184,11 @@ export default function Arrange() {
                 moving ? "" : "is-snapping"
               }`}
               style={{
-                left: `${b.x}%`,
-                top: `${(b.y / H) * 100}%`,
-                width: `${b.w}%`,
-                height: `${(b.h / H) * 100}%`,
-                fontSize: unit ? `${Math.max(12, unit * 2.1)}px` : undefined,
+                left: `${view.ox + b.x * view.s}%`,
+                top: `${((view.oy + b.y * view.s) / H) * 100}%`,
+                width: `${b.w * view.s}%`,
+                height: `${((b.h * view.s) / H) * 100}%`,
+                fontSize: unit ? `${Math.max(11, unit * 2.1 * view.s)}px` : undefined,
               }}
             >
               <span className="text-[2.2em] font-semibold leading-none">{id}</span>

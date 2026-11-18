@@ -182,7 +182,8 @@
 /* Arrangement panel (Arrange.tsx): plates glide to a snapped spot; this is also
    the hero entrance, from the logo's stack to an arrangement. */
 .arrange-plate.is-snapping {
-  transition: left 600ms cubic-bezier(0.2, 0.8, 0.2, 1), top 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: left 600ms cubic-bezier(0.2, 0.8, 0.2, 1), top 600ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    width 600ms cubic-bezier(0.2, 0.8, 0.2, 1), height 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .arrange-plate:focus-visible {
   box-shadow: 0 0 0 2px var(--se-paper), 0 0 0 4px var(--se-ink);
