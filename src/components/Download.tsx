@@ -16,8 +16,10 @@ function Platform({
   name,
   requires,
   requiresLabel = "Requires",
+  yours = false,
   children,
 }: {
+  yours?: boolean;
   logo: ReactNode;
   name: string;
   requires: string[];
@@ -25,10 +27,15 @@ function Platform({
   children: ReactNode;
 }) {
   return (
-    <div className="flex flex-col border-t border-line pt-6">
+    <div
+      className={`flex flex-col border-t border-line pt-6 ${
+        yours ? "-mx-4 rounded-shot px-4 pb-4 shadow-[0_0_0_1.5px_#316cff]" : ""
+      }`}
+    >
       <h3 className="flex items-center gap-3 text-xl font-semibold">
         {logo}
         {name}
+        {yours && <span className="sr-only"> (your computer)</span>}
       </h3>
       <p className="mt-4 text-sm font-medium">{requiresLabel}</p>
       <ul className="mt-1 space-y-0.5 text-sm text-muted md:min-h-[2.75rem]">
@@ -78,6 +85,14 @@ export default function Download() {
   const [showWindowsNotice, setShowWindowsNotice] = useState(false);
   const { theme } = useTheme();
   const [systemDark, setSystemDark] = useState(true);
+  // outline the download for the computer the visitor is on (desktop only)
+  const [os, setOs] = useState<"win" | "mac" | null>(null);
+  useEffect(() => {
+    const ua = navigator.userAgent;
+    if (/Android|iPhone|iPad|Mobile/i.test(ua)) return;
+    if (/Windows/i.test(ua)) setOs("win");
+    else if (/Macintosh|Mac OS X/i.test(ua)) setOs("mac");
+  }, []);
   useEffect(() => {
     setSystemDark(window.matchMedia("(prefers-color-scheme: dark)").matches);
   }, []);
@@ -108,6 +123,7 @@ export default function Download() {
           <Platform
             logo={<img alt="" width={24} height={24} className="h-6 w-6" src={windowsLogo} />}
             name="Windows"
+            yours={os === "win"}
             requires={[
               "Windows Client 20H1 (May 2020)",
               "Windows Server 20H2 (October 2020)",
@@ -128,6 +144,7 @@ export default function Download() {
           <Platform
             logo={<img alt="" width={24} height={24} className="h-6 w-6" src={macSrc} />}
             name="macOS"
+            yours={os === "mac"}
             requires={["macOS Catalina 10.15 (October 2019)"]}
           >
             <a
