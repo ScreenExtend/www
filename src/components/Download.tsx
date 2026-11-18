@@ -112,7 +112,7 @@ export default function Download() {
             </p>
           </div>
           <p className="text-lg text-muted">
-            <span className="tabular font-semibold text-ink">
+            <span className="font-semibold text-ink">
               2.5k+
             </span>{" "}
             downloads so far

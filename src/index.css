@@ -1,8 +1,7 @@
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/ibm-plex-mono-500.woff2') format('woff2')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/ibm-plex-mono-600.woff2') format('woff2')}
-@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/ibm-plex-sans-400.woff2') format('woff2')}
-@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/ibm-plex-sans-500.woff2') format('woff2')}
-@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/ibm-plex-sans-600.woff2') format('woff2')}
+
+@font-face{font-family:'Schibsted Grotesk';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/schibsted-grotesk-var.woff2') format('woff2-variations')}
 
 @tailwind base;
 @tailwind components;
@@ -76,8 +75,8 @@
   /* section headers: small and plain so the content and the CTA lead */
   .display {
     @apply font-sans font-semibold;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
   }
   .display-lg {
     @apply display;
@@ -178,4 +177,19 @@
 .legal-prose :not(pre) > code::before,
 .legal-prose :not(pre) > code::after {
   content: none;
+}
+
+/* Arrangement panel (Arrange.tsx): plates glide to a snapped spot; this is also
+   the hero entrance, from the logo's stack to an arrangement. */
+.arrange-plate.is-snapping {
+  transition: left 600ms cubic-bezier(0.2, 0.8, 0.2, 1), top 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.arrange-plate:focus-visible {
+  box-shadow: 0 0 0 2px var(--se-paper), 0 0 0 4px var(--se-ink);
+}
+.arrange-plate:not(.cursor-default):hover {
+  filter: brightness(1.04);
+}
+@media (prefers-reduced-motion: reduce) {
+  .arrange-plate.is-snapping { transition: none; }
 }

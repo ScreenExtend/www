@@ -61,8 +61,8 @@ export default {
       },
     },
     fontFamily: {
-      sans: ["'IBM Plex Sans'", 'system-ui', 'sans-serif'],
-      body: ["'IBM Plex Sans'", 'system-ui', 'sans-serif'],
+      sans: ["'Schibsted Grotesk'", 'system-ui', 'sans-serif'],
+      body: ["'Schibsted Grotesk'", 'system-ui', 'sans-serif'],
       mono: ["'IBM Plex Mono'", 'ui-monospace', 'monospace'],
     },
     extend: {

@@ -1,78 +1,81 @@
-// Example code (digits from the previous site's demo). Six separate cells echo the
-// Session OTP row in src/assets/app/feature-3.png; the lime last cell is a site
-// accent marking the digit just typed, not something the app draws.
+import qrCrop from "@/assets/app/crop-qr.webp";
+
+// Pairing as three frames, left to right, each with the thing you actually see.
+// The code is an example (each session has its own); six cells echo the Session
+// OTP row in the app (src/assets/app/feature-3.png).
 const EXAMPLE_CODE = ["3", "7", "7", "6", "2", "0"];
 
-const STEPS = [
-  {
-    t: "Open ScreenExtend on your computer",
-    d: "It shows a QR code for your Wi-Fi, and one that works over the internet.",
-  },
-  {
-    t: "Scan it with the other device",
-    d: "Point the camera at it, or type the link. It opens in the browser.",
-  },
-  {
-    t: "Type the 6-digit code",
-    d: "Your computer now treats the other device as a second monitor, sized to fit it.",
-  },
-  {
-    t: "Drag a window across",
-    d: "Use it like any extra monitor. Move windows over and they show up on the other screen.",
-  },
-];
+function Frame({ n, t, d, children }: { n: number; t: string; d: string; children: React.ReactNode }) {
+  return (
+    <li className="flex flex-col">
+      <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-panel bg-surface p-[8%]">
+        {children}
+      </div>
+      <h3 className="mt-5 text-lg font-semibold">
+        <span className="mr-2 text-logo-blue">{n}</span>
+        {t}
+      </h3>
+      <p className="mt-1.5 leading-relaxed text-muted">{d}</p>
+    </li>
+  );
+}
 
 export default function ConnectFlow() {
   return (
-    <section id="how" className="py-16 lg:py-24">
+    <section id="how" className="py-16 lg:py-20">
       <div className="container">
         <h2 className="display-lg">How pairing works</h2>
-        <p className="mt-3 text-lg text-muted">Scan a code, type six digits, drag a window across.</p>
+        <p className="mt-3 text-lg text-muted">About a minute, the first time.</p>
 
-        <div className="mt-10 grid gap-12 lg:mt-14 lg:grid-cols-12 lg:gap-10">
-          {/* The code at display size: the moment the pairing happens. */}
-          <figure className="lg:col-span-7">
-            <div className="flex max-w-[26rem] gap-[2%]" aria-hidden="true">
+        <ol className="mt-10 grid gap-x-8 gap-y-12 md:grid-cols-3">
+          <Frame
+            n={1}
+            t="Scan the code"
+            d="ScreenExtend shows a QR code on your computer. Point the other device's camera at it, or type the link. It opens in the browser."
+          >
+            <img
+              src={qrCrop}
+              alt="The QR code panel in the ScreenExtend app"
+              className="h-full w-auto rounded-cell object-contain"
+              loading="lazy"
+            />
+          </Frame>
+
+          <Frame n={2} t="Type the 6 digits" d="Your computer now treats the other device as a second monitor, sized to fit it.">
+            <div className="flex w-full gap-[3%]" aria-hidden="true">
               {EXAMPLE_CODE.map((d, i) => (
                 <span
                   key={i}
-                  className={`tabular flex aspect-[3/4] flex-1 items-center justify-center rounded-[0.6rem] font-mono text-[clamp(1.4rem,3vw,2.25rem)] font-semibold leading-none ${
-                    i === EXAMPLE_CODE.length - 1
-                      ? "bg-lime text-[#0f1419]"
-                      : "border border-line bg-surface text-ink"
+                  className={`tabular flex aspect-[3/4] flex-1 items-center justify-center rounded-shot font-mono text-[clamp(1.1rem,2.2vw,1.75rem)] font-semibold leading-none ${
+                    i === EXAMPLE_CODE.length - 1 ? "bg-lime text-[#0f1419]" : "bg-paper text-ink"
                   }`}
                 >
                   {d}
                 </span>
               ))}
             </div>
-            <figcaption className="mt-4 text-sm text-muted">
-              <span className="sr-only">Digits shown: 3 7 7 6 2 0. </span>
-              Example code. Each session has its own.
-            </figcaption>
+            <span className="sr-only">Example code: 3 7 7 6 2 0</span>
+          </Frame>
 
-          </figure>
-
-          <ol className="lg:col-span-5 lg:pl-6">
-            {STEPS.map((s, i) => (
-              <li
-                key={s.t}
-                className="grid grid-cols-[2rem_1fr] gap-x-4 border-t border-line py-5 first:border-t-0 first:pt-0 sm:grid-cols-[2.25rem_1fr]"
-              >
-                <span
-                  aria-hidden="true"
-                  className="text-2xl font-semibold leading-tight text-logo-blue"
-                >
-                  {i + 1}
-                </span>
-                <div>
-                  <h3 className="text-lg font-semibold leading-snug">{s.t}</h3>
-                  <p className="mt-1.5 leading-relaxed text-muted">{s.d}</p>
+          <Frame n={3} t="Drag a window across" d="Use it like any extra monitor. Move windows over and they show up on the other screen.">
+            <div aria-hidden="true" className="relative flex w-full items-end gap-[3%]">
+              <div className="flex aspect-[16/10] w-[64%] flex-col justify-between rounded-[5px] bg-logo-blue p-[3%] text-white">
+                <span className="text-sm font-semibold leading-none">1</span>
+              </div>
+              <div className="flex aspect-[3/4] w-[33%] flex-col justify-between rounded-[5px] bg-logo-mint p-[3%] text-[#0f1419]">
+                <span className="text-sm font-semibold leading-none">2</span>
+              </div>
+              {/* the window, halfway across the gap */}
+              <div className="cross-window absolute bottom-[16%] left-[46%] w-[34%] overflow-hidden rounded-[4px] bg-white shadow-[0_6px_16px_-8px_rgb(0_0_0/0.35)]">
+                <div className="flex h-2.5 items-center gap-1 bg-[#e6eaef] px-1.5">
+                  <span className="h-1 w-1 rounded-full bg-[#9aa4ae]" />
+                  <span className="h-1 w-1 rounded-full bg-[#9aa4ae]" />
                 </div>
-              </li>
-            ))}
-          </ol>
-        </div>
+                <div className="aspect-[4/3]" />
+              </div>
+            </div>
+          </Frame>
+        </ol>
       </div>
     </section>
   );

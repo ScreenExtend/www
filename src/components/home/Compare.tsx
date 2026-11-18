@@ -40,7 +40,7 @@ function Mark({ yes, note }: { yes: boolean; note?: string }) {
 
 export default function Compare() {
   return (
-    <section id="compare" className="bg-tint py-16 lg:py-24">
+    <section id="compare" className="py-16 lg:py-24">
       <div className="container">
         <h2 className="display-lg">How it compares</h2>
         <p className="mt-3 text-lg text-muted">
