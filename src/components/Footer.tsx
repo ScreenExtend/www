@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 import logo from "@/assets/logo/screenextend.svg";
-import { RegMark } from "@/components/home/drawings.tsx";
 
 const LEGAL_LINKS: { label: string; to: string }[] = [
   { label: "Privacy", to: "/privacy" },
@@ -23,7 +22,7 @@ export default function Footer() {
             ScreenExtend
           </Link>
           <p className="mt-2 max-w-sm text-[0.9375rem] text-muted">
-            Keep this leaflet for future reference. Or bookmark it, which is the same thing.
+            A free download for Windows and Mac. The other screen only needs a browser.
           </p>
         </div>
         <nav aria-label="Footer" className="flex flex-wrap gap-x-5 lg:col-span-7 lg:justify-end">
@@ -46,7 +45,6 @@ export default function Footer() {
         </nav>
         <div className="flex items-center justify-between gap-4 border-t border-line pt-6 lg:col-span-12">
           <p className="text-muted">© 2026 Sarvesh Madullapalli. All rights reserved.</p>
-          <RegMark className="shrink-0 text-muted" />
         </div>
       </div>
     </footer>

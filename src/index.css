@@ -53,7 +53,7 @@
     outline: none;
   }
   :focus-visible {
-    background-color: rgb(49 108 255 / 0.14);
+    background-color: rgb(37 87 224 / 0.16);
     border-radius: 6px;
   }
   .btn-solid:focus-visible {
@@ -88,10 +88,11 @@
     line-height: 1.02;
     letter-spacing: -0.012em;
   }
+  /* section heads: a step narrower, so the wide voice belongs to the cover */
   .display-lg {
     font-family: Archivo, system-ui, sans-serif;
-    font-weight: 740;
-    font-stretch: 114%;
+    font-weight: 720;
+    font-stretch: 106%;
     font-size: clamp(1.85rem, 3.1vw, 2.6rem);
     line-height: 1.06;
     letter-spacing: -0.01em;
@@ -127,7 +128,7 @@
   }
 }
 
-/* "Hover to try the app" pill: dark on light pages, a lighter grey on dark ones. */
+/* The demo gate's label: flat spot blue in both themes. */
 .demo-pill {
   background: #2557e0;
   color: #fff;
@@ -212,35 +213,4 @@
   transform-box: fill-box;
   transform-origin: 0 0;
   animation: desk-press 1700ms ease-out 400ms both;
-}
-
-/* The spec strip under the hero, ruled like the side panel of a box. */
-.spec-cell + .spec-cell {
-  border-top: 1px solid var(--se-line);
-}
-@media (min-width: 640px) {
-  .spec-cell {
-    padding-inline: 1.25rem;
-  }
-  .spec-cell:nth-child(odd) {
-    padding-left: 0;
-  }
-  .spec-cell:nth-child(2) {
-    border-top: 0;
-  }
-  .spec-cell:nth-child(even) {
-    border-left: 1px solid var(--se-line);
-  }
-}
-@media (min-width: 1024px) {
-  .spec-cell + .spec-cell {
-    border-top: 0;
-    border-left: 1px solid var(--se-line);
-  }
-  .spec-cell:nth-child(odd) {
-    padding-left: 1.25rem;
-  }
-  .spec-cell:first-child {
-    padding-left: 0;
-  }
 }

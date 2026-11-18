@@ -1,25 +1,29 @@
 import qrCrop from "@/assets/app/crop-qr.webp";
-import { DeskDrawing } from "@/components/home/drawings.tsx";
+import { EdgeDrawing } from "@/components/home/drawings.tsx";
 
-// The only real sequence on the page, so the only numbers. Panels are split by
-// dashed fold lines, as if the leaflet folds here. The code is an example (each
-// session has its own); six cells echo the Session OTP row in the app.
+// The only real sequence on the page, so the only numbers. The code is an
+// example (each session has its own); six cells echo the Session OTP row in the app.
 const EXAMPLE_CODE = ["3", "7", "7", "6", "2", "0"];
 
 function Step({ n, t, children, figure }: { n: number; t: string; children: React.ReactNode; figure: React.ReactNode }) {
   return (
-    <li className="flex flex-col border-dashed border-line pt-8 first:pt-0 max-md:[&:not(:first-child)]:border-t md:px-8 md:pt-0 md:first:pl-0 md:last:pr-0 md:[&:not(:first-child)]:border-l">
-      <div className="flex h-60 items-center justify-center overflow-hidden rounded-panel bg-surface p-6 lg:h-64">
+    <li className="grid grid-cols-[3rem_1fr] gap-x-4 md:flex md:flex-col">
+      <div className="col-start-2 row-start-2 mt-5 flex items-center md:order-3 md:mt-8 md:h-48 lg:h-56">
         {figure}
       </div>
-      <span className="condensed mt-6 text-[4.5rem] font-extrabold leading-[0.8] text-link" aria-hidden="true">
+      <span
+        className="condensed row-span-2 text-[4rem] font-extrabold leading-[0.8] text-link md:text-[5.5rem]"
+        aria-hidden="true"
+      >
         {n}
       </span>
-      <h3 className="wide mt-4 text-xl font-bold leading-tight">
-        <span className="sr-only">Step {n}. </span>
-        {t}
-      </h3>
-      <div className="mt-3 max-w-[36ch] leading-relaxed text-muted">{children}</div>
+      <div className="col-start-2 row-start-1 md:mt-4">
+        <h3 className="wide text-xl font-bold leading-tight">
+          <span className="sr-only">Step {n}. </span>
+          {t}
+        </h3>
+        <div className="mt-2 max-w-[36ch] leading-relaxed text-muted">{children}</div>
+      </div>
     </li>
   );
 }
@@ -31,7 +35,7 @@ export default function ConnectFlow() {
         <h2 className="display-lg">Setup, all of it</h2>
         <p className="lede mt-3">About a minute, the first time.</p>
 
-        <ol className="mt-12 grid gap-10 md:grid-cols-3 md:gap-0">
+        <ol className="mt-12 grid gap-12 md:grid-cols-3 md:gap-10 lg:gap-14">
           <Step
             n={1}
             t="Open ScreenExtend on your computer"
@@ -39,26 +43,25 @@ export default function ConnectFlow() {
               <img
                 src={qrCrop}
                 alt="The QR code panel in the ScreenExtend app"
-                className="h-full max-h-full w-auto rounded-cell object-contain"
+                className="h-32 w-auto rounded-cell border border-line object-contain md:h-full md:max-h-full"
                 loading="lazy"
               />
             }
           >
-            It shows a QR code. Point the tablet's camera at it, or type the link into its browser.
+            It shows a QR code. Scan it with the tablet's camera, or type the link under it into the
+            tablet's browser.
           </Step>
 
           <Step
             n={2}
-            t="Type the 6 digits"
+            t="Type the code into the tablet"
             figure={
               <>
-                <div className="flex w-full gap-[3%]" aria-hidden="true">
+                <div className="flex w-full max-w-xs gap-[4%]" aria-hidden="true">
                   {EXAMPLE_CODE.map((d, i) => (
                     <span
                       key={i}
-                      className={`condensed tabular flex aspect-[3/4] flex-1 items-center justify-center rounded-cell border-[1.5px] border-ink text-[clamp(1.6rem,3vw,2.4rem)] font-bold leading-none ${
-                        i === EXAMPLE_CODE.length - 1 ? "bg-lime text-[#15171b]" : "bg-sheet text-ink"
-                      }`}
+                      className="condensed tabular flex aspect-[3/4] flex-1 items-center justify-center rounded-cell border-[1.5px] border-ink bg-sheet text-[clamp(1.6rem,3vw,2.4rem)] font-bold leading-none text-ink"
                     >
                       {d}
                     </span>
@@ -68,11 +71,13 @@ export default function ConnectFlow() {
               </>
             }
           >
-            Your computer now treats the tablet as a second monitor, sized to fit it.
+            Your computer shows a 6-digit code. Type it on the tablet, in the page you just opened.
+            The tablet is now a second monitor, sized to fit it.
           </Step>
 
-          <Step n={3} t="There is no step 3" figure={<DeskDrawing animate={false} className="w-full" />}>
-            Okay, there is. Drag a window across, the same way you would onto a plugged‑in monitor.
+          <Step n={3} t="Drag a window across" figure={<EdgeDrawing className="h-32 w-auto max-w-full md:h-full" />}>
+            The same way you would onto a plugged-in monitor. Push it past the edge of your screen and
+            it carries on onto the tablet.
           </Step>
         </ol>
       </div>

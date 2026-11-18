@@ -6,6 +6,7 @@ import windowsLogo from "@/assets/logo/windows.svg";
 import macLogo from "@/assets/logo/mac.svg";
 import macLogoLight from "@/assets/logo/mac-light.svg";
 import linuxLogo from "@/assets/logo/linux.svg";
+import { isTouchDevice } from "@/lib/device.ts";
 
 const RELEASES = "https://github.com/ScreenExtend/ScreenExtend/releases/latest";
 const WINDOWS_EXE = `${RELEASES}/download/ScreenExtend_x64-setup.exe`;
@@ -27,10 +28,10 @@ function Platform({
   children: ReactNode;
 }) {
   return (
-    // a tear-off coupon: perforated edge, or a solid spot-blue edge on your own OS
+    // a coupon on the back panel: hairline edge, or a heavy spot-blue edge on your own OS
     <div
       className={`flex flex-col rounded-panel p-5 sm:p-6 ${
-        yours ? "border-2 border-spot bg-sheet" : "border-2 border-dashed border-muted"
+        yours ? "border-[3px] border-spot bg-sheet" : "border-[1.5px] border-ink"
       }`}
     >
       <h3 className="wide flex flex-wrap items-center gap-x-3 gap-y-1 text-xl font-bold">
@@ -85,26 +86,27 @@ export default function Download() {
   const [showMacNotice, setShowMacNotice] = useState(false);
   const [showWindowsNotice, setShowWindowsNotice] = useState(false);
   const { theme } = useTheme();
-  const [systemDark, setSystemDark] = useState(true);
-  // outline the download for the computer the visitor is on (desktop only)
+  // light until the effect runs, matching the light OS most visitors have
+  const [systemDark, setSystemDark] = useState(false);
+  // outline the download for the computer the visitor is on. Not on phones or
+  // tablets: an iPad's Safari says "Macintosh", and it can't run the .dmg.
   const [os, setOs] = useState<"win" | "mac" | null>(null);
   useEffect(() => {
     const ua = navigator.userAgent;
-    if (/Android|iPhone|iPad|Mobile/i.test(ua)) return;
+    if (isTouchDevice()) return;
     if (/Windows/i.test(ua)) setOs("win");
     else if (/Macintosh|Mac OS X/i.test(ua)) setOs("mac");
   }, []);
   useEffect(() => {
     setSystemDark(window.matchMedia("(prefers-color-scheme: dark)").matches);
   }, []);
-  // Light Apple logo on dark grounds (dark is the default theme).
+  // light Apple logo on the dark theme
   const macSrc =
     theme === "light" ? macLogo : theme === "dark" || systemDark ? macLogoLight : macLogo;
 
   return (
-    // Same ground as the rest of the page, so the theme never switches mid-scroll.
-    // printed on the second spot ink (mint), the one band besides the blue one
-    <section className="border-t-[1.5px] border-ink bg-tile-mint py-16 lg:py-24" id="download">
+    // on paper like the rest of the page; the only band is the blue box
+    <section className="border-t-[1.5px] border-ink py-16 lg:py-24" id="download">
       <div className="container">
         <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
@@ -114,8 +116,7 @@ export default function Download() {
             </p>
           </div>
           <p className="text-muted lg:col-span-5 lg:text-right">
-            <span className="font-bold text-ink">2.5k+</span> downloads so far, and not one of them
-            came with packaging.
+            <span className="font-bold text-ink">2.5k+</span> downloads so far.
           </p>
         </div>
 
@@ -125,8 +126,8 @@ export default function Download() {
             name="Windows"
             yours={os === "win"}
             requires={[
-              "Windows Client 20H1 (May 2020)",
-              "Windows Server 20H2 (October 2020)",
+              "Windows 10 version 2004 (May 2020) or newer, or Windows 11",
+              "Windows Server 20H2 (October 2020) or newer",
               "No ARM build yet",
             ]}
           >
@@ -145,7 +146,7 @@ export default function Download() {
             logo={<img alt="" width={24} height={24} className="h-6 w-6" src={macSrc} />}
             name="macOS"
             yours={os === "mac"}
-            requires={["macOS Catalina 10.15 (October 2019)"]}
+            requires={["macOS Catalina 10.15 (October 2019) or newer", "In beta"]}
           >
             <a
               className="btn-solid min-h-12 w-full"

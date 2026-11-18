@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { isTouchDevice } from "@/lib/device.ts";
 
 const URL_TO_SHARE = "https://screenextend.app/";
 
-// Phones only: the download is for Windows or Mac, so a phone visitor gets told
-// what to do and a way to get the link onto their computer (share sheet: email,
-// AirDrop, messages; or copy). Nothing is sent anywhere by the site itself.
-export default function SendToComputer() {
+// Phones and tablets (iPads included): the download is for Windows or Mac, so a
+// visitor reading this on the device that will become the second screen is told
+// what to do, with a way to get the link onto their computer (share sheet or
+// copy). Nothing is sent anywhere by the site itself. Not prerendered.
+export default function SendToComputer({ className = "" }: { className?: string }) {
+  const [show, setShow] = useState(false);
   const [copied, setCopied] = useState(false);
+  useEffect(() => setShow(isTouchDevice()), []);
+  if (!show) return null;
 
   const send = async () => {
     try {
@@ -26,16 +32,12 @@ export default function SendToComputer() {
   };
 
   return (
-    <div className="rounded-panel border-[1.5px] border-ink bg-sheet px-4 py-4 text-left sm:hidden">
-      <p className="text-[0.9375rem] leading-relaxed text-muted">
-        <span className="font-semibold text-ink">On your phone?</span> Install
-        ScreenExtend on your computer. Your phone becomes the second screen later.
+    <div className={`max-w-xl border-l-4 border-spot py-1 pl-4 ${className}`}>
+      <p className="leading-relaxed text-muted">
+        <span className="font-semibold text-ink">Reading this on a phone or tablet?</span> That's
+        the second screen. The download goes on your Windows PC or Mac.
       </p>
-      <button
-        type="button"
-        onClick={send}
-        className="btn-line mt-3 w-full"
-      >
+      <button type="button" onClick={send} className="btn-line mt-3 w-full sm:w-auto">
         {copied ? "Link copied" : "Send this link to my computer"}
       </button>
     </div>

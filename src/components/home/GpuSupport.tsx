@@ -20,10 +20,10 @@ const LABEL: Record<Status, string> = {
   na: "",
 };
 
-const CHIP: Record<Status, string> = {
-  yes: "bg-tile-blue text-ink",
-  experimental: "bg-lime text-[#15171b]",
-  no: "bg-surface text-muted",
+const TONE: Record<Status, string> = {
+  yes: "font-semibold text-ink",
+  experimental: "text-ink",
+  no: "text-muted",
   na: "",
 };
 
@@ -31,15 +31,13 @@ function Cell({ s }: { s: Status }) {
   if (s === "na") {
     return (
       <td className="px-4 py-3 text-muted">
-        <span className="text-sm">n/a</span>
+        <span className="text-sm" aria-label="Not applicable">n/a</span>
       </td>
     );
   }
   return (
     <td className="px-4 py-3">
-      <span className={`inline-flex rounded-cell px-2 py-0.5 text-sm font-medium ${CHIP[s]}`}>
-        {LABEL[s]}
-      </span>
+      <span className={TONE[s]}>{LABEL[s]}</span>
     </td>
   );
 }

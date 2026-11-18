@@ -39,7 +39,7 @@ export default function FaqSimple() {
       <div className="container grid gap-8 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-4">
           <h2 className="display-lg">The small print</h2>
-          <p className="lede mt-3">In normal-sized type.</p>
+          <p className="lede mt-3">Setup, security, and what gets collected.</p>
           <p className="mt-6 text-muted">
             Still stuck? Email{" "}
             <a href="mailto:support@screenextend.app" className="u-link">

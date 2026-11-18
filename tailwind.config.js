@@ -3,28 +3,27 @@ import theme from 'daisyui/src/theming/themes'
 // "The leaflet in the box": paper stock and ink, plus one spot colour (the
 // logo blue) and the logo mint/lime as second and third spot inks. Each theme
 // sets the same tokens; contrast is in exhaustive-unslop/DESIGN.md.
+// Light is uncoated white leaflet stock (a cool grey-white, not cream); dark is
+// the inside of the carton, a brown-black board. Two blues only: the spot ink,
+// and in dark mode a lighter link blue that reads on the board.
 const lightTokens = {
-  '--se-paper': '#f2f1ec',
-  '--se-surface': '#e7e5dd',
-  '--se-ink': '#15171b',
-  '--se-muted': '#55595f',
-  '--se-line': '#c9c6bb',
-  '--se-link': '#2152cc',
-  // line-art fills inside drawings (the "unprinted" paper inside a screen)
-  '--se-sheet': '#fbfaf7',
-  '--se-tile-blue': '#dce5fb',
-  '--se-tile-mint': '#d6f1ed',
+  '--se-paper': '#eeefec',
+  '--se-surface': '#e2e4e0',
+  '--se-ink': '#14161a',
+  '--se-muted': '#50555b',
+  '--se-line': '#bfc3bf',
+  '--se-link': '#2557e0',
+  // the unprinted white inside a drawn screen
+  '--se-sheet': '#fbfbfa',
 }
 const darkTokens = {
-  '--se-paper': '#121418',
-  '--se-surface': '#1b1e24',
-  '--se-ink': '#eceae3',
-  '--se-muted': '#a2a6ad',
-  '--se-line': '#30343c',
-  '--se-link': '#8fb0ff',
-  '--se-sheet': '#1f2329',
-  '--se-tile-blue': '#1a2547',
-  '--se-tile-mint': '#16302f',
+  '--se-paper': '#16140f',
+  '--se-surface': '#211e18',
+  '--se-ink': '#ede8dc',
+  '--se-muted': '#a9a295',
+  '--se-line': '#3a352c',
+  '--se-link': '#93b1ff',
+  '--se-sheet': '#221f19',
 }
 const shared = {
   primary: '#2557e0',
@@ -77,14 +76,9 @@ export default {
         sheet: 'var(--se-sheet)',
         // the spot ink: the logo blue one step darker so white type on it passes AA (5.97:1)
         spot: '#2557e0',
-        'spot-soft': '#d9e4ff',
-        'tile-blue': 'var(--se-tile-blue)',
-        'tile-mint': 'var(--se-tile-mint)',
         lime: '#dcff4a',
         'logo-mint': '#d6f1ed',
         'logo-blue': '#316cff',
-        // the logo blue one step darker, for screens that carry white text (5.1:1)
-        'screen-blue': '#2b62f0',
         'logo-lime': '#dcff4a',
       },
       borderRadius: {
@@ -105,19 +99,19 @@ export default {
         light: {
           ...theme.light,
           ...shared,
-          'base-100': '#f2f1ec',
-          'base-200': '#e7e5dd',
-          'base-300': '#c9c6bb',
-          'base-content': '#15171b',
+          'base-100': '#eeefec',
+          'base-200': '#e2e4e0',
+          'base-300': '#bfc3bf',
+          'base-content': '#14161a',
           ...lightTokens,
         },
         dark: {
           ...theme.dark,
           ...shared,
-          'base-100': '#121418',
-          'base-200': '#1b1e24',
-          'base-300': '#30343c',
-          'base-content': '#eceae3',
+          'base-100': '#16140f',
+          'base-200': '#211e18',
+          'base-300': '#3a352c',
+          'base-content': '#ede8dc',
           ...darkTokens,
         },
       },

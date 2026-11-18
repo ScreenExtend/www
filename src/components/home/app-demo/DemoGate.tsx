@@ -14,6 +14,9 @@ export default function DemoGate({ children }: { children: ReactNode }) {
   const [live, setLive] = useState(false);
   const [holding, setHolding] = useState(false);
   const [pos, setPos] = useState({ x: 0, y: 0 });
+  // the label names the gesture this visitor has: resting a pointer, or a tap
+  const [canHover, setCanHover] = useState(false);
+  useEffect(() => setCanHover(window.matchMedia("(hover: hover) and (pointer: fine)").matches), []);
   const timer = useRef<number>();
   const box = useRef<HTMLDivElement>(null);
   const inner = useRef<HTMLDivElement>(null);
@@ -78,7 +81,7 @@ export default function DemoGate({ children }: { children: ReactNode }) {
       <div
         aria-hidden="true"
         className={`pointer-events-none absolute inset-0 rounded-[10px] bg-[#6b7280] transition-opacity duration-500 ease-out ${
-          live ? "opacity-0" : "opacity-35"
+          live ? "opacity-0" : "opacity-20"
         }`}
       />
 
@@ -122,10 +125,9 @@ export default function DemoGate({ children }: { children: ReactNode }) {
           <button
             type="button"
             onClick={activate}
-            className="demo-pill absolute left-1/2 top-1/2 min-h-11 -translate-x-1/2 -translate-y-1/2 rounded-control px-4 py-2 text-[0.9375rem] font-semibold"
+            className="demo-pill absolute left-1/2 top-3 min-h-11 -translate-x-1/2 whitespace-nowrap rounded-control px-4 py-2 text-[0.9375rem] font-semibold sm:top-2"
           >
-            <span className="hidden sm:inline">Hover to try the app</span>
-            <span className="sm:hidden">Tap to try the app</span>
+            {canHover ? "Rest the pointer here to try it" : "Tap to try the app"}
           </button>
         </div>
       )}

@@ -35,6 +35,10 @@
 
 /* a single page with no app chrome */
 .sed-root .sed-win.sed-bare { height: 520px; }
+/* a panel whose content is short: as tall as it needs, no empty space below */
+.sed-root.se-fit .sed-win.sed-bare { height: auto; }
+/* stops on a card boundary (after Public Internet Sessions), so it reads as scrollable, not cut off */
+.sed-root.se-cut .sed-win.sed-bare { height: 404px; }
 
 /* window: sidebar becomes a top tab row below 640px */
 .sed-root .sed-win {

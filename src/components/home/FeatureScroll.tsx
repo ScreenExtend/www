@@ -19,7 +19,7 @@ export default function FeatureScroll() {
             <p className="mt-1.5 leading-relaxed text-muted">
               Scale, orientation, refresh rate and video quality, set per device.
             </p>
-            <AppDemo bare initialPage="edit" className="mt-5" />
+            <AppDemo bare initialPage="edit" className="se-fit mt-5" />
           </div>
           <div className="min-w-0">
             <h3 className="wide text-xl font-bold">Settings</h3>
@@ -27,7 +27,8 @@ export default function FeatureScroll() {
               Make a new session code, start a Wi-Fi network of its own, and choose how long to wait
               before a quiet device is disconnected.
             </p>
-            <AppDemo bare initialPage="settings" className="mt-5" />
+            <AppDemo bare initialPage="settings" className="se-cut mt-5" />
+            <p className="small-print mt-2">Scroll inside the panel for the rest, from start at login down to past devices.</p>
           </div>
         </div>
       </div>

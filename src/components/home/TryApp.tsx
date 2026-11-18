@@ -1,9 +1,7 @@
 import AppDemo from "@/components/home/app-demo/AppDemo.tsx";
 import DemoGate from "@/components/home/app-demo/DemoGate.tsx";
-import { CropMarks } from "@/components/home/drawings.tsx";
 
-// The live replica of the desktop app, trimmed out with crop marks like a
-// proof sheet, since it is a copy of the real thing.
+// The live replica of the desktop app.
 export default function TryApp() {
   return (
     <section id="app" className="border-t-[1.5px] border-ink py-16 lg:py-24">
@@ -15,8 +13,7 @@ export default function TryApp() {
             this page, so nothing here touches your machine.
           </p>
         </div>
-        <div className="relative mt-12">
-          <CropMarks />
+        <div className="mt-12">
           <DemoGate>
             <AppDemo />
           </DemoGate>
