@@ -122,7 +122,7 @@ export default function DemoGate({ children }: { children: ReactNode }) {
           <button
             type="button"
             onClick={activate}
-            className="demo-pill absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full px-4 py-2 text-sm font-medium"
+            className="demo-pill absolute left-1/2 top-1/2 min-h-11 -translate-x-1/2 -translate-y-1/2 rounded-control px-4 py-2 text-[0.9375rem] font-semibold"
           >
             <span className="hidden sm:inline">Hover to try the app</span>
             <span className="sm:hidden">Tap to try the app</span>

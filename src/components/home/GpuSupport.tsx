@@ -21,8 +21,8 @@ const LABEL: Record<Status, string> = {
 };
 
 const CHIP: Record<Status, string> = {
-  yes: "bg-[#316cff]/15 text-ink",
-  experimental: "bg-[#d6f1ed]/15 text-ink",
+  yes: "bg-tile-blue text-ink",
+  experimental: "bg-lime text-[#15171b]",
   no: "bg-surface text-muted",
   na: "",
 };
@@ -46,32 +46,32 @@ function Cell({ s }: { s: Status }) {
 
 export default function GpuSupport() {
   return (
-    <section id="gpu" className="py-16 lg:py-24">
+    <section id="gpu" className="border-t-[1.5px] border-ink py-16 lg:py-24">
       <div className="container grid gap-10 lg:grid-cols-12">
-        <div className="lg:col-span-4">
-          <h2 className="display-lg">Graphics card support</h2>
-          <p className="mt-3 text-lg leading-relaxed text-muted">
-            ScreenExtend uses your computer's graphics chip to keep the second
-            screen smooth. If it isn't supported, it falls back to the processor.
+        <div className="lg:col-span-5">
+          <h2 className="display-lg">Which graphics chips it uses</h2>
+          <p className="lede mt-3">
+            ScreenExtend hands the video encoding to your graphics chip when it can, which keeps the
+            second screen smooth. When it can't, the processor does the work instead.
           </p>
         </div>
 
-        <div className="relative overflow-x-auto lg:col-span-8">
-          <table className="w-full min-w-[30rem] border-collapse text-left">
+        <div className="relative overflow-x-auto lg:col-span-7" tabIndex={0} role="region" aria-label="Graphics support table (scrolls sideways)">
+          <table className="w-full min-w-[30rem] border-collapse border-y-2 border-ink text-left">
             <caption className="sr-only">Graphics card support by computer</caption>
             <thead>
-              <tr className="border-b border-line text-sm text-muted">
-                <th scope="col" className="px-4 pb-3 font-medium">Graphics</th>
-                <th scope="col" className="px-4 pb-3 font-medium">Windows PC</th>
-                <th scope="col" className="px-4 pb-3 font-medium">Mac</th>
+              <tr className="wide border-b-[1.5px] border-ink text-[0.9375rem]">
+                <th scope="col" className="px-4 py-3 pl-0 font-bold">Graphics</th>
+                <th scope="col" className="px-4 py-3 font-bold">Windows PC</th>
+                <th scope="col" className="px-4 py-3 font-bold">Mac</th>
               </tr>
             </thead>
             <tbody>
               {ROWS.map((r) => (
-                <tr key={r.gpu} className="border-b border-line">
-                  <th scope="row" className="px-4 py-3 font-normal">
+                <tr key={r.gpu} className="border-b border-line last:border-b-0">
+                  <th scope="row" className="py-3 pl-0 pr-4 font-normal">
                     <span className="font-semibold">{r.gpu}</span>
-                    <span className="block text-sm text-muted">{r.api}</span>
+                    <span className="small-print block">{r.api}</span>
                   </th>
                   <Cell s={r.win} />
                   <Cell s={r.mac} />

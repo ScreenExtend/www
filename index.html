@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary meta -->
-    <title>ScreenExtend: use any device as a wireless second monitor</title>
+    <title>ScreenExtend: a second monitor you already own</title>
     <meta
       name="description"
-      content="Turn any phone, tablet, or spare laptop into a wireless second monitor for your PC or Mac. ScreenExtend streams your screen over WebRTC; free, with no client install."
+      content="Use the tablet, phone or old laptop you already have as a wireless second monitor for your Windows PC or Mac. Free, and nothing to install on the other device."
     />
     <meta
       name="keywords"
@@ -28,8 +28,8 @@
     />
     <meta name="rating" content="general" />
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0d10" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f2f1ec" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121418" />
     <script>try{var t=localStorage.getItem("se-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
     <meta name="format-detection" content="telephone=no" />
 
@@ -52,10 +52,10 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ScreenExtend" />
-    <meta property="og:title" content="ScreenExtend: use any device as a wireless second monitor" />
+    <meta property="og:title" content="ScreenExtend: a second monitor you already own" />
     <meta
       property="og:description"
-      content="Turn any phone, tablet, or spare laptop into a wireless second monitor for your PC or Mac. ScreenExtend streams your screen over WebRTC; free, with no client install."
+      content="Use the tablet, phone or old laptop you already have as a wireless second monitor for your Windows PC or Mac. Free, and nothing to install on the other device."
     />
     <meta property="og:url" content="https://screenextend.app/" />
     <meta property="og:image" content="https://screenextend.app/og-image.png" />
@@ -71,10 +71,10 @@
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ScreenExtend: use any device as a wireless second monitor" />
+    <meta name="twitter:title" content="ScreenExtend: a second monitor you already own" />
     <meta
       name="twitter:description"
-      content="Turn any phone, tablet, or spare laptop into a wireless second monitor for your PC or Mac. ScreenExtend streams your screen over WebRTC; free, with no client install."
+      content="Use the tablet, phone or old laptop you already have as a wireless second monitor for your Windows PC or Mac. Free, and nothing to install on the other device."
     />
     <meta name="twitter:image" content="https://screenextend.app/og-image.png" />
     <meta
@@ -85,7 +85,7 @@
 
     <!-- Fonts are self-hosted (see @font-face in the CSS) -->
     <link rel="dns-prefetch" href="https://github.com" />
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/schibsted-grotesk-var.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-wdth.woff2" crossorigin />
 
     <!-- Structured data -->
     <script type="application/ld+json">
@@ -144,15 +144,15 @@
                 "name": "Which devices can I use as the second screen?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Anything with a modern web browser: an iPad or Android tablet, a phone, or another laptop. Nothing gets installed on it. ScreenExtend itself runs on your Windows PC or Mac."
+                  "text": "Anything with a modern web browser: an iPad or Android tablet, a phone, or another laptop. Nothing gets installed on it. The ScreenExtend app runs on your Windows PC or Mac, and that's the only install."
                 }
               },
               {
                 "@type": "Question",
-                "name": "How do I use ScreenExtend?",
+                "name": "How do I set it up?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Run it on your computer, scan the QR code (or open the link) on the other device, and type the 6-digit code. That device becomes an extra monitor."
+                  "text": "Run ScreenExtend on your computer. On the other device, scan the QR code (or open the link) and type the 6-digit code. It's now an extra monitor."
                 }
               },
               {
@@ -160,7 +160,7 @@
                 "name": "Is my data secure?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "The picture and sound are always encrypted. A device can only join with the session's 6-digit code, and you can make a new code any time to keep others out. The join page itself loads over plain HTTP on your own network unless you switch on the HTTPS version, which your browser may warn about because the app makes its own certificate."
+                  "text": "The picture and sound are always encrypted. A device can only join with the session's 6-digit code, and you can make a new code whenever you like to keep others out. One caveat: the join page itself loads over plain HTTP on your own network unless you switch on the HTTPS version, and your browser may warn about that one because the app makes its own certificate."
                 }
               },
               {
@@ -168,7 +168,7 @@
                 "name": "What resolution and refresh rate can it do? Can it game?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Each device can go up to 200% scale, and you can set its refresh rate anywhere from 15 to 550 Hz. In our tests the computer sent about 150 frames a second; what you actually see depends on the other device and your Wi-Fi. Gaming works if your network keeps up. HDR is coming in a future release."
+                  "text": "Each device goes up to 200% scale, with a refresh rate you can set anywhere from 15 to 550 Hz. In our tests the computer sent about 150 frames a second; what you actually see depends on the other device and your Wi-Fi. Gaming works if your network keeps up. HDR is coming in a future release."
                 }
               },
               {
@@ -176,7 +176,7 @@
                 "name": "How many devices can connect at once?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Several. Each one gets its own display, and each one you add uses more of your computer. With NVIDIA graphics, up to 8 devices use the graphics chip; any more fall back to the processor."
+                  "text": "Several. Each one gets its own display, and each one you add uses more of your computer. With NVIDIA graphics, up to 8 devices are encoded on the graphics chip; past that, the processor takes the rest."
                 }
               },
               {
@@ -184,7 +184,7 @@
                 "name": "How does offline mode work?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Open Settings and start the hosted network with a name and password. Join that Wi-Fi on the other device and open the link ScreenExtend shows. No router needed."
+                  "text": "Open Settings and start the hosted network with a name and password. On the other device, join that Wi-Fi and open the link ScreenExtend shows. No router involved."
                 }
               },
               {
@@ -204,7 +204,7 @@
   <body class="font-body">
     <div id="root"></div>
     <noscript>
-      <h1>ScreenExtend: use any device as a wireless second monitor</h1>
+      <h1>ScreenExtend: a second monitor you already own</h1>
       <p>
         ScreenExtend is a free app that turns any phone, tablet, or spare laptop
         into an extended monitor for your Windows PC or Mac. Your screen is

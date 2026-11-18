@@ -16,6 +16,7 @@ import TryApp from "@/components/home/TryApp.tsx";
 import UseCases from "@/components/home/UseCases.tsx";
 import Compare from "@/components/home/Compare.tsx";
 import ConnectFlow from "@/components/home/ConnectFlow.tsx";
+import InTheBox from "@/components/home/InTheBox.tsx";
 import FeatureScroll from "@/components/home/FeatureScroll.tsx";
 import FaqSimple from "@/components/home/FaqSimple.tsx";
 import GpuSupport from "@/components/home/GpuSupport.tsx";
@@ -49,10 +50,11 @@ function Home() {
   return (
     <>
       <HeroLanding />
+      <InTheBox />
+      <ConnectFlow />
       <TryApp />
       <UseCases />
       <Compare />
-      <ConnectFlow />
       <FeatureScroll />
       <GpuSupport />
       <Download />

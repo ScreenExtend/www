@@ -1,32 +1,33 @@
 import theme from 'daisyui/src/theming/themes'
 
-// Page tokens live as CSS variables inside each daisyUI theme so they follow
-// the light/dark/system switch. Values and contrast ratios: exhaustive-unslop/DESIGN-BRIEF.md.
+// "The leaflet in the box": paper stock and ink, plus one spot colour (the
+// logo blue) and the logo mint/lime as second and third spot inks. Each theme
+// sets the same tokens; contrast is in exhaustive-unslop/DESIGN.md.
 const lightTokens = {
-  '--se-paper': '#ffffff',
-  '--se-surface': '#f4f6f8',
-  '--se-ink': '#0f1419',
-  '--se-muted': '#4b5560',
-  '--se-line': '#dde2e7',
-  '--se-link': '#2456d6',
-  // soft logo-blue ground for a few sections: lighter than paper, never a jump
-  '--se-tint': '#eef3ff',
-  '--se-tile-blue': '#e1eaff',
+  '--se-paper': '#f2f1ec',
+  '--se-surface': '#e7e5dd',
+  '--se-ink': '#15171b',
+  '--se-muted': '#55595f',
+  '--se-line': '#c9c6bb',
+  '--se-link': '#2152cc',
+  // line-art fills inside drawings (the "unprinted" paper inside a screen)
+  '--se-sheet': '#fbfaf7',
+  '--se-tile-blue': '#dce5fb',
   '--se-tile-mint': '#d6f1ed',
 }
 const darkTokens = {
-  '--se-paper': '#0b0d10',
-  '--se-surface': '#15181c',
-  '--se-ink': '#f1f4f7',
-  '--se-muted': '#9ba5af',
-  '--se-line': '#262b31',
+  '--se-paper': '#121418',
+  '--se-surface': '#1b1e24',
+  '--se-ink': '#eceae3',
+  '--se-muted': '#a2a6ad',
+  '--se-line': '#30343c',
   '--se-link': '#8fb0ff',
-  '--se-tint': '#141c2c',
-  '--se-tile-blue': '#18244a',
+  '--se-sheet': '#1f2329',
+  '--se-tile-blue': '#1a2547',
   '--se-tile-mint': '#16302f',
 }
 const shared = {
-  primary: '#2b62f0',
+  primary: '#2557e0',
   'primary-content': '#ffffff',
   secondary: '#494949',
   neutral: '#03131a',
@@ -61,8 +62,8 @@ export default {
       },
     },
     fontFamily: {
-      sans: ["'Schibsted Grotesk'", 'system-ui', 'sans-serif'],
-      body: ["'Schibsted Grotesk'", 'system-ui', 'sans-serif'],
+      sans: ["'Archivo'", 'system-ui', 'sans-serif'],
+      body: ["'Archivo'", 'system-ui', 'sans-serif'],
       mono: ["'IBM Plex Mono'", 'ui-monospace', 'monospace'],
     },
     extend: {
@@ -73,7 +74,10 @@ export default {
         muted: 'var(--se-muted)',
         line: 'var(--se-line)',
         link: 'var(--se-link)',
-        tint: 'var(--se-tint)',
+        sheet: 'var(--se-sheet)',
+        // the spot ink: the logo blue one step darker so white type on it passes AA (5.97:1)
+        spot: '#2557e0',
+        'spot-soft': '#d9e4ff',
         'tile-blue': 'var(--se-tile-blue)',
         'tile-mint': 'var(--se-tile-mint)',
         lime: '#dcff4a',
@@ -84,10 +88,11 @@ export default {
         'logo-lime': '#dcff4a',
       },
       borderRadius: {
-        cell: '4px',
-        control: '6px',
-        panel: '8px',
-        shot: '10px',
+        // printed things have nearly square corners
+        cell: '2px',
+        control: '3px',
+        panel: '4px',
+        shot: '6px',
       },
       boxShadow: {
         shot: '0 1px 2px rgb(0 0 0 / 0.06), 0 12px 32px -12px rgb(0 0 0 / 0.25)',
@@ -100,19 +105,19 @@ export default {
         light: {
           ...theme.light,
           ...shared,
-          'base-100': '#ffffff',
-          'base-200': '#f4f6f8',
-          'base-300': '#dde2e7',
-          'base-content': '#0f1419',
+          'base-100': '#f2f1ec',
+          'base-200': '#e7e5dd',
+          'base-300': '#c9c6bb',
+          'base-content': '#15171b',
           ...lightTokens,
         },
         dark: {
           ...theme.dark,
           ...shared,
-          'base-100': '#0b0d10',
-          'base-200': '#15181c',
-          'base-300': '#262b31',
-          'base-content': '#f1f4f7',
+          'base-100': '#121418',
+          'base-200': '#1b1e24',
+          'base-300': '#30343c',
+          'base-content': '#eceae3',
           ...darkTokens,
         },
       },

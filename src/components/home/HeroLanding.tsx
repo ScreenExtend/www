@@ -1,44 +1,50 @@
-import Arrange from "@/components/home/Arrange.tsx";
+import HeroVideo from "@/components/home/HeroVideo.tsx";
 import SendToComputer from "@/components/home/SendToComputer.tsx";
-import GitHubCorner from "@/components/home/GitHubCorner.tsx";
+
+// The side of the box: what a careful shopper turns it over to read.
+const SPECS: [string, string][] = [
+  ["Price", "Free"],
+  ["Downloads", "2.5k+ so far"],
+  ["Your computer", "Windows 10 (2020) or newer, or macOS Catalina or newer (Mac is in beta)"],
+  ["The other device", "Anything with a web browser. Nothing to install on it."],
+];
 
 export default function HeroLanding() {
   return (
-    <section id="home" className="relative overflow-x-clip pb-16 pt-12 sm:pt-16 lg:pb-20 lg:pt-20">
-      <GitHubCorner />
-      <div className="container grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
-        <div className="lg:col-span-5">
-          <h1 className="display text-[clamp(2.25rem,4vw,3.25rem)]">
-            Use your tablet or phone as a second monitor
-          </h1>
-          <p className="mt-6 text-lg leading-relaxed text-muted sm:text-xl">
-            Or a spare laptop. ScreenExtend runs on your computer, and the other device
-            just opens it in the browser. Nothing to install there.
+    <section id="home" className="pb-16 pt-10 sm:pt-14 lg:pb-24 lg:pt-20">
+      <div className="container grid gap-12 lg:grid-cols-12 lg:gap-12">
+        <div className="lg:col-span-5 lg:pt-4">
+          <h1 className="display text-[clamp(2.4rem,3.9vw,3.5rem)]">A second monitor you already own</h1>
+          <p className="lede mt-6">
+            That old iPad in the drawer will do. So will your phone, or the laptop you replaced.
+            ScreenExtend runs on your computer, and the other device opens a link in its browser.
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-            <a href="#download" className="btn-solid min-h-12 w-full px-6 text-base active:scale-[0.97] sm:w-auto">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
+            <a href="#download" className="btn-solid min-h-12 w-full whitespace-nowrap px-6 text-base sm:w-auto">
               Download for Windows or Mac
             </a>
             <a href="#how" className="u-link inline-flex min-h-11 items-center">
-              How pairing works
+              Read the setup (it's short)
             </a>
           </div>
 
-          <SendToComputer />
-
-          <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
-            <li>Free</li>
-            <li>
-              <span className="text-ink">2.5k+</span> downloads
-            </li>
-            <li>Windows 10 (2020) or newer, macOS Catalina or newer</li>
-          </ul>
         </div>
 
         <div className="lg:col-span-7">
-          <Arrange />
+          <HeroVideo />
         </div>
+
+        <SendToComputer />
+
+        <dl className="grid grid-cols-1 border-y-[1.5px] border-ink sm:grid-cols-2 lg:col-span-12 lg:grid-cols-4">
+          {SPECS.map(([k, v]) => (
+            <div key={k} className="spec-cell py-4">
+              <dt className="small-print font-semibold text-ink">{k}</dt>
+              <dd className="mt-1 text-[0.9375rem] leading-snug">{v}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

@@ -1,19 +1,22 @@
 import AppDemo from "@/components/home/app-demo/AppDemo.tsx";
 import DemoGate from "@/components/home/app-demo/DemoGate.tsx";
+import { CropMarks } from "@/components/home/drawings.tsx";
 
-// The live replica of the desktop app, on its own after the hero. Screen 1 from the
-// arrangement panel, opened up: the blue plate sits behind it as the frame.
+// The live replica of the desktop app, trimmed out with crop marks like a
+// proof sheet, since it is a copy of the real thing.
 export default function TryApp() {
   return (
-    <section id="app" className="py-16 lg:py-20">
+    <section id="app" className="border-t-[1.5px] border-ink py-16 lg:py-24">
       <div className="container">
-        <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
-          <div>
-            <h2 className="display-lg">The app on your computer</h2>
-            <p className="mt-3 text-lg text-muted">It shows a code, the other device scans it, and that's the setup.</p>
-          </div>
+        <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
+          <h2 className="display-lg lg:col-span-6">The app, before you download it</h2>
+          <p className="lede lg:col-span-6">
+            This is a working copy of the window you'll see on your computer. Click around. It runs in
+            this page, so nothing here touches your machine.
+          </p>
         </div>
-        <div className="mt-10 rounded-[14px] bg-logo-blue p-[1.25%] sm:p-3">
+        <div className="relative mt-12">
+          <CropMarks />
           <DemoGate>
             <AppDemo />
           </DemoGate>

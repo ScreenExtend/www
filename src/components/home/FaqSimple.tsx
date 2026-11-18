@@ -1,30 +1,31 @@
 import { Plus } from "lucide-react";
 
-// Keep in sync with the FAQPage JSON-LD in index.html.
+// Keep in sync with the FAQPage JSON-LD in index.html. Same facts as before,
+// in the leaflet's voice.
 const QA = [
   {
     q: "Which devices can I use as the second screen?",
-    a: "Anything with a modern web browser: an iPad or Android tablet, a phone, or another laptop. Nothing gets installed on it. ScreenExtend itself runs on your Windows PC or Mac.",
+    a: "Anything with a modern web browser: an iPad or Android tablet, a phone, or another laptop. Nothing gets installed on it. The ScreenExtend app runs on your Windows PC or Mac, and that's the only install.",
   },
   {
-    q: "How do I use ScreenExtend?",
-    a: "Run it on your computer, scan the QR code (or open the link) on the other device, and type the 6-digit code. That device becomes an extra monitor.",
+    q: "How do I set it up?",
+    a: "Run ScreenExtend on your computer. On the other device, scan the QR code (or open the link) and type the 6-digit code. It's now an extra monitor.",
   },
   {
     q: "Is my data secure?",
-    a: "The picture and sound are always encrypted. A device can only join with the session's 6-digit code, and you can make a new code any time to keep others out. The join page itself loads over plain HTTP on your own network unless you switch on the HTTPS version, which your browser may warn about because the app makes its own certificate.",
+    a: "The picture and sound are always encrypted. A device can only join with the session's 6-digit code, and you can make a new code whenever you like to keep others out. One caveat: the join page itself loads over plain HTTP on your own network unless you switch on the HTTPS version, and your browser may warn about that one because the app makes its own certificate.",
   },
   {
     q: "What resolution and refresh rate can it do? Can it game?",
-    a: "Each device can go up to 200% scale, and you can set its refresh rate anywhere from 15 to 550 Hz. In our tests the computer sent about 150 frames a second; what you actually see depends on the other device and your Wi-Fi. Gaming works if your network keeps up. HDR is coming in a future release.",
+    a: "Each device goes up to 200% scale, with a refresh rate you can set anywhere from 15 to 550 Hz. In our tests the computer sent about 150 frames a second; what you actually see depends on the other device and your Wi-Fi. Gaming works if your network keeps up. HDR is coming in a future release.",
   },
   {
     q: "How many devices can connect at once?",
-    a: "Several. Each one gets its own display, and each one you add uses more of your computer. With NVIDIA graphics, up to 8 devices use the graphics chip; any more fall back to the processor.",
+    a: "Several. Each one gets its own display, and each one you add uses more of your computer. With NVIDIA graphics, up to 8 devices are encoded on the graphics chip; past that, the processor takes the rest.",
   },
   {
     q: "How does offline mode work?",
-    a: "Open Settings and start the hosted network with a name and password. Join that Wi-Fi on the other device and open the link ScreenExtend shows. No router needed.",
+    a: "Open Settings and start the hosted network with a name and password. On the other device, join that Wi-Fi and open the link ScreenExtend shows. No router involved.",
   },
   {
     q: "What data does ScreenExtend collect?",
@@ -34,12 +35,13 @@ const QA = [
 
 export default function FaqSimple() {
   return (
-    <section id="faq" className="border-t border-line py-16 lg:py-24">
+    <section id="faq" className="border-t-[1.5px] border-ink py-16 lg:py-24">
       <div className="container grid gap-8 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-4">
-          <h2 className="display-lg">Frequently asked questions</h2>
-          <p className="mt-4 text-muted">
-            Not covered here? Email{" "}
+          <h2 className="display-lg">The small print</h2>
+          <p className="lede mt-3">In normal-sized type.</p>
+          <p className="mt-6 text-muted">
+            Still stuck? Email{" "}
             <a href="mailto:support@screenextend.app" className="u-link">
               support@screenextend.app
             </a>
@@ -47,21 +49,19 @@ export default function FaqSimple() {
           </p>
         </div>
 
-        <div className="border-b border-line lg:col-span-8">
-          {QA.map((item) => (
-            <details key={item.q} className="group border-t border-line">
-              <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-6 py-4 text-lg font-medium [&::-webkit-details-marker]:hidden">
+        <div className="border-b-[1.5px] border-ink lg:col-span-8">
+          {QA.map((item, i) => (
+            <details key={item.q} className={`group ${i === 0 ? "border-t-[1.5px] border-ink" : "border-t border-line"}`}>
+              <summary className="wide flex min-h-14 cursor-pointer list-none items-center justify-between gap-6 py-4 text-lg font-bold leading-snug [&::-webkit-details-marker]:hidden">
                 {item.q}
                 <Plus
-                  size={18}
-                  strokeWidth={1.75}
+                  size={20}
+                  strokeWidth={2}
                   aria-hidden="true"
-                  className="shrink-0 text-muted transition-transform duration-150 group-open:rotate-45"
+                  className="shrink-0 text-link transition-transform duration-150 group-open:rotate-45"
                 />
               </summary>
-              <p className=" pb-5 leading-relaxed text-muted">
-                {item.a}
-              </p>
+              <p className="max-w-[62ch] pb-6 leading-relaxed text-muted">{item.a}</p>
             </details>
           ))}
         </div>

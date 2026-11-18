@@ -7,14 +7,14 @@ import { Menu as MenuIcon, Github, Moon, Sun, SunMoon, X } from "lucide-react";
 import logo from "@/assets/logo/screenextend.svg";
 
 const NAV_ITEMS = [
+  { id: "how", label: "Setup" },
+  { id: "app", label: "The app" },
   { id: "uses", label: "Uses" },
   { id: "compare", label: "Compare" },
-  { id: "how", label: "How it works" },
-  { id: "features", label: "Settings" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "Small print" },
 ];
 
-const SPY_IDS = ["home", "uses", "compare", "how", "features", "download", "faq"];
+const SPY_IDS = ["home", "box", "how", "app", "uses", "compare", "features", "gpu", "download", "faq"];
 
 // Follows the OS by default (NN/g: don't force a theme); the choice is remembered.
 const THEMES = [
@@ -143,12 +143,12 @@ export default function Navbar() {
 
   const linkClass = (id: string) =>
     `inline-flex min-h-11 items-center px-3 text-[0.9375rem] transition-colors duration-150 hover:text-ink ${
-      activeId === id ? "text-ink underline decoration-2 underline-offset-[6px]" : "text-muted"
+      activeId === id ? "text-ink underline decoration-link decoration-2 underline-offset-[6px]" : "text-muted"
     }`;
 
   return (
     <>
-      <header className="sticky top-0 z-30 border-b border-line bg-paper">
+      <header className="sticky top-0 z-30 border-b-[1.5px] border-ink bg-paper">
         <div className="container flex h-16 items-center gap-2">
           <button
             ref={menuButton}
@@ -163,7 +163,7 @@ export default function Navbar() {
           </button>
           <a
             href="/"
-            className="flex min-h-11 shrink-0 items-center gap-2 font-mono text-[0.9375rem] font-semibold tracking-tight sm:text-lg"
+            className="wide flex min-h-11 shrink-0 items-center gap-2.5 text-[1.0625rem] font-extrabold sm:text-lg"
           >
             <img src={logo} width={26} height={23} className="h-[23px] w-[26px]" alt="" />
             ScreenExtend
@@ -221,7 +221,7 @@ export default function Navbar() {
             <div className="mb-2 flex items-center justify-between">
               <a
                 href="/"
-                className="flex items-center gap-2 font-mono text-lg font-semibold"
+                className="wide flex items-center gap-2 text-lg font-extrabold"
                 onClick={closeDrawer}
               >
                 <img src={logo} width={24} height={21} className="h-[21px] w-6" alt="" />

@@ -1,7 +1,9 @@
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/ibm-plex-mono-500.woff2') format('woff2')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/ibm-plex-mono-600.woff2') format('woff2')}
 
-@font-face{font-family:'Schibsted Grotesk';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/schibsted-grotesk-var.woff2') format('woff2-variations')}
+/* Archivo (Omnibus-Type, OFL): one grotesk with a width axis, so headings run wide
+   like a box front, step numbers run condensed, and small print sits in between. */
+@font-face{font-family:'Archivo';font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url('/fonts/archivo-wdth.woff2') format('woff2-variations');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
 @tailwind base;
 @tailwind components;
@@ -21,6 +23,8 @@
     color: var(--se-ink);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 1.0625rem;
+    line-height: 1.55;
     accent-color: theme("colors.primary");
     caret-color: var(--se-link);
   }
@@ -39,7 +43,8 @@
     scroll-margin-top: 4.5rem;
   }
   ::selection {
-    background: rgb(49 108 255 / 0.32);
+    background: #dcff4a;
+    color: #15171b;
   }
   /* No outline rings (owner request). Keyboard focus still shows, as a soft
      background tint, so the page stays usable without a mouse. */
@@ -52,7 +57,11 @@
     border-radius: 6px;
   }
   .btn-solid:focus-visible {
-    background-color: #1f4cc0;
+    background-color: #1b45b8;
+    box-shadow: 0 0 0 2px var(--se-paper), 0 0 0 4px var(--se-ink);
+  }
+  .btn-line:focus-visible {
+    box-shadow: 0 0 0 2px var(--se-paper), 0 0 0 4px var(--se-link);
   }
   .tabular {
     font-variant-numeric: tabular-nums;
@@ -61,26 +70,45 @@
 
 @layer components {
   .btn-solid {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-control bg-primary px-5 font-medium text-white transition-colors duration-150 hover:bg-[#2456d6] active:bg-[#1f4cc0];
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-control bg-spot px-5 font-semibold text-white transition-[background-color,transform] duration-150 hover:bg-[#1f4cc8] active:translate-y-px active:bg-[#1b45b8];
+    font-stretch: 104%;
   }
   .btn-line {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-control border border-line bg-paper px-4 font-medium text-ink transition-colors duration-150 hover:border-ink;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-control border-[1.5px] border-ink bg-transparent px-4 font-semibold text-ink transition-[background-color,transform] duration-150 hover:bg-surface active:translate-y-px;
+    font-stretch: 104%;
   }
   .u-link {
     @apply text-link underline decoration-1 underline-offset-[3px] transition-colors duration-150 hover:decoration-2;
   }
-  .section-title {
-    @apply text-[1.75rem] font-semibold leading-tight tracking-tight sm:text-4xl;
-  }
-  /* section headers: small and plain so the content and the CTA lead */
+  /* The box front: wide and heavy. Hierarchy comes from width and weight as much as size. */
   .display {
-    @apply font-sans font-semibold;
-    line-height: 1.1;
-    letter-spacing: -0.015em;
+    font-family: Archivo, system-ui, sans-serif;
+    font-weight: 780;
+    font-stretch: 118%;
+    line-height: 1.02;
+    letter-spacing: -0.012em;
   }
   .display-lg {
-    @apply display;
-    font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+    font-family: Archivo, system-ui, sans-serif;
+    font-weight: 740;
+    font-stretch: 114%;
+    font-size: clamp(1.85rem, 3.1vw, 2.6rem);
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+  }
+  .wide {
+    font-stretch: 112%;
+  }
+  /* step numbers and the code digits: tall, narrow, like the figures on a manual */
+  .condensed {
+    font-stretch: 66%;
+  }
+  .small-print {
+    font-stretch: 90%;
+    @apply text-[0.8125rem] leading-relaxed text-muted;
+  }
+  .lede {
+    @apply text-lg leading-relaxed text-muted sm:text-xl;
   }
 }
 
@@ -101,34 +129,10 @@
 
 /* "Hover to try the app" pill: dark on light pages, a lighter grey on dark ones. */
 .demo-pill {
-  background: rgb(15 20 25 / 0.85);
+  background: #2557e0;
   color: #fff;
+  font-stretch: 106%;
 }
-[data-theme="dark"] .demo-pill {
-  background: #3a424b;
-  color: #f1f4f7;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .demo-pill {
-    background: #3a424b;
-    color: #f1f4f7;
-  }
-}
-
-/* The one entrance moment: the logo-stack plates settle into their offsets. */
-@keyframes stack-settle {
-  from {
-    transform: translate(var(--settle-x, 0), var(--settle-y, 0));
-  }
-  to {
-    transform: translate(0, 0);
-  }
-}
-.stack-plate {
-  animation: stack-settle 700ms cubic-bezier(0.2, 0.9, 0.2, 1) 120ms both;
-}
-
-
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -179,18 +183,64 @@
   content: none;
 }
 
-/* Arrangement panel (Arrange.tsx): plates glide to a snapped spot; this is also
-   the hero entrance, from the logo's stack to an arrangement. */
-.arrange-plate.is-snapping {
-  transition: left 600ms cubic-bezier(0.2, 0.8, 0.2, 1), top 600ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    width 600ms cubic-bezier(0.2, 0.8, 0.2, 1), height 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+/* Hero drawing (DeskDrawing.tsx): the one entrance. The window starts on the
+   laptop and is dragged until it sits across both screens, which is its resting
+   position, so with reduced motion it is simply drawn there. */
+@keyframes desk-drag {
+  0%,
+  18% {
+    transform: translate(-178px, 14px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
-.arrange-plate:focus-visible {
-  box-shadow: 0 0 0 2px var(--se-paper), 0 0 0 4px var(--se-ink);
+.desk-drag {
+  animation: desk-drag 1700ms cubic-bezier(0.45, 0, 0.2, 1) 400ms both;
 }
-.arrange-plate:not(.cursor-default):hover {
-  filter: brightness(1.04);
+@keyframes desk-press {
+  0%,
+  14% {
+    transform: scale(1);
+  }
+  20%,
+  100% {
+    transform: scale(0.9);
+  }
 }
-@media (prefers-reduced-motion: reduce) {
-  .arrange-plate.is-snapping { transition: none; }
+.desk-cursor-press {
+  transform-box: fill-box;
+  transform-origin: 0 0;
+  animation: desk-press 1700ms ease-out 400ms both;
+}
+
+/* The spec strip under the hero, ruled like the side panel of a box. */
+.spec-cell + .spec-cell {
+  border-top: 1px solid var(--se-line);
+}
+@media (min-width: 640px) {
+  .spec-cell {
+    padding-inline: 1.25rem;
+  }
+  .spec-cell:nth-child(odd) {
+    padding-left: 0;
+  }
+  .spec-cell:nth-child(2) {
+    border-top: 0;
+  }
+  .spec-cell:nth-child(even) {
+    border-left: 1px solid var(--se-line);
+  }
+}
+@media (min-width: 1024px) {
+  .spec-cell + .spec-cell {
+    border-top: 0;
+    border-left: 1px solid var(--se-line);
+  }
+  .spec-cell:nth-child(odd) {
+    padding-left: 1.25rem;
+  }
+  .spec-cell:first-child {
+    padding-left: 0;
+  }
 }

@@ -4,25 +4,28 @@ import AppDemo from "@/components/home/app-demo/AppDemo.tsx";
 // Settings. No hover gate here; they're usable straight away.
 export default function FeatureScroll() {
   return (
-    <section id="features" className="border-t border-line py-16 lg:py-24">
+    <section id="features" className="border-t-[1.5px] border-ink py-16 lg:py-24">
       <div className="container">
-        <h2 className="display-lg">Settings for each device</h2>
-        <p className="mt-3 text-lg text-muted">Pick a device and change how it looks.</p>
+        <div>
+          <h2 className="display-lg">Each device gets its own settings</h2>
+          <p className="lede mt-3 max-w-2xl">
+            Make the phone bigger without touching the tablet. Both panels below are live, so go ahead.
+          </p>
+        </div>
 
-        <div className="mt-10 grid gap-10 lg:mt-12 lg:grid-cols-2 lg:gap-8">
+        <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-10">
           <div className="min-w-0">
-            <h3 className="text-lg font-semibold">Edit Device</h3>
+            <h3 className="wide text-xl font-bold">Edit Device</h3>
             <p className="mt-1.5 leading-relaxed text-muted">
-              Scale, orientation, refresh rate and video quality, per device.
-              Changing one leaves the others alone.
+              Scale, orientation, refresh rate and video quality, set per device.
             </p>
             <AppDemo bare initialPage="edit" className="mt-5" />
           </div>
           <div className="min-w-0">
-            <h3 className="text-lg font-semibold">Settings</h3>
+            <h3 className="wide text-xl font-bold">Settings</h3>
             <p className="mt-1.5 leading-relaxed text-muted">
-              Regenerate the session code, start a network of its own so
-              devices connect without a router, and set a disconnect timeout.
+              Make a new session code, start a Wi-Fi network of its own, and choose how long to wait
+              before a quiet device is disconnected.
             </p>
             <AppDemo bare initialPage="settings" className="mt-5" />
           </div>

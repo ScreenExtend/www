@@ -28,7 +28,7 @@ function Mark({ yes, note }: { yes: boolean; note?: string }) {
   return (
     <span className="flex flex-col items-center gap-0.5 text-center">
       {yes ? (
-        <Check size={18} strokeWidth={2.5} className="text-[#4f86ff]" aria-hidden="true" />
+        <Check size={18} strokeWidth={2.5} className="text-link" aria-hidden="true" />
       ) : (
         <X size={18} strokeWidth={2.25} className="text-muted" aria-hidden="true" />
       )}
@@ -40,18 +40,22 @@ function Mark({ yes, note }: { yes: boolean; note?: string }) {
 
 export default function Compare() {
   return (
-    <section id="compare" className="py-16 lg:py-24">
+    <section id="compare" className="border-t-[1.5px] border-ink py-16 lg:py-24">
       <div className="container">
-        <h2 className="display-lg">How it compares</h2>
-        <p className="mt-3 text-lg text-muted">
-          Like Apple's Sidecar, for any device with a browser and a Windows PC or Mac.
-        </p>
+        <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
+          <h2 className="display-lg lg:col-span-6">Compared with the others</h2>
+          <p className="lede lg:col-span-6">
+            Think Sidecar, but for any device with a browser, and a Windows PC as well as a Mac. The
+            rows where we come up short stay in.
+          </p>
+        </div>
 
-        <div className="relative mt-10 overflow-x-auto">
-          <table className="w-full min-w-[44rem] border-collapse">
+        <div className="relative mt-12 overflow-x-auto" tabIndex={0} role="region" aria-label="Comparison table (scrolls sideways)">
+          {/* ruled like a printed table: heavy top and bottom rules, hairlines between */}
+          <table className="w-full min-w-[44rem] border-collapse border-y-2 border-ink">
             <caption className="sr-only">ScreenExtend compared with other second-screen apps</caption>
             <thead>
-              <tr className="border-b border-line text-sm">
+              <tr className="border-b-[1.5px] border-ink text-[0.9375rem]">
                 <th scope="col" className="py-3 pr-4 text-left font-medium">
                   <span className="sr-only">Feature</span>
                 </th>
@@ -59,7 +63,7 @@ export default function Compare() {
                   <th
                     key={c}
                     scope="col"
-                    className={`w-[15%] px-2 py-3 text-center ${i === 0 ? "rounded-t-panel bg-tile-blue font-semibold text-ink" : "font-medium text-muted"}`}
+                    className={`wide w-[15%] px-2 py-3 text-center ${i === 0 ? "bg-spot font-bold text-white" : "font-semibold text-muted"}`}
                   >
                     {c}
                   </th>
@@ -68,7 +72,7 @@ export default function Compare() {
             </thead>
             <tbody>
               {ROWS.map((r) => (
-                <tr key={r.q} className="border-b border-line">
+                <tr key={r.q} className="border-b border-line last:border-b-0">
                   <th scope="row" className="py-3 pr-4 text-left font-medium">{r.q}</th>
                   {r.v.map(([yes, note], i) => (
                     <td key={i} className={`px-2 py-3 text-center align-middle ${i === 0 ? "bg-tile-blue" : ""}`}>
@@ -81,10 +85,9 @@ export default function Compare() {
           </table>
         </div>
 
-        <p className="mt-6 text-xs leading-relaxed text-muted">
-          Checked November 2026 against each maker's own pages. Sidecar is a trademark
-          of Apple Inc.; other names belong to their owners. ScreenExtend isn't
-          affiliated with any of them.
+        <p className="small-print mt-6 max-w-3xl">
+          Checked November 2026 against each maker's own pages. Sidecar is a trademark of Apple Inc.;
+          other names belong to their owners. ScreenExtend isn't affiliated with any of them.
         </p>
       </div>
     </section>
