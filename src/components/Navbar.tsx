@@ -9,13 +9,13 @@ import { THEME_KEY, applyThemeAttr } from "@/lib/theme.ts";
 
 const NAV_ITEMS = [
   { id: "how", label: "Setup" },
-  { id: "app", label: "Functionality" },
+  { id: "features", label: "Functionality" },
   { id: "uses", label: "Uses" },
   { id: "compare", label: "Comparison" },
   { id: "faq", label: "FAQs" },
 ];
 
-const SPY_IDS = ["home", "how", "app", "uses", "compare", "features", "gpu", "download", "faq"];
+const SPY_IDS = ["home", "how", "uses", "compare", "features", "gpu", "download", "faq"];
 
 // Follows the OS by default (NN/g: don't force a theme); the choice is remembered.
 const THEMES = [

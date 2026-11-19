@@ -126,9 +126,6 @@ export default function Download() {
         <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <h2 className="display-lg">Download ScreenExtend</h2>
-            <p className="lede mt-3">
-              Free, for Windows and for Mac. Linux coming soon.
-            </p>
           </div>
         </div>
 

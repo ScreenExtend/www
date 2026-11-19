@@ -12,9 +12,8 @@ export default function HeroLanding() {
           </h1>
           <div className="lg:col-span-5 lg:pt-2">
             <p className="lede">
-              ScreenExtend runs on a Windows PC or Mac. An iPad, Android tablet, phone, old laptop
-              or any other device with a browser opens a link and becomes an extended monitor. It
-              works wirelessly and needs no install on the other device.
+              Runs on Windows and Mac. Turns any iPad, Android tablet, phone or old laptop into an
+              extended monitor through its browser. Wireless, nothing to install on the second device.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
               <a href="#download" className="btn-solid min-h-12 w-full whitespace-nowrap px-6 text-base sm:w-auto">

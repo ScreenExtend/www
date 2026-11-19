@@ -44,9 +44,6 @@ export default function Compare() {
       <div className="container">
         <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
           <h2 className="display-lg lg:col-span-6">Comparison</h2>
-          <p className="lede lg:col-span-6">
-            ScreenExtend runs on Windows and Mac and works with any device that has a browser.
-          </p>
         </div>
 
         <p className="small-print mt-10 md:hidden" aria-hidden="true">
