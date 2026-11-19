@@ -17,7 +17,7 @@ const WIN_REQ = [
   "Windows Server 20H2 (October 2020) or newer",
   "No ARM build yet",
 ];
-const MAC_REQ = ["macOS Catalina 10.15 (October 2019) or newer", "In beta"];
+const MAC_REQ = ["macOS Catalina 10.15 (October 2019) or newer"];
 
 // The one wide card: the download for the computer you're on (Windows when we
 // can't tell), with a heavy spot-blue edge. The rest are plain links below it.
@@ -130,7 +130,7 @@ export default function Download() {
           <div className="lg:col-span-7">
             <h2 className="display-lg">Download ScreenExtend</h2>
             <p className="lede mt-3">
-              Free, for Windows and for Mac (in beta). Linux isn't ready yet.
+              Free, for Windows and for Mac. Linux isn't ready yet.
             </p>
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function Download() {
                 <a className="u-link" href={MAC_DMG} target="_blank" rel="noopener noreferrer" onClick={() => setShowMacNotice(true)}>
                   Download .dmg (Universal)
                 </a>
-                , in beta. Needs macOS Catalina 10.15 (October 2019) or newer.
+                . Needs macOS Catalina 10.15 (October 2019) or newer.
               </li>
             )}
             <li>
