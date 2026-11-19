@@ -53,10 +53,10 @@ export function Device({ kind, x = 0, y = 0, ink, hatch }: { kind: Kind; x?: num
       {kind === "tablet" && (
         <>
           {/* the folio cover folded back into a stand, hatched as the far side */}
-          <path d="M148 88 L196 258 L180 258 L142 114 Z" fill={`url(#${hatch})`} {...l} strokeWidth={2} />
-          <rect x="10" y="30" width="168" height="224" rx="16" fill={ink.paper} {...l} />
+          <path d="M236 122 L292 258 L276 258 L228 146 Z" fill={`url(#${hatch})`} {...l} strokeWidth={2} />
+          <rect x="10" y="78" width="264" height="176" rx="16" fill={ink.paper} {...l} />
           {screen}
-          <rect x="0" y="252" width="190" height="8" rx="3" fill={ink.paper} {...l} />
+          <rect x="0" y="252" width="284" height="8" rx="3" fill={ink.paper} {...l} />
         </>
       )}
       {kind === "phone" && (

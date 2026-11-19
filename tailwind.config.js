@@ -15,6 +15,7 @@ const lightTokens = {
   '--se-link': '#2557e0',
   // the unprinted white inside a drawn screen
   '--se-sheet': '#fbfbfa',
+  '--se-hero': '#e6eaf0',
 }
 const darkTokens = {
   '--se-paper': '#16140f',
@@ -24,6 +25,7 @@ const darkTokens = {
   '--se-line': '#3a352c',
   '--se-link': '#93b1ff',
   '--se-sheet': '#221f19',
+  '--se-hero': '#1c1c1e',
 }
 const shared = {
   primary: '#2557e0',
@@ -76,6 +78,7 @@ export default {
         line: 'var(--se-line)',
         link: 'var(--se-link)',
         sheet: 'var(--se-sheet)',
+        hero: 'var(--se-hero)',
         // the spot ink: the logo blue one step darker so white type on it passes AA (5.97:1)
         spot: '#2557e0',
         lime: '#dcff4a',

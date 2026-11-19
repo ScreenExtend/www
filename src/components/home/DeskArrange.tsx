@@ -8,11 +8,10 @@ import { DESK, DEVICE, PAGE_INK as INK, screenAt, winSize, type Kind, type Rect 
 // arrow keys) from the computer onto the tablet, and between any screens.
 // While a window is over an edge it shows on both screens, dashed where there
 // is no screen, the same as with a plugged-in monitor. On drop it snaps into the
-// screen it covers most. Two switches put a phone and an old laptop on the desk.
+// screen it covers most.
 // On load the team chat is carried from the computer to the tablet, once.
 
 type WinId = "notes" | "chat" | "call";
-type Extra = "phone" | "old";
 // where a window is: the screen, and its top-left corner inside that screen
 type Pos = { on: Kind; x: number; y: number };
 type Drag = { id: WinId; x: number; y: number; w: number; h: number; ox: number; oy: number; sx: number; sy: number; moved: boolean };
@@ -24,85 +23,32 @@ const WINS: Record<WinId, { name: string; art: Art }> = {
 };
 const NAME: Record<Kind, string> = { laptop: "your computer", tablet: "the tablet", phone: "your phone", old: "the old laptop" };
 const LETTER: Record<Kind, string> = { laptop: "A", tablet: "B", phone: "C", old: "D" };
-// left to right on the desk, which is also the order the arrow keys step through.
-// On a phone the desk is two rows, A B over C D, and the keys follow the rows.
-const SEQ: Kind[] = ["old", "laptop", "tablet", "phone"];
-const SEQ_NARROW: Kind[] = ["laptop", "tablet", "phone", "old"];
+// left to right on the desk, which is also the order the arrow keys step through
+const SEQ: Kind[] = ["laptop", "tablet"];
 
 const START: Record<WinId, Pos> = {
   notes: { on: "laptop", x: 14, y: 14 },
   call: { on: "laptop", x: 156, y: 92 },
   chat: { on: "laptop", x: 160, y: 12 },
 };
-const CHAT_ON_TABLET: Pos = { on: "tablet", x: 4, y: 54 };
-
-const SWITCH: Record<Extra, { label: string; helper: string }> = {
-  phone: { label: "Add my phone", helper: "Any phone with a browser. It goes on the desk as C." },
-  old: { label: "Add the old laptop", helper: "An older laptop works too. It only has to run a browser." },
-};
+const CHAT_ON_TABLET: Pos = { on: "tablet", x: 51, y: 30 };
 
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
-const gapBetween = (a: Kind, b: Kind) => (a === "laptop" && b === "tablet" ? 18 : 44);
 
-// One row on wide layouts. On a phone the computer and tablet share the top
-// row and the extras go on a second desk below, so nothing gets too small to grab.
-function layout(on: Kind[], narrow: boolean) {
-  const place = {} as Record<Kind, [number, number]>;
-  const row = (ks: Kind[], y: number) => {
-    let x = 0;
-    ks.forEach((k, i) => {
-      if (i) x += gapBetween(ks[i - 1], k);
-      place[k] = [x, y];
-      x += DEVICE[k].w;
-    });
-    return x;
-  };
+// the two devices side by side on one desk
+function layout() {
+  const gap = 6;
+  const place = { laptop: [0, 0], tablet: [DEVICE.laptop.w + gap, 0] } as Record<Kind, [number, number]>;
+  const w = DEVICE.laptop.w + gap + DEVICE.tablet.w;
   const top = -56;
-  if (!narrow) {
-    const w = row(SEQ.filter((k) => on.includes(k)), 0);
-    return { place, desks: [0], vb: { x: -28, y: top, w: w + 56, h: DESK + 8 - top } };
-  }
-  const w1 = row(["laptop", "tablet"], 0);
-  const second = (["phone", "old"] as Kind[]).filter((k) => on.includes(k));
-  if (!second.length) return { place, desks: [0], vb: { x: -28, y: top, w: w1 + 56, h: DESK + 8 - top } };
-  const dy = DESK + 12;
-  const w2 = row(second, dy);
-  for (const k of second) place[k] = [place[k][0] + (w1 - w2) / 2, dy];
-  return { place, desks: [0, dy], vb: { x: -28, y: top, w: w1 + 56, h: dy + DESK + 8 - top } };
+  return { place, desks: [0], vb: { x: -28, y: top, w: w + 56, h: DESK + 8 - top } };
 }
 
-function Switch({ id, on, set }: { id: Extra; on: boolean; set: (v: boolean) => void }) {
-  const uid = useId();
-  return (
-    <div className="flex items-start justify-between gap-4">
-      <div className="min-w-0">
-        <p id={`${uid}-l`} className="wide cursor-pointer font-bold leading-snug" onClick={() => set(!on)}>
-          {SWITCH[id].label}
-        </p>
-        <p id={`${uid}-h`} className="mt-0.5 text-[0.9375rem] leading-snug text-muted">
-          {SWITCH[id].helper}
-        </p>
-      </div>
-      <button
-        type="button"
-        role="switch"
-        aria-checked={on}
-        aria-labelledby={`${uid}-l`}
-        aria-describedby={`${uid}-h`}
-        onClick={() => set(!on)}
-        className="switch mt-0.5"
-      />
-    </div>
-  );
-}
-
-function Letter({ k, on = true }: { k: string; on?: boolean }) {
+function Letter({ k }: { k: string }) {
   return (
     <span
       aria-hidden="true"
-      className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 text-[0.8125rem] font-extrabold leading-none ${
-        on ? "border-ink text-ink" : "border-dashed border-muted text-muted"
-      }`}
+      className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 text-[0.8125rem] font-extrabold leading-none border-ink text-ink"
     >
       {k}
     </span>
@@ -116,7 +62,6 @@ export default function DeskArrange() {
   const touched = useRef(false);
   const [narrow, setNarrow] = useState(false);
   const [coarse, setCoarse] = useState(false);
-  const [extra, setExtra] = useState<Record<Extra, boolean>>({ phone: false, old: false });
   const [wins, setWins] = useState(START);
   const [order, setOrder] = useState<WinId[]>(["notes", "call", "chat"]);
   const [sel, setSel] = useState<WinId>("chat");
@@ -124,9 +69,9 @@ export default function DeskArrange() {
   const [intro, setIntro] = useState<"wait" | "moving" | "done">("wait");
   const [msg, setMsg] = useState("");
 
-  const on: Kind[] = ["laptop", "tablet", ...(["phone", "old"] as Extra[]).filter((k) => extra[k])];
-  const seq = (narrow ? SEQ_NARROW : SEQ).filter((k) => on.includes(k));
-  const { place, desks, vb } = layout(on, narrow);
+  const on = SEQ;
+  const seq = SEQ;
+  const { place, desks, vb } = layout();
   const scr = (k: Kind): Rect => screenAt(k, place[k][0], place[k][1]);
 
   useEffect(() => {
@@ -269,26 +214,6 @@ export default function DeskArrange() {
     shift(id, fwd ? 1 : -1);
   };
 
-  const toggle = (k: Extra) => (v: boolean) => {
-    begin();
-    setExtra((x) => ({ ...x, [k]: v }));
-    if (v) {
-      setMsg(`${k === "phone" ? "Your phone" : "The old laptop"} is on the desk. Move a window onto it.`);
-      return;
-    }
-    const stranded = (Object.keys(wins) as WinId[]).filter((id) => wins[id].on === k);
-    if (!stranded.length) {
-      setMsg(`${k === "phone" ? "Your phone" : "The old laptop"} is off the desk.`);
-      return;
-    }
-    setWins((w) => {
-      const next = { ...w };
-      for (const id of stranded) next[id] = park("laptop", id, next);
-      return next;
-    });
-    setMsg(`${stranded.map((id) => WINS[id].name).join(" and ")} went back to your computer.`);
-  };
-
   const pad = narrow ? 10 : 4;
   const ease = (id: WinId) => (drag?.id === id ? "" : intro === "moving" && id === "chat" ? "hw-slow" : "hw-snap");
 
@@ -373,7 +298,7 @@ export default function DeskArrange() {
         <p>
           {coarse
             ? "The windows move. Drag one onto the tablet with your finger, or pick one and use the button below."
-            : "The windows move. Drag one onto the tablet, the way you would onto a plugged-in monitor. Without a mouse, Tab to a window and press the arrow keys."}
+            : "The windows move. Drag one onto the tablet, the way you would onto a plugged-in monitor."}
         </p>
         <button type="button" className="btn-line mt-4" onClick={() => shift(sel, 1)}>
           Move {WINS[sel].name.replace(/^The /, "the ")} to the next screen
@@ -396,15 +321,6 @@ export default function DeskArrange() {
             <span className="sr-only">B: </span>The tablet. It's only running its web browser.
           </span>
         </li>
-        {(["phone", "old"] as Extra[]).map((k) => (
-          <li key={k} className="flex gap-3">
-            <Letter k={LETTER[k]} on={extra[k]} />
-            <div className="min-w-0 flex-1">
-              <span className="sr-only">{LETTER[k]}: </span>
-              <Switch id={k} on={extra[k]} set={toggle(k)} />
-            </div>
-          </li>
-        ))}
       </ol>
     </figure>
   );

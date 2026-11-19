@@ -8,7 +8,7 @@ export const DESK = 260;
 
 export const DEVICE: Record<Kind, { w: number; top: number; screen: Rect; pin: [number, number] }> = {
   laptop: { w: 400, top: 6, screen: { x: 46, y: 22, w: 308, h: 196 }, pin: [42, 12] },
-  tablet: { w: 196, top: 30, screen: { x: 22, y: 42, w: 144, h: 200 }, pin: [24, 36] },
+  tablet: { w: 292, top: 78, screen: { x: 22, y: 90, w: 240, h: 152 }, pin: [24, 84] },
   phone: { w: 96, top: 96, screen: { x: 14, y: 106, w: 64, h: 128 }, pin: [14, 102] },
   old: { w: 316, top: 60, screen: { x: 44, y: 76, w: 228, h: 142 }, pin: [36, 66] },
 };

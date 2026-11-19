@@ -1,7 +1,7 @@
 const ORIGIN = "https://screenextend.app";
 
 export const HOME_TITLE =
-  "ScreenExtend: make the tablet in your drawer a second monitor";
+  "ScreenExtend: use your tablet as a second monitor";
 export const HOME_DESCRIPTION =
   "Use the tablet, phone or old laptop you already have as a wireless second monitor for your Windows PC or Mac. Free, and nothing to install on the other device.";
 
