@@ -121,7 +121,7 @@ export default function Download() {
 
   return (
     // on paper like the rest of the page; the only band is the window moment
-    <section className="border-t-[1.5px] border-ink bg-deep py-16 lg:py-24" id="download">
+    <section className="border-t-[1.5px] border-ink py-16 lg:py-24" id="download">
       <div className="container">
         <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">

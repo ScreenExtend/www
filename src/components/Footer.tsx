@@ -14,7 +14,7 @@ const LINK = "inline-flex min-h-11 items-center text-muted transition-colors dur
 // The back panel of the leaflet.
 export default function Footer() {
   return (
-    <footer className="border-t-2 border-ink bg-[#13245c] text-white [--se-ink:#ffffff] [--se-muted:#c9d6f7] [--se-link:#ffffff]">
+    <footer className="border-t-2 border-ink">
       <div className="container grid gap-8 py-10 text-sm lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-5">
           <Link to="/" className="wide inline-flex min-h-11 items-center gap-2.5 text-xl font-extrabold">

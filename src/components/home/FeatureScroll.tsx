@@ -4,7 +4,7 @@ import AppDemo from "@/components/home/app-demo/AppDemo.tsx";
 // Settings, both a fixed height that scrolls inside.
 export default function FeatureScroll() {
   return (
-    <section id="features" className="border-t-[1.5px] border-ink bg-tint py-16 lg:py-24">
+    <section id="features" className="border-t-[1.5px] border-ink py-16 lg:py-24">
       <div className="container">
         <div>
           <h2 className="display-lg">Per-device settings</h2>
