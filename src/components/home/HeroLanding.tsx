@@ -12,7 +12,7 @@ export default function HeroLanding() {
           </h1>
           <div className="lg:col-span-5 lg:pt-2">
             <p className="lede">
-              Runs on Windows and Mac. Turns any iPad, Android tablet, phone or old laptop into an
+              Turns any iPad, Android tablet, phone or old laptop into an
               extended monitor through its browser. Wireless, nothing to install on the second device.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">

@@ -143,9 +143,9 @@ export default function Download() {
             </Card>
           )}
 
-          <ul className="mt-6 grid gap-x-10 gap-y-2 text-[0.9375rem] leading-relaxed text-muted lg:grid-cols-3">
+          <ul className="mt-6 grid gap-x-10 gap-y-2 text-[0.9375rem] leading-relaxed text-muted md:grid-cols-2">
             {mac ? (
-              <li>
+              <li className="md:col-span-2">
                 <span className="font-semibold text-ink">Windows:</span>{" "}
                 <a className="u-link" href={WINDOWS_EXE} target="_blank" rel="noopener noreferrer" onClick={() => setShowWindowsNotice(true)}>
                   Download .exe (64-bit)
@@ -153,7 +153,7 @@ export default function Download() {
                 . Needs Windows 10 version 2004 (May 2020) or newer, or Windows 11.
               </li>
             ) : (
-              <li>
+              <li className="md:col-span-2">
                 <span className="font-semibold text-ink">macOS:</span>{" "}
                 <a className="u-link" href={MAC_DMG} target="_blank" rel="noopener noreferrer" onClick={() => setShowMacNotice(true)}>
                   Download .dmg (Universal)
@@ -162,8 +162,7 @@ export default function Download() {
               </li>
             )}
             <li>
-              <span className="font-semibold text-ink">Linux:</span> coming soon as .deb, .rpm and
-              AppImage. It will require Ubuntu 20.04 (April 2020).
+              <span className="font-semibold text-ink">Linux:</span> coming soon (.deb, .rpm, AppImage).
             </li>
             <li>
               <span className="font-mono text-sm">.msi</span> (Windows) and{" "}

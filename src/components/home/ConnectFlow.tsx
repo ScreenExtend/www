@@ -34,7 +34,6 @@ export default function ConnectFlow() {
     <section id="how" className="border-t-[1.5px] border-ink py-16 lg:py-24">
       <div className="container">
         <h2 className="display-lg">Setup</h2>
-        <p className="lede mt-3">About a minute, the first time.</p>
 
         <ol className="mt-12 grid gap-12 md:grid-cols-3 md:gap-10 lg:gap-14">
           <Step
@@ -42,8 +41,7 @@ export default function ConnectFlow() {
             t="Scanning the code"
             figure={<QrInline className="w-full max-w-[20rem]" />}
           >
-            It shows a QR code and a link. The tablet scans the code with its camera, or opens the
-            link in its browser.
+            Open a link in the client's browser.
           </Step>
 
           <Step
@@ -65,13 +63,11 @@ export default function ConnectFlow() {
               </>
             }
           >
-            The computer shows a 6-digit code. Entered on the tablet, in the page that just opened,
-            it makes the tablet a second monitor.
+            Enter the 6-digit security code to connect the device.
           </Step>
 
           <Step n={3} t="Moving a window across" figure={<EdgeDrawing className="h-32 w-auto max-w-full md:h-full" />}>
-            It works like a plugged-in monitor. A window pushed past the edge of the computer's screen
-            carries on onto the tablet.
+            Drag a window like a plugged-in monitor.
           </Step>
         </ol>
       </div>
