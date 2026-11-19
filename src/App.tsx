@@ -12,7 +12,6 @@ import { LEGAL_PATHS } from "@/legal/known.ts";
 const LegalPage = lazy(() => import("@/components/LegalPage.tsx"));
 
 import HeroLanding from "@/components/home/HeroLanding.tsx";
-import Features from "@/components/home/Features.tsx";
 import UseCases from "@/components/home/UseCases.tsx";
 import Compare from "@/components/home/Compare.tsx";
 import ConnectFlow from "@/components/home/ConnectFlow.tsx";
@@ -49,7 +48,6 @@ function Home() {
     <>
       <HeroLanding />
       <ConnectFlow />
-      <Features />
       <UseCases />
       <Compare />
       <GpuSupport />
