@@ -6,11 +6,11 @@ export default function HeroLanding() {
   return (
     <section id="home" className="bg-hero pb-16 pt-10 sm:pt-14 lg:pb-20 lg:pt-16">
       <div className="container">
-        <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
-          <h1 className="display text-[clamp(2.3rem,4.2vw,3.75rem)] lg:col-span-7">
+        <div>
+          <h1 className="display text-[clamp(2.3rem,4.2vw,3.75rem)]">
             Use your tablet as a second monitor
           </h1>
-          <div className="lg:col-span-5 lg:pt-2">
+          <div className="mt-5 max-w-2xl">
             <p className="lede">
               Turns any iPad, Android tablet, phone or old laptop into an
               extended monitor through its browser. Wireless, nothing to install on the second device.

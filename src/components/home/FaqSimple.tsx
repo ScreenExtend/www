@@ -36,8 +36,8 @@ const QA = [
 export default function FaqSimple() {
   return (
     <section id="faq" className="border-t-[1.5px] border-ink py-16 lg:py-24">
-      <div className="container grid gap-8 lg:grid-cols-12 lg:gap-12">
-        <div className="lg:col-span-4">
+      <div className="container">
+        <div>
           <h2 className="display-lg">Before you ask</h2>
           <p className="lede mt-3">
             Something missing? Email{" "}
@@ -48,7 +48,7 @@ export default function FaqSimple() {
           </p>
         </div>
 
-        <div className="border-b border-line lg:col-span-8">
+        <div className="mt-10 border-b border-line">
           {QA.map((item) => (
             <details key={item.q} className="group border-t border-line">
               <summary className="wide flex min-h-14 cursor-pointer list-none items-center justify-between gap-6 py-4 text-lg font-bold leading-snug [&::-webkit-details-marker]:hidden">
