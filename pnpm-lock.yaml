@@ -8,6 +8,78 @@ importers:
 
   .:
     dependencies:
+      '@fontsource-variable/atkinson-hyperlegible-mono':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/atkinson-hyperlegible-next':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/familjen-grotesk':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/hanken-grotesk':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/ibm-plex-sans':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/jetbrains-mono':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/mona-sans':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/public-sans':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/red-hat-display':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/red-hat-mono':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/red-hat-text':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/roboto':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/roboto-mono':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/roboto-slab':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/schibsted-grotesk':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/source-code-pro':
+        specifier: ^5.3.1
+        version: 5.3.1
+      '@fontsource-variable/source-sans-3':
+        specifier: ^5.3.1
+        version: 5.3.1
+      '@fontsource/fira-mono':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/fira-sans':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/ibm-plex-mono':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/ibm-plex-sans-condensed':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/monaspace-neon':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/monaspace-xenon':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/zilla-slab':
+        specifier: ^5.3.0
+        version: 5.3.0
       daisyui:
         specifier: ^4.7.2
         version: 4.12.24(postcss@8.5.6)
@@ -329,6 +401,78 @@ packages:
   '@eslint/js@8.57.1':
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
+  '@fontsource-variable/atkinson-hyperlegible-mono@5.3.0':
+    resolution: {integrity: sha512-0IbthhO18EEpLe69h+cmrsxCkl4yk80gMk+fAN3+9M5zQvoR1JlkzoJRR6U9/UXLYpVBGEXu+Md2LO8TIp30dw==}
+
+  '@fontsource-variable/atkinson-hyperlegible-next@5.3.0':
+    resolution: {integrity: sha512-UnLzNUy1RWoLDfydAatP4NaRm99X/WbQEph7q/PymJnCFIOOwKOx3pBmp5ys8trO0dM+CKGuJgeZP9fAR4mQpA==}
+
+  '@fontsource-variable/familjen-grotesk@5.3.0':
+    resolution: {integrity: sha512-R9W0xEZRIHUV658cuOGRMAIcqX1QJ8p5/W6Boooa6zAw1BAozU//mr8C0VNggSE26/VHPwj2XNyMAG6yUJmjxA==}
+
+  '@fontsource-variable/hanken-grotesk@5.3.0':
+    resolution: {integrity: sha512-DOd0FqL+3cH2dfNy0JtSq9tUfxBz5mLmHMjTU0DOr3E9Zo6wxuatCl53DIPNrSPgCsnuKyM739BTIG5glCLirw==}
+
+  '@fontsource-variable/ibm-plex-sans@5.3.0':
+    resolution: {integrity: sha512-agG8tXFEo0hD9+J7npa4vbbWult52eMLVaQ6WQRlhs/iCAojrMAoejru85W9HTVXHfyUj96KM7gp/KGAS87XaQ==}
+
+  '@fontsource-variable/jetbrains-mono@5.3.0':
+    resolution: {integrity: sha512-F32xpS2NsGYoQi2ADSkKTgpJj7ozajsGgDJ8woTnqjmIB+dxDIqImjl4pXZVEExu8UFZ2ndhmX18EBS/hdz3Lw==}
+
+  '@fontsource-variable/mona-sans@5.3.0':
+    resolution: {integrity: sha512-PkxRB3KI4z9Gjpk7vVqgO3GMSyQuOIIj4TaRDbvbcDj8SzWwI38jvLTQxJM/cTRorhcT7h8qjcllR+qjRtM/Fg==}
+
+  '@fontsource-variable/public-sans@5.3.0':
+    resolution: {integrity: sha512-AVfkmAt50BMXWpOO21FAntiJFKGX6xTc2dSL8dxtDteONe9IuRXJWGbs0EbG955vAMCq23ENeuopuW87cGWDSQ==}
+
+  '@fontsource-variable/red-hat-display@5.3.0':
+    resolution: {integrity: sha512-8u4FI+i3fkB8erlN9lMGa7Hm7aBCRP34y/aPwriBUiDYoxmS/N1QvBrd/hghUBnHJKrVKRg3h4Oubpyl2H8smw==}
+
+  '@fontsource-variable/red-hat-mono@5.3.0':
+    resolution: {integrity: sha512-/mEvTCcruJY64xRgx1gsmsYuGR7MtOduOsuyeHVJ07p+2gGvCqROauIwaTCcVHL4eBGi+Lns4EUIjrPZLCn5gQ==}
+
+  '@fontsource-variable/red-hat-text@5.3.0':
+    resolution: {integrity: sha512-DvwcJ6vj6ZR4xGnrcBpzWEnl35TXXroCYHGoTIdWpkgeYKq/Hda7JhvNuJFplKoGpu4DsCO2ZnyJjiGxvn4Etg==}
+
+  '@fontsource-variable/roboto-mono@5.3.0':
+    resolution: {integrity: sha512-h5r+KY/6qy8JEOj33JgcrFO81YAnvrc1EAwMpl/EPJLb2OIvOy0/jmB5M7qs7x/uXk5JUP5Ux4LrkeOK7faHkQ==}
+
+  '@fontsource-variable/roboto-slab@5.3.0':
+    resolution: {integrity: sha512-eByKAjLM9td0qsXCOZhlUGfhsjen//epd6/cAJOg+o73RtYBijrI1jz+lTp2X0ebwTCLmKB1+Kt/QiRMgmNPTw==}
+
+  '@fontsource-variable/roboto@5.3.0':
+    resolution: {integrity: sha512-BoaaZiQf8fgtxv07KXkTwx1bKz/EoqIlTXq2OOKKXINxp6qXWdnlChqV+hSaDANS49yyUASFl3OVBMMDTCIHFA==}
+
+  '@fontsource-variable/schibsted-grotesk@5.3.0':
+    resolution: {integrity: sha512-ndS6H/KICWANchlHF3q4UdZD+xrZ3Ji0rUobIuXlgvDUzDfqZDsVuXPXZb636nJZMHE9zZ9Fmwgqazm8hMB50Q==}
+
+  '@fontsource-variable/source-code-pro@5.3.1':
+    resolution: {integrity: sha512-N0nZDizh8CQ19+AHHA8Ssb1i/aQf4N2lpRl3qZVH4/9f1yNgWzTkBFpc26v+QQr2hm4By4aiv597BCoEg2SDQg==}
+
+  '@fontsource-variable/source-sans-3@5.3.1':
+    resolution: {integrity: sha512-u0p5Z/PM2e1uxYOMiodLM6NVzxHwULcB6Oi7QSr2WU/sdoLBFP/BeOZ3YYHeJ6rHsjPZA1nZweZVaV7sf2MAyQ==}
+
+  '@fontsource/fira-mono@5.3.0':
+    resolution: {integrity: sha512-FZzRwKhpoXQU1uhEGKUg5AHUUdfiaTXxGCdBBeGHUmcZaqEDEmndSVvpXHkSViH25f/UiWfhcWTib+6A8o4qeQ==}
+
+  '@fontsource/fira-sans@5.3.0':
+    resolution: {integrity: sha512-z1SKSG7eRhm3srlb7rQ3j77QP4TP7OFxCZ4wUWhCdt+3hOF9K0AyvybpAsz6+JWNcCVV7AqC7dbOT3e67P2r5A==}
+
+  '@fontsource/ibm-plex-mono@5.3.0':
+    resolution: {integrity: sha512-eTgnZjZEGk1QtD3ZstF+Vclo2HLAni8YMy34/DxllwZvyz1lR/1RF/xTiAquOBO7MvqBx8D2Ig2WCPMVfdZu7Q==}
+
+  '@fontsource/ibm-plex-sans-condensed@5.3.0':
+    resolution: {integrity: sha512-fQyBpwbkguP4azjq7Cw8h/J3C/d8MFAzXOiSoFxyKCUK4x0XKrWEh3tGdTxhDM0HctVRQilQo1zGoyxDHLm5jQ==}
+
+  '@fontsource/monaspace-neon@5.3.0':
+    resolution: {integrity: sha512-a4B4L4nmW+mW42gDb6JUugy2fA3DC0QKi2yRMXKzuNsN+wHhUvrqgYndIBMds+Evq/cWaMJgd06x14dHuBNxwA==}
+
+  '@fontsource/monaspace-xenon@5.3.0':
+    resolution: {integrity: sha512-f65HlIRnq072ZMGJL2AMCPE1198EMog1i5vko3BrmEn06+Z+Ttvyv6lgXkKlo04oa/E1ObZit1xHHNVFg8mA/Q==}
+
+  '@fontsource/zilla-slab@5.3.0':
+    resolution: {integrity: sha512-xbdDx5OESJDQqp3GIp4pjBgI+qpcg4AxnHLN15ekfJbG+ZYaOXg3uBjDpYlkuPQpey91afxHBNaqZgzluJ2FWA==}
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -2030,6 +2174,54 @@ snapshots:
       - supports-color
 
   '@eslint/js@8.57.1': {}
+
+  '@fontsource-variable/atkinson-hyperlegible-mono@5.3.0': {}
+
+  '@fontsource-variable/atkinson-hyperlegible-next@5.3.0': {}
+
+  '@fontsource-variable/familjen-grotesk@5.3.0': {}
+
+  '@fontsource-variable/hanken-grotesk@5.3.0': {}
+
+  '@fontsource-variable/ibm-plex-sans@5.3.0': {}
+
+  '@fontsource-variable/jetbrains-mono@5.3.0': {}
+
+  '@fontsource-variable/mona-sans@5.3.0': {}
+
+  '@fontsource-variable/public-sans@5.3.0': {}
+
+  '@fontsource-variable/red-hat-display@5.3.0': {}
+
+  '@fontsource-variable/red-hat-mono@5.3.0': {}
+
+  '@fontsource-variable/red-hat-text@5.3.0': {}
+
+  '@fontsource-variable/roboto-mono@5.3.0': {}
+
+  '@fontsource-variable/roboto-slab@5.3.0': {}
+
+  '@fontsource-variable/roboto@5.3.0': {}
+
+  '@fontsource-variable/schibsted-grotesk@5.3.0': {}
+
+  '@fontsource-variable/source-code-pro@5.3.1': {}
+
+  '@fontsource-variable/source-sans-3@5.3.1': {}
+
+  '@fontsource/fira-mono@5.3.0': {}
+
+  '@fontsource/fira-sans@5.3.0': {}
+
+  '@fontsource/ibm-plex-mono@5.3.0': {}
+
+  '@fontsource/ibm-plex-sans-condensed@5.3.0': {}
+
+  '@fontsource/monaspace-neon@5.3.0': {}
+
+  '@fontsource/monaspace-xenon@5.3.0': {}
+
+  '@fontsource/zilla-slab@5.3.0': {}
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:

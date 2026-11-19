@@ -1,0 +1,116 @@
+{
+ "F1": {
+  "label": "Mona Sans + IBM Plex Mono",
+  "imports": [
+   "@fontsource-variable/mona-sans/wdth.css",
+   "@fontsource/ibm-plex-mono/500.css",
+   "@fontsource/ibm-plex-mono/600.css"
+  ],
+  "display": "'Mona Sans Variable'",
+  "body": "'Mona Sans Variable'",
+  "mono": "'IBM Plex Mono'"
+ },
+ "F2": {
+  "label": "Red Hat Display + Red Hat Text + Red Hat Mono",
+  "imports": [
+   "@fontsource-variable/red-hat-display",
+   "@fontsource-variable/red-hat-text",
+   "@fontsource-variable/red-hat-mono"
+  ],
+  "display": "'Red Hat Display Variable'",
+  "body": "'Red Hat Text Variable'",
+  "mono": "'Red Hat Mono Variable'"
+ },
+ "F3": {
+  "label": "IBM Plex Sans Condensed + Plex Sans + Plex Mono",
+  "imports": [
+   "@fontsource/ibm-plex-sans-condensed/600.css",
+   "@fontsource/ibm-plex-sans-condensed/700.css",
+   "@fontsource-variable/ibm-plex-sans",
+   "@fontsource/ibm-plex-mono/500.css",
+   "@fontsource/ibm-plex-mono/600.css"
+  ],
+  "display": "'IBM Plex Sans Condensed'",
+  "body": "'IBM Plex Sans Variable'",
+  "mono": "'IBM Plex Mono'"
+ },
+ "F4": {
+  "label": "Public Sans + IBM Plex Mono",
+  "imports": [
+   "@fontsource-variable/public-sans",
+   "@fontsource/ibm-plex-mono/500.css",
+   "@fontsource/ibm-plex-mono/600.css"
+  ],
+  "display": "'Public Sans Variable'",
+  "body": "'Public Sans Variable'",
+  "mono": "'IBM Plex Mono'"
+ },
+ "F5": {
+  "label": "Schibsted Grotesk + IBM Plex Mono",
+  "imports": [
+   "@fontsource-variable/schibsted-grotesk",
+   "@fontsource/ibm-plex-mono/500.css",
+   "@fontsource/ibm-plex-mono/600.css"
+  ],
+  "display": "'Schibsted Grotesk Variable'",
+  "body": "'Schibsted Grotesk Variable'",
+  "mono": "'IBM Plex Mono'"
+ },
+ "F6": {
+  "label": "Roboto Slab + Roboto + Roboto Mono",
+  "imports": [
+   "@fontsource-variable/roboto-slab",
+   "@fontsource-variable/roboto",
+   "@fontsource-variable/roboto-mono"
+  ],
+  "display": "'Roboto Slab Variable'",
+  "body": "'Roboto Variable'",
+  "mono": "'Roboto Mono Variable'"
+ },
+ "F7": {
+  "label": "Source Sans 3 + Source Code Pro",
+  "imports": [
+   "@fontsource-variable/source-sans-3",
+   "@fontsource-variable/source-code-pro"
+  ],
+  "display": "'Source Sans 3 Variable'",
+  "body": "'Source Sans 3 Variable'",
+  "mono": "'Source Code Pro Variable'"
+ },
+ "F8": {
+  "label": "Hanken Grotesk + Atkinson Hyperlegible Next + Mono",
+  "imports": [
+   "@fontsource-variable/hanken-grotesk",
+   "@fontsource-variable/atkinson-hyperlegible-next",
+   "@fontsource-variable/atkinson-hyperlegible-mono"
+  ],
+  "display": "'Hanken Grotesk Variable'",
+  "body": "'Atkinson Hyperlegible Next Variable'",
+  "mono": "'Atkinson Hyperlegible Mono Variable'"
+ },
+ "F9": {
+  "label": "Zilla Slab + IBM Plex Sans + Plex Mono",
+  "imports": [
+   "@fontsource/zilla-slab/600.css",
+   "@fontsource/zilla-slab/700.css",
+   "@fontsource-variable/ibm-plex-sans",
+   "@fontsource/ibm-plex-mono/500.css",
+   "@fontsource/ibm-plex-mono/600.css"
+  ],
+  "display": "'Zilla Slab'",
+  "body": "'IBM Plex Sans Variable'",
+  "mono": "'IBM Plex Mono'"
+ },
+ "F10": {
+  "label": "Monaspace Xenon + Mona Sans + Monaspace Neon",
+  "imports": [
+   "@fontsource/monaspace-xenon/600.css",
+   "@fontsource/monaspace-xenon/700.css",
+   "@fontsource-variable/mona-sans/wdth.css",
+   "@fontsource/monaspace-neon/500.css"
+  ],
+  "display": "'Monaspace Xenon'",
+  "body": "'Mona Sans Variable'",
+  "mono": "'Monaspace Neon'"
+ }
+}

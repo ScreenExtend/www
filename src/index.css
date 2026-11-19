@@ -4,6 +4,7 @@
 /* Archivo (Omnibus-Type, OFL): one grotesk with a width axis, so headings run wide
    like a box front, step numbers run condensed, and small print sits in between. */
 @font-face{font-family:'Archivo';font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url('/fonts/archivo-wdth.woff2') format('woff2-variations');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--se-font-display:'Archivo',system-ui,sans-serif;--se-font-body:'Archivo',system-ui,sans-serif;--se-font-mono:'IBM Plex Mono',ui-monospace,monospace}
 
 @tailwind base;
 @tailwind components;
@@ -126,7 +127,7 @@
   }
   /* The box front: wide and heavy. Hierarchy comes from width and weight as much as size. */
   .display {
-    font-family: Archivo, system-ui, sans-serif;
+    font-family: var(--se-font-display);
     font-weight: 640;
     font-stretch: 112%;
     line-height: 1.02;
@@ -134,7 +135,7 @@
   }
   /* section heads: a step narrower, so the wide voice belongs to the cover */
   .display-lg {
-    font-family: Archivo, system-ui, sans-serif;
+    font-family: var(--se-font-display);
     font-weight: 660;
     font-stretch: 106%;
     font-size: clamp(2.1rem, 3.6vw, 3rem);

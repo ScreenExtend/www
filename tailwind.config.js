@@ -87,9 +87,9 @@ export default {
       },
     },
     fontFamily: {
-      sans: ["'Archivo'", 'system-ui', 'sans-serif'],
-      body: ["'Archivo'", 'system-ui', 'sans-serif'],
-      mono: ["'IBM Plex Mono'", 'ui-monospace', 'monospace'],
+      sans: ['var(--se-font-body)'],
+      body: ['var(--se-font-body)'],
+      mono: ['var(--se-font-mono)'],
     },
     extend: {
       colors: {

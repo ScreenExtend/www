@@ -26,7 +26,7 @@ export function Callout({ at, to, ink, children }: { at: [number, number]; to: [
       <path d={`M${at[0]} ${at[1]} L${to[0]} ${to[1]}`} stroke={ink.ink} strokeWidth="1.25" />
       <circle cx={to[0]} cy={to[1]} r="3" fill={ink.ink} />
       <circle cx={at[0]} cy={at[1]} r="15" fill={ink.paper} stroke={ink.ink} strokeWidth="1.25" />
-      <text x={at[0]} y={at[1] + 6} textAnchor="middle" fill={ink.ink} fontFamily="Archivo, sans-serif" fontWeight="800" fontSize="17">
+      <text x={at[0]} y={at[1] + 6} textAnchor="middle" fill={ink.ink} style={{ fontFamily: "var(--se-font-display)" }} fontWeight="800" fontSize="17">
         {children}
       </text>
     </g>
@@ -212,7 +212,7 @@ export function Window({ w, h, art, ink, hatch, hot = false, bar = true, title }
           {hot && <path d={`M1.25 1.25 H${w - 1.25} V${tb} H1.25 Z`} fill="var(--se-accent)" />}
           <path d={`M0 ${tb} H${w}`} {...l} />
           {w > 70 && title && tb >= 12 ? (
-            <text x={tb * 0.5} y={tb * 0.72} fill={hot ? "#14161a" : ink.ink} fontFamily="Archivo, sans-serif" fontWeight="700" fontSize={tb * 0.66}>
+            <text x={tb * 0.5} y={tb * 0.72} fill={hot ? "#14161a" : ink.ink} style={{ fontFamily: "var(--se-font-display)" }} fontWeight="700" fontSize={tb * 0.66}>
               {title}
             </text>
           ) : (

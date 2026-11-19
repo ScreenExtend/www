@@ -5,6 +5,7 @@ import App from "./App.tsx";
 import { BASE } from "@/lib/base.ts";
 
 import "./index.css";
+import "./font-variant.ts";
 
 const root = document.getElementById("root")!;
 const tree = (
