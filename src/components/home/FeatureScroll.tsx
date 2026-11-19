@@ -50,7 +50,7 @@ export default function FeatureScroll() {
     <section id="features" className="border-t-[1.5px] border-ink py-16 lg:py-24">
       <div className="container">
         <div>
-          <h2 className="display-lg">Each device gets its own settings</h2>
+          <h2 className="display-lg">Per-device settings</h2>
           <p className="lede mt-3 max-w-2xl">
             Make the phone bigger without touching the tablet. Both panels below are live, so go ahead.
           </p>

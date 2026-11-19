@@ -184,7 +184,7 @@ export default function UseCases() {
     <section id="uses" className="border-t-[1.5px] border-ink py-16 lg:py-24">
       <div className="container">
         <div className="max-w-2xl">
-          <h2 className="display-lg">What goes on the other screen</h2>
+          <h2 className="display-lg">Use cases</h2>
           <p className="lede mt-3">Pick one to see what goes on which screen.</p>
         </div>
 

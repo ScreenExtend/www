@@ -33,7 +33,7 @@ export default function ConnectFlow() {
   return (
     <section id="how" className="py-16 lg:py-24">
       <div className="container">
-        <h2 className="display-lg">Setup, all of it</h2>
+        <h2 className="display-lg">Setup</h2>
         <p className="lede mt-3">About a minute, the first time.</p>
 
         <ol className="mt-12 grid gap-12 md:grid-cols-3 md:gap-10 lg:gap-14">

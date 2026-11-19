@@ -38,10 +38,9 @@ export default function FaqSimple() {
     <section id="faq" className="border-t-[1.5px] border-ink py-16 lg:py-24">
       <div className="container grid gap-8 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-4">
-          <h2 className="display-lg">The small print</h2>
-          <p className="lede mt-3">Setup, security, and what gets collected.</p>
-          <p className="mt-6 text-muted">
-            Still stuck? Email{" "}
+          <h2 className="display-lg">Before you ask</h2>
+          <p className="lede mt-3">
+            Something missing? Email{" "}
             <a href="mailto:support@screenextend.app" className="u-link">
               support@screenextend.app
             </a>

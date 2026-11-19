@@ -43,7 +43,7 @@ export default function Compare() {
     <section id="compare" className="border-t-[1.5px] border-ink py-16 lg:py-24">
       <div className="container">
         <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
-          <h2 className="display-lg lg:col-span-6">Compared with the others</h2>
+          <h2 className="display-lg lg:col-span-6">Comparison</h2>
           <p className="lede lg:col-span-6">
             Think Sidecar, but for any device with a browser, and a Windows PC as well as a Mac. The
             rows where we come up short stay in.

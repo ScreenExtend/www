@@ -43,8 +43,16 @@
     scroll-margin-top: 4.5rem;
   }
   ::selection {
-    background: #dcff4a;
-    color: #15171b;
+    background: rgb(37 87 224 / 0.16);
+    color: inherit;
+  }
+  [data-theme="dark"] ::selection {
+    background: rgb(147 177 255 / 0.28);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) ::selection {
+      background: rgb(147 177 255 / 0.28);
+    }
   }
   /* No outline rings (owner request). Keyboard focus still shows, as a soft
      background tint, so the page stays usable without a mouse. */
@@ -249,41 +257,6 @@
 @media (prefers-reduced-motion: reduce) {
   .switch::after {
     transition: none;
-  }
-}
-
-/* The window moment (WindowMoment.tsx): plays once in view, then rests on the
-   tablet; with reduced motion it is simply drawn there. */
-@keyframes wm-walk {
-  0%,
-  12% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(238px);
-  }
-}
-.wm-play .wm-move {
-  animation: wm-walk 2.4s cubic-bezier(0.6, 0, 0.3, 1) 300ms both;
-}
-@keyframes wm-press {
-  0%,
-  10% {
-    transform: scale(1);
-  }
-  16%,
-  100% {
-    transform: scale(0.9);
-  }
-}
-.wm-play .wm-press {
-  transform-box: fill-box;
-  transform-origin: 0 0;
-  animation: wm-press 2.4s ease-out 300ms both;
-}
-@media (prefers-reduced-motion: reduce) {
-  .wm-move {
-    transform: translateX(238px);
   }
 }
 
