@@ -7,7 +7,7 @@ export default function HeroLanding() {
     <section id="home" className="bg-hero pb-16 pt-10 sm:pt-14 lg:pb-20 lg:pt-16">
       <div className="container">
         <div className="text-center">
-          <h1 className="display text-[clamp(2.3rem,4.2vw,3.75rem)]">
+          <h1 className="display text-[clamp(2.6rem,5.6vw,4.9rem)]">
             Use your tablet as a second monitor
           </h1>
           <div className="mx-auto mt-5 max-w-2xl">

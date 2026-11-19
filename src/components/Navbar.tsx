@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { BASE } from "@/lib/base.ts";
 
 import { useTheme } from "react-daisyui";
 import { Menu as MenuIcon, Github, Moon, Sun, SunMoon, X } from "lucide-react";
@@ -9,12 +10,13 @@ import { THEME_KEY, applyThemeAttr } from "@/lib/theme.ts";
 
 const NAV_ITEMS = [
   { id: "how", label: "Setup" },
+  { id: "features", label: "Features" },
   { id: "uses", label: "Uses" },
   { id: "compare", label: "Comparison" },
   { id: "faq", label: "FAQs" },
 ];
 
-const SPY_IDS = ["home", "how", "uses", "compare", "gpu", "download", "faq"];
+const SPY_IDS = ["home", "how", "features", "uses", "compare", "gpu", "download", "faq"];
 
 // Follows the OS by default (NN/g: don't force a theme); the choice is remembered.
 const THEMES = [
@@ -154,7 +156,7 @@ export default function Navbar() {
             <MenuIcon size={22} strokeWidth={1.75} aria-hidden="true" />
           </button>
           <a
-            href="/"
+            href={`${BASE}/`}
             className="wide flex min-h-11 shrink-0 items-center gap-2.5 text-[1.0625rem] font-extrabold sm:text-lg"
           >
             <img src={logo} width={26} height={23} className="h-[23px] w-[26px]" alt="" />
@@ -212,7 +214,7 @@ export default function Navbar() {
           >
             <div className="mb-2 flex items-center justify-between">
               <a
-                href="/"
+                href={`${BASE}/`}
                 className="wide flex items-center gap-2 text-lg font-extrabold"
                 onClick={closeDrawer}
               >
