@@ -201,7 +201,7 @@ export function ArtLines({ art, w, h, ink, hatch }: { art: Art; w: number; h: nu
 
 // A window: title bar and content, w x h at the origin. `hot` prints the title
 // bar in the spot ink (the window you're holding, or the one picked).
-export function Window({ w, h, art, ink, hatch, hot = false, bar = true }: { w: number; h: number; art: Art; ink: Ink; hatch: string; hot?: boolean; bar?: boolean }) {
+export function Window({ w, h, art, ink, hatch, hot = false, bar = true, title }: { w: number; h: number; art: Art; ink: Ink; hatch: string; hot?: boolean; bar?: boolean; title?: string }) {
   const l = stroke(ink.ink);
   const tb = bar ? Math.max(8, Math.min(18, h * 0.16)) : 0;
   return (
@@ -211,7 +211,13 @@ export function Window({ w, h, art, ink, hatch, hot = false, bar = true }: { w: 
         <>
           {hot && <path d={`M1.25 1.25 H${w - 1.25} V${tb} H1.25 Z`} fill={ink.spot} />}
           <path d={`M0 ${tb} H${w}`} {...l} />
-          {w > 70 && <path d={`M${tb * 0.6} ${tb / 2} H${tb * 0.6 + w * 0.25}`} stroke={hot ? ink.onSpot : ink.ink} strokeWidth="2.5" strokeLinecap="round" />}
+          {w > 70 && title && tb >= 12 ? (
+            <text x={tb * 0.5} y={tb * 0.72} fill={hot ? ink.onSpot : ink.ink} fontFamily="Archivo, sans-serif" fontWeight="700" fontSize={tb * 0.66}>
+              {title}
+            </text>
+          ) : (
+            w > 70 && <path d={`M${tb * 0.6} ${tb / 2} H${tb * 0.6 + w * 0.25}`} stroke={hot ? ink.onSpot : ink.ink} strokeWidth="2.5" strokeLinecap="round" />
+          )}
         </>
       )}
       <g transform={`translate(0 ${tb})`}>

@@ -40,11 +40,11 @@ export default function ConnectFlow() {
           <Step
             n={1}
             t="Open ScreenExtend on your computer"
-            figure={<QrInline className="w-full max-w-[17rem]" />}
-            note="An example. This code leads nowhere."
+            figure={<QrInline className="w-full max-w-[15rem]" />}
+            note="The app's Expand QR view. An example; this code leads nowhere."
           >
-            It shows a QR code. Scan it with the tablet's camera, or type the link under it into the
-            tablet's browser.
+            It shows a QR code and a link. Scan the code with the tablet's camera, or type the link
+            into the tablet's browser.
           </Step>
 
           <Step

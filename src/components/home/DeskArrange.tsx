@@ -35,7 +35,7 @@ const START: Record<WinId, Pos> = {
 const CHAT_ON_TABLET: Pos = { on: "tablet", x: 4, y: 54 };
 
 const SWITCH: Record<Extra, { label: string; helper: string }> = {
-  phone: { label: "Add my phone", helper: "Any phone with a browser. It becomes screen 3." },
+  phone: { label: "Add my phone", helper: "Any phone with a browser. It goes on the desk as C." },
   old: { label: "Add the old laptop", helper: "An older laptop works too. It only has to run a browser." },
 };
 
@@ -113,6 +113,7 @@ export default function DeskArrange() {
   const wrap = useRef<HTMLDivElement>(null);
   const touched = useRef(false);
   const [narrow, setNarrow] = useState(false);
+  const [coarse, setCoarse] = useState(false);
   const [extra, setExtra] = useState<Record<Extra, boolean>>({ phone: false, old: false });
   const [wins, setWins] = useState(START);
   const [order, setOrder] = useState<WinId[]>(["notes", "call", "chat"]);
@@ -129,6 +130,7 @@ export default function DeskArrange() {
   useEffect(() => {
     const el = wrap.current;
     if (!el) return;
+    setCoarse(window.matchMedia("(pointer: coarse)").matches);
     const fit = () => setNarrow(el.clientWidth < 600);
     fit();
     const ro = new ResizeObserver(fit);
@@ -198,7 +200,9 @@ export default function DeskArrange() {
     const p = toSvg(e);
     if (!p) return;
     begin();
-    e.currentTarget.setPointerCapture(e.pointerId);
+    // capture on the svg, not the window: bringing the window to the front
+    // moves its node, and a moved node loses the capture
+    svg.current?.setPointerCapture(e.pointerId);
     const r = rectOf(id);
     setDrag({ id, ...r, ox: p.x - r.x, oy: p.y - r.y, sx: p.x, sy: p.y, moved: false });
     setSel(id);
@@ -217,7 +221,8 @@ export default function DeskArrange() {
     setDrag(null);
     if (!d.moved) return; // a tap just picks the window
     // the screen it covers most; if it covers none, it goes back where it was
-    let to = wins[d.id].on;
+    const from = wins[d.id].on;
+    let to = from;
     let most = 0;
     for (const k of on) {
       const s = scr(k);
@@ -228,11 +233,14 @@ export default function DeskArrange() {
         to = k;
       }
     }
+    if (!most) {
+      setMsg(`${WINS[d.id].name} went back to where it was on ${NAME[from]}.`);
+      return;
+    }
     const s = scr(to);
     const z = winSize(s);
     const cx = d.x + d.w / 2 - s.x;
     const cy = d.y + d.h / 2 - s.y;
-    const from = wins[d.id].on;
     setWins((w) => ({
       ...w,
       [d.id]: { on: to, x: clamp(cx - z.w / 2, 4, s.w - z.w - 4), y: clamp(cy - z.h / 2, 6, s.h - z.h - 6) },
@@ -275,7 +283,7 @@ export default function DeskArrange() {
         <svg
           ref={svg}
           viewBox={`${vb.x} ${vb.y} ${vb.w} ${vb.h}`}
-          className="mx-auto block h-auto max-h-[27rem] w-full select-none"
+          className="mx-auto block h-auto max-h-[27rem] w-full touch-none select-none"
           role="group"
           aria-label={`A desk with ${on.map((k) => NAME[k]).join(", ")}. The windows on the screens can be moved.`}
           onPointerMove={move}
@@ -330,7 +338,7 @@ export default function DeskArrange() {
                 </g>
                 <g clipPath={`url(#s${uid})`}>
                   <g className={cls} style={t}>
-                    <Window w={r.w} h={r.h} art={WINS[id].art} ink={INK} hatch={`h${uid}`} hot={hot} />
+                    <Window w={r.w} h={r.h} art={WINS[id].art} ink={INK} hatch={`h${uid}`} hot={hot} title={WINS[id].name} />
                   </g>
                 </g>
                 <g className={cls} style={t}>
@@ -346,8 +354,9 @@ export default function DeskArrange() {
 
       <figcaption className="text-[0.9375rem] leading-relaxed text-muted lg:col-span-5">
         <p>
-          The windows move. Drag one onto the tablet, the way you would onto a plugged-in monitor.
-          Without a mouse, Tab to a window and press the arrow keys.
+          {coarse
+            ? "The windows move. Drag one onto the tablet with your finger, or pick one and use the button below."
+            : "The windows move. Drag one onto the tablet, the way you would onto a plugged-in monitor. Without a mouse, Tab to a window and press the arrow keys."}
         </p>
         <button type="button" className="btn-line mt-4" onClick={() => shift(sel, 1)}>
           Move {WINS[sel].name.replace(/^The /, "the ")} to the next screen

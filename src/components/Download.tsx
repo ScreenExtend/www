@@ -34,21 +34,21 @@ function Card({
   children: ReactNode;
 }) {
   return (
-    <div className="grid gap-6 rounded-panel border-[3px] border-spot bg-sheet p-6 sm:p-8 md:grid-cols-[1fr_auto] md:items-end md:gap-10">
-      <div>
-        <h3 className="wide flex flex-wrap items-center gap-x-3 gap-y-1 text-2xl font-bold">
-          {logo}
-          {name}
-          {yours && <span className="small-print font-semibold text-link">Your computer</span>}
-        </h3>
-        <p className="mt-4 text-sm font-semibold">Requires</p>
+    <div className="grid gap-6 rounded-panel border-[3px] border-spot bg-sheet p-6 sm:p-8 lg:grid-cols-12 lg:items-center lg:gap-10">
+      <h3 className="wide flex flex-wrap items-center gap-x-3 gap-y-1 text-2xl font-bold lg:col-span-3">
+        {logo}
+        {name}
+        {yours && <span className="small-print w-full font-semibold text-link">Your computer</span>}
+      </h3>
+      <div className="lg:col-span-5">
+        <p className="text-sm font-semibold">Requires</p>
         <ul className="mt-1 space-y-0.5 text-[0.9375rem] text-muted">
           {requires.map((r) => (
             <li key={r}>{r}</li>
           ))}
         </ul>
       </div>
-      <div className="md:min-w-[17rem]">{children}</div>
+      <div className="lg:col-span-4">{children}</div>
     </div>
   );
 }
@@ -134,7 +134,7 @@ export default function Download() {
           </div>
         </div>
 
-        <div className="mt-12 max-w-4xl">
+        <div className="mt-12">
           {mac ? (
             <Card logo={macImg} name="macOS" yours={os === "mac"} requires={MAC_REQ}>
               {macBtn}
@@ -145,7 +145,7 @@ export default function Download() {
             </Card>
           )}
 
-          <ul className="mt-6 space-y-2 text-[0.9375rem] leading-relaxed text-muted">
+          <ul className="mt-6 grid gap-x-10 gap-y-2 text-[0.9375rem] leading-relaxed text-muted lg:grid-cols-3">
             {mac ? (
               <li>
                 <span className="font-semibold text-ink">Windows:</span>{" "}

@@ -43,6 +43,8 @@ const shared = {
 
 /** @type {import('tailwindcss').Config} */
 export default {
+  // hover styles only where there is a real hover, so a tapped row doesn't stay shaded on touch
+  future: { hoverOnlyWhenSupported: true },
   content: ['./src/**/*.{js,jsx,ts,tsx}', 'index.html'],
   theme: {
     container: {

@@ -11,7 +11,7 @@ const ROWS: { gpu: string; api: string; win: Status; mac: Status }[] = [
   { gpu: "Apple Silicon", api: "VideoToolbox", win: "na", mac: "yes" },
   { gpu: "AMD", api: "AMF", win: "experimental", mac: "na" },
   { gpu: "Qualcomm", api: "Media Foundation", win: "no", mac: "na" },
-  { gpu: "Any other", api: "Software encoding on the CPU", win: "yes", mac: "yes" },
+  { gpu: "Any other", api: "Software, on the CPU", win: "yes", mac: "yes" },
 ];
 
 const LABEL: Record<Status, string> = {
@@ -31,8 +31,8 @@ const MARK: Record<Status, string> = {
 
 function Cell({ s }: { s: Status }) {
   return (
-    <td className="h-16 px-3 sm:px-4">
-      <span className={`inline-flex items-center gap-2.5 text-[0.9375rem] ${s === "na" || s === "no" ? "text-muted" : "text-ink"}`}>
+    <td className="h-[4.75rem] whitespace-nowrap px-2 sm:h-16 sm:px-4">
+      <span className={`inline-flex items-center gap-1.5 text-sm sm:gap-2.5 sm:text-[0.9375rem] ${s === "na" || s === "no" ? "text-muted" : "text-ink"}`}>
         {s !== "na" && <span aria-hidden="true" className={`h-3 w-3 shrink-0 rounded-[2px] ${MARK[s]}`} />}
         {s === "na" ? <span aria-label="Not applicable">n/a</span> : LABEL[s]}
       </span>
@@ -76,20 +76,22 @@ export default function GpuSupport() {
               role="region"
               aria-label="Graphics support table, scrolls sideways"
             >
-              <table className="w-full min-w-[22rem] border-collapse text-left">
+              {/* ruled like the comparison table: heavy ink rules top and bottom,
+                  hairlines between rows, every row the same height */}
+              <table className="w-full min-w-[20rem] border-collapse border-y-2 border-ink text-left">
                 <caption className="sr-only">Graphics card support by computer</caption>
                 <thead>
-                  <tr className="text-sm text-muted">
-                    <th scope="col" className="px-3 pb-3 font-medium sm:px-4">Graphics</th>
-                    <th scope="col" className="px-3 pb-3 font-medium sm:px-4">Windows</th>
-                    <th scope="col" className="px-3 pb-3 font-medium sm:px-4">Mac</th>
+                  <tr className="border-b-[1.5px] border-ink text-[0.9375rem]">
+                    <th scope="col" className="wide px-2 py-3 font-semibold sm:px-4">Graphics</th>
+                    <th scope="col" className="wide px-2 py-3 font-semibold sm:px-4">Windows</th>
+                    <th scope="col" className="wide px-2 py-3 font-semibold sm:px-4">Mac</th>
                   </tr>
                 </thead>
                 <tbody>
                   {ROWS.map((r) => (
-                    <tr key={r.gpu} className="border-t border-line last:border-b">
-                      <th scope="row" className="h-16 px-3 font-normal sm:px-4">
-                        <span className="font-semibold">{r.gpu}</span>
+                    <tr key={r.gpu} className="border-b border-line last:border-b-0">
+                      <th scope="row" className="h-[4.75rem] px-2 py-1.5 font-normal sm:h-16 sm:px-4">
+                        <span className="whitespace-nowrap font-semibold">{r.gpu}</span>
                         <span className="small-print block leading-snug">{r.api}</span>
                       </th>
                       <Cell s={r.win} />
