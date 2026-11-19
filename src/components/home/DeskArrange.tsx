@@ -172,17 +172,40 @@ export default function DeskArrange() {
     const p = toSvg(e);
     if (!p) return;
     const moved = drag.moved || Math.hypot(p.x - drag.sx, p.y - drag.sy) > 4;
-    // keep the window inside the screens: it can cross the gap between them,
-    // but never hang off the outer edge of a screen or over a bezel's top
+    // keep the window inside the screens, with the same margin it gets on drop
+    // (4 across, 6 down), so it never sits on a frame and never jumps when let
+    // go. It may straddle the gap only where it fits inside both screens'
+    // heights; otherwise it stays on the screen under the pointer.
+    const MX = 4;
+    const MY = 6;
     const ss = on.map(scr);
-    const left = Math.min(...ss.map((s) => s.x));
-    const right = Math.max(...ss.map((s) => s.x + s.w));
-    const x = clamp(p.x - drag.ox, left, right - drag.w);
-    // vertically, bound by the screens the window is over at this x
+    const fits = (s: Rect) => s.h - MY * 2 >= drag.h && s.w - MX * 2 >= drag.w;
+    const within = (s: Rect, wx: number, wy: number) => ({
+      x: clamp(wx, s.x + MX, s.x + s.w - MX - drag.w),
+      y: clamp(wy, s.y + MY, s.y + s.h - MY - drag.h),
+    });
+    const wantX = p.x - drag.ox;
+    const wantY = p.y - drag.oy;
+    const left = Math.min(...ss.map((s) => s.x)) + MX;
+    const right = Math.max(...ss.map((s) => s.x + s.w)) - MX;
+    let x = clamp(wantX, left, right - drag.w);
     const over = ss.filter((s) => x < s.x + s.w && x + drag.w > s.x);
-    const top = Math.max(...over.map((s) => s.y));
-    const bottom = Math.min(...over.map((s) => s.y + s.h));
-    const y = bottom - top >= drag.h ? clamp(p.y - drag.oy, top, bottom - drag.h) : clamp(p.y - drag.oy, Math.min(...over.map((s) => s.y)), Math.max(...over.map((s) => s.y + s.h)) - drag.h);
+    let y: number;
+    const top = Math.max(...over.map((s) => s.y)) + MY;
+    const bottom = Math.min(...over.map((s) => s.y + s.h)) - MY;
+    if (over.length > 1 && bottom - top >= drag.h) {
+      y = clamp(wantY, top, bottom - drag.h);
+    } else {
+      // one screen: the one under the pointer, or the nearest that fits
+      const cx = p.x;
+      const home =
+        ss.find((s) => cx >= s.x && cx <= s.x + s.w && fits(s)) ??
+        ss.filter(fits).sort((a, b) => Math.abs(a.x + a.w / 2 - cx) - Math.abs(b.x + b.w / 2 - cx))[0] ??
+        ss[0];
+      const r = within(home, wantX, wantY);
+      x = r.x;
+      y = r.y;
+    }
     setDrag({ ...drag, x, y, moved });
   };
   const up = () => {
