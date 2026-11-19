@@ -126,6 +126,14 @@ export default function Download() {
         <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <h2 className="display-lg">Download ScreenExtend</h2>
+            <p className="lede mt-3">
+              Windows and Mac supported. Linux coming soon. .msi and .pkg enterprise installation
+              packages are available on the{" "}
+              <a href={RELEASES} target="_blank" rel="noopener noreferrer" className="u-link">
+                Github releases page
+              </a>
+              .
+            </p>
           </div>
         </div>
 
@@ -143,9 +151,9 @@ export default function Download() {
             </Card>
           )}
 
-          <ul className="mt-6 grid gap-x-10 gap-y-2 text-[0.9375rem] leading-relaxed text-muted md:grid-cols-2">
+          <ul className="mt-6 grid gap-x-10 gap-y-2 text-[0.9375rem] leading-relaxed text-muted">
             {mac ? (
-              <li className="md:col-span-2">
+              <li>
                 <span className="font-semibold text-ink">Windows:</span>{" "}
                 <a className="u-link" href={WINDOWS_EXE} target="_blank" rel="noopener noreferrer" onClick={() => setShowWindowsNotice(true)}>
                   Download .exe (64-bit)
@@ -153,7 +161,7 @@ export default function Download() {
                 . Needs Windows 10 version 2004 (May 2020) or newer, or Windows 11.
               </li>
             ) : (
-              <li className="md:col-span-2">
+              <li>
                 <span className="font-semibold text-ink">macOS:</span>{" "}
                 <a className="u-link" href={MAC_DMG} target="_blank" rel="noopener noreferrer" onClick={() => setShowMacNotice(true)}>
                   Download .dmg (Universal)
@@ -161,19 +169,7 @@ export default function Download() {
                 . Needs macOS Catalina 10.15 (October 2019) or newer.
               </li>
             )}
-            <li>
-              <span className="font-semibold text-ink">Linux:</span> coming soon (.deb, .rpm, AppImage).
-            </li>
-            <li>
-              <span className="font-mono text-sm">.msi</span> (Windows) and{" "}
-              <span className="font-mono text-sm">.pkg</span> (Mac) packages for bulk enterprise
-              installs are on the{" "}
-              <a href={RELEASES} target="_blank" rel="noopener noreferrer" className="u-link">
-                GitHub releases page
-              </a>
-              .
-            </li>
-          </ul>
+</ul>
         </div>
 
         {showWindowsNotice && (

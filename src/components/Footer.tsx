@@ -37,7 +37,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className={LINK}
           >
-            GitHub
+            Github
           </a>
         </nav>
         <div className="flex items-center justify-between gap-4 border-t border-line pt-6 lg:col-span-12">

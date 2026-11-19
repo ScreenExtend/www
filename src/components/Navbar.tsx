@@ -186,7 +186,7 @@ export default function Navbar() {
               className="hidden min-h-11 items-center gap-2 px-3 text-[0.9375rem] text-muted transition-colors duration-150 hover:text-ink sm:inline-flex"
             >
               <Github size={18} strokeWidth={1.75} aria-hidden="true" />
-              GitHub
+              Github
             </a>
             <ThemeSwitch className="hidden sm:inline-flex" />
             <a href="/#download" className="btn-solid shrink-0 px-3 text-[0.9375rem] sm:px-4">
@@ -250,7 +250,7 @@ export default function Navbar() {
                 onClick={closeDrawer}
               >
                 <Github size={18} strokeWidth={1.75} aria-hidden="true" />
-                GitHub
+                Github
               </a>
             </nav>
           </div>
