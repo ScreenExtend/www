@@ -172,7 +172,18 @@ export default function DeskArrange() {
     const p = toSvg(e);
     if (!p) return;
     const moved = drag.moved || Math.hypot(p.x - drag.sx, p.y - drag.sy) > 4;
-    setDrag({ ...drag, x: p.x - drag.ox, y: p.y - drag.oy, moved });
+    // keep the window inside the screens: it can cross the gap between them,
+    // but never hang off the outer edge of a screen or over a bezel's top
+    const ss = on.map(scr);
+    const left = Math.min(...ss.map((s) => s.x));
+    const right = Math.max(...ss.map((s) => s.x + s.w));
+    const x = clamp(p.x - drag.ox, left, right - drag.w);
+    // vertically, bound by the screens the window is over at this x
+    const over = ss.filter((s) => x < s.x + s.w && x + drag.w > s.x);
+    const top = Math.max(...over.map((s) => s.y));
+    const bottom = Math.min(...over.map((s) => s.y + s.h));
+    const y = bottom - top >= drag.h ? clamp(p.y - drag.oy, top, bottom - drag.h) : clamp(p.y - drag.oy, Math.min(...over.map((s) => s.y)), Math.max(...over.map((s) => s.y + s.h)) - drag.h);
+    setDrag({ ...drag, x, y, moved });
   };
   const up = () => {
     const d = drag;
