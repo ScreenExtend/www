@@ -35,13 +35,14 @@ function List({ title, items }: { title: string; items: [string, string][] }) {
   return (
     <div className="min-w-0">
       <h3 className="wide text-xl font-bold">{title}</h3>
-      <ul className="mt-5 border-y-2 border-ink">
-        {items.map(([name]) => (
-          <li key={name} className="flex items-center gap-3.5 border-b border-line py-3 last:border-b-0">
-            <span aria-hidden="true" className="flex h-5 w-5 shrink-0 items-center justify-center rounded-[2px] bg-spot text-white">
-              <Check size={14} strokeWidth={3} />
+      <ul className="mt-6 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+        {items.map(([name, text]) => (
+          <li key={name} className="flex gap-2.5">
+            <Check size={16} strokeWidth={2.75} aria-hidden="true" className="mt-[0.2rem] shrink-0 text-link" />
+            <span>
+              <span className="font-semibold leading-snug">{name}</span>
+              <span className="mt-0.5 block text-sm leading-snug text-muted">{text}</span>
             </span>
-            <span className="font-semibold">{name}</span>
           </li>
         ))}
       </ul>
@@ -54,7 +55,7 @@ export default function FeatureScroll() {
     <section id="features" className="border-t-[1.5px] border-ink py-16 lg:py-24">
       <div className="container">
         <h2 className="display-lg">Per-device settings</h2>
-        <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-x-10">
+        <div className="mt-12 grid gap-14 lg:grid-cols-2 lg:gap-x-16">
           <List title="Each device" items={DEVICE} />
           <List title="Settings" items={APP} />
         </div>
