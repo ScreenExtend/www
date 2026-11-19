@@ -185,7 +185,6 @@ export default function UseCases() {
       <div className="container">
         <div className="max-w-2xl">
           <h2 className="display-lg">Use cases</h2>
-          <p className="lede mt-3">Each situation shows what goes on which screen.</p>
         </div>
 
         <div className="mt-10 grid gap-10 lg:mt-14 lg:grid-cols-12 lg:gap-14">
