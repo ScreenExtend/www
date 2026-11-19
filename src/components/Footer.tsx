@@ -18,8 +18,10 @@ export default function Footer() {
       <div className="container grid gap-8 py-10 text-sm lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-5">
           <Link to="/" className="wide inline-flex min-h-11 items-center gap-2.5 text-xl font-extrabold">
-            <span className="logo-tile"><img src={logo} width={26} height={23} className="h-[23px] w-[26px]" alt="" /></span>
-            ScreenExtend
+            <span className="brand-chip">
+              <span className="logo-tile"><img src={logo} width={26} height={23} className="h-[23px] w-[26px]" alt="" /></span>
+              ScreenExtend
+            </span>
           </Link>
           <p className="mt-2 max-w-sm text-[0.9375rem] text-muted">
             Free and open source, for the screens you already own.

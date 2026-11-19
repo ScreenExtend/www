@@ -282,6 +282,16 @@
 .hero-fade {
   background: linear-gradient(to bottom, var(--se-hero) 0%, var(--se-hero) 55%, var(--se-paper) 100%);
 }
+/* the name and logo sit on a slightly darker chip with a faint edge */
+.brand-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 4px 12px 4px 4px;
+  border: 1px solid var(--se-brand-edge);
+  border-radius: 9px;
+  background: var(--se-brand-chip);
+}
 /* a dark tile behind the logo, so the lime square reads on light paper */
 .logo-tile {
   display: inline-flex;

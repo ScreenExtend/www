@@ -17,6 +17,8 @@ const lightTokens = {
   '--se-sheet': '#fbfbfa',
   '--se-hero': '#e6eaf0',
   '--se-logo-tile': '#23262b',
+  '--se-brand-chip': '#e3e5e1',
+  '--se-brand-edge': '#d0d3cd',
 }
 const darkTokens = {
   '--se-paper': '#16140f',
@@ -26,8 +28,10 @@ const darkTokens = {
   '--se-line': '#3a352c',
   '--se-link': '#93b1ff',
   '--se-sheet': '#221f19',
-  '--se-hero': '#1c1c1e',
+  '--se-hero': '#1c2130',
   '--se-logo-tile': 'transparent',
+  '--se-brand-chip': '#1f1c16',
+  '--se-brand-edge': '#332f27',
 }
 const shared = {
   primary: '#2557e0',
