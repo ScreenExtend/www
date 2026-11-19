@@ -277,3 +277,15 @@
 .desk-swap {
   animation: desk-swap 180ms ease-out;
 }
+
+/* the hero's tint runs out into the page instead of stopping at a line */
+.hero-fade {
+  background: linear-gradient(to bottom, var(--se-hero) 0%, var(--se-hero) 55%, var(--se-paper) 100%);
+}
+/* a dark tile behind the logo, so the lime square reads on light paper */
+.logo-tile {
+  display: inline-flex;
+  padding: 4px;
+  border-radius: 5px;
+  background: var(--se-logo-tile);
+}

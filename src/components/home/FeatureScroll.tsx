@@ -29,7 +29,7 @@ function List({ title, items }: { title: string; items: [string, string][] }) {
 
 export default function FeatureScroll() {
   return (
-    <section id="features" className="border-t-[1.5px] border-ink py-16 lg:py-24">
+    <section id="features" className="py-16 lg:py-24">
       <div className="container">
         <h2 className="display-lg">Per-device settings</h2>
         <div className="mt-12">

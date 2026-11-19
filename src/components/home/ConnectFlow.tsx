@@ -31,7 +31,7 @@ function Step({ n, t, children, figure, note }: { n: number; t: string; children
 
 export default function ConnectFlow() {
   return (
-    <section id="how" className="border-t-[1.5px] border-ink py-16 lg:py-24">
+    <section id="how" className="py-16 lg:py-24">
       <div className="container">
         <h2 className="display-lg">Setup</h2>
 

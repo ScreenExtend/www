@@ -33,7 +33,7 @@ function useFitLine() {
 export default function HeroLanding() {
   const title = useFitLine();
   return (
-    <section id="home" className="bg-hero pb-16 pt-10 sm:pt-14 lg:pb-20 lg:pt-16">
+    <section id="home" className="hero-fade pb-16 pt-10 sm:pt-14 lg:pb-20 lg:pt-16">
       <div className="container">
         <div className="text-center">
           <h1 ref={title} className="display text-[clamp(2.6rem,5.6vw,4.9rem)]">

@@ -35,7 +35,7 @@ const QA = [
 
 export default function FaqSimple() {
   return (
-    <section id="faq" className="border-t-[1.5px] border-ink py-16 lg:py-24">
+    <section id="faq" className="py-16 lg:py-24">
       <div className="container">
         <div>
           <h2 className="display-lg">Before you ask</h2>

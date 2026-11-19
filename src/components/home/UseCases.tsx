@@ -181,7 +181,7 @@ export default function UseCases() {
   }, [pick]);
 
   return (
-    <section id="uses" className="border-t-[1.5px] border-ink py-16 lg:py-24">
+    <section id="uses" className="py-16 lg:py-24">
       <div className="container">
         <div className="max-w-2xl">
           <h2 className="display-lg">Use cases</h2>

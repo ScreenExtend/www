@@ -41,7 +41,7 @@ function Mark({ yes, note, ours }: { yes: boolean; note?: string; ours?: boolean
 
 export default function Compare() {
   return (
-    <section id="compare" className="border-t-[1.5px] border-ink py-16 lg:py-24">
+    <section id="compare" className="py-16 lg:py-24">
       <div className="container">
         <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
           <h2 className="display-lg lg:col-span-6">Comparison</h2>

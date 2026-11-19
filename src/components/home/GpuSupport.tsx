@@ -42,9 +42,9 @@ function Cell({ s }: { s: Status }) {
 
 export default function GpuSupport() {
   return (
-    <section id="gpu" className="border-t-[1.5px] border-ink py-16 lg:py-24">
+    <section id="gpu" className="py-16 lg:py-24">
       <div className="container">
-        <h2 className="display-lg max-w-2xl">Performance and GPU support</h2>
+        <h2 className="display-lg">Performance and GPU support</h2>
 
         <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-14">
           {/* Source: docs/RESULTS.md in the app repo, real-content 1080p capture to

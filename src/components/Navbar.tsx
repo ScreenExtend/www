@@ -158,7 +158,7 @@ export default function Navbar() {
             href={`${BASE}/`}
             className="wide flex min-h-11 shrink-0 items-center gap-2.5 text-[1.0625rem] font-extrabold sm:text-lg"
           >
-            <img src={logo} width={26} height={23} className="h-[23px] w-[26px]" alt="" />
+            <span className="logo-tile"><img src={logo} width={26} height={23} className="h-[23px] w-[26px]" alt="" /></span>
             ScreenExtend
           </a>
 
@@ -217,7 +217,7 @@ export default function Navbar() {
                 className="wide flex items-center gap-2 text-lg font-extrabold"
                 onClick={closeDrawer}
               >
-                <img src={logo} width={24} height={21} className="h-[21px] w-6" alt="" />
+                <span className="logo-tile"><img src={logo} width={24} height={21} className="h-[21px] w-6" alt="" /></span>
                 ScreenExtend
               </a>
               <ThemeSwitch className="ml-auto inline-flex" />

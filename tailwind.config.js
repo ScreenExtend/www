@@ -16,6 +16,7 @@ const lightTokens = {
   // the unprinted white inside a drawn screen
   '--se-sheet': '#fbfbfa',
   '--se-hero': '#e6eaf0',
+  '--se-logo-tile': '#23262b',
 }
 const darkTokens = {
   '--se-paper': '#16140f',
@@ -26,6 +27,7 @@ const darkTokens = {
   '--se-link': '#93b1ff',
   '--se-sheet': '#221f19',
   '--se-hero': '#1c1c1e',
+  '--se-logo-tile': 'transparent',
 }
 const shared = {
   primary: '#2557e0',
