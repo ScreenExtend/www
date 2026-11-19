@@ -127,7 +127,7 @@ export default function DemoGate({ children }: { children: ReactNode }) {
             onClick={activate}
             className="demo-pill absolute left-1/2 top-3 min-h-11 -translate-x-1/2 whitespace-nowrap rounded-control px-4 py-2 text-[0.9375rem] font-semibold sm:top-2"
           >
-            {canHover ? "Rest the pointer here to try it" : "Tap to try the app"}
+            {canHover ? "Live demo, starts on hover" : "Live demo, starts on tap"}
           </button>
         </div>
       )}

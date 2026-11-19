@@ -39,7 +39,7 @@ export default function ConnectFlow() {
         <ol className="mt-12 grid gap-12 md:grid-cols-3 md:gap-10 lg:gap-14">
           <Step
             n={1}
-            t="Open ScreenExtend on the computer"
+            t="Scanning the code"
             figure={<QrInline className="w-full max-w-[20rem]" />}
           >
             It shows a QR code and a link. The tablet scans the code with its camera, or opens the
@@ -48,7 +48,7 @@ export default function ConnectFlow() {
 
           <Step
             n={2}
-            t="Enter the code on the tablet"
+            t="Entering the code"
             figure={
               <>
                 <div className="flex w-full max-w-xs gap-[4%]" aria-hidden="true">
@@ -69,7 +69,7 @@ export default function ConnectFlow() {
             it makes the tablet a second monitor.
           </Step>
 
-          <Step n={3} t="Drag a window across" figure={<EdgeDrawing className="h-32 w-auto max-w-full md:h-full" />}>
+          <Step n={3} t="Moving a window across" figure={<EdgeDrawing className="h-32 w-auto max-w-full md:h-full" />}>
             It works like a plugged-in monitor. A window pushed past the edge of the computer's screen
             carries on onto the tablet.
           </Step>

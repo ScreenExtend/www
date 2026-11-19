@@ -308,7 +308,7 @@ export default function DeskArrange() {
       <figcaption className="text-[0.9375rem] leading-relaxed text-muted lg:col-span-5">
         <p>
           {coarse
-            ? "The windows move between the screens. Drag one with a finger, or pick one and use the button below."
+            ? "The windows move between the screens, by finger or with the button below."
             : "The windows move between the screens, the same as with a plugged-in monitor."}
         </p>
         <button type="button" className="btn-line mt-4" onClick={() => shift(sel, 1)}>
