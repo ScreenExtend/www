@@ -17,6 +17,7 @@ const ROWS: { q: string; v: [Cell, Cell, Cell, Cell, Cell] }[] = [
   { q: "No extra hardware", v: [[true], [true], [true], [true], [false, "Dummy plug required"]] },
   { q: "Offline support", v: [[true], [true], [true], [true], [false]] },
   { q: "Several screens at once", v: [[true], [false], [true], [true], [false]] },
+  { q: "Customizability", v: [[true], [false, "Resolution only"], [true], [true, "30/60 fps"], [false, "Quality only"]] },
   { q: "Remote control", v: [[true], [true], [true], [true], [false]] },
   { q: "Audio", v: [[true], [false], [true], [false], [false]] },
   { q: "HDR", v: [[false, "Coming soon"], [false], [false], [false], [false]] },
