@@ -1,13 +1,42 @@
+import { useLayoutEffect, useRef } from "react";
+
 import DeskArrange from "@/components/home/DeskArrange.tsx";
 import SendToComputer from "@/components/home/SendToComputer.tsx";
 
 // The cover of the leaflet: the line on the box, then the figure with its key.
+// On wide screens the headline is set on one line, sized so it spans the full
+// column whatever the typeface's width. Smaller screens wrap it at the CSS size.
+function useFitLine() {
+  const ref = useRef<HTMLHeadingElement>(null);
+  useLayoutEffect(() => {
+    const h = ref.current;
+    if (!h) return;
+    const wide = window.matchMedia("(min-width: 1024px)");
+    const fit = () => {
+      h.style.fontSize = "";
+      h.style.whiteSpace = "";
+      if (!wide.matches) return;
+      h.style.whiteSpace = "nowrap";
+      h.style.fontSize = "100px";
+      const room = h.parentElement!.clientWidth;
+      h.style.fontSize = `${Math.floor((100 * room) / h.scrollWidth * 10) / 10}px`;
+    };
+    fit();
+    document.fonts?.ready.then(fit);
+    const ro = new ResizeObserver(fit);
+    ro.observe(h.parentElement!);
+    return () => ro.disconnect();
+  }, []);
+  return ref;
+}
+
 export default function HeroLanding() {
+  const title = useFitLine();
   return (
     <section id="home" className="bg-hero pb-16 pt-10 sm:pt-14 lg:pb-20 lg:pt-16">
       <div className="container">
         <div className="text-center">
-          <h1 className="display text-[clamp(2.6rem,5.6vw,4.9rem)]">
+          <h1 ref={title} className="display text-[clamp(2.6rem,5.6vw,4.9rem)]">
             Use your tablet as a second monitor
           </h1>
           <div className="mx-auto mt-5 max-w-2xl">
