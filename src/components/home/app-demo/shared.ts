@@ -73,3 +73,11 @@ export function qrPath(seed: number) {
   }
   return d;
 }
+
+export type Tile = { name: string; url: string; seed: number; online: boolean };
+
+export const TILES: Tile[] = [
+  { name: "Anywhere (Internet)", url: `https://session.screenextend.app/?id=${SESSION_ID}`, seed: 7, online: true },
+  { name: "Wifi-Home", url: `http://192.168.1.12:8080/?id=${SESSION_ID}`, seed: 23, online: false },
+];
+

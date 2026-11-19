@@ -7,8 +7,8 @@ const EXAMPLE_CODE = ["3", "7", "7", "6", "2", "0"];
 
 function Step({ n, t, children, figure, note }: { n: number; t: string; children: React.ReactNode; figure: React.ReactNode; note?: string }) {
   return (
-    <li className="grid grid-cols-[3rem_1fr] gap-x-4 md:flex md:flex-col">
-      <div className="col-start-2 row-start-2 mt-5 flex items-center md:order-3 md:mt-8 md:h-64">
+    <li className="grid grid-cols-[3rem_minmax(0,1fr)] gap-x-4 md:flex md:flex-col">
+      <div className="col-start-2 row-start-2 mt-5 flex min-w-0 items-center md:order-3 md:mt-8 md:min-h-[16rem]">
         {figure}
       </div>
       {note && <p className="small-print col-start-2 row-start-3 mt-2 md:order-4">{note}</p>}
@@ -40,8 +40,8 @@ export default function ConnectFlow() {
           <Step
             n={1}
             t="Open ScreenExtend on your computer"
-            figure={<QrInline className="w-full max-w-[15rem]" />}
-            note="The app's Expand QR view. An example; this code leads nowhere."
+            figure={<QrInline className="w-full max-w-[20rem]" />}
+            note="The app's Add Device screen. An example; this code leads nowhere."
           >
             It shows a QR code and a link. Scan the code with the tablet's camera, or type the link
             into the tablet's browser.
