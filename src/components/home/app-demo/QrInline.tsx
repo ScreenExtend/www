@@ -12,7 +12,7 @@ export default function QrInline({ className = "" }: { className?: string }) {
   const t = TILES[0];
   return (
     <div className={`sed-root ${className}`}>
-      <div className="relative overflow-hidden rounded-[10px] border-[1.5px] border-ink bg-[hsl(var(--sed-bg))] px-3 py-4">
+      <div className="relative overflow-hidden rounded-[10px] border border-line bg-[hsl(var(--sed-bg))] px-3 py-4">
         <div className="flex justify-center">
           <QrTile t={t} live onExpand={() => setBig(true)} />
         </div>

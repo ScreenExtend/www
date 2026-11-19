@@ -45,8 +45,8 @@ export default function Compare() {
         <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
           <h2 className="display-lg lg:col-span-6">Comparison</h2>
           <p className="lede lg:col-span-6">
-            Think Sidecar, but for any device with a browser, and a Windows PC as well as a Mac. The
-            rows where we come up short stay in.
+            ScreenExtend runs on Windows and Mac and works with any device that has a browser. We
+            also list the rows where other apps do better.
           </p>
         </div>
 
@@ -88,7 +88,7 @@ export default function Compare() {
           </table>
         </div>
 
-        <p className="small-print mt-6 max-w-3xl">
+        <p className="small-print mt-6">
           Checked November 2026 against each maker's own pages. Sidecar is a trademark of Apple Inc.;
           other names belong to their owners. ScreenExtend isn't affiliated with any of them.
         </p>

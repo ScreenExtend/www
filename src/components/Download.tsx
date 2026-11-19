@@ -24,13 +24,11 @@ const MAC_REQ = ["macOS Catalina 10.15 (October 2019) or newer"];
 function Card({
   logo,
   name,
-  yours,
   requires,
   children,
 }: {
   logo: ReactNode;
   name: string;
-  yours: boolean;
   requires: string[];
   children: ReactNode;
 }) {
@@ -39,7 +37,6 @@ function Card({
       <h3 className="wide flex flex-wrap items-center gap-x-3 gap-y-1 text-2xl font-bold lg:col-span-3">
         {logo}
         {name}
-        {yours && <span className="small-print w-full font-semibold text-link">Your computer</span>}
       </h3>
       <div className="lg:col-span-5">
         <p className="text-sm font-semibold">Requires</p>
@@ -124,13 +121,13 @@ export default function Download() {
 
   return (
     // on paper like the rest of the page; the only band is the window moment
-    <section className="border-t-[1.5px] border-ink py-16 lg:py-24" id="download">
+    <section className="border-t-[1.5px] border-ink bg-limewash py-16 lg:py-24" id="download">
       <div className="container">
         <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <h2 className="display-lg">Download ScreenExtend</h2>
             <p className="lede mt-3">
-              Free, for Windows and for Mac. Linux isn't ready yet.
+              Free, for Windows and for Mac. Linux coming soon.
             </p>
           </div>
         </div>
@@ -140,11 +137,11 @@ export default function Download() {
 
         <div className="mt-12">
           {mac ? (
-            <Card logo={macImg} name="macOS" yours={os === "mac"} requires={MAC_REQ}>
+            <Card logo={macImg} name="macOS" requires={MAC_REQ}>
               {macBtn}
             </Card>
           ) : (
-            <Card logo={winImg} name="Windows" yours={os === "win"} requires={WIN_REQ}>
+            <Card logo={winImg} name="Windows" requires={WIN_REQ}>
               {winBtn}
             </Card>
           )}

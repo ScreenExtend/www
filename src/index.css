@@ -64,6 +64,14 @@
     background-color: rgb(37 87 224 / 0.16);
     border-radius: 6px;
   }
+  /* big containers that take focus (a section jumped to, a scroll region)
+     don't tint; only the control itself does */
+  main:focus-visible,
+  section:focus-visible,
+  [tabindex="-1"]:focus-visible,
+  [role="region"]:focus-visible {
+    background-color: transparent;
+  }
   .btn-solid:focus-visible {
     background-color: #1b45b8;
     box-shadow: 0 0 0 2px var(--se-paper), 0 0 0 4px var(--se-ink);

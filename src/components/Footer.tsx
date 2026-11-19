@@ -31,9 +31,6 @@ export default function Footer() {
               {link.label}
             </Link>
           ))}
-          <a href="mailto:support@screenextend.app" className={LINK}>
-            Contact
-          </a>
           <a
             href="https://github.com/ScreenExtend/ScreenExtend"
             target="_blank"

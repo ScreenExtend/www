@@ -54,10 +54,6 @@ export default function GpuSupport() {
               8<span className="text-[0.5em]"> ms</span>
             </p>
             <p className="wide mt-5 text-xl font-bold leading-tight">to capture and encode a frame</p>
-            <p className="mt-4 text-lg leading-relaxed">
-              This is only the computer's half of the trip. The rest depends on your Wi-Fi and the
-              other device, so what you see on the tablet takes longer than this.
-            </p>
             <p className="small-print mt-4">
               Median on real 1080p content, with 9 in 10 frames under 10 ms. Measured on Windows 11
               (25H2) with an NVIDIA RTX 3080 Ti Laptop GPU.
@@ -67,8 +63,8 @@ export default function GpuSupport() {
           <div className="min-w-0 lg:col-span-8">
             <h3 className="wide text-xl font-bold">Graphics chips</h3>
             <p className="mt-1.5 leading-relaxed text-muted">
-              The graphics chip keeps the second screen smooth. If yours isn't supported, the processor
-              does the work instead.
+              We encode on your graphics chip to keep the second screen smooth. If we don't support
+              yours yet, we use the processor instead.
             </p>
             {/* fits at 390px, so no scroll region or tab stop; overflow stays
                 only as a guard for very narrow windows */}

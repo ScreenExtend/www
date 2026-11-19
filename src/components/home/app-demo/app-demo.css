@@ -40,6 +40,8 @@
 .sed-root.se-fit .sed-win.sed-bare { height: auto; }
 /* stops on a card boundary (after Public Internet Sessions), so it reads as scrollable, not cut off */
 .sed-root.se-cut .sed-win.sed-bare { height: 404px; }
+/* the two settings panels: one fixed height, the rest scrolls inside */
+.sed-root.se-fixed .sed-win.sed-bare { height: 560px; }
 
 /* window: sidebar becomes a top tab row below 640px */
 .sed-root .sed-win {
