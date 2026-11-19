@@ -204,7 +204,7 @@ export default function UseCases() {
                     setPicked(true);
                   }}
                   className={`group flex min-h-14 w-full items-center gap-4 px-3 py-3 text-left transition-colors duration-150 ${
-                    pick === i ? "bg-lime [--se-ink:#14161a] [--se-muted:#14161a] [--se-link:#14161a]" : "hover:bg-sheet"
+                    pick === i ? "bg-spot [--se-ink:#ffffff] [--se-muted:#ffffff] [--se-link:#ffffff]" : "hover:bg-sheet"
                   }`}
                 >
                   <Glyph screens={x.s} on={pick === i} />

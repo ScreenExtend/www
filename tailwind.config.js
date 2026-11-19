@@ -1,35 +1,32 @@
 import theme from 'daisyui/src/theming/themes'
 
-// "The leaflet in the box": paper stock and ink, plus one spot colour (the
-// logo blue) and the logo mint/lime as second and third spot inks. Each theme
-// sets the same tokens; contrast is in exhaustive-unslop/DESIGN.md.
-// Light is uncoated white leaflet stock (a cool grey-white, not cream); dark is
-// the inside of the carton, a brown-black board. Two blues only: the spot ink,
-// and in dark mode a lighter link blue that reads on the board.
+// "The leaflet in the box", printed in blues: the ground, the section tints,
+// the download band and the footer are shades of the logo blue, with ink for
+// text and the spot blue for links and buttons. Each theme sets the same tokens.
 const lightTokens = {
-  '--se-paper': '#eeefec',
-  '--se-surface': '#e2e4e0',
-  '--se-ink': '#14161a',
-  '--se-muted': '#50555b',
-  '--se-line': '#bfc3bf',
+  '--se-paper': '#f0f4fc',
+  '--se-surface': '#e1e8f7',
+  '--se-ink': '#0f1729',
+  '--se-muted': '#475069',
+  '--se-line': '#c2cde6',
   '--se-link': '#2557e0',
   // the unprinted white inside a drawn screen
-  '--se-sheet': '#fbfbfa',
-  '--se-hero': '#e6eaf0',
-  '--se-apricot': '#f8e4d3',
-  '--se-limewash': '#f1f8d4',
+  '--se-sheet': '#fbfcff',
+  '--se-hero': '#dde6fb',
+  '--se-tint': '#e5ecfc',
+  '--se-deep': '#d3dffa',
 }
 const darkTokens = {
-  '--se-paper': '#16140f',
-  '--se-surface': '#211e18',
-  '--se-ink': '#ede8dc',
-  '--se-muted': '#a9a295',
-  '--se-line': '#3a352c',
+  '--se-paper': '#0e1322',
+  '--se-surface': '#161d31',
+  '--se-ink': '#e8edf8',
+  '--se-muted': '#a2acc6',
+  '--se-line': '#2b3552',
   '--se-link': '#93b1ff',
-  '--se-sheet': '#221f19',
-  '--se-hero': '#1c1c1e',
-  '--se-apricot': '#2a1e15',
-  '--se-limewash': '#1d2010',
+  '--se-sheet': '#141b2e',
+  '--se-hero': '#15203d',
+  '--se-tint': '#121a32',
+  '--se-deep': '#1a2650',
 }
 const shared = {
   primary: '#2557e0',
@@ -83,8 +80,8 @@ export default {
         link: 'var(--se-link)',
         sheet: 'var(--se-sheet)',
         hero: 'var(--se-hero)',
-        apricot: 'var(--se-apricot)',
-        limewash: 'var(--se-limewash)',
+        tint: 'var(--se-tint)',
+        deep: 'var(--se-deep)',
         // the spot ink: the logo blue one step darker so white type on it passes AA (5.97:1)
         spot: '#2557e0',
         lime: '#dcff4a',
