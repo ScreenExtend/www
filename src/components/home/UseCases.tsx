@@ -14,38 +14,38 @@ type Screen = { n: 1 | 2 | 3; label: string; art: Art };
 const USES: { t: string; d: string; s: Screen[]; link?: string }[] = [
   {
     t: "Forty tabs on a 13‑inch laptop",
-    d: "Move the reference tabs to the tablet and give the thing you're writing the whole laptop screen.",
+    d: "The reference tabs go on the tablet, and the writing gets the whole laptop screen.",
     s: [
-      { n: 1, label: "What you're writing", art: "doc" },
+      { n: 1, label: "The writing", art: "doc" },
       { n: 2, label: "The reference", art: "page" },
     ],
   },
   {
-    t: "The call you keep alt-tabbing to",
-    d: "Park the call on your phone or the tablet. Take notes on the computer without losing anyone's face.",
+    t: "A call buried under other windows",
+    d: "The call sits on the phone or tablet, and the notes stay on the computer with every face in view.",
     s: [
-      { n: 1, label: "Your notes", art: "doc" },
+      { n: 1, label: "Notes", art: "doc" },
       { n: 3, label: "The call", art: "call" },
     ],
   },
   {
-    t: "Slack, pinging in the corner of your eye",
-    d: "Keep Slack, Discord or your inbox on the tablet, where you can see it without it taking over.",
+    t: "Slack, pinging off to the side",
+    d: "Slack, Discord or email stays on the tablet, in view without taking over.",
     s: [
-      { n: 1, label: "Your work", art: "code" },
+      { n: 1, label: "Work", art: "code" },
       { n: 2, label: "Slack", art: "chat" },
     ],
   },
   {
     t: "A train table and a laptop bag",
-    d: "Your laptop and the tablet already in your bag make two screens. There's no cable to forget.",
+    d: "A laptop and the tablet already in the bag make two screens, with no cable to forget.",
     s: [
       { n: 1, label: "Laptop", art: "doc" },
       { n: 2, label: "Tablet", art: "page" },
     ],
   },
   {
-    t: "Hotel Wi-Fi that wants your room number",
+    t: "Hotel Wi-Fi that wants a room number",
     d: "On a Windows PC, ScreenExtend can start its own Wi-Fi network, so the tablet connects straight to the computer with no router. This isn't on the Mac yet.",
     s: [
       { n: 1, label: "Laptop", art: "code" },

@@ -9,8 +9,7 @@ export default function TryApp() {
         <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
           <h2 className="display-lg lg:col-span-6">Functionality</h2>
           <p className="lede lg:col-span-6">
-            A working copy of the app. Click around. It runs in this page and doesn't touch your
-            computer.
+            A working copy of the app. It runs in this page and doesn't touch the computer.
           </p>
         </div>
         <div className="mt-12">

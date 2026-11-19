@@ -21,7 +21,7 @@ const WINS: Record<WinId, { name: string; art: Art }> = {
   chat: { name: "Team chat", art: "chat" },
   call: { name: "The call", art: "call" },
 };
-const NAME: Record<Kind, string> = { laptop: "your computer", tablet: "the tablet", phone: "your phone", old: "the old laptop" };
+const NAME: Record<Kind, string> = { laptop: "the computer", tablet: "the tablet", phone: "the phone", old: "the old laptop" };
 const LETTER: Record<Kind, string> = { laptop: "A", tablet: "B", phone: "C", old: "D" };
 // left to right on the desk, which is also the order the arrow keys step through
 const SEQ: Kind[] = ["laptop", "tablet"];
@@ -308,8 +308,8 @@ export default function DeskArrange() {
       <figcaption className="text-[0.9375rem] leading-relaxed text-muted lg:col-span-5">
         <p>
           {coarse
-            ? "The windows move. Drag one onto the tablet with your finger, or pick one and use the button below."
-            : "The windows move. Drag one onto the tablet, the way you would onto a plugged-in monitor."}
+            ? "The windows move between the screens. Drag one with a finger, or pick one and use the button below."
+            : "The windows move between the screens, the same as with a plugged-in monitor."}
         </p>
         <button type="button" className="btn-line mt-4" onClick={() => shift(sel, 1)}>
           Move {WINS[sel].name.replace(/^The /, "the ")} to the next screen
@@ -323,7 +323,7 @@ export default function DeskArrange() {
         <li className="flex gap-3 text-[0.9375rem] leading-snug">
           <Letter k="A" />
           <span>
-            <span className="sr-only">A: </span>Your computer. ScreenExtend runs here.
+            <span className="sr-only">A: </span>The computer. ScreenExtend runs here.
           </span>
         </li>
         <li className="flex gap-3 text-[0.9375rem] leading-snug">

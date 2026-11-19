@@ -9,7 +9,7 @@ export default function FeatureScroll() {
         <div>
           <h2 className="display-lg">Per-device settings</h2>
           <p className="lede mt-3">
-            Each device keeps its own scale, orientation, refresh rate and quality. Both panels are live.
+            Each device keeps its own scale, orientation, refresh rate and quality. Both panels are live demos.
           </p>
         </div>
 

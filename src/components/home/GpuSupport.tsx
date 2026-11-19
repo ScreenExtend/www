@@ -63,8 +63,8 @@ export default function GpuSupport() {
           <div className="min-w-0 lg:col-span-8">
             <h3 className="wide text-xl font-bold">Graphics chips</h3>
             <p className="mt-1.5 leading-relaxed text-muted">
-              We encode on your graphics chip to keep the second screen smooth. If we don't support
-              yours yet, we use the processor instead.
+              ScreenExtend encodes on the graphics chip to keep the second screen smooth. On a chip
+              without support yet, the processor does the work instead.
             </p>
             {/* fits at 390px, so no scroll region or tab stop; overflow stays
                 only as a guard for very narrow windows */}

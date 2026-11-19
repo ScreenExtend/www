@@ -5,31 +5,31 @@ import { Minus, Plus } from "lucide-react";
 const QA = [
   {
     q: "Which devices can I use as the second screen?",
-    a: "Anything with a modern web browser: an iPad or Android tablet, a phone, or another laptop. Nothing gets installed on it. The ScreenExtend app runs on your Windows PC or Mac, and that's the only install.",
+    a: "Anything with a modern web browser: an iPad or Android tablet, a phone, or another laptop. Nothing gets installed on it. The ScreenExtend app runs on the Windows PC or Mac, and that's the only install.",
   },
   {
     q: "How do I set it up?",
-    a: "Run ScreenExtend on your computer. On the other device, scan the QR code (or open the link) and type the 6-digit code. It's now an extra monitor.",
+    a: "ScreenExtend runs on the computer and shows a QR code. The other device scans it (or opens the link) and enters the 6-digit code, and it becomes an extra monitor.",
   },
   {
     q: "Is my data secure?",
-    a: "The picture and sound are always encrypted. A device can only join with the session's 6-digit code, and you can make a new code whenever you like to keep others out. One caveat: the join page itself loads over plain HTTP on your own network unless you switch on the HTTPS version, and your browser may warn about that one because the app makes its own certificate.",
+    a: "The picture and sound are always encrypted. A device can only join with the session's 6-digit code, and a new code can be made at any time to keep others out. One caveat: the join page itself loads over plain HTTP on the local network unless the HTTPS version is switched on, and browsers may warn about that one because the app makes its own certificate.",
   },
   {
     q: "What resolution and refresh rate can it do? Can it game?",
-    a: "Each device goes up to 200% scale, with a refresh rate you can set anywhere from 15 to 550 Hz. In our tests the computer sent about 150 frames a second; what you actually see depends on the other device and your Wi-Fi. Gaming works if your network keeps up. HDR is coming in a future release.",
+    a: "Each device goes up to 200% scale, with a refresh rate anywhere from 15 to 550 Hz. In testing, the computer sent about 150 frames a second; the result on screen depends on the other device and the Wi-Fi. Gaming works if the network keeps up. HDR is coming in a future release.",
   },
   {
     q: "How many devices can connect at once?",
-    a: "Several. Each one gets its own display, and each one you add uses more of your computer. With NVIDIA graphics, up to 8 devices are encoded on the graphics chip; past that, the processor takes the rest.",
+    a: "Several. Each one gets its own display, and each one added uses more of the computer. With NVIDIA graphics, up to 8 devices are encoded on the graphics chip; past that, the processor takes the rest.",
   },
   {
     q: "How does offline mode work?",
-    a: "Open Settings and start the hosted network with a name and password. On the other device, join that Wi-Fi and open the link ScreenExtend shows. No router involved.",
+    a: "ScreenExtend starts its own Wi-Fi network from Settings, with a name and password. The other device joins that Wi-Fi and opens the link ScreenExtend shows. No router involved.",
   },
   {
     q: "What data does ScreenExtend collect?",
-    a: "Your screen is never stored. When a device joins over the internet, our relay passes a hashed IP address and a rough region to your computer, and our server keeps short-lived service logs. The Privacy Policy has the details.",
+    a: "Screens are never stored. When a device joins over the internet, the ScreenExtend relay passes a hashed IP address and a rough region to the computer, and the ScreenExtend server keeps short-lived service logs. The Privacy Policy has the details.",
   },
 ];
 

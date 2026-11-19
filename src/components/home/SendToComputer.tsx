@@ -35,7 +35,7 @@ export default function SendToComputer({ className = "" }: { className?: string 
     <div className={`max-w-xl border-y border-ink py-4 ${className}`}>
       <p className="leading-relaxed text-muted">
         <span className="font-semibold text-ink">Reading this on a phone or tablet?</span> That's
-        the second screen. The download goes on your Windows PC or Mac.
+        the second screen. The download goes on a Windows PC or Mac.
       </p>
       <button type="button" onClick={send} className="btn-line mt-3 w-full sm:w-auto">
         {copied ? "Link copied" : "Send this link to my computer"}
