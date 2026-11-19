@@ -32,7 +32,7 @@ export default function SendToComputer({ className = "" }: { className?: string 
   };
 
   return (
-    <div className={`max-w-xl border-l-4 border-spot py-1 pl-4 ${className}`}>
+    <div className={`max-w-xl border-y border-ink py-4 ${className}`}>
       <p className="leading-relaxed text-muted">
         <span className="font-semibold text-ink">Reading this on a phone or tablet?</span> That's
         the second screen. The download goes on your Windows PC or Mac.

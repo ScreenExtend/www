@@ -25,11 +25,14 @@ export default function AppDemo({
   className = "",
   initialPage = "add",
   bare = false,
+  openFirst = false,
 }: {
   className?: string;
   initialPage?: PageId;
   /** Just one page filling the window: no sidebar, top bar or bottom bar. */
   bare?: boolean;
+  /** Edit Device only: open the first device's settings on load. */
+  openFirst?: boolean;
 }) {
   const [page, setPage] = useState<PageId>(initialPage);
   const [sidebar, setSidebar] = useState(true);
@@ -45,7 +48,7 @@ export default function AppDemo({
       <div role="region" aria-label="Interactive demo of the ScreenExtend app" className={`sed-root ${className}`}>
         <div className="sed-win sed-bare">
           <div className="sed-scroll">
-            <Only />
+            {initialPage === "edit" ? <EditDevice openFirst={openFirst} /> : <Only />}
           </div>
         </div>
       </div>

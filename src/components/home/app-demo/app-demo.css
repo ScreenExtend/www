@@ -243,11 +243,6 @@
 
 /* the Expand QR view set inline in the setup steps (QrInline.tsx): the app's
    window under its 75% black scrim, with the code on white */
-.sed-root .sed-qrinline {
-  display: flex; align-items: center; justify-content: center; aspect-ratio: 1; padding: 9%;
-  border: var(--sed-line); border-radius: 10px; background: hsl(var(--sed-bg));
-  box-shadow: inset 0 0 0 100vmax rgb(0 0 0 / 0.75);
-}
 /* the per-device panel on the homepage: never shorter than the Settings panel
    beside it; EditDevice.tsx grows it to fit the whole sheet when one is open */
 .sed-root.se-grow .sed-win.sed-bare { min-height: 404px; }

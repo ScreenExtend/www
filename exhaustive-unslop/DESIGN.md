@@ -136,3 +136,19 @@ Two inks only: page-ink strokes and hatching, plus the spot blue (the picked or 
 
 ## Lint
 `pnpm lint` runs with `.eslintrc.cjs` and passes with zero warnings; `pnpm build` (strict tsc and the SSR prerender) passes.
+
+## Merge round 3 (critics on the merged build)
+- Hero touch: the svg is `touch-action: pan-y`, so a thumb on the drawing scrolls the page. A non-passive `touchstart` on the svg calls preventDefault only when the touch starts on a window (`.hw`), so only a window grab is kept for the drag. Checked with real CDP touch swipes at 390px: off a window the page scrolls, on a window it does not.
+- Hero narrow layout: the second row is phone then old laptop, so the letters read A B over C D, and the arrow keys and the "Move ... to the next screen" button follow laptop, tablet, phone, old laptop. Wide keeps left-to-right desk order.
+- Hero hit area: each window's grab area reaches 10 units past its edge on the narrow layout (4 on wide), so the phone's windows are easier to take.
+- Use-case picker: the plus/minus mark only shows on the narrow layout, where the drawing does open under the row (plus closed, minus open, as the FAQ). On wide screens the picked row has a small arrow pointing at the drawing; other rows have no mark.
+- Step 1 QR: the dark rounded scrim is gone. The code sits on the sheet in a 4px-radius, 1.5px ink frame like the step 2 code cells, on white with an ink hairline. The note stays in small print (13px).
+- Edit Device (owner item 7, "longer"): the homepage panel opens on the iPad's Edit Device sheet (no focus taken on load) and grows to show all of it, about 1120px at 1440. On wide screens Settings stretches next to it to the last card edge that fits, with the next card's top showing (about 965px), so neither column has a big empty gap. Stacked, Settings keeps its 404px cut. The window's min-height now counts its border, so the sheet no longer scrolls by 2px.
+- GPU table: no tab stop, role or "scrolls sideways" label; it fits at 390px.
+- Download on phones and tablets: the "Reading this on a phone or tablet?" note with "Send this link to my computer" now also sits above the download card.
+- That note lost its blue left stripe; it is ruled with ink hairlines above and below, like the leaflet's other boxes.
+
+### Rejected this round
+- "Window title text is about 5px on the phone screen": it is a label in a drawing, the window's name is in its accessible label and on the move button; enlarging it would break the drawing's scale.
+- "Three window-crossing moments in a row (hero, band, step 3)": the owner asked for both the hero and the band; the band stays one line to delete in Home.
+- "Step 3 drawing cropped at the right content edge": the crop is the close-up's framing (an edge between two screens), kept.

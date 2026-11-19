@@ -1,4 +1,5 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
+import { ArrowRight, Minus, Plus } from "lucide-react";
 
 import { Device, Hatch, Window, type Art } from "@/components/home/lineart.tsx";
 import { DESK, DEVICE, PAGE_INK as INK, type Kind } from "@/components/home/lineart-geo.ts";
@@ -214,8 +215,14 @@ export default function UseCases() {
                   >
                     {x.t}
                   </span>
-                  <span aria-hidden="true" className={`text-xl leading-none text-link ${pick === i ? "opacity-0" : ""}`}>
-                    +
+                  {/* only the narrow layout opens anything under the row, so only
+                      it gets the FAQ's plus and minus; on wide screens the picked
+                      row points at the drawing beside it */}
+                  <span aria-hidden="true" className="text-link lg:hidden">
+                    {pick === i ? <Minus size={20} strokeWidth={2} /> : <Plus size={20} strokeWidth={2} />}
+                  </span>
+                  <span aria-hidden="true" className={`hidden text-link lg:block ${pick === i ? "" : "invisible"}`}>
+                    <ArrowRight size={20} strokeWidth={2} />
                   </span>
                 </button>
                 {/* phones and tablets: the desk opens right under the row you tapped */}

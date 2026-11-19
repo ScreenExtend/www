@@ -24,8 +24,10 @@ const WINS: Record<WinId, { name: string; art: Art }> = {
 };
 const NAME: Record<Kind, string> = { laptop: "your computer", tablet: "the tablet", phone: "your phone", old: "the old laptop" };
 const LETTER: Record<Kind, string> = { laptop: "A", tablet: "B", phone: "C", old: "D" };
-// left to right on the desk, which is also the order the arrow keys step through
+// left to right on the desk, which is also the order the arrow keys step through.
+// On a phone the desk is two rows, A B over C D, and the keys follow the rows.
 const SEQ: Kind[] = ["old", "laptop", "tablet", "phone"];
+const SEQ_NARROW: Kind[] = ["laptop", "tablet", "phone", "old"];
 
 const START: Record<WinId, Pos> = {
   notes: { on: "laptop", x: 14, y: 14 },
@@ -61,7 +63,7 @@ function layout(on: Kind[], narrow: boolean) {
     return { place, desks: [0], vb: { x: -28, y: top, w: w + 56, h: DESK + 8 - top } };
   }
   const w1 = row(["laptop", "tablet"], 0);
-  const second = (["old", "phone"] as Kind[]).filter((k) => on.includes(k));
+  const second = (["phone", "old"] as Kind[]).filter((k) => on.includes(k));
   if (!second.length) return { place, desks: [0], vb: { x: -28, y: top, w: w1 + 56, h: DESK + 8 - top } };
   const dy = DESK + 12;
   const w2 = row(second, dy);
@@ -123,7 +125,7 @@ export default function DeskArrange() {
   const [msg, setMsg] = useState("");
 
   const on: Kind[] = ["laptop", "tablet", ...(["phone", "old"] as Extra[]).filter((k) => extra[k])];
-  const seq = SEQ.filter((k) => on.includes(k));
+  const seq = (narrow ? SEQ_NARROW : SEQ).filter((k) => on.includes(k));
   const { place, desks, vb } = layout(on, narrow);
   const scr = (k: Kind): Rect => screenAt(k, place[k][0], place[k][1]);
 
@@ -135,7 +137,19 @@ export default function DeskArrange() {
     fit();
     const ro = new ResizeObserver(fit);
     ro.observe(el);
-    return () => ro.disconnect();
+    // The svg lets the page scroll (pan-y) so a thumb on the drawing still
+    // scrolls past it. Only a touch that starts on a window is kept for the
+    // drag; touch-action on svg children isn't honoured everywhere, so this
+    // is done here instead of in CSS.
+    const s = svg.current;
+    const hold = (e: TouchEvent) => {
+      if ((e.target as Element | null)?.closest?.(".hw")) e.preventDefault();
+    };
+    s?.addEventListener("touchstart", hold, { passive: false });
+    return () => {
+      ro.disconnect();
+      s?.removeEventListener("touchstart", hold);
+    };
   }, []);
 
   // the entrance: the chat is carried from the computer to the tablet, once
@@ -275,6 +289,7 @@ export default function DeskArrange() {
     setMsg(`${stranded.map((id) => WINS[id].name).join(" and ")} went back to your computer.`);
   };
 
+  const pad = narrow ? 10 : 4;
   const ease = (id: WinId) => (drag?.id === id ? "" : intro === "moving" && id === "chat" ? "hw-slow" : "hw-snap");
 
   return (
@@ -283,7 +298,7 @@ export default function DeskArrange() {
         <svg
           ref={svg}
           viewBox={`${vb.x} ${vb.y} ${vb.w} ${vb.h}`}
-          className="mx-auto block h-auto max-h-[27rem] w-full touch-none select-none"
+          className="mx-auto block h-auto max-h-[27rem] w-full touch-pan-y select-none"
           role="group"
           aria-label={`A desk with ${on.map((k) => NAME[k]).join(", ")}. The windows on the screens can be moved.`}
           onPointerMove={move}
@@ -343,7 +358,9 @@ export default function DeskArrange() {
                 </g>
                 <g className={cls} style={t}>
                   <rect className="hw-ring" x="-6" y="-6" width={r.w + 12} height={r.h + 12} rx="6" fill="none" stroke="var(--se-link)" strokeWidth="2.5" />
-                  <rect width={r.w} height={r.h} fill="transparent" />
+                  {/* the hit area reaches a little past the window, so the small
+                      ones on a phone screen are still easy to grab */}
+                  <rect x={-pad} y={-pad} width={r.w + pad * 2} height={r.h + pad * 2} fill="transparent" />
                   {id === "chat" && intro !== "done" && <Cursor x={r.w * 0.45} y={6} ink={INK} />}
                 </g>
               </g>

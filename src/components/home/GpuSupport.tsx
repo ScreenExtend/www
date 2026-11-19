@@ -70,12 +70,9 @@ export default function GpuSupport() {
               The graphics chip keeps the second screen smooth. If yours isn't supported, the processor
               does the work instead.
             </p>
-            <div
-              className="relative mt-6 overflow-x-auto"
-              tabIndex={0}
-              role="region"
-              aria-label="Graphics support table, scrolls sideways"
-            >
+            {/* fits at 390px, so no scroll region or tab stop; overflow stays
+                only as a guard for very narrow windows */}
+            <div className="mt-6 overflow-x-auto">
               {/* ruled like the comparison table: heavy ink rules top and bottom,
                   hairlines between rows, every row the same height */}
               <table className="w-full min-w-[20rem] border-collapse border-y-2 border-ink text-left">

@@ -19,9 +19,12 @@ const SLIDERS: [NumKey, string, number, number, number, AutoKey | null, string][
   ["quality", "Video Quality", 1, 51, 1, "adaptive", "Higher encodes faster but looks worse. Pick the highest value that still looks good."],
 ];
 
-export default function EditDevice() {
+// openFirst: start with the first device's sheet open (the homepage's
+// per-device panel), without taking focus on load
+export default function EditDevice({ openFirst = false }: { openFirst?: boolean }) {
   const [devs, setDevs] = useState(DEVICES);
-  const [open, setOpen] = useState<number | null>(null);
+  const [open, setOpen] = useState<number | null>(openFirst ? 0 : null);
+  const quiet = useRef(openFirst);
   const sheet = useRef<HTMLDivElement>(null);
   const opener = useRef<HTMLElement | null>(null);
 
@@ -31,8 +34,9 @@ export default function EditDevice() {
     // in the homepage's per-device panel (.se-grow) the window grows to fit the
     // whole sheet instead of cutting it off and scrolling it
     const win = s.closest<HTMLElement>(".se-grow .sed-win");
-    if (win) win.style.minHeight = `${s.scrollHeight}px`;
-    s.focus({ preventScroll: true });
+    if (win) win.style.minHeight = `${s.scrollHeight + win.offsetHeight - win.clientHeight}px`;
+    if (quiet.current) quiet.current = false;
+    else s.focus({ preventScroll: true });
     return () => {
       if (win) win.style.minHeight = "";
     };

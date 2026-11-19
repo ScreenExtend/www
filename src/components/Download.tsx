@@ -5,6 +5,7 @@ import { X } from "lucide-react";
 import windowsLogo from "@/assets/logo/windows.svg";
 import macLogo from "@/assets/logo/mac.svg";
 import macLogoLight from "@/assets/logo/mac-light.svg";
+import SendToComputer from "@/components/home/SendToComputer.tsx";
 import { isTouchDevice } from "@/lib/device.ts";
 
 const RELEASES = "https://github.com/ScreenExtend/ScreenExtend/releases/latest";
@@ -133,6 +134,9 @@ export default function Download() {
             </p>
           </div>
         </div>
+
+        {/* phones and tablets: the button below is for the computer */}
+        <SendToComputer className="mt-8" />
 
         <div className="mt-12">
           {mac ? (
