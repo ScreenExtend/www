@@ -55,8 +55,8 @@ export default function GpuSupport() {
             </p>
             <p className="wide mt-5 text-xl font-bold leading-tight">to capture and encode a frame</p>
             <p className="small-print mt-4">
-              Median on real 1080p content, with 9 in 10 frames under 10 ms. Measured on Windows 11
-              (25H2) with an NVIDIA RTX 3080 Ti Laptop GPU.
+              Median on 1080p content, measured on Windows 11 (25H2) with an NVIDIA RTX 3080 Ti
+              Laptop GPU.
             </p>
           </div>
 
