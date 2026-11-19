@@ -4,7 +4,7 @@ import DemoGate from "@/components/home/app-demo/DemoGate.tsx";
 // The live replica of the desktop app.
 export default function TryApp() {
   return (
-    <section id="app" className="border-t-[1.5px] border-ink bg-mint py-16 lg:py-24">
+    <section id="app" className="border-t-[1.5px] border-ink bg-apricot py-16 lg:py-24">
       <div className="container">
         <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
           <h2 className="display-lg lg:col-span-6">Functionality</h2>
