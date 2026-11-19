@@ -22,7 +22,7 @@ export default function Footer() {
             ScreenExtend
           </Link>
           <p className="mt-2 max-w-sm text-[0.9375rem] text-muted">
-            A free download for Windows and Mac. The other screen only needs a browser.
+            Free and open source, for the screens you already own.
           </p>
         </div>
         <nav aria-label="Footer" className="flex flex-wrap gap-x-5 lg:col-span-7 lg:justify-end">

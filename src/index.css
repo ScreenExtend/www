@@ -184,33 +184,113 @@
   content: none;
 }
 
-/* Hero drawing (DeskDrawing.tsx): the one entrance. The window starts on the
-   laptop and is dragged until it sits across both screens, which is its resting
-   position, so with reduced motion it is simply drawn there. */
-@keyframes desk-drag {
+/* Hero (DeskArrange.tsx): windows you can move. They glide into place when
+   dropped or sent by keyboard; the entrance carries the chat across slowly. */
+.hw {
+  cursor: grab;
+  touch-action: none;
+}
+.hw:active {
+  cursor: grabbing;
+}
+.hw:focus-visible {
+  background: none;
+}
+.hw .hw-ring {
+  opacity: 0;
+}
+.hw:focus-visible .hw-ring {
+  opacity: 1;
+}
+.hw-snap {
+  transition: transform 200ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.hw-slow {
+  transition: transform 1100ms cubic-bezier(0.45, 0, 0.2, 1);
+}
+
+/* on/off switch, drawn like the figures: an ink outline, and spot blue when on */
+.switch {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  width: 3rem;
+  height: 1.75rem;
+  border: 1.5px solid var(--se-ink);
+  border-radius: 9999px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 150ms, border-color 150ms;
+}
+.switch::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  background: var(--se-ink);
+  transition: transform 150ms ease-out;
+}
+.switch[aria-checked="true"] {
+  border-color: #2557e0;
+  background: #2557e0;
+}
+.switch[aria-checked="true"]::after {
+  background: #fff;
+  transform: translateX(19px);
+}
+.switch:focus-visible {
+  background-color: transparent;
+  box-shadow: 0 0 0 2px var(--se-paper), 0 0 0 4px var(--se-link);
+  border-radius: 9999px;
+}
+.switch[aria-checked="true"]:focus-visible {
+  background-color: #2557e0;
+}
+
+/* The window moment (WindowMoment.tsx): plays once in view, then rests on the
+   tablet; with reduced motion it is simply drawn there. */
+@keyframes wm-walk {
   0%,
-  18% {
-    transform: translate(-178px, 14px);
+  12% {
+    transform: translateX(0);
   }
   100% {
-    transform: translate(0, 0);
+    transform: translateX(238px);
   }
 }
-.desk-drag {
-  animation: desk-drag 1700ms cubic-bezier(0.45, 0, 0.2, 1) 400ms both;
+.wm-play .wm-move {
+  animation: wm-walk 2.4s cubic-bezier(0.6, 0, 0.3, 1) 300ms both;
 }
-@keyframes desk-press {
+@keyframes wm-press {
   0%,
-  14% {
+  10% {
     transform: scale(1);
   }
-  20%,
+  16%,
   100% {
     transform: scale(0.9);
   }
 }
-.desk-cursor-press {
+.wm-play .wm-press {
   transform-box: fill-box;
   transform-origin: 0 0;
-  animation: desk-press 1700ms ease-out 400ms both;
+  animation: wm-press 2.4s ease-out 300ms both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wm-move {
+    transform: translateX(238px);
+  }
+}
+
+/* the uses picker: the desk redraws when you pick another situation */
+@keyframes desk-swap {
+  from {
+    opacity: 0;
+  }
+}
+.desk-swap {
+  animation: desk-swap 180ms ease-out;
 }

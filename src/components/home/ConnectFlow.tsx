@@ -1,16 +1,17 @@
-import qrCrop from "@/assets/app/crop-qr.webp";
+import QrInline from "@/components/home/app-demo/QrInline.tsx";
 import { EdgeDrawing } from "@/components/home/drawings.tsx";
 
 // The only real sequence on the page, so the only numbers. The code is an
 // example (each session has its own); six cells echo the Session OTP row in the app.
 const EXAMPLE_CODE = ["3", "7", "7", "6", "2", "0"];
 
-function Step({ n, t, children, figure }: { n: number; t: string; children: React.ReactNode; figure: React.ReactNode }) {
+function Step({ n, t, children, figure, note }: { n: number; t: string; children: React.ReactNode; figure: React.ReactNode; note?: string }) {
   return (
     <li className="grid grid-cols-[3rem_1fr] gap-x-4 md:flex md:flex-col">
-      <div className="col-start-2 row-start-2 mt-5 flex items-center md:order-3 md:mt-8 md:h-48 lg:h-56">
+      <div className="col-start-2 row-start-2 mt-5 flex items-center md:order-3 md:mt-8 md:h-64">
         {figure}
       </div>
+      {note && <p className="small-print col-start-2 row-start-3 mt-2 md:order-4">{note}</p>}
       <span
         className="condensed row-span-2 text-[4rem] font-extrabold leading-[0.8] text-link md:text-[5.5rem]"
         aria-hidden="true"
@@ -39,14 +40,8 @@ export default function ConnectFlow() {
           <Step
             n={1}
             t="Open ScreenExtend on your computer"
-            figure={
-              <img
-                src={qrCrop}
-                alt="The QR code panel in the ScreenExtend app"
-                className="h-32 w-auto rounded-cell border border-line object-contain md:h-full md:max-h-full"
-                loading="lazy"
-              />
-            }
+            figure={<QrInline className="w-full max-w-[17rem]" />}
+            note="An example. This code leads nowhere."
           >
             It shows a QR code. Scan it with the tablet's camera, or type the link under it into the
             tablet's browser.

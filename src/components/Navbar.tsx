@@ -5,6 +5,7 @@ import { useTheme } from "react-daisyui";
 import { Menu as MenuIcon, Github, Moon, Sun, SunMoon, X } from "lucide-react";
 
 import logo from "@/assets/logo/screenextend.svg";
+import { THEME_KEY, applyThemeAttr } from "@/lib/theme.ts";
 
 const NAV_ITEMS = [
   { id: "how", label: "Setup" },
@@ -14,7 +15,7 @@ const NAV_ITEMS = [
   { id: "faq", label: "Small print" },
 ];
 
-const SPY_IDS = ["home", "box", "how", "app", "uses", "compare", "features", "gpu", "download", "faq"];
+const SPY_IDS = ["home", "see-it", "how", "app", "uses", "compare", "features", "gpu", "download", "faq"];
 
 // Follows the OS by default (NN/g: don't force a theme); the choice is remembered.
 const THEMES = [
@@ -22,14 +23,6 @@ const THEMES = [
   { id: "light", label: "Light", Icon: Sun },
   { id: "dark", label: "Dark", Icon: Moon },
 ] as const;
-
-export const THEME_KEY = "se-theme";
-
-export function applyThemeAttr(id: string) {
-  // keep the page background (overscroll area) in step with the theme
-  if (id === "system") document.documentElement.removeAttribute("data-theme");
-  else document.documentElement.setAttribute("data-theme", id);
-}
 
 function ThemeSwitch({ className = "" }: { className?: string }) {
   const { theme, setTheme } = useTheme();

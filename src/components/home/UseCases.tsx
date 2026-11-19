@@ -1,65 +1,235 @@
-import { PhoneMug } from "@/components/home/drawings.tsx";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 
-// What goes on the other screen, set as the "if this, then that" table at the
-// back of a manual. Product facts behind the answers: browser-only client,
-// several devices at once, the hosted network for no Wi-Fi (see FaqSimple.tsx).
-const USES: [string, string][] = [
-  ["You keep alt-tabbing back to the call", "Put the call on the tablet and keep your notes in front of you. Or the other way round."],
-  ["The team chat is half your attention", "Off to the side, it can wait its turn without sitting on top of your work."],
-  ["You're copying from something", "The recipe, the spec or the how-to stays open the whole time instead of hiding behind a tab."],
-  ["A 13-inch laptop with forty tabs", "The tablet already in your bag gives it a second screen."],
-  ["There's no Wi-Fi", "ScreenExtend can start its own network, and the tablet connects straight to your computer. No router needed."],
-  ["One extra screen isn't enough", "Connect a phone and a tablet at the same time. Each one is its own display."],
+import { Device, Hatch, Window, type Art } from "@/components/home/lineart.tsx";
+import { DESK, DEVICE, PAGE_INK as INK, type Kind } from "@/components/home/lineart-geo.ts";
+
+// Situations people are actually in, each with a drawing of what goes on which
+// screen. Pick one from the list and the desk redraws (beside the list on wide
+// screens, under the row you tapped on narrow ones). Product facts behind
+// them: browser-only client, several devices at once, the hosted network
+// (Windows only for now; see FaqSimple.tsx).
+type Screen = { n: 1 | 2 | 3; label: string; art: Art };
+
+const USES: { t: string; d: string; s: Screen[]; link?: string }[] = [
+  {
+    t: "Forty tabs on a 13‑inch laptop",
+    d: "Move the reference tabs to the tablet and give the thing you're writing the whole laptop screen.",
+    s: [
+      { n: 1, label: "What you're writing", art: "doc" },
+      { n: 2, label: "The reference", art: "page" },
+    ],
+  },
+  {
+    t: "The call you keep alt-tabbing to",
+    d: "Park the call on your phone or the tablet. Take notes on the computer without losing anyone's face.",
+    s: [
+      { n: 1, label: "Your notes", art: "doc" },
+      { n: 3, label: "The call", art: "call" },
+    ],
+  },
+  {
+    t: "Slack, pinging in the corner of your eye",
+    d: "Keep Slack, Discord or your inbox on the tablet, where you can see it without it taking over.",
+    s: [
+      { n: 1, label: "Your work", art: "code" },
+      { n: 2, label: "Slack", art: "chat" },
+    ],
+  },
+  {
+    t: "A train table and a laptop bag",
+    d: "Your laptop and the tablet already in your bag make two screens. There's no cable to forget.",
+    s: [
+      { n: 1, label: "Laptop", art: "doc" },
+      { n: 2, label: "Tablet", art: "page" },
+    ],
+  },
+  {
+    t: "Hotel Wi-Fi that wants your room number",
+    d: "On a Windows PC, ScreenExtend can start its own Wi-Fi network, so the tablet connects straight to the computer with no router. This isn't on the Mac yet.",
+    s: [
+      { n: 1, label: "Laptop", art: "code" },
+      { n: 2, label: "Tablet", art: "chat" },
+    ],
+    link: "its own Wi-Fi",
+  },
+  {
+    t: "A spare phone and a spare tablet",
+    d: "Connect both at the same time. Each one is its own display.",
+    s: [
+      { n: 1, label: "Main", art: "doc" },
+      { n: 2, label: "Tablet", art: "chat" },
+      { n: 3, label: "Phone", art: "call" },
+    ],
+  },
 ];
 
+const KIND: Record<Screen["n"], Kind> = { 1: "laptop", 2: "tablet", 3: "phone" };
+const PAD = 22; // desk either side of each device, so the desk line runs on
+const LINK_W = 120;
+
+// One device on its stretch of desk, its screen filled by one window.
+function Unit({ s }: { s: Screen }) {
+  const id = useId().replace(/:/g, "");
+  const k = KIND[s.n];
+  const d = DEVICE[k];
+  const sc = d.screen;
+  return (
+    <svg viewBox={`${-PAD} 0 ${d.w + PAD * 2} ${DESK + 2}`} className="block h-auto w-full" aria-hidden="true" focusable="false">
+      <defs>
+        <Hatch id={`h${id}`} color={INK.ink} />
+        <Hatch id={`k${id}`} color={INK.ink} gap={8} />
+      </defs>
+      <path d={`M${-PAD} ${DESK} H${d.w + PAD}`} stroke={INK.ink} strokeWidth="2.5" />
+      <Device kind={k} ink={INK} hatch={`k${id}`} />
+      <g transform={`translate(${sc.x} ${sc.y})`}>
+        <Window w={sc.w} h={sc.h} art={s.art} ink={INK} hatch={`h${id}`} bar={k !== "phone"} hot={s.n === 1} />
+      </g>
+    </svg>
+  );
+}
+
+// the stretch of desk between laptop and tablet when they talk over their own Wi-Fi
+function Link() {
+  return (
+    <svg viewBox={`0 0 ${LINK_W} ${DESK + 2}`} className="block h-auto w-full" aria-hidden="true" focusable="false">
+      <path d={`M0 ${DESK} H${LINK_W}`} stroke={INK.ink} strokeWidth="2.5" />
+      <path d={`M14 150 H${LINK_W - 14}`} stroke={INK.ink} strokeWidth="2" strokeDasharray="6 6" />
+      <path
+        d={`M${LINK_W - 20} 142 L${LINK_W - 10} 150 L${LINK_W - 20} 158 M20 142 L10 150 L20 158`}
+        fill="none"
+        stroke={INK.ink}
+        strokeWidth="2"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function Desk({ screens, link }: { screens: Screen[]; link?: string }) {
+  const cols: { key: string; w: number; body: React.ReactNode; label: string }[] = [];
+  screens.forEach((s, i) => {
+    if (link && i === 1) cols.push({ key: "link", w: LINK_W, body: <Link />, label: link });
+    cols.push({ key: String(s.n), w: DEVICE[KIND[s.n]].w + PAD * 2, body: <Unit s={s} />, label: s.label });
+  });
+  return (
+    // two rows sharing columns, so the desk line stays level whatever the labels wrap to
+    <div aria-hidden="true" className="grid" style={{ gridTemplateColumns: cols.map((c) => `minmax(0, ${c.w}fr)`).join(" ") }}>
+      {cols.map((c) => (
+        <div key={c.key}>{c.body}</div>
+      ))}
+      {cols.map((c) => (
+        <span
+          key={`${c.key}-l`}
+          className={`mt-2 px-1 text-center text-sm leading-tight sm:text-[0.9375rem] ${c.key === "link" ? "text-muted" : "font-semibold"}`}
+        >
+          {c.label}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+// the row marker: the screens this situation uses, as tiny outlines
+function Glyph({ screens, on }: { screens: Screen[]; on: boolean }) {
+  const size = { 1: "h-3 w-5", 2: "h-4 w-3", 3: "h-3.5 w-2" } as const;
+  return (
+    <span aria-hidden="true" className="flex w-12 shrink-0 items-end gap-[3px]">
+      {screens.map((s) => (
+        <span
+          key={s.n}
+          className={`rounded-[2px] border-[1.5px] border-ink ${size[s.n]} ${on && s.n === 1 ? "bg-spot" : "bg-sheet"}`}
+        />
+      ))}
+    </span>
+  );
+}
+
+// The fade only runs once the visitor has picked something. On first paint
+// (prerendered, hydrating, or offscreen) the desk is simply there.
+function Panel({ u, pick, swap }: { u: (typeof USES)[number]; pick: number; swap: boolean }) {
+  return (
+    <div>
+      <div key={pick} className={swap ? "desk-swap" : ""}>
+        <Desk screens={u.s} link={u.link} />
+      </div>
+      <p className="mt-6 max-w-[56ch] text-[1.0625rem] leading-relaxed">{u.d}</p>
+    </div>
+  );
+}
+
+// useLayoutEffect warns during the prerender, so it is only used in the browser
+const useBrowserLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
+
 export default function UseCases() {
+  const [pick, setPick] = useState(0);
+  const [picked, setPicked] = useState(false);
+  const u = USES[pick];
+  // On narrow screens the desk opens under the tapped row, and the one above
+  // closes. Keep the tapped row where it was on screen instead of letting it
+  // jump up by the height of the panel that closed.
+  const rows = useRef<(HTMLButtonElement | null)[]>([]);
+  const anchor = useRef<{ i: number; top: number } | null>(null);
+  useBrowserLayoutEffect(() => {
+    const a = anchor.current;
+    anchor.current = null;
+    const el = a && rows.current[a.i];
+    if (!el) return;
+    const drift = el.getBoundingClientRect().top - a.top;
+    if (Math.abs(drift) > 1) window.scrollBy({ top: drift, behavior: "instant" });
+  }, [pick]);
+
   return (
     <section id="uses" className="border-t-[1.5px] border-ink py-16 lg:py-24">
-      <div className="container grid gap-12 lg:grid-cols-12">
-        <div className="lg:col-span-4">
+      <div className="container">
+        <div className="max-w-2xl">
           <h2 className="display-lg">What goes on the other screen</h2>
-          <p className="lede mt-3">Whatever you'd drag onto a plugged-in monitor. Some cases we know about:</p>
-          <PhoneMug className="mt-10 hidden w-full max-w-xs lg:block" />
-          <p className="small-print mt-2 hidden lg:block">A mug counts as a monitor stand.</p>
+          <p className="lede mt-3">Pick one to see what goes on which screen.</p>
         </div>
 
-        <div className="lg:col-span-8">
-          <table className="w-full border-collapse border-y-2 border-ink text-left">
-            <caption className="sr-only">Situations and what to put on the second screen</caption>
-            <thead className="max-sm:sr-only">
-              <tr className="border-b-[1.5px] border-ink text-[0.9375rem]">
-                <th scope="col" className="wide w-[42%] py-3 pr-6 font-bold">If</th>
-                <th scope="col" className="wide py-3 font-bold">Then</th>
-              </tr>
-            </thead>
-            <tbody>
-              {USES.map(([t, d]) => (
-                <tr key={t} className="border-b border-line last:border-b-0 max-sm:flex max-sm:flex-col max-sm:py-4">
-                  <th scope="row" className="wide py-4 pr-6 align-top text-lg font-bold leading-snug max-sm:py-0">
-                    {t}
-                  </th>
-                  <td className="py-4 align-top leading-relaxed text-muted max-sm:pb-0 max-sm:pt-1">{d}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="mt-10 grid gap-10 lg:mt-14 lg:grid-cols-12 lg:gap-14">
+          <ul className="border-y-2 border-ink lg:col-span-5">
+            {USES.map((x, i) => (
+              <li key={x.t} className="border-t border-line first:border-t-0">
+                <button
+                  ref={(el) => {
+                    rows.current[i] = el;
+                  }}
+                  type="button"
+                  aria-expanded={pick === i}
+                  onClick={(e) => {
+                    anchor.current = { i, top: e.currentTarget.getBoundingClientRect().top };
+                    setPick(i);
+                    setPicked(true);
+                  }}
+                  className={`group flex min-h-14 w-full items-center gap-4 px-3 py-3 text-left transition-colors duration-150 ${
+                    pick === i ? "bg-sheet" : "hover:bg-sheet"
+                  }`}
+                >
+                  <Glyph screens={x.s} on={pick === i} />
+                  <span
+                    className={`wide flex-1 text-[1.0625rem] leading-snug ${
+                      pick === i ? "font-bold text-ink" : "font-medium text-muted group-hover:text-ink"
+                    }`}
+                  >
+                    {x.t}
+                  </span>
+                  <span aria-hidden="true" className={`text-xl leading-none text-link ${pick === i ? "opacity-0" : ""}`}>
+                    +
+                  </span>
+                </button>
+                {/* phones and tablets: the desk opens right under the row you tapped */}
+                {pick === i && (
+                  <div className="px-1 pb-6 pt-4 lg:hidden">
+                    <Panel u={x} pick={i} swap={picked} />
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
 
-          <div className="mt-14 grid items-end gap-x-8 gap-y-4 sm:grid-cols-[auto_1fr]">
-            <p className="condensed text-[6.5rem] font-extrabold leading-[0.8] text-link" aria-hidden="true">
-              8<span className="text-[0.5em]"> ms</span>
-            </p>
-            {/* Source: docs/RESULTS.md in the app repo, real-content 1080p capture to
-                encode with NVENC: 8.39 ms median, 9.44 ms p90. Not glass-to-glass. */}
-            <div className="border-l-[1.5px] border-ink pl-5">
-              <p className="text-lg leading-snug">
-                <span className="wide font-bold">About the delay.</span> Your computer captures and
-                encodes each frame in about <span className="font-bold">8 ms</span>.*
-              </p>
-              <p className="small-print mt-3">
-                *Median on real 1080p content, with 9 in 10 frames under 10 ms. Measured on Windows 11
-                (25H2) with an NVIDIA RTX 3080 Ti Laptop GPU.
-              </p>
-            </div>
+          <div className="hidden lg:col-span-7 lg:block" aria-live="polite">
+            <Panel u={u} pick={pick} swap={picked} />
           </div>
         </div>
       </div>

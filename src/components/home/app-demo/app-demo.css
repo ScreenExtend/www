@@ -239,3 +239,19 @@
   background: transparent; color: inherit; font-size: 14px; text-align: left; cursor: default;
 }
 .sed-root .sed-menu-item:hover, .sed-root .sed-menu-item:focus-visible { background: var(--sed-hover); }
+
+/* the Expand QR view set inline in the setup steps (QrInline.tsx): the app's
+   window under its 75% black scrim, with the code on white */
+.sed-root .sed-qrinline {
+  display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 12px;
+  border: var(--sed-line); border-radius: 8px; background: hsl(var(--sed-bg));
+  box-shadow: inset 0 0 0 100vmax rgb(0 0 0 / 0.75);
+}
+.sed-root .sed-btn.sed-netbtn { height: 32px; padding: 0 10px; font-size: 12px; white-space: nowrap; }
+.sed-root .sed-qrurl {
+  max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: 12px; line-height: 1.3; color: rgb(255 255 255 / 0.85);
+}
+/* the per-device panel on the homepage: never shorter than the Settings panel
+   beside it; EditDevice.tsx grows it to fit the whole sheet when one is open */
+.sed-root.se-grow .sed-win.sed-bare { min-height: 404px; }

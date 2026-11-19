@@ -1,4 +1,4 @@
-import { Plus } from "lucide-react";
+import { Minus, Plus } from "lucide-react";
 
 // Keep in sync with the FAQPage JSON-LD in index.html. Same facts as before,
 // in the leaflet's voice.
@@ -49,19 +49,15 @@ export default function FaqSimple() {
           </p>
         </div>
 
-        <div className="border-b-[1.5px] border-ink lg:col-span-8">
-          {QA.map((item, i) => (
-            <details key={item.q} className={`group ${i === 0 ? "border-t-[1.5px] border-ink" : "border-t border-line"}`}>
+        <div className="border-b border-line lg:col-span-8">
+          {QA.map((item) => (
+            <details key={item.q} className="group border-t border-line">
               <summary className="wide flex min-h-14 cursor-pointer list-none items-center justify-between gap-6 py-4 text-lg font-bold leading-snug [&::-webkit-details-marker]:hidden">
                 {item.q}
-                <Plus
-                  size={20}
-                  strokeWidth={2}
-                  aria-hidden="true"
-                  className="shrink-0 text-link transition-transform duration-150 group-open:rotate-45"
-                />
+                <Plus size={20} strokeWidth={2} aria-hidden="true" className="shrink-0 text-link group-open:hidden" />
+                <Minus size={20} strokeWidth={2} aria-hidden="true" className="hidden shrink-0 text-link group-open:block" />
               </summary>
-              <p className="max-w-[62ch] pb-6 leading-relaxed text-muted">{item.a}</p>
+              <p className="pb-6 leading-relaxed text-muted">{item.a}</p>
             </details>
           ))}
         </div>

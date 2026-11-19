@@ -16,13 +16,13 @@ import TryApp from "@/components/home/TryApp.tsx";
 import UseCases from "@/components/home/UseCases.tsx";
 import Compare from "@/components/home/Compare.tsx";
 import ConnectFlow from "@/components/home/ConnectFlow.tsx";
-import InTheBox from "@/components/home/InTheBox.tsx";
+import WindowMoment from "@/components/home/WindowMoment.tsx";
 import FeatureScroll from "@/components/home/FeatureScroll.tsx";
 import FaqSimple from "@/components/home/FaqSimple.tsx";
 import GpuSupport from "@/components/home/GpuSupport.tsx";
 
 import { Theme, useTheme } from "react-daisyui";
-import { THEME_KEY, applyThemeAttr } from "@/components/Navbar.tsx";
+import { THEME_KEY, applyThemeAttr } from "@/lib/theme.ts";
 
 // Restores a visitor's saved theme after hydration; by default the page follows the OS.
 function ThemeInit() {
@@ -50,7 +50,7 @@ function Home() {
   return (
     <>
       <HeroLanding />
-      <InTheBox />
+      <WindowMoment />
       <ConnectFlow />
       <TryApp />
       <UseCases />

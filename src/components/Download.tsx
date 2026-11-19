@@ -5,47 +5,50 @@ import { X } from "lucide-react";
 import windowsLogo from "@/assets/logo/windows.svg";
 import macLogo from "@/assets/logo/mac.svg";
 import macLogoLight from "@/assets/logo/mac-light.svg";
-import linuxLogo from "@/assets/logo/linux.svg";
 import { isTouchDevice } from "@/lib/device.ts";
 
 const RELEASES = "https://github.com/ScreenExtend/ScreenExtend/releases/latest";
 const WINDOWS_EXE = `${RELEASES}/download/ScreenExtend_x64-setup.exe`;
 const MAC_DMG = `${RELEASES}/download/ScreenExtend_universal.dmg`;
 
-function Platform({
+const WIN_REQ = [
+  "Windows 10 version 2004 (May 2020) or newer, or Windows 11",
+  "Windows Server 20H2 (October 2020) or newer",
+  "No ARM build yet",
+];
+const MAC_REQ = ["macOS Catalina 10.15 (October 2019) or newer", "In beta"];
+
+// The one wide card: the download for the computer you're on (Windows when we
+// can't tell), with a heavy spot-blue edge. The rest are plain links below it.
+function Card({
   logo,
   name,
+  yours,
   requires,
-  requiresLabel = "Requires",
-  yours = false,
   children,
 }: {
-  yours?: boolean;
   logo: ReactNode;
   name: string;
+  yours: boolean;
   requires: string[];
-  requiresLabel?: string;
   children: ReactNode;
 }) {
   return (
-    // a coupon on the back panel: hairline edge, or a heavy spot-blue edge on your own OS
-    <div
-      className={`flex flex-col rounded-panel p-5 sm:p-6 ${
-        yours ? "border-[3px] border-spot bg-sheet" : "border-[1.5px] border-ink"
-      }`}
-    >
-      <h3 className="wide flex flex-wrap items-center gap-x-3 gap-y-1 text-xl font-bold">
-        {logo}
-        {name}
-        {yours && <span className="small-print font-semibold text-link">Your computer</span>}
-      </h3>
-      <p className="mt-4 text-sm font-semibold">{requiresLabel}</p>
-      <ul className="mt-1 space-y-0.5 text-sm text-muted md:min-h-[4rem]">
-        {requires.map((r) => (
-          <li key={r}>{r}</li>
-        ))}
-      </ul>
-      <div className="mt-auto pt-6">{children}</div>
+    <div className="grid gap-6 rounded-panel border-[3px] border-spot bg-sheet p-6 sm:p-8 md:grid-cols-[1fr_auto] md:items-end md:gap-10">
+      <div>
+        <h3 className="wide flex flex-wrap items-center gap-x-3 gap-y-1 text-2xl font-bold">
+          {logo}
+          {name}
+          {yours && <span className="small-print font-semibold text-link">Your computer</span>}
+        </h3>
+        <p className="mt-4 text-sm font-semibold">Requires</p>
+        <ul className="mt-1 space-y-0.5 text-[0.9375rem] text-muted">
+          {requires.map((r) => (
+            <li key={r}>{r}</li>
+          ))}
+        </ul>
+      </div>
+      <div className="md:min-w-[17rem]">{children}</div>
     </div>
   );
 }
@@ -104,8 +107,22 @@ export default function Download() {
   const macSrc =
     theme === "light" ? macLogo : theme === "dark" || systemDark ? macLogoLight : macLogo;
 
+  const mac = os === "mac";
+  const winImg = <img alt="" width={24} height={24} className="h-6 w-6" src={windowsLogo} />;
+  const macImg = <img alt="" width={24} height={24} className="h-6 w-6" src={macSrc} />;
+  const winBtn = (
+    <a className="btn-solid min-h-12 w-full px-6 text-base" href={WINDOWS_EXE} target="_blank" rel="noopener noreferrer" onClick={() => setShowWindowsNotice(true)}>
+      Download .exe (64-bit)
+    </a>
+  );
+  const macBtn = (
+    <a className="btn-solid min-h-12 w-full px-6 text-base" href={MAC_DMG} target="_blank" rel="noopener noreferrer" onClick={() => setShowMacNotice(true)}>
+      Download .dmg (Universal)
+    </a>
+  );
+
   return (
-    // on paper like the rest of the page; the only band is the blue box
+    // on paper like the rest of the page; the only band is the window moment
     <section className="border-t-[1.5px] border-ink py-16 lg:py-24" id="download">
       <div className="container">
         <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
@@ -115,60 +132,51 @@ export default function Download() {
               Free, for Windows and for Mac (in beta). Linux isn't ready yet.
             </p>
           </div>
-          <p className="text-muted lg:col-span-5 lg:text-right">
-            <span className="font-bold text-ink">2.5k+</span> downloads so far.
-          </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          <Platform
-            logo={<img alt="" width={24} height={24} className="h-6 w-6" src={windowsLogo} />}
-            name="Windows"
-            yours={os === "win"}
-            requires={[
-              "Windows 10 version 2004 (May 2020) or newer, or Windows 11",
-              "Windows Server 20H2 (October 2020) or newer",
-              "No ARM build yet",
-            ]}
-          >
-            <a
-              className="btn-solid min-h-12 w-full"
-              href={WINDOWS_EXE}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setShowWindowsNotice(true)}
-            >
-              Download .exe (64-bit)
-            </a>
-          </Platform>
+        <div className="mt-12 max-w-4xl">
+          {mac ? (
+            <Card logo={macImg} name="macOS" yours={os === "mac"} requires={MAC_REQ}>
+              {macBtn}
+            </Card>
+          ) : (
+            <Card logo={winImg} name="Windows" yours={os === "win"} requires={WIN_REQ}>
+              {winBtn}
+            </Card>
+          )}
 
-          <Platform
-            logo={<img alt="" width={24} height={24} className="h-6 w-6" src={macSrc} />}
-            name="macOS"
-            yours={os === "mac"}
-            requires={["macOS Catalina 10.15 (October 2019) or newer", "In beta"]}
-          >
-            <a
-              className="btn-solid min-h-12 w-full"
-              href={MAC_DMG}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setShowMacNotice(true)}
-            >
-              Download .dmg (Universal)
-            </a>
-          </Platform>
-
-          <Platform
-            logo={<img alt="" width={24} height={24} className="h-6 w-6" src={linuxLogo} />}
-            name="Linux"
-            requiresLabel="Will require"
-            requires={["Ubuntu 20.04 (April 2020)"]}
-          >
-            <p className="flex min-h-12 items-center text-sm text-muted">
-              Coming soon as .deb, .rpm and AppImage.
-            </p>
-          </Platform>
+          <ul className="mt-6 space-y-2 text-[0.9375rem] leading-relaxed text-muted">
+            {mac ? (
+              <li>
+                <span className="font-semibold text-ink">Windows:</span>{" "}
+                <a className="u-link" href={WINDOWS_EXE} target="_blank" rel="noopener noreferrer" onClick={() => setShowWindowsNotice(true)}>
+                  Download .exe (64-bit)
+                </a>
+                . Needs Windows 10 version 2004 (May 2020) or newer, or Windows 11.
+              </li>
+            ) : (
+              <li>
+                <span className="font-semibold text-ink">macOS:</span>{" "}
+                <a className="u-link" href={MAC_DMG} target="_blank" rel="noopener noreferrer" onClick={() => setShowMacNotice(true)}>
+                  Download .dmg (Universal)
+                </a>
+                , in beta. Needs macOS Catalina 10.15 (October 2019) or newer.
+              </li>
+            )}
+            <li>
+              <span className="font-semibold text-ink">Linux:</span> coming soon as .deb, .rpm and
+              AppImage. It will require Ubuntu 20.04 (April 2020).
+            </li>
+            <li>
+              <span className="font-mono text-sm">.msi</span> (Windows) and{" "}
+              <span className="font-mono text-sm">.pkg</span> (Mac) packages for bulk enterprise
+              installs are on the{" "}
+              <a href={RELEASES} target="_blank" rel="noopener noreferrer" className="u-link">
+                GitHub releases page
+              </a>
+              .
+            </li>
+          </ul>
         </div>
 
         {showWindowsNotice && (
@@ -236,24 +244,13 @@ export default function Download() {
           </Notice>
         )}
 
-        <div className="mt-10 space-y-2 text-[0.9375rem] text-muted">
-          <p>
-            Using another operating system? Email{" "}
-            <a href="mailto:support@screenextend.app" className="u-link">
-              support@screenextend.app
-            </a>{" "}
-            with your device details and ask for a custom build.
-          </p>
-          <p>
-            <span className="font-mono text-sm">.msi</span> (Windows) and{" "}
-            <span className="font-mono text-sm">.pkg</span> (Mac) packages for
-            bulk enterprise installs are on the{" "}
-            <a href={RELEASES} target="_blank" rel="noopener noreferrer" className="u-link">
-              GitHub releases page
-            </a>
-            .
-          </p>
-        </div>
+        <p className="mt-10 text-[0.9375rem] text-muted">
+          Using another operating system? Email{" "}
+          <a href="mailto:support@screenextend.app" className="u-link">
+            support@screenextend.app
+          </a>{" "}
+          with your device details and ask for a custom build.
+        </p>
       </div>
     </section>
   );

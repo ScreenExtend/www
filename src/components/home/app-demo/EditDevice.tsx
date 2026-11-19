@@ -26,7 +26,16 @@ export default function EditDevice() {
   const opener = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    if (open !== null) sheet.current?.focus();
+    const s = sheet.current;
+    if (open === null || !s) return;
+    // in the homepage's per-device panel (.se-grow) the window grows to fit the
+    // whole sheet instead of cutting it off and scrolling it
+    const win = s.closest<HTMLElement>(".se-grow .sed-win");
+    if (win) win.style.minHeight = `${s.scrollHeight}px`;
+    s.focus({ preventScroll: true });
+    return () => {
+      if (win) win.style.minHeight = "";
+    };
   }, [open]);
 
   const show = (i: number) => {

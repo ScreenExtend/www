@@ -1,6 +1,5 @@
 import React, {
   createContext,
-  useContext,
   useEffect,
   useRef,
   useState,
@@ -109,12 +108,4 @@ export const ImageProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       <Lightbox index={currentImage} setIndex={setCurrentImage} />
     </ImageContext.Provider>
   );
-};
-
-export const useImage = () => {
-  const context = useContext(ImageContext);
-  if (context === undefined) {
-    throw new Error("useImage must be used within an ImageProvider");
-  }
-  return context;
 };
