@@ -156,7 +156,7 @@ export default function Navbar() {
           </button>
           <a
             href={`${BASE}/`}
-            className="wide flex min-h-11 shrink-0 items-center gap-2.5 text-[1.0625rem] font-extrabold sm:text-lg"
+            className="wide flex min-h-11 shrink-0 items-center gap-2 text-[1.0625rem] font-extrabold sm:text-lg"
           >
             <span className="brand-chip">
               <span className="logo-tile"><img src={logo} width={26} height={23} className="h-[23px] w-[26px]" alt="" /></span>

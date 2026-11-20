@@ -286,12 +286,47 @@
 .brand-chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 6px 12px 6px 8px;
+  gap: 0.5rem;
+  padding: 8px 12px 8px 8px;
   border: 1px solid var(--se-brand-edge);
-  border-radius: 9px;
+  border-radius: 8px;
   background: var(--se-brand-chip);
 }
 .logo-tile {
   display: inline-flex;
 }
+/* corner ribbon; only where the hero has a free corner beside the fitted title */
+.gh-ribbon-wrap {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 148px;
+  height: 148px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+@media (min-width: 1280px) {
+  .gh-ribbon-wrap { display: block; }
+}
+.gh-ribbon {
+  position: absolute;
+  top: 36px;
+  right: -52px;
+  width: 208px;
+  height: 32px;
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--se-ink);
+  color: var(--se-paper);
+  font-size: 13px;
+  font-weight: 600;
+  pointer-events: auto;
+  transition: background-color 150ms ease-out;
+}
+.gh-ribbon:hover { background: var(--se-link); }
+.gh-ribbon:focus-visible { outline: 2px solid var(--se-link); outline-offset: 2px; }

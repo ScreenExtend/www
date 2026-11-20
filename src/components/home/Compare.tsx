@@ -27,7 +27,7 @@ const ROWS: { q: string; v: [Cell, Cell, Cell, Cell, Cell] }[] = [
 
 function Mark({ yes, note, ours }: { yes: boolean; note?: string; ours?: boolean }) {
   return (
-    <span className="flex flex-col items-center gap-0.5 text-center">
+    <span className="flex flex-col items-center gap-1 text-center">
       {yes ? (
         <Check size={18} strokeWidth={ours ? 3 : 2.25} className={ours ? "text-link" : "text-ink"} aria-hidden="true" />
       ) : (

@@ -32,7 +32,7 @@ const MARK: Record<Status, string> = {
 function Cell({ s }: { s: Status }) {
   return (
     <td className="h-[4.75rem] whitespace-nowrap px-2 sm:h-16 sm:px-4">
-      <span className={`inline-flex items-center gap-1.5 text-sm sm:gap-2.5 sm:text-[0.9375rem] ${s === "na" || s === "no" ? "text-muted" : "text-ink"}`}>
+      <span className={`inline-flex items-center gap-2 text-sm sm:gap-3 sm:text-[0.9375rem] ${s === "na" || s === "no" ? "text-muted" : "text-ink"}`}>
         {s !== "na" && <span aria-hidden="true" className={`h-3 w-3 shrink-0 rounded-[2px] ${MARK[s]}`} />}
         {s === "na" ? <span aria-label="Not applicable">n/a</span> : LABEL[s]}
       </span>
@@ -79,7 +79,7 @@ export default function GpuSupport() {
                 <tbody>
                   {ROWS.map((r) => (
                     <tr key={r.gpu} className="border-b border-line last:border-b-0">
-                      <th scope="row" className="h-[4.75rem] px-2 py-1.5 font-normal sm:h-16 sm:px-4">
+                      <th scope="row" className="h-[4.75rem] px-2 py-2 font-normal sm:h-16 sm:px-4">
                         <span className="whitespace-nowrap font-semibold">{r.gpu}</span>
                         <span className="small-print block leading-snug">{r.api}</span>
                       </th>

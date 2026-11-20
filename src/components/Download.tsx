@@ -40,7 +40,7 @@ function Card({
       </h3>
       <div className="lg:col-span-5">
         <p className="text-sm font-semibold">Requires</p>
-        <ul className="mt-1 space-y-0.5 text-[0.9375rem] text-muted">
+        <ul className="mt-1 space-y-1 text-[0.9375rem] text-muted">
           {requires.map((r) => (
             <li key={r}>{r}</li>
           ))}
@@ -221,7 +221,7 @@ export default function Download() {
             <p>
               If macOS says the app is <b>"damaged"</b>, open <b>Terminal</b>,
               run{" "}
-              <code className="whitespace-nowrap rounded-cell bg-paper px-1.5 py-0.5 font-mono text-sm text-ink">
+              <code className="whitespace-nowrap rounded-cell bg-paper px-2 py-1 font-mono text-sm text-ink">
                 xattr -cr /Applications/ScreenExtend.app
               </code>{" "}
               and try again.
