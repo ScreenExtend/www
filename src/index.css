@@ -85,13 +85,41 @@
 }
 
 @layer components {
+  /* press: scale 0.96 from the centre; hover colour eases in only while hovered, so
+     keyboard focus and leaving are instant */
   .btn-solid {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-control bg-spot px-5 font-semibold text-white transition-[background-color,transform] duration-150 hover:bg-[#1f4cc8] active:translate-y-px active:bg-[#1b45b8];
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-control bg-spot px-5 font-semibold text-white hover:bg-[#1f4cc8] active:scale-[0.96] active:bg-[#1b45b8];
     font-stretch: 104%;
+    transition: transform 120ms cubic-bezier(0.32, 0.72, 0, 1);
   }
   .btn-line {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-control border-[1.5px] border-ink bg-transparent px-4 font-semibold text-ink transition-[background-color,transform] duration-150 hover:bg-surface active:translate-y-px;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-control border-[1.5px] border-ink bg-transparent px-4 font-semibold text-ink hover:bg-surface active:scale-[0.96];
     font-stretch: 104%;
+    transition: transform 120ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .btn-accent {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-control px-6 font-semibold active:scale-[0.96];
+    background: var(--se-accent);
+    color: #14161a;
+    font-stretch: 104%;
+    transition: transform 120ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .btn-solid:hover,
+  .btn-line:hover,
+  .btn-accent:hover {
+    transition: transform 120ms cubic-bezier(0.32, 0.72, 0, 1), background-color 150ms ease-out;
+  }
+  .btn-accent:hover {
+    background: var(--se-accent-hover);
+  }
+  .btn-accent:focus-visible {
+    box-shadow: 0 0 0 2px var(--se-field), 0 0 0 4px #fff;
+  }
+  .u-link-field {
+    @apply text-white underline decoration-1 underline-offset-[3px] hover:decoration-2;
+  }
+  .hero-field {
+    background: var(--se-field);
   }
   .u-link {
     @apply text-link underline decoration-1 underline-offset-[3px] transition-colors duration-150 hover:decoration-2;
@@ -107,7 +135,7 @@
   /* section heads: a step narrower, so the wide voice belongs to the cover */
   .display-lg {
     font-family: Archivo, system-ui, sans-serif;
-    font-weight: 720;
+    font-weight: 660;
     font-stretch: 106%;
     font-size: clamp(2.1rem, 3.6vw, 3rem);
     line-height: 1.06;
@@ -334,4 +362,28 @@
 :root,
 [data-theme] {
   --se-art: color-mix(in oklab, var(--se-ink) 70%, var(--se-paper));
+}
+
+/* the one entrance: the hero window slides off the laptop until it straddles the gap */
+@keyframes macro-slide {
+  from {
+    transform: translateX(-410px);
+  }
+  to {
+    transform: none;
+  }
+}
+.macro-window-slide {
+  animation: macro-slide 700ms cubic-bezier(0.32, 0.72, 0, 1) 200ms both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .macro-window-slide {
+    animation: none;
+  }
+}
+/* a theme swap repaints at once, without every coloured element easing over */
+html.theme-swap *,
+html.theme-swap *::before,
+html.theme-swap *::after {
+  transition: none !important;
 }

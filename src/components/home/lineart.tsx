@@ -209,14 +209,14 @@ export function Window({ w, h, art, ink, hatch, hot = false, bar = true, title }
       <rect x="0" y="0" width={w} height={h} rx="3" fill={ink.sheet} {...l} />
       {bar && (
         <>
-          {hot && <path d={`M1.25 1.25 H${w - 1.25} V${tb} H1.25 Z`} fill={ink.spot} />}
+          {hot && <path d={`M1.25 1.25 H${w - 1.25} V${tb} H1.25 Z`} fill="var(--se-accent)" />}
           <path d={`M0 ${tb} H${w}`} {...l} />
           {w > 70 && title && tb >= 12 ? (
-            <text x={tb * 0.5} y={tb * 0.72} fill={hot ? ink.onSpot : ink.ink} fontFamily="Archivo, sans-serif" fontWeight="700" fontSize={tb * 0.66}>
+            <text x={tb * 0.5} y={tb * 0.72} fill={hot ? "#14161a" : ink.ink} fontFamily="Archivo, sans-serif" fontWeight="700" fontSize={tb * 0.66}>
               {title}
             </text>
           ) : (
-            w > 70 && <path d={`M${tb * 0.6} ${tb / 2} H${tb * 0.6 + w * 0.25}`} stroke={hot ? ink.onSpot : ink.ink} strokeWidth="1.75" strokeLinecap="round" />
+            w > 70 && <path d={`M${tb * 0.6} ${tb / 2} H${tb * 0.6 + w * 0.25}`} stroke={hot ? "#14161a" : ink.ink} strokeWidth="1.75" strokeLinecap="round" />
           )}
         </>
       )}

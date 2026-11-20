@@ -18,6 +18,15 @@ const lightTokens = {
   '--se-hero': '#e6eaf0',
   '--se-brand-chip': '#e3e5e1',
   '--se-brand-edge': '#d0d3cd',
+  // window version: the blue field, the lime accent and the drawn devices
+  '--se-field': '#2557e0',
+  '--se-on-field-muted': '#dfe6ff',
+  '--se-accent': '#dcff4a',
+  '--se-accent-hover': '#cdf13a',
+  '--se-device': '#14161a',
+  '--se-device-rim': 'transparent',
+  '--se-screen': '#1e2024',
+  '--se-screen-line': '#45484f',
 }
 const darkTokens = {
   '--se-paper': '#16140f',
@@ -30,6 +39,15 @@ const darkTokens = {
   '--se-hero': '#1c2130',
   '--se-brand-chip': '#1f1c16',
   '--se-brand-edge': '#332f27',
+  '--se-field': '#1a3a9c',
+  '--se-on-field-muted': '#d3dcf5',
+  // accent at about 75% of the light theme's chroma so it doesn't buzz on the dark page
+  '--se-accent': '#c4dc5a',
+  '--se-accent-hover': '#b5cd4c',
+  '--se-device': '#0d0f12',
+  '--se-device-rim': '#3a3f47',
+  '--se-screen': '#16181b',
+  '--se-screen-line': '#363940',
 }
 const shared = {
   primary: '#2557e0',

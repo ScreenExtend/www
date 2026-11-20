@@ -33,12 +33,14 @@ function Card({
   children: ReactNode;
 }) {
   return (
-    <div className="grid gap-6 rounded-panel border-[3px] border-spot bg-sheet p-6 sm:p-8 lg:grid-cols-12 lg:items-center lg:gap-10">
-      <h3 className="wide flex flex-wrap items-center gap-x-3 gap-y-1 text-2xl font-bold lg:col-span-3">
+    // a window with the hero's lime title bar; the platform name sits in the bar
+    <div className="overflow-hidden rounded-panel border-[1.5px] border-ink bg-sheet">
+      <h3 className="wide flex flex-wrap items-center gap-x-3 gap-y-1 border-b-[1.5px] border-ink bg-[var(--se-accent)] px-6 py-3 text-xl font-bold text-[#14161a] sm:px-8">
         {logo}
         {name}
       </h3>
-      <div className="lg:col-span-5">
+    <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-12 lg:items-center lg:gap-10">
+      <div className="lg:col-span-7">
         <p className="text-sm font-semibold">Requires</p>
         <ul className="mt-1 space-y-1 text-[0.9375rem] text-muted">
           {requires.map((r) => (
@@ -46,7 +48,8 @@ function Card({
           ))}
         </ul>
       </div>
-      <div className="lg:col-span-4">{children}</div>
+      <div className="lg:col-span-5">{children}</div>
+    </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import QrInline from "@/components/home/app-demo/QrInline.tsx";
+import qrCrop from "@/assets/app/crop-qr.webp";
 import { EdgeDrawing } from "@/components/home/drawings.tsx";
 
 // The only real sequence on the page, so the only numbers. The code is an
@@ -39,7 +39,17 @@ export default function ConnectFlow() {
           <Step
             n={1}
             t="Scanning the code"
-            figure={<QrInline className="w-full max-w-[20rem]" />}
+            figure={
+              <img
+                src={qrCrop}
+                width={426}
+                height={554}
+                loading="lazy"
+                decoding="async"
+                className="w-full max-w-[20rem] rounded-panel"
+                alt="The ScreenExtend Add Device screen: the Anywhere (Internet) QR code, marked Online, with its session link and an Expand QR button."
+              />
+            }
           >
             Open a link in the client's browser.
           </Step>

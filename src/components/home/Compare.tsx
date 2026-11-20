@@ -41,7 +41,7 @@ function Mark({ yes, note, ours }: { yes: boolean; note?: string; ours?: boolean
 
 export default function Compare() {
   return (
-    <section id="compare" className="py-16 lg:py-24">
+    <section id="compare" className="bg-surface py-16 lg:py-24">
       <div className="container">
         <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
           <h2 className="display-lg lg:col-span-6">Comparison</h2>
@@ -56,14 +56,14 @@ export default function Compare() {
             <caption className="sr-only">ScreenExtend compared with other second-screen apps</caption>
             <thead>
               <tr className="border-b-[1.5px] border-ink text-[0.9375rem]">
-                <th scope="col" className="sticky left-0 z-10 bg-paper py-3 pr-4 text-left font-medium">
+                <th scope="col" className="sticky left-0 z-10 bg-surface py-3 pr-4 text-left font-medium">
                   <span className="sr-only">Feature</span>
                 </th>
                 {COLS.map((c, i) => (
                   <th
                     key={c}
                     scope="col"
-                    className={`wide w-[15%] px-2 py-3 text-center ${i === 0 ? "border-x-[1.5px] border-ink font-extrabold text-link" : "font-semibold text-muted"}`}
+                    className={`wide w-[15%] px-2 py-3 text-center ${i === 0 ? "border-x-[1.5px] border-ink bg-[var(--se-accent)] font-extrabold text-[#14161a]" : "font-semibold text-muted"}`}
                   >
                     {c}
                   </th>
@@ -73,7 +73,7 @@ export default function Compare() {
             <tbody>
               {ROWS.map((r) => (
                 <tr key={r.q} className="border-b border-line last:border-b-0">
-                  <th scope="row" className="sticky left-0 z-10 bg-paper py-3 pr-4 text-left font-medium max-md:w-32">{r.q}</th>
+                  <th scope="row" className="sticky left-0 z-10 bg-surface py-3 pr-4 text-left font-medium max-md:w-32">{r.q}</th>
                   {r.v.map(([yes, note], i) => (
                     <td key={i} className={`px-2 py-3 text-center align-middle ${i === 0 ? "border-x-[1.5px] border-ink" : ""}`}>
                       <Mark yes={yes} note={note} ours={i === 0} />

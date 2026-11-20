@@ -1,10 +1,9 @@
 import { useLayoutEffect, useRef } from "react";
 import { Star } from "lucide-react";
 
-import DeskArrange from "@/components/home/DeskArrange.tsx";
+import MacroWindow from "@/components/home/MacroWindow.tsx";
 import SendToComputer from "@/components/home/SendToComputer.tsx";
 
-// The cover of the leaflet: the line on the box, then the figure with its key.
 // On wide screens the headline is set on one line, sized so it spans the full
 // column whatever the typeface's width. Smaller screens wrap it at the CSS size.
 function useFitLine() {
@@ -31,10 +30,17 @@ function useFitLine() {
   return ref;
 }
 
+// three captions at most, each a fact the page backs up further down
+const FACTS = [
+  { big: "8 ms", small: "to capture and encode a frame" },
+  { big: "Windows and Mac", small: "one install, on the computer" },
+  { big: "Free", small: "and open source" },
+];
+
 export default function HeroLanding() {
   const title = useFitLine();
   return (
-    <section id="home" className="hero-fade relative pb-16 pt-10 sm:pt-14 lg:pb-20 lg:pt-16">
+    <section id="home" className="hero-field relative">
       <div className="gh-ribbon-wrap">
         <a
           href="https://github.com/ScreenExtend/ScreenExtend"
@@ -46,32 +52,42 @@ export default function HeroLanding() {
           Star on Github
         </a>
       </div>
-      <div className="container">
-        <div className="text-center">
-          <h1 ref={title} className="display text-[clamp(2.6rem,5.6vw,4.9rem)]">
+      <div className="container pt-12 lg:pt-24">
+        <div>
+          <h1 ref={title} className="display text-[clamp(2.4rem,5.6vw,4.9rem)] text-white">
             Use your tablet as a second monitor
           </h1>
-          <div className="mx-auto mt-5 max-w-2xl">
-            <p className="lede">
+        </div>
+        <div className="mt-6 grid gap-8 lg:mt-8 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <p className="max-w-[36rem] text-lg leading-[1.6] text-[var(--se-on-field-muted)]">
               Turns any iPad, Android tablet, phone or old laptop into an
               extended monitor through its browser. Wireless, nothing to install on the second device.
             </p>
-            <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-6">
-              <a href="#download" className="btn-solid min-h-12 w-full whitespace-nowrap px-6 text-base sm:w-auto">
+            <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
+              <a href="#download" className="btn-accent min-h-12 w-full whitespace-nowrap px-6 text-base sm:w-auto">
                 Download for Windows or Mac
               </a>
-              <a href="#how" className="u-link inline-flex min-h-11 items-center">
+              <a href="#how" className="u-link-field inline-flex min-h-11 items-center">
                 How to set it up
               </a>
             </div>
           </div>
+          <ul className="hidden content-start gap-4 lg:col-span-4 lg:col-start-9 lg:grid" aria-label="At a glance">
+            {FACTS.map((f) => (
+              <li key={f.big} className="text-[0.9375rem] leading-snug text-[var(--se-on-field-muted)]">
+                <span className="font-semibold text-white">{f.big}</span> {f.small}
+              </li>
+            ))}
+          </ul>
         </div>
+      </div>
 
+      <div className="mt-12 lg:mt-16">
+        <MacroWindow />
+      </div>
+      <div className="container">
         <SendToComputer className="mt-8" />
-
-        <div className="mt-10 lg:mt-14">
-          <DeskArrange />
-        </div>
       </div>
     </section>
   );

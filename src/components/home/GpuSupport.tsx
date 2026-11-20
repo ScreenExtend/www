@@ -49,15 +49,21 @@ export default function GpuSupport() {
         <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-14">
           {/* Source: docs/RESULTS.md in the app repo, real-content 1080p capture to
               encode with NVENC: 8.39 ms median, 9.44 ms p90. Not glass-to-glass. */}
-          <div className="min-w-0 lg:col-span-4">
-            <p className="condensed tabular text-[clamp(6rem,12vw,8.5rem)] font-extrabold leading-[0.8] text-link">
-              8<span className="text-[0.5em]"> ms</span>
+          {/* set as a window with the hero's lime title bar: the page's signature */}
+          <div className="min-w-0 self-start overflow-hidden rounded-panel border-[1.5px] border-ink bg-sheet lg:col-span-4">
+            <p className="border-b-[1.5px] border-ink bg-[var(--se-accent)] px-4 py-2 text-sm font-semibold text-[#14161a]">
+              Frame time
             </p>
-            <p className="wide mt-5 text-xl font-bold leading-tight">to capture and encode a frame</p>
-            <p className="small-print mt-4">
-              Median on 1080p content, measured on Windows 11 (25H2) with an NVIDIA RTX 3080 Ti
-              Laptop GPU.
-            </p>
+            <div className="p-6">
+              <p className="condensed tabular text-[clamp(6rem,12vw,8.5rem)] font-extrabold leading-[0.8] text-link">
+                8<span className="text-[0.5em]"> ms</span>
+              </p>
+              <p className="wide mt-5 text-xl font-bold leading-tight">to capture and encode a frame</p>
+              <p className="small-print mt-4">
+                Median on 1080p content, measured on Windows 11 (25H2) with an NVIDIA RTX 3080 Ti
+                Laptop GPU.
+              </p>
+            </div>
           </div>
 
           <div className="min-w-0 lg:col-span-8">

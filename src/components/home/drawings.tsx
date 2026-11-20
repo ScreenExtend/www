@@ -1,7 +1,6 @@
 import { useId } from "react";
 
 // Step 3's close-up, in the leaflet's two inks (see lineart.tsx for the rest).
-const SPOT = "#2557e0";
 const INK = "var(--se-ink)";
 const SHEET = "var(--se-sheet)";
 const PAPER = "var(--se-paper)";
@@ -39,7 +38,7 @@ export function EdgeDrawing({ className = "" }: { className?: string }) {
       <path d="M159 30 V200" stroke="var(--se-link)" strokeWidth="2" strokeDasharray="6 5" />
       {/* a window corner on the tablet, picked up by its title bar */}
       <path d="M320 88 H232 Q228 88 228 92 V180" fill={SHEET} {...line} strokeWidth={2} />
-      <path d="M229.25 89.25 H320 V106 H229.25 Z" fill={SPOT} />
+      <path d="M229.25 89.25 H320 V106 H229.25 Z" fill="var(--se-accent)" />
       <path d="M228 106 H320" {...line} strokeWidth={2} />
       <rect x="240" y="118" width="58" height="40" fill={`url(#eh${id})`} {...line} strokeWidth={2} />
       <g transform="translate(246 96)">

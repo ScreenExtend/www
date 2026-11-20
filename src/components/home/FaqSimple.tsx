@@ -36,8 +36,8 @@ const QA = [
 export default function FaqSimple() {
   return (
     <section id="faq" className="py-16 lg:py-24">
-      <div className="container">
-        <div>
+      <div className="container grid gap-10 lg:grid-cols-12 lg:gap-14">
+        <div className="lg:col-span-4">
           <h2 className="display-lg">Before you ask</h2>
           <p className="lede mt-3">
             Something missing? Email{" "}
@@ -48,13 +48,15 @@ export default function FaqSimple() {
           </p>
         </div>
 
-        <div className="mt-10 border-b border-line">
+        <div className="border-b border-line lg:col-span-8">
           {QA.map((item) => (
             <details key={item.q} className="group border-t border-line">
               <summary className="wide flex min-h-14 cursor-pointer list-none items-center justify-between gap-6 py-4 text-lg font-bold leading-snug [&::-webkit-details-marker]:hidden">
                 {item.q}
                 <Plus size={20} strokeWidth={2} aria-hidden="true" className="shrink-0 text-link group-open:hidden" />
-                <Minus size={20} strokeWidth={2} aria-hidden="true" className="hidden shrink-0 text-link group-open:block" />
+                <span aria-hidden="true" className="hidden h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--se-accent)] text-[#14161a] group-open:flex">
+                  <Minus size={18} strokeWidth={2.25} />
+                </span>
               </summary>
               <p className="pb-6 leading-relaxed text-muted">{item.a}</p>
             </details>
