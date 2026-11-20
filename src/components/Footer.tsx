@@ -27,7 +27,7 @@ export default function Footer() {
             Free and open source, for the screens you already own.
           </p>
         </div>
-        <nav aria-label="Footer" className="flex flex-wrap gap-x-5 lg:col-span-7 lg:justify-end">
+        <nav aria-label="Footer" className="grid grid-cols-[repeat(3,max-content)] gap-x-3 whitespace-nowrap min-[360px]:gap-x-6 sm:flex sm:flex-wrap sm:gap-x-5 lg:col-span-7 lg:justify-end">
           {LEGAL_LINKS.map((link) => (
             <Link key={link.to} to={link.to} className={LINK}>
               {link.label}
