@@ -99,8 +99,8 @@
   /* The box front: wide and heavy. Hierarchy comes from width and weight as much as size. */
   .display {
     font-family: Archivo, system-ui, sans-serif;
-    font-weight: 780;
-    font-stretch: 118%;
+    font-weight: 640;
+    font-stretch: 112%;
     line-height: 1.02;
     letter-spacing: -0.012em;
   }
@@ -330,3 +330,8 @@
 }
 .gh-ribbon:hover { background: var(--se-link); }
 .gh-ribbon:focus-visible { outline: 2px solid var(--se-link); outline-offset: 2px; }
+/* line-art ink: page ink eased toward the paper so the drawings sit back behind the type */
+:root,
+[data-theme] {
+  --se-art: color-mix(in oklab, var(--se-ink) 70%, var(--se-paper));
+}

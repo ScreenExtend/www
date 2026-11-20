@@ -276,7 +276,7 @@ export default function DeskArrange() {
           </defs>
 
           {desks.map((y) => (
-            <path key={y} d={`M${vb.x} ${y + DESK} H${vb.x + vb.w}`} stroke={INK.ink} strokeWidth="2.5" strokeLinecap="round" />
+            <path key={y} d={`M${vb.x} ${y + DESK} H${vb.x + vb.w}`} stroke={INK.ink} strokeWidth="1.75" strokeLinecap="round" />
           ))}
           {seq.map((k) => (
             <Device key={k} kind={k} x={place[k][0]} y={place[k][1]} ink={INK} hatch={`k${uid}`} />

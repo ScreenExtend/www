@@ -4,7 +4,7 @@ import { DEVICE, type Ink, type Kind } from "@/components/home/lineart-geo.ts";
 // hatching, and the spot blue. On the blue band the same drawings print in
 // white. Hatching stands in for shade and pictures; no flat colour fills.
 
-const stroke = (c: string, w = 2.5) => ({
+const stroke = (c: string, w = 1.75) => ({
   stroke: c,
   strokeWidth: w,
   strokeLinejoin: "round" as const,
@@ -23,9 +23,9 @@ export function Hatch({ id, color, gap = 6 }: { id: string; color: string; gap?:
 export function Callout({ at, to, ink, children }: { at: [number, number]; to: [number, number]; ink: Ink; children: string }) {
   return (
     <g aria-hidden="true">
-      <path d={`M${at[0]} ${at[1]} L${to[0]} ${to[1]}`} stroke={ink.ink} strokeWidth="1.5" />
+      <path d={`M${at[0]} ${at[1]} L${to[0]} ${to[1]}`} stroke={ink.ink} strokeWidth="1.25" />
       <circle cx={to[0]} cy={to[1]} r="3" fill={ink.ink} />
-      <circle cx={at[0]} cy={at[1]} r="15" fill={ink.paper} stroke={ink.ink} strokeWidth="2" />
+      <circle cx={at[0]} cy={at[1]} r="15" fill={ink.paper} stroke={ink.ink} strokeWidth="1.25" />
       <text x={at[0]} y={at[1] + 6} textAnchor="middle" fill={ink.ink} fontFamily="Archivo, sans-serif" fontWeight="800" fontSize="17">
         {children}
       </text>
@@ -38,7 +38,7 @@ export function Callout({ at, to, ink, children }: { at: [number, number]; to: [
 export function Device({ kind, x = 0, y = 0, ink, hatch }: { kind: Kind; x?: number; y?: number; ink: Ink; hatch: string }) {
   const l = stroke(ink.ink);
   const s = DEVICE[kind].screen;
-  const screen = <rect x={s.x} y={s.y} width={s.w} height={s.h} rx="3" fill={ink.sheet} {...l} strokeWidth={2} />;
+  const screen = <rect x={s.x} y={s.y} width={s.w} height={s.h} rx="3" fill={ink.sheet} {...l} strokeWidth={1.5} />;
   return (
     <g transform={`translate(${x} ${y})`}>
       {kind === "laptop" && (
@@ -47,13 +47,13 @@ export function Device({ kind, x = 0, y = 0, ink, hatch }: { kind: Kind; x?: num
           <circle cx="200" cy="14" r="2" fill={ink.ink} />
           {screen}
           <path d="M14 232 H386 L398 249 Q400 260 389 260 H11 Q0 260 2 249 Z" fill={ink.paper} {...l} />
-          <path d="M176 232 v3 q0 4 4 4 h40 q4 0 4 -4 v-3" fill="none" {...l} strokeWidth={2} />
+          <path d="M176 232 v3 q0 4 4 4 h40 q4 0 4 -4 v-3" fill="none" {...l} strokeWidth={1.5} />
         </>
       )}
       {kind === "tablet" && (
         <>
           {/* the folio cover folded back into a stand, hatched as the far side */}
-          <path d="M236 122 L292 258 L276 258 L228 146 Z" fill={`url(#${hatch})`} {...l} strokeWidth={2} />
+          <path d="M236 122 L292 258 L276 258 L228 146 Z" fill={`url(#${hatch})`} {...l} strokeWidth={1.5} />
           <rect x="10" y="78" width="264" height="176" rx="16" fill={ink.paper} {...l} />
           {screen}
           <rect x="0" y="252" width="284" height="8" rx="3" fill={ink.paper} {...l} />
@@ -62,9 +62,9 @@ export function Device({ kind, x = 0, y = 0, ink, hatch }: { kind: Kind; x?: num
       {kind === "phone" && (
         <>
           {/* a small stand: a back leg and a cradle */}
-          <path d="M58 140 L92 258 L80 258 L50 158 Z" fill={`url(#${hatch})`} {...l} strokeWidth={2} />
+          <path d="M58 140 L92 258 L80 258 L50 158 Z" fill={`url(#${hatch})`} {...l} strokeWidth={1.5} />
           <rect x="8" y="96" width="76" height="150" rx="10" fill={ink.paper} {...l} />
-          <path d="M38 101 H54" {...l} strokeWidth={2} />
+          <path d="M38 101 H54" {...l} strokeWidth={1.5} />
           {screen}
           <rect x="0" y="244" width="92" height="16" rx="3" fill={ink.paper} {...l} />
         </>
@@ -75,9 +75,9 @@ export function Device({ kind, x = 0, y = 0, ink, hatch }: { kind: Kind; x?: num
           <rect x="26" y="60" width="264" height="176" rx="8" fill={ink.paper} {...l} />
           <circle cx="158" cy="68" r="2" fill={ink.ink} />
           {screen}
-          <path d="M142 227 H174" {...l} strokeWidth={2} />
+          <path d="M142 227 H174" {...l} strokeWidth={1.5} />
           <path d="M12 236 H304 L314 250 Q316 260 306 260 H10 Q0 260 2 250 Z" fill={ink.paper} {...l} />
-          <path d="M134 236 v3 q0 4 4 4 h40 q4 0 4 -4 v-3" fill="none" {...l} strokeWidth={2} />
+          <path d="M134 236 v3 q0 4 4 4 h40 q4 0 4 -4 v-3" fill="none" {...l} strokeWidth={1.5} />
         </>
       )}
     </g>
@@ -88,7 +88,7 @@ export type Art = "doc" | "page" | "chat" | "call" | "code" | "photo";
 
 // What a window shows, drawn as lines in a w x h box (origin top-left).
 export function ArtLines({ art, w, h, ink, hatch }: { art: Art; w: number; h: number; ink: Ink; hatch: string }) {
-  const l = { ...stroke(ink.ink, 2), fill: "none" };
+  const l = { ...stroke(ink.ink, 1.5), fill: "none" };
   const pad = Math.max(5, Math.min(12, w * 0.08));
   const inner = w - pad * 2;
   const rows = (top: number, gap: number, lens: number[]) => {
@@ -101,7 +101,7 @@ export function ArtLines({ art, w, h, ink, hatch }: { art: Art; w: number; h: nu
   if (art === "doc") {
     return (
       <>
-        <path d={`M${pad} ${pad + 3} H${pad + inner * 0.55}`} {...l} strokeWidth={3} />
+        <path d={`M${pad} ${pad + 3} H${pad + inner * 0.55}`} {...l} strokeWidth={2.25} />
         <path d={rows(pad + 3 + gap * 1.3, gap, [0.92, 0.78, 0.86, 0.6, 0.9, 0.7])} {...l} />
       </>
     );
@@ -216,7 +216,7 @@ export function Window({ w, h, art, ink, hatch, hot = false, bar = true, title }
               {title}
             </text>
           ) : (
-            w > 70 && <path d={`M${tb * 0.6} ${tb / 2} H${tb * 0.6 + w * 0.25}`} stroke={hot ? ink.onSpot : ink.ink} strokeWidth="2.5" strokeLinecap="round" />
+            w > 70 && <path d={`M${tb * 0.6} ${tb / 2} H${tb * 0.6 + w * 0.25}`} stroke={hot ? ink.onSpot : ink.ink} strokeWidth="1.75" strokeLinecap="round" />
           )}
         </>
       )}

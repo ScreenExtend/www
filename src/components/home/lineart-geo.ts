@@ -17,7 +17,7 @@ export const SPOT = "#2557e0";
 
 export type Ink = { ink: string; paper: string; sheet: string; spot: string; onSpot: string };
 export const PAGE_INK: Ink = {
-  ink: "var(--se-ink)",
+  ink: "var(--se-art)",
   paper: "var(--se-paper)",
   sheet: "var(--se-sheet)",
   spot: SPOT,
