@@ -334,9 +334,9 @@
   z-index: 1;
   pointer-events: none;
 }
-.gh-ribbon svg { display: block; width: 172px; height: 172px; }
+.gh-ribbon svg { display: block; width: 160px; height: 160px; }
 @media (min-width: 1440px) {
-  .gh-ribbon svg { width: 208px; height: 208px; }
+  .gh-ribbon svg { width: 180px; height: 180px; }
 }
 .gh-ribbon .gh-ribbon-band { pointer-events: visiblePainted; cursor: pointer; }
 @media (min-width: 1280px) {
