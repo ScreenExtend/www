@@ -324,40 +324,22 @@
   display: inline-flex;
 }
 /* corner ribbon; only where the hero has a free corner beside the fitted title */
-.gh-ribbon-wrap {
+/* corner ribbon, pinned to the hero's top-right corner; only where the
+   fitted title leaves that corner free. The band alone takes clicks. */
+.gh-ribbon {
   display: none;
   position: absolute;
   top: 0;
   right: 0;
-  width: 148px;
-  height: 148px;
-  overflow: hidden;
-  pointer-events: none;
   z-index: 1;
+  pointer-events: none;
 }
+.gh-ribbon svg { display: block; }
+.gh-ribbon .gh-ribbon-band { pointer-events: visiblePainted; cursor: pointer; }
 @media (min-width: 1280px) {
-  .gh-ribbon-wrap { display: block; }
+  .gh-ribbon { display: block; }
 }
-.gh-ribbon {
-  position: absolute;
-  top: 36px;
-  right: -52px;
-  width: 208px;
-  height: 32px;
-  transform: rotate(45deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: var(--se-ink);
-  color: var(--se-paper);
-  font-size: 13px;
-  font-weight: 600;
-  pointer-events: auto;
-  transition: background-color 150ms ease-out;
-}
-.gh-ribbon:hover { background: var(--se-link); }
-.gh-ribbon:focus-visible { outline: 2px solid var(--se-link); outline-offset: 2px; }
+.gh-ribbon:focus-visible { outline: 2px solid var(--se-link); outline-offset: -4px; }
 /* line-art ink: page ink eased toward the paper so the drawings sit back behind the type */
 :root,
 [data-theme] {

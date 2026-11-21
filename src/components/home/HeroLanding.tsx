@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from "react";
-import { Star } from "lucide-react";
 
+import GhRibbon from "@/components/home/GhRibbon.tsx";
 import DeskArrange from "@/components/home/DeskArrange.tsx";
 import SendToComputer from "@/components/home/SendToComputer.tsx";
 
@@ -35,17 +35,7 @@ export default function HeroLanding() {
   const title = useFitLine();
   return (
     <section id="home" className="hero-fade relative pb-16 pt-10 sm:pt-14 lg:pb-20 lg:pt-16">
-      <div className="gh-ribbon-wrap">
-        <a
-          href="https://github.com/ScreenExtend/ScreenExtend"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="gh-ribbon"
-        >
-          <Star aria-hidden="true" size={14} strokeWidth={2.25} />
-          Star on Github
-        </a>
-      </div>
+      <GhRibbon />
       <div className="container">
         <div className="text-center">
           <h1 ref={title} className="display text-[clamp(2.6rem,5.6vw,4.9rem)]">
