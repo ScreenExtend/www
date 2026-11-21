@@ -64,6 +64,10 @@ export default defineConfig({
       },
     },
   },
+  // the ngrok tunnel serves the built site straight from vite preview
+  preview: {
+    allowedHosts: [".ngrok-free.app"],
+  },
   server: {
     allowedHosts: ["3eb9-73-93-177-73.ngrok-free.app"]
   }
