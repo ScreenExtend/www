@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 import { BASE } from "@/lib/base.ts";
 
 import { useTheme } from "react-daisyui";
-import { Menu as MenuIcon, Github, Moon, Sun, SunMoon, X } from "lucide-react";
+import { Menu as MenuIcon, Github, Moon, Sun, X } from "lucide-react";
 
 import logo from "@/assets/logo/screenextend.svg";
-import { THEME_KEY, applyThemeAttr } from "@/lib/theme.ts";
+import { applyThemeAttr } from "@/lib/theme.ts";
 
 const NAV_ITEMS = [
   { id: "how", label: "Setup" },
@@ -17,41 +17,41 @@ const NAV_ITEMS = [
 
 const SPY_IDS = ["home", "how", "uses", "compare", "gpu", "download", "faq"];
 
-// Follows the OS by default (NN/g: don't force a theme); the choice is remembered.
-const THEMES = [
-  { id: "system", label: "System", Icon: SunMoon },
-  { id: "light", label: "Light", Icon: Sun },
-  { id: "dark", label: "Dark", Icon: Moon },
-] as const;
+// Two modes. The page starts in whatever the computer is set to and keeps
+// following it until the visitor flips the switch; the flip lasts for the visit.
+function useOsDark() {
+  const [dark, setDark] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    setDark(mq.matches);
+    const on = (e: MediaQueryListEvent) => setDark(e.matches);
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
+  return dark;
+}
 
 function ThemeSwitch({ className = "" }: { className?: string }) {
   const { theme, setTheme } = useTheme();
-  const index = Math.max(
-    0,
-    THEMES.findIndex((t) => t.id === theme),
-  );
-  const current = THEMES[index];
-  const next = THEMES[(index + 1) % THEMES.length];
+  const osDark = useOsDark();
+  const dark = theme === "dark" || (theme !== "light" && osDark);
+  const next = dark ? "light" : "dark";
+  const Icon = dark ? Moon : Sun;
 
-  const apply = (id: string) => {
-    setTheme(id);
-    applyThemeAttr(id);
-    try {
-      localStorage.setItem(THEME_KEY, id);
-    } catch {
-      // storage blocked: the choice just lasts for this visit
-    }
+  const apply = () => {
+    setTheme(next);
+    applyThemeAttr(next);
   };
 
   return (
     <button
       type="button"
-      onClick={() => apply(next.id)}
-      aria-label={`Theme: ${current.label}. Switch to ${next.label}.`}
-      title={`Theme: ${current.label}`}
+      onClick={apply}
+      aria-label={`${dark ? "Dark" : "Light"} mode. Switch to ${next} mode.`}
+      title={`Switch to ${next} mode`}
       className={`h-11 w-11 items-center justify-center rounded-control text-muted transition-colors duration-150 hover:text-ink ${className || "inline-flex"}`}
     >
-      <current.Icon size={18} strokeWidth={1.75} aria-hidden="true" />
+      <Icon size={18} strokeWidth={1.75} aria-hidden="true" />
     </button>
   );
 }

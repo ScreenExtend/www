@@ -18,24 +18,18 @@ import ConnectFlow from "@/components/home/ConnectFlow.tsx";
 import FaqSimple from "@/components/home/FaqSimple.tsx";
 import GpuSupport from "@/components/home/GpuSupport.tsx";
 
-import { Theme, useTheme } from "react-daisyui";
-import { THEME_KEY, applyThemeAttr } from "@/lib/theme.ts";
+import { Theme } from "react-daisyui";
+import { THEME_KEY } from "@/lib/theme.ts";
 
-// Restores a visitor's saved theme after hydration; by default the page follows the OS.
+// The page follows the OS; a choice saved by an older build is dropped.
 function ThemeInit() {
-  const { setTheme } = useTheme();
   useEffect(() => {
-    let saved: string | null = null;
     try {
-      saved = localStorage.getItem(THEME_KEY);
+      localStorage.removeItem(THEME_KEY);
     } catch {
-      saved = null;
+      // storage blocked: nothing was saved anyway
     }
-    if (saved === "light" || saved === "dark") {
-      setTheme(saved);
-      applyThemeAttr(saved);
-    }
-  }, [setTheme]);
+  }, []);
   return null;
 }
 

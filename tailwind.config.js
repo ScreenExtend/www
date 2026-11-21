@@ -21,8 +21,8 @@ const lightTokens = {
   // window version: the blue field, the lime accent and the drawn devices
   '--se-field': '#2557e0',
   '--se-on-field-muted': '#dfe6ff',
-  '--se-accent': '#dcff4a',
-  '--se-accent-hover': '#cdf13a',
+  '--se-accent': '#e0f48d',
+  '--se-accent-hover': '#d6ea83',
   '--se-device': '#14161a',
   '--se-device-rim': 'transparent',
   '--se-screen': '#1e2024',
@@ -41,9 +41,9 @@ const darkTokens = {
   '--se-brand-edge': '#332f27',
   '--se-field': '#1a3a9c',
   '--se-on-field-muted': '#d3dcf5',
-  // accent at about 75% of the light theme's chroma so it doesn't buzz on the dark page
-  '--se-accent': '#c4dc5a',
-  '--se-accent-hover': '#b5cd4c',
+  // accent darker and greyer than the light theme's so it doesn't buzz on the dark page
+  '--se-accent': '#b5c478',
+  '--se-accent-hover': '#a8b76c',
   '--se-device': '#0d0f12',
   '--se-device-rim': '#3a3f47',
   '--se-screen': '#16181b',
