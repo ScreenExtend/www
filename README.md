@@ -1,69 +1,74 @@
-# ScreenExtend website
+# ScreenExtend homepage
 
-The marketing homepage for [**ScreenExtend**](https://screenextend.app), a free, cross-platform
-desktop-extension app that turns any device with a browser into a second monitor. Screen video is
-streamed directly between machines over WebRTC.
+This is the source of the [ScreenExtend](https://screenextend.app) website: the landing page and four legal pages, built with React and Vite and deployed to GitHub Pages.
 
-This repository contains **only the website** (landing page + legal pages), not the desktop
-application itself. It's a single-page React app built with Vite and deployed to GitHub Pages.
+ScreenExtend is a free desktop app that turns any device with a browser into a second monitor. It streams screen video directly between machines over WebRTC.
 
-## Features
+This repository holds **only the website**. The desktop app lives in [ScreenExtend/ScreenExtend](https://github.com/ScreenExtend/ScreenExtend).
 
-- **Landing page**: hero, pairing steps, host-app screenshots, technical details, downloads
-  (Windows / Mac / Linux), FAQ, and contact. Fully static; there are no scroll-driven animations.
-- **Legal pages**: Privacy Policy, Terms of Service, Acceptable Use, and Cookies,
-  rendered from Markdown via `react-markdown`.
-- **Light/dark theming** with a system/light/dark switch in the navbar (`react-daisyui`).
-- **Screenshot lightbox**: click any app screenshot to enlarge it.
-- **SPA routing** with `react-router-dom`; a `404.html` fallback is generated at build time so
-  deep links work on GitHub Pages.
+## Install
 
-## Tech Stack
-
-- [Vite](https://vitejs.dev/) — build tooling and dev server
-- [React 18](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/) + [daisyUI](https://daisyui.com/) / `react-daisyui`
-- [React Router](https://reactrouter.com/)
-- [lucide-react](https://lucide.dev/) icons, `react-markdown` + `remark-gfm`
-
-## Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/)
-- [pnpm](https://pnpm.io/) (the project ships a `pnpm-lock.yaml`)
-
-### Install & run
+You need [Node.js](https://nodejs.org/) 20 or newer and [pnpm](https://pnpm.io/) 10. The repo ships a `pnpm-lock.yaml`, so use pnpm rather than npm or yarn.
 
 ```bash
 pnpm install
+```
+
+## Quick start
+
+```bash
 pnpm dev
 ```
 
-### Scripts
+Vite prints the local URL to open in your browser. The page reloads as you edit files in `src/`.
 
-| Command         | Description                                          |
-| --------------- | ---------------------------------------------------- |
-| `pnpm dev`      | Start the local dev server                            |
-| `pnpm build`    | Type-check (`tsc`) and build for production to `dist/`|
-| `pnpm preview`  | Preview the production build locally                  |
-| `pnpm lint`     | Run ESLint over `ts`/`tsx` files                      |
+## Usage
 
-## Routes
+| Command | What it does |
+| --- | --- |
+| `pnpm dev` | Starts the Vite dev server. |
+| `pnpm build` | Type-checks with `tsc`, builds to `dist/`, then prerenders the homepage into `dist/index.html`. |
+| `pnpm preview` | Serves the production build from `dist/`. |
+| `pnpm lint` | Runs ESLint over `ts` and `tsx` files. Any warning fails it. |
 
-- `/`: home (hero, how pairing works, features, technical details, download, FAQ, contact)
-- `/privacy`, `/terms`, `/acceptable-use`, `/cookies`: legal pages
+## Features
+
+- **Landing page**: hero, setup steps, use cases, a comparison with other second-screen apps, GPU support, downloads (Windows and macOS; Linux is coming soon) and an FAQ.
+- Legal pages: Privacy Policy, Terms of Service, Acceptable Use Policy and Cookie Policy, rendered from Markdown with `react-markdown` and `remark-gfm`.
+- Light and dark themes. The page follows the OS setting until you flip the light and dark switch in the navbar.
+- The homepage is prerendered at build time, so it shows before the JavaScript loads.
+- Client-side routing with `react-router-dom`. The build copies `index.html` to `404.html`, so deep links work on GitHub Pages.
+
+### Routes
+
+| Path | Page |
+| --- | --- |
+| `/` | Home |
+| `/privacy` | Privacy Policy |
+| `/terms` | Terms of Service |
+| `/acceptable-use` | Acceptable Use Policy |
+| `/cookies` | Cookie Policy |
+
+### Tech stack
+
+- [Vite](https://vitejs.dev/) for the build and dev server
+- [React 18](https://react.dev/) and [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/) with [daisyUI](https://daisyui.com/) and `react-daisyui`
+- [React Router](https://reactrouter.com/)
+- [lucide-react](https://lucide.dev/) icons, plus `react-markdown` and `remark-gfm`
 
 ## Deployment
 
-Pushes to `main` are built and deployed automatically to GitHub Pages via the GitHub Actions
-workflow in [`.github/workflows/workflow.yml`](.github/workflows/workflow.yml). The build runs
-`pnpm run build` and publishes the `dist/` directory.
+Every push to `main` triggers the workflow in [`.github/workflows/workflow.yml`](.github/workflows/workflow.yml). It runs `pnpm install` and `pnpm run build`, then publishes `dist/` to GitHub Pages.
 
-## License
+## Contributing
 
-See [`LICENSE`](LICENSE).
+Run `pnpm lint` and `pnpm build` before you open a pull request. The workflow builds pull requests but deploys only from `main`. Changes to Markdown files alone do not trigger it.
 
 ## Contact
 
-Questions or unsupported-OS build requests: **support@screenextend.app**
+Send questions and requests for a build for an unsupported OS to **support@screenextend.app**.
+
+## License
+
+GNU Affero General Public License v3.0. See [LICENSE](LICENSE).
