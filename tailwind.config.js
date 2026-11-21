@@ -70,6 +70,9 @@ export default {
   // hover styles only where there is a real hover, so a tapped row doesn't stay shaded on touch
   future: { hoverOnlyWhenSupported: true },
   content: ['./src/**/*.{js,jsx,ts,tsx}', 'index.html'],
+  // daisyUI only supplies the themes here. Its component classes are common words
+  // (table, menu, card...) that the scanner finds in copy, so never generate them.
+  blocklist: ['alert', 'artboard', 'avatar', 'badge', 'btn', 'card', 'carousel', 'chat', 'checkbox', 'collapse', 'countdown', 'diff', 'divider', 'drawer', 'dropdown', 'file-input', 'footer', 'form-control', 'glass', 'hero', 'indicator', 'input', 'join', 'kbd', 'label', 'link', 'loading', 'mask', 'menu', 'modal', 'navbar', 'progress', 'radio', 'range', 'rating', 'select', 'skeleton', 'stack', 'stat', 'stats', 'step', 'steps', 'swap', 'tab', 'table', 'tabs', 'textarea', 'timeline', 'toast', 'toggle', 'tooltip'],
   theme: {
     container: {
       center: true,

@@ -2,49 +2,79 @@ name: Deploy website
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+    # notes, design reports and docs never change the built site
+    paths-ignore:
+      - "**.md"
+      - "exhaustive-unslop/**"
+      - "research_notes/**"
+      - "reports/**"
+      - ".claude/**"
   pull_request:
+    paths-ignore:
+      - "**.md"
+      - "exhaustive-unslop/**"
+      - "research_notes/**"
+      - "reports/**"
+      - ".claude/**"
   workflow_dispatch:
 
-permissions: write-all
+# least privilege: the build only reads; the deploy job asks for Pages rights itself
+permissions:
+  contents: read
+
+# one run per branch; a newer push to a PR cancels the old build, but a Pages
+# deploy on main is never cut off halfway
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-
+      # pnpm version comes from "packageManager" in package.json
       - name: Install pnpm
         uses: pnpm/action-setup@v4
+
+      - name: Set up Node with the pnpm store cache
+        uses: actions/setup-node@v4
         with:
-          version: 10
+          node-version: 22
+          cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile --prefer-offline
 
-      - name: Build project
+      - name: Build (type-check, client, prerender)
         run: pnpm run build
 
-      - name: Upload production-ready build files
-        uses: actions/upload-pages-artifact@v3.0.1
+      - name: Upload the site
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
   deploy:
     name: Deploy
     needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    timeout-minutes: 5
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4.0.5
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+        id: deployment
+        uses: actions/deploy-pages@v4

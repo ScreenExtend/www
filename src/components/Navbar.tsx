@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { BASE } from "@/lib/base.ts";
 
 import { useTheme } from "react-daisyui";
 import { Menu as MenuIcon, Github, Moon, Sun, X } from "lucide-react";
@@ -155,7 +154,7 @@ export default function Navbar() {
             <MenuIcon size={22} strokeWidth={1.75} aria-hidden="true" />
           </button>
           <a
-            href={`${BASE}/`}
+            href="/"
             className="wide flex min-h-11 shrink-0 items-center gap-2 text-[1.0625rem] font-extrabold sm:text-lg"
           >
             <span className="brand-chip">
@@ -215,7 +214,7 @@ export default function Navbar() {
           >
             <div className="mb-2 flex items-center justify-between">
               <a
-                href={`${BASE}/`}
+                href="/"
                 className="wide flex items-center gap-2 text-lg font-extrabold"
                 onClick={closeDrawer}
               >

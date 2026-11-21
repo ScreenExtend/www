@@ -16,34 +16,9 @@ function spaFallback(): Plugin {
   }
 }
 
-function heroImagePreload(): Plugin {
-  return {
-    name: 'hero-image-preload',
-    apply: 'build',
-    transformIndexHtml: {
-      order: 'post',
-      handler(html, ctx) {
-        const bundle = ctx.bundle
-        if (!bundle) return html
-        const files = Object.keys(bundle)
-        const full = files.find(
-          (f) => /assets\/feature-1-[A-Za-z0-9_-]+\.webp$/.test(f) && !f.includes('feature-1-760'),
-        )
-        const small = files.find((f) => /assets\/feature-1-760-[A-Za-z0-9_-]+\.webp$/.test(f))
-        if (!full || !small) return html
-        const tag =
-          `<link rel="preload" as="image" type="image/webp" ` +
-          `imagesrcset="/${small} 760w, /${full} 1369w" ` +
-          `imagesizes="(min-width: 1024px) 36rem, 100vw" fetchpriority="high">`
-        return html.replace('</head>', `    ${tag}\n  </head>`)
-      },
-    },
-  }
-}
-
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), heroImagePreload(), spaFallback()],
+  plugins: [react(), spaFallback()],
   resolve: {
     alias: {
       '@': path.resolve(path.resolve(), 'src'),

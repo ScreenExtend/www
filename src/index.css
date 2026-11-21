@@ -1,10 +1,10 @@
-@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/ibm-plex-mono-500.woff2') format('woff2')}
-@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/ibm-plex-mono-600.woff2') format('woff2')}
-
-/* Archivo (Omnibus-Type, OFL): one grotesk with a width axis, so headings run wide
-   like a box front, step numbers run condensed, and small print sits in between. */
-@font-face{font-family:'Archivo';font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url('/fonts/archivo-wdth.woff2') format('woff2-variations');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-:root{--se-font-display:'Archivo',system-ui,sans-serif;--se-font-body:'Archivo',system-ui,sans-serif;--se-font-mono:'IBM Plex Mono',ui-monospace,monospace}
+/* Roboto Slab for display, Roboto for text, Roboto Mono for code: variable
+   latin files in public/fonts (licenses beside them). The two the first paint
+   needs are preloaded in index.html. */
+@font-face{font-family:'Roboto Slab';font-style:normal;font-weight:100 900;font-display:swap;src:url('/fonts/roboto-slab-latin.woff2') format('woff2-variations'),url('/fonts/roboto-slab-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:100 900;font-display:swap;src:url('/fonts/roboto-latin.woff2') format('woff2-variations'),url('/fonts/roboto-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:100 900;font-display:swap;src:url('/fonts/roboto-mono-latin.woff2') format('woff2-variations'),url('/fonts/roboto-mono-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--se-font-display:'Roboto Slab',ui-serif,Georgia,serif;--se-font-body:'Roboto',system-ui,sans-serif;--se-font-mono:'Roboto Mono',ui-monospace,monospace}
 
 @tailwind base;
 @tailwind components;
@@ -156,28 +156,6 @@
   .lede {
     @apply text-lg leading-relaxed text-muted sm:text-xl;
   }
-}
-
-/* The demo gate: the ring around the cursor fills over 2 s. */
-@keyframes demo-ring {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-.demo-ring {
-  animation: demo-ring 2s linear forwards;
-}
-@media (prefers-reduced-motion: reduce) {
-  .demo-ring {
-    animation: demo-ring 2s steps(2) forwards !important;
-  }
-}
-
-/* The demo gate's label: flat spot blue in both themes. */
-.demo-pill {
-  background: #2557e0;
-  color: #fff;
-  font-stretch: 106%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -350,23 +328,6 @@
   --se-art: color-mix(in oklab, var(--se-ink) 70%, var(--se-paper));
 }
 
-/* the one entrance: the hero window slides off the laptop until it straddles the gap */
-@keyframes macro-slide {
-  from {
-    transform: translateX(-410px);
-  }
-  to {
-    transform: none;
-  }
-}
-.macro-window-slide {
-  animation: macro-slide 700ms cubic-bezier(0.32, 0.72, 0, 1) 200ms both;
-}
-@media (prefers-reduced-motion: reduce) {
-  .macro-window-slide {
-    animation: none;
-  }
-}
 /* a theme swap repaints at once, without every coloured element easing over */
 html.theme-swap *,
 html.theme-swap *::before,

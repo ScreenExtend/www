@@ -6,7 +6,6 @@ import Navbar from "@/components/Navbar.tsx";
 import Download from "@/components/Download.tsx";
 import Footer from "@/components/Footer.tsx";
 import ScrollToHash from "@/components/ScrollToHash.tsx";
-import { ImageProvider } from "@/components/ImageContext.tsx";
 import { LEGAL_PATHS } from "@/legal/known.ts";
 
 const LegalPage = lazy(() => import("@/components/LegalPage.tsx"));
@@ -53,7 +52,7 @@ function Home() {
 
 export default function App() {
   return (
-    <ImageProvider>
+    <>
       <Theme dataTheme="system" className="min-h-screen bg-paper text-ink">
         <ThemeInit />
         <a
@@ -80,6 +79,6 @@ export default function App() {
         <Footer />
         <ScrollToHash />
       </Theme>
-    </ImageProvider>
+    </>
   );
 }
