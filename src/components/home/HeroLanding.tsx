@@ -41,8 +41,8 @@ export default function HeroLanding() {
           <h1 ref={title} className="display text-[clamp(2.6rem,5.6vw,4.9rem)]">
             Use your tablet as a second monitor
           </h1>
-          <div className="mx-auto mt-5 max-w-2xl">
-            <p className="lede">
+          <div className="mx-auto mt-5 max-w-2xl lg:max-w-[54rem]">
+            <p className="lede text-balance">
               Turns any iPad, Android tablet, phone or old laptop into an
               extended monitor through its browser. Wireless, nothing to install on the second device.
             </p>
