@@ -54,9 +54,7 @@ export default function FaqSimple() {
               <summary className="wide flex min-h-14 cursor-pointer list-none items-center justify-between gap-6 py-4 text-lg font-bold leading-snug [&::-webkit-details-marker]:hidden">
                 {item.q}
                 <Plus size={20} strokeWidth={2} aria-hidden="true" className="shrink-0 text-link group-open:hidden" />
-                <span aria-hidden="true" className="hidden h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--se-accent)] text-[#14161a] group-open:flex">
-                  <Minus size={18} strokeWidth={2.25} />
-                </span>
+                <Minus size={20} strokeWidth={2} aria-hidden="true" className="hidden shrink-0 text-link group-open:block" />
               </summary>
               <p className="pb-6 leading-relaxed text-muted">{item.a}</p>
             </details>
