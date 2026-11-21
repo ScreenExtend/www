@@ -15,7 +15,7 @@ const lightTokens = {
   '--se-link': '#2557e0',
   // the unprinted white inside a drawn screen
   '--se-sheet': '#fbfbfa',
-  '--se-hero': '#e6eaf0',
+  '--se-hero': '#d6e1ff',
   '--se-brand-chip': '#e3e5e1',
   '--se-brand-edge': '#d0d3cd',
   // window version: the blue field, the lime accent and the drawn devices
@@ -36,7 +36,7 @@ const darkTokens = {
   '--se-line': '#3a352c',
   '--se-link': '#93b1ff',
   '--se-sheet': '#221f19',
-  '--se-hero': '#1c2130',
+  '--se-hero': '#24305c',
   '--se-brand-chip': '#1f1c16',
   '--se-brand-edge': '#332f27',
   '--se-field': '#1a3a9c',
