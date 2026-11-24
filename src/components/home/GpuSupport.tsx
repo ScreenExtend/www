@@ -7,7 +7,7 @@ type Status = "yes" | "experimental" | "no" | "na";
 
 const ROWS: { gpu: string; api: string; win: Status; mac: Status }[] = [
   { gpu: "NVIDIA", api: "NVENC", win: "yes", mac: "na" },
-  { gpu: "Intel", api: "Quick Sync / VideoToolbox", win: "yes", mac: "yes" },
+  { gpu: "Intel", api: "VPL / VideoToolbox", win: "yes", mac: "yes" },
   { gpu: "Apple Silicon", api: "VideoToolbox", win: "na", mac: "yes" },
   { gpu: "AMD", api: "AMF", win: "experimental", mac: "na" },
   { gpu: "Qualcomm", api: "Media Foundation", win: "no", mac: "na" },
