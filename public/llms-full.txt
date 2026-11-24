@@ -27,7 +27,7 @@ ScreenExtend runs on your Windows PC or Mac and adds a virtual display that stre
 
 ## Under the hood (architecture)
 
-- **GPU-encoded** — Capture is encoded on the host GPU with NVENC (Nvidia), Quick Sync (Intel), or VideoToolbox (Mac) and sent over WebRTC for low latency.
+- **GPU-encoded** — Capture is encoded on the host GPU with NVENC (Nvidia), VPL (Intel), or VideoToolbox (Mac) and sent over WebRTC for low latency.
 - **No client app** — The client is just a web page. Any device with a modern browser can become an extended monitor.
 - **Encrypted** — Signaling and streaming run over HTTPS/WebRTC with a certificate generated at runtime.
 - **Offline mode** — The host can start its own ad-hoc network, so devices connect with no router in reach.

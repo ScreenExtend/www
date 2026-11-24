@@ -2,7 +2,7 @@
 
 > ScreenExtend is a free, cross-platform desktop app that turns any device with a browser — a phone, tablet, or spare laptop — into a wireless second monitor for a Windows PC or Mac. The screen is streamed directly between machines over WebRTC, with no client app to install on the second device.
 
-ScreenExtend runs on your computer and shows a QR code and a 6-digit session code for every network you're on. Any device with a modern browser scans the code, enters the code, and becomes an extended monitor. Video is GPU-encoded (NVENC on Nvidia, Quick Sync on Intel, VideoToolbox on Mac) and sent over encrypted HTTPS/WebRTC. It works offline over a host-started ad-hoc network, and every connected display has independent resolution scale, orientation, refresh rate, and quality.
+ScreenExtend runs on your computer and shows a QR code and a 6-digit session code for every network you're on. Any device with a modern browser scans the code, enters the code, and becomes an extended monitor. Video is GPU-encoded (NVENC on Nvidia, VPL on Intel, VideoToolbox on Mac) and sent over encrypted HTTPS/WebRTC. It works offline over a host-started ad-hoc network, and every connected display has independent resolution scale, orientation, refresh rate, and quality.
 
 ## Pages
 - [Home](https://screenextend.app/): Product overview, how it works, features, downloads, and FAQ.
